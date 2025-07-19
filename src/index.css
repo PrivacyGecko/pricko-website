@@ -33,6 +33,10 @@
   .gradient-text {
     @apply bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent;
   }
+
+  .gradient-text1 {
+    color: orange;
+  }
   
   .section-padding {
     @apply py-16 px-4 sm:px-6 lg:px-8;

@@ -7,12 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2E4053',       // Lighter primary background
-        secondary: '#3B4B59',     // Lighter secondary background
-        accent: '#408EC6',
-        'accent-hover': '#00ABE4',
-        muted: '#AAB7B8',
-        border: '#5D6D7E'          // Lighter border color
+        // primary: '#171717',       // Dark Charcoal
+        // secondary: '#262626',     // Medium Gray
+        // accent: '#00C49A',        // Bright Teal
+        // 'accent-hover': '#00D6A8', // Lighter Teal
+        // muted: '#A3A3A3',         // Silver Gray
+        // border: '#404040'          // Light Gray
+        //  primary: '#101820',
+        // secondary: '#2E4053',
+        // accent: '#408EC6',
+        // 'accent-hover': '#00ABE4',
+        // muted: '#AAB7B8',
+        // border: '#3B4B59'
+         primary: '#000000',
+        secondary: '#18181b',
+        accent: '#4ade80',
+        'accent-hover': '#22c55e',
+        muted: '#a1a1aa',
+        border: '#27272a'
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
