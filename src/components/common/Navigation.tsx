@@ -90,7 +90,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
         className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}
       >
         <button className="btn-primary text-sm px-4 py-2">
-          Buy $PRICK
+          Buy $PRICKO
         </button>
       </motion.div>
     </nav>

@@ -41,7 +41,7 @@ const TokenomicsPage: React.FC = () => {
   const utilities = [
     {
       title: "Privacy Tool Access",
-      description: "Use $PRICK tokens to access premium features in Pricko VPN, Pricko File Sharing - Free, and Pricko Guard.",
+      description: "Use $PRICKO tokens to access premium features in Pricko VPN, Pricko File Sharing - Free, and Pricko Guard.",
       icon: "🔐"
     },
     {
@@ -51,7 +51,7 @@ const TokenomicsPage: React.FC = () => {
     },
     {
       title: "Staking Rewards",
-      description: "Stake $PRICK tokens to earn rewards and support network security.",
+      description: "Stake $PRICKO tokens to earn rewards and support network security.",
       icon: "💰"
     },
     {
@@ -72,7 +72,7 @@ const TokenomicsPage: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">$PRICK</span> Tokenomics
+            <span className="gradient-text">$PRICKO</span> Tokenomics
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             A fair and sustainable token economy designed to reward privacy advocates, 
@@ -92,7 +92,7 @@ const TokenomicsPage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Total Supply</h3>
               <p className="text-3xl font-bold">{tokenomicsData.totalSupply}</p>
-              <p className="text-muted mt-2">$PRICK Tokens</p>
+              <p className="text-muted mt-2">$PRICKO Tokens</p>
             </div>
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Blockchain</h3>
@@ -225,7 +225,7 @@ const TokenomicsPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-6">Ready to Join the Gecko Economy?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
-            Get $PRICK tokens and become part of the privacy revolution. 
+            Get $PRICKO tokens and become part of the privacy revolution. 
             The earlier you join, the more you benefit from our growing ecosystem.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -234,7 +234,7 @@ const TokenomicsPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Buy $PRICK Now
+              Buy $PRICKO Now
             </motion.button>
             <motion.button
               className="btn-secondary px-8 py-3 text-lg"

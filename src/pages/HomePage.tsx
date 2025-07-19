@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
                 className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               >
                 <a href="#buy" className="btn-primary inline-flex items-center justify-center gap-2">
-                  Buy $PRICKO <FaArrowRight />
+                  Buy $PRICKOO <FaArrowRight />
                 </a>
                 <a href="#tools" className="btn-secondary">
                   Explore Tools
@@ -89,7 +89,7 @@ const HomePage: React.FC = () => {
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-6">What is Pricko?</h2>
             <p className="mb-4 max-w-3xl text-lg text-muted leading-relaxed">
-              Pricko is not just a meme coin. It's a movement. $PRICKO powers stealth-mode tools that fight surveillance and make privacy fun again.
+              Pricko is not just a meme coin. It's a movement. $PRICKOO powers stealth-mode tools that fight surveillance and make privacy fun again.
             </p>
             <motion.p 
               className="text-accent text-lg font-medium"
@@ -117,7 +117,7 @@ const HomePage: React.FC = () => {
               Tools That Ghost the Grid
             </h2>
             <p className="text-center text-muted mb-12 max-w-2xl mx-auto">
-              Privacy-first tools powered by $PRICKO tokens. Each tool is designed to protect your digital footprint while maintaining the fun, irreverent spirit of the gecko community.
+              Privacy-first tools powered by $PRICKOO tokens. Each tool is designed to protect your digital footprint while maintaining the fun, irreverent spirit of the gecko community.
             </p>
           </motion.div>
           

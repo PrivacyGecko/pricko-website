@@ -73,7 +73,7 @@ const ToolsPage: React.FC = () => {
             Privacy <span className="gradient-text">Tools</span>
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-            Stealth-mode tools that ghost the grid. Each tool is powered by $PRICK tokens 
+            Stealth-mode tools that ghost the grid. Each tool is powered by $PRICKO tokens 
             and designed to protect your digital footprint while maintaining the fun, 
             irreverent spirit of the gecko community.
           </p>
@@ -160,7 +160,7 @@ const ToolsPage: React.FC = () => {
           <h2 className="text-3xl font-bold mb-6">Ready to Go Private?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
             Join thousands of users who have already taken control of their digital privacy. 
-            Get $PRICK tokens and start using our privacy tools today.
+            Get $PRICKO tokens and start using our privacy tools today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
@@ -168,7 +168,7 @@ const ToolsPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Buy $PRICK
+              Buy $PRICKO
             </motion.button>
             <motion.button
               className="btn-secondary px-8 py-3 text-lg"
