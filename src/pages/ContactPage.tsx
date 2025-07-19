@@ -66,8 +66,8 @@ const ContactPage: React.FC = () => {
 
   const faqs = [
     {
-      question: 'How do I get $PRICK tokens?',
-      answer: 'You can purchase $PRICK tokens on major DEXs like Raydium and Jupiter. Make sure to use the official contract address.'
+      question: 'How do I get $PRICKO tokens?',
+      answer: 'You can purchase $PRICKO tokens on major DEXs like Raydium and Jupiter. Make sure to use the official contract address.'
     },
     {
       question: 'When will the privacy tools be available?',
@@ -257,7 +257,7 @@ const ContactPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Buy $PRICK
+              Buy $PRICKO
             </motion.button>
             <motion.button
               className="btn-secondary px-8 py-3 text-lg"
