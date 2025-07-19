@@ -15,7 +15,7 @@ const TokenomicsPage: React.FC = () => {
         category: "Privacy Tool Development",
         percentage: 25,
         amount: "250,000,000",
-        description: "Funding development of PrickoVPN, BurnerChat, DoxxGuard, and future privacy tools."
+        description: "Funding development of Pricko VPN, Pricko File Sharing - Free, Pricko Guard, and future privacy tools."
       },
       {
         category: "Liquidity Pool",
@@ -41,7 +41,7 @@ const TokenomicsPage: React.FC = () => {
   const utilities = [
     {
       title: "Privacy Tool Access",
-      description: "Use $PRICK tokens to access premium features in PrickoVPN, BurnerChat, and DoxxGuard.",
+      description: "Use $PRICK tokens to access premium features in Pricko VPN, Pricko File Sharing - Free, and Pricko Guard.",
       icon: "🔐"
     },
     {

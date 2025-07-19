@@ -71,7 +71,7 @@ const ContactPage: React.FC = () => {
     },
     {
       question: 'When will the privacy tools be available?',
-      answer: 'DoxxGuard is already live, BurnerChat is in beta, and PrickoVPN is launching in Q2 2025. Check our roadmap for detailed timelines.'
+      answer: 'Pricko Guard is already live, Pricko File Sharing - Free is in beta, and Pricko VPN is launching in Q2 2025. Check our roadmap for detailed timelines.'
     },
     {
       question: 'Is PRICKO open source?',
