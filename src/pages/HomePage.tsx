@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ToolCard from '../components/ui/ToolCard';
+import { FaArrowRight } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const tools = [
@@ -27,67 +28,53 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section className="section-padding pt-32">  
         <div className="container-max">
-          {/* Header with Logo */}
-          <motion.div 
-            className="flex items-center space-x-4 mb-8"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img 
-              src="/logo.png" 
-              alt="Pricko Logo" 
-              className="w-20 h-20"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.h1 
-              className="text-4xl md:text-5xl font-bold gradient-text"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              PRICKO
-            </motion.h1>
-          </motion.div>
+          {/* Flex container for the split layout */}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left Column: Text Content */}
+            <div className="md:w-1/2 text-center md:text-left">
+                <h2 className="text-xl md:text-2xl font-semibold gradient-text1">Privacy Gecko</h2>
+                <h2 className="text-xl md:text-2xl font-semibold text-accent mb-2">
+                  <span className="gradient-text">Memes With a Mission</span>
+                </h2>
+                <h1 className="text-4xl md:text-5xl font-bold">
+                  <span className="gradient-text">PRICKO</span>                   
+                </h1>
+                <p className="mt-4 text-lg text-muted max-w-xl mx-auto md:mx-0">
+                  A Solana-powered memecoin with a purpose. We're building a suite of privacy-focused tools to empower individuals in the digital age.
+                </p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+              >
+                <a href="#buy" className="btn-primary inline-flex items-center justify-center gap-2">
+                  Buy $PRICKO <FaArrowRight />
+                </a>
+                <a href="#tools" className="btn-secondary">
+                  Explore Tools
+                </a>
+              </motion.div>
+            </div>
 
-          {/* Hero Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Meet Pricko.</h2>
-            <h3 className="text-xl md:text-2xl font-semibold text-accent mb-4">
-              Memes With a Mission.
-            </h3>
-            <p className="mb-6 max-w-2xl text-lg text-muted leading-relaxed">
-              Solana-powered meme coin with real privacy tools. Decentralized. Irreverent. Gecko-approved.
-            </p>
-            
-            {/* CTA Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <motion.button 
-                className="btn-primary text-lg px-8 py-4"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            {/* Right Column: Logo in a Circle */}
+            <div className="md:w-1/2 flex justify-center items-center">
+              {/* White Circular Background */}
+              <motion.div
+                className="w-full max-w-[300px] h-auto aspect-square bg-white rounded-full flex justify-center items-center p-8 shadow-2xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: 0.2 }}
+                whileHover={{ scale: 1, rotate: 8 }}
               >
-                Buy $PRICK
-              </motion.button>
-              <motion.button 
-                className="btn-secondary text-lg px-8 py-4"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link to="/tools">Explore Tools</Link>
-              </motion.button>
-            </motion.div>
-          </motion.div>
+                <img
+                  src="/logo.png"
+                  alt="Pricko Logo"
+                  className="w-full h-auto"
+                />
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -102,7 +89,7 @@ const HomePage: React.FC = () => {
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-6">What is Pricko?</h2>
             <p className="mb-4 max-w-3xl text-lg text-muted leading-relaxed">
-              Pricko is not just a meme coin. It's a movement. $PRICK powers stealth-mode tools that fight surveillance and make privacy fun again.
+              Pricko is not just a meme coin. It's a movement. $PRICKO powers stealth-mode tools that fight surveillance and make privacy fun again.
             </p>
             <motion.p 
               className="text-accent text-lg font-medium"

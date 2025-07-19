@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 bg-bg-main/90 backdrop-blur-custom border-b border-border"
+      className="fixed top-0 left-0 right-0 z-50 bg-primary/90 backdrop-blur-custom border-b border-border"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -22,18 +22,23 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <motion.img 
-              src="/logo.png" 
-              alt="Pricko Logo" 
-              className="w-12 h-12 sm:w-14 sm:h-14"
+            {/* White Circular Background for Logo */}
+            <motion.div
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex justify-center items-center p-1 shadow-md"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.2 }}
-            />
+            >
+              <img 
+                src="/logo.png" 
+                alt="Pricko Logo"
+                className="w-full h-auto"
+              />
+            </motion.div>
             <motion.h1 
-              className="text-2xl sm:text-3xl font-bold gradient-text"
+              className="text-2xl sm:text-3xl font-bold"
               whileHover={{ scale: 1.05 }}
             >
-              PRICKO
+              <span className="gradient-text">PRICKO</span>
             </motion.h1>
           </Link>
 
