@@ -15,9 +15,9 @@ const ToolCard: React.FC<ToolCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      whileHover={{ 
-        scale: 1.02, 
-        boxShadow: "0 10px 30px rgba(74, 222, 128, 0.2)" 
+      whileHover={{
+        scale: 1.02,
+        boxShadow: "0 10px 30px rgba(234, 88, 12, 0.2)"
       }}
       whileTap={{ scale: 0.98 }}
     >
@@ -46,7 +46,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
 
         {/* Hover Effect */}
         <motion.div
-          className="w-full h-1 bg-gradient-to-r from-accent to-green-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="w-full h-1 bg-gradient-to-r from-accent to-accent-light rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={{ scaleX: 0 }}
           whileHover={{ scaleX: 1 }}
           transition={{ duration: 0.3 }}

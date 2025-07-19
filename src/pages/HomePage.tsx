@@ -23,9 +23,9 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="section-padding pt-32">
+      <section className="section-padding pt-32">  
         <div className="container-max">
           {/* Header with Logo */}
           <motion.div 

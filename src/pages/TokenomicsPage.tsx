@@ -62,7 +62,7 @@ const TokenomicsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24">
+    <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -121,8 +121,8 @@ const TokenomicsPage: React.FC = () => {
             <div className="flex justify-center">
               <div className="relative w-80 h-80">
                 {/* This would be replaced with an actual chart library in production */}
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-accent via-green-400 to-green-600 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-black rounded-full flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-accent via-accent-light to-accent-hover flex items-center justify-center">
+                  <div className="w-32 h-32 bg-bg-main rounded-full flex items-center justify-center">
                     <img src="/logo.png" alt="Pricko" className="w-16 h-16" />
                   </div>
                 </div>
