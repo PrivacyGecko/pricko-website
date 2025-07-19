@@ -60,7 +60,7 @@ const ToolsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24">
+    <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div

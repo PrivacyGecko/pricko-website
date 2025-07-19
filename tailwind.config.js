@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#000000',
-        secondary: '#18181b',
-        accent: '#4ade80',
-        'accent-hover': '#22c55e',
-        muted: '#a1a1aa',
-        border: '#27272a'
+        primary: '#2E4053',       // Lighter primary background
+        secondary: '#3B4B59',     // Lighter secondary background
+        accent: '#408EC6',
+        'accent-hover': '#00ABE4',
+        muted: '#AAB7B8',
+        border: '#5D6D7E'          // Lighter border color
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -73,9 +73,9 @@ const RoadmapPage: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'text-green-400 border-green-400';
+        return 'text-accent border-accent';
       case 'in-progress':
-        return 'text-yellow-400 border-yellow-400';
+        return 'text-accent-light border-accent-light';
       case 'upcoming':
         return 'text-gray-400 border-gray-400';
       default:
@@ -97,7 +97,7 @@ const RoadmapPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24">
+    <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -158,7 +158,7 @@ const RoadmapPage: React.FC = () => {
                 viewport={{ once: true }}
               >
                 {/* Timeline Dot */}
-                <div className={`absolute left-6 w-4 h-4 rounded-full border-2 bg-black hidden md:block ${getStatusColor(phase.status)}`}></div>
+                <div className={`absolute left-6 w-4 h-4 rounded-full border-2 bg-bg-main hidden md:block ${getStatusColor(phase.status)}`}></div>
                 
                 {/* Content Card */}
                 <div className="md:ml-20 bg-secondary/50 rounded-2xl p-8 border border-border hover:border-accent/50 transition-colors">
@@ -170,7 +170,7 @@ const RoadmapPage: React.FC = () => {
                         <p className="text-accent font-medium">{phase.phase} • {phase.quarter}</p>
                       </div>
                     </div>
-                    <span className={`px-4 py-2 rounded-full text-sm font-medium border ${getStatusColor(phase.status)} bg-black/50`}>
+                    <span className={`px-4 py-2 rounded-full text-sm font-medium border ${getStatusColor(phase.status)} bg-bg-main/50`}>
                       {phase.status.replace('-', ' ').toUpperCase()}
                     </span>
                   </div>
@@ -179,7 +179,7 @@ const RoadmapPage: React.FC = () => {
                     {phase.items.map((item, itemIndex) => (
                       <motion.div
                         key={itemIndex}
-                        className="flex items-center gap-3 p-3 bg-black/30 rounded-lg"
+                        className="flex items-center gap-3 p-3 bg-bg-main/30 rounded-lg"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: itemIndex * 0.1 }}

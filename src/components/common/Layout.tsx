@@ -5,7 +5,7 @@ import { PageProps } from '../../types';
 
 const Layout: React.FC<PageProps> = ({ children, className = '' }) => {
   return (
-    <div className={`min-h-screen bg-black text-white ${className}`}>
+    <div className={`min-h-screen ${className}`}>
       <Header />
       <main className="flex-1">
         {children}

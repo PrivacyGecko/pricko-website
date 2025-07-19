@@ -84,7 +84,7 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24">
+    <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -222,7 +222,7 @@ const ContactPage: React.FC = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-black border border-border rounded-lg focus:border-accent focus:outline-none text-white"
+              className="flex-1 px-4 py-3 bg-bg-main border border-border rounded-lg focus:border-accent focus:outline-none text-white"
             />
             <motion.button
               className="btn-primary px-6 py-3 whitespace-nowrap"
