@@ -7,7 +7,7 @@ const ToolsPage: React.FC = () => {
 
   const tools = [
     {
-      icon: "/file-sharing-icon.png",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMmM1LjUgMCAxMCA0LjUgMTAgMTBzLTQuNSAxMC0xMCAxMGMtMS43IDAtMy4zLS40LTQuNy0xLjJsLTQuMyAxLjJjLS41LjEtLjktLjMtLjgtLjhsMS4yLTQuM2MtLjgtMS40LTEuMi0zLTEuMi00LjcgMC01LjUgNC41LTEwIDEwLTEweiIvPgo8L3N2Zz4KPC9zdmc+",
       title: "Pricko File Sharing",
       subtitle: "AI-Powered Secure File Sharing - FREE",
       description: "Revolutionary AI-powered file sharing platform with military-grade encryption. Share files securely with automatic AI content analysis and threat detection. Completely FREE for all users.",
@@ -19,13 +19,13 @@ const ToolsPage: React.FC = () => {
         { name: "Zero storage policy", description: "Files never stored on our servers" },
         { name: "Free for everyone", description: "No limits, no fees, completely free service" }
       ],
-      status: "live" as const,
-      users: "15K+",
-      rating: 4.9,
+      status: "coming-soon" as const,
+      // users: "15K+",
+      // rating: 4.9,
       category: "File Sharing"
     },
     {
-      icon: "/vpn.png",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "Pricko VPN",
       subtitle: "Next-Gen Privacy Network",
       description: "Revolutionary blockchain-powered VPN with global infrastructure. Currently in development with planned launch after successful coin deployment.",
@@ -37,12 +37,12 @@ const ToolsPage: React.FC = () => {
         { name: "Advanced kill switch", description: "Automatic protection on disconnect" }
       ],
       status: "coming-soon" as const,
-      users: "Waitlist: 35K+",
-      rating: null,
+      // users: "Waitlist: 35K+",
+      // rating: null,
       category: "Network Security"
     },
     {
-      icon: "/shield.png",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "Pricko Guard",
       subtitle: "AI-Powered Privacy Shield",
       description: "Intelligent personal data protection powered by advanced AI algorithms. Currently in final development phase with launch planned after VPN deployment.",
@@ -54,8 +54,8 @@ const ToolsPage: React.FC = () => {
         { name: "Identity theft prevention", description: "Proactive threat mitigation" }
       ],
       status: "coming-soon" as const,
-      users: "Waitlist: 12K+",
-      rating: null,
+      // users: "Waitlist: 12K+",
+      // rating: null,
       category: "Data Protection"
     }
   ];
@@ -107,7 +107,7 @@ const ToolsPage: React.FC = () => {
             delivering enterprise-level performance and security.
           </p>
           
-          <motion.div
+          {/* <motion.div
             className="flex flex-wrap justify-center gap-6 text-sm text-muted"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -125,7 +125,7 @@ const ToolsPage: React.FC = () => {
               <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
               <span>2 Tools in Development</span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Tools Grid */}
@@ -161,13 +161,13 @@ const ToolsPage: React.FC = () => {
                       
                       <div className="text-right">
                         <div className="text-sm text-muted mb-1">{tool.category}</div>
-                        <div className="text-lg font-semibold text-accent">{tool.users}</div>
-                        {tool.rating && (
+                        {/* <div className="text-lg font-semibold text-accent">{tool.users}</div> */}
+                        {/* {tool.rating && (
                           <div className="flex items-center gap-1 mt-1">
                             <span className="text-yellow-400">⭐</span>
                             <span className="text-sm font-medium">{tool.rating}</span>
                           </div>
-                        )}
+                        )} */}
                       </div>
                     </div>
                     
@@ -229,12 +229,12 @@ const ToolsPage: React.FC = () => {
                     
                     <div className="flex flex-col sm:flex-row gap-4">
                       <motion.button
-                        className={`${tool.status === 'live' ? 'btn-primary' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
+                        className={`${tool.status ? 'btn-primary' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         disabled={tool.status === 'coming-soon'}
                       >
-                        {tool.status === 'live' ? '🚀 Launch Tool' : '📋 Join Waitlist'}
+                        {tool.status  ? '🚀 Launch Tool' : '📋 Join Waitlist'}
                       </motion.button>
                       
                       <motion.button
@@ -261,6 +261,11 @@ const ToolsPage: React.FC = () => {
                           className="w-32 h-32 filter brightness-0 invert opacity-90"
                           whileHover={{ scale: 1.1, rotate: 5 }}
                           transition={{ duration: 0.3 }}
+                          onError={(e) => {
+                            console.error(`Failed to load image: ${tool.icon}`);
+                            e.currentTarget.style.display = 'none';
+                          }}
+                          onLoad={() => console.log(`Successfully loaded image: ${tool.icon}`)}
                         />
                       </div>
                       

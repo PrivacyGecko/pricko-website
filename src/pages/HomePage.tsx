@@ -18,19 +18,19 @@ import {
 const HomePage: React.FC = () => {
   const tools = [
     {
-      icon: "/chat.png",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMmM1LjUgMCAxMCA0LjUgMTAgMTBzLTQuNSAxMC0xMCAxMGMtMS43IDAtMy4zLS40LTQuNy0xLjJsLTQuMyAxLjJjLS41LjEtLjktLjMtLjgtLjhsMS4yLTQuM2MtLjgtMS40LTEuMi0zLTEuMi00LjcgMC01LjUgNC41LTEwIDEwLTEweiIvPgo8L3N2Zz4KPC9zdmc+",
       title: "Pricko File Sharing - Free",
       description: "Secure and Safe large file Transfer with Encryption",
       status: "coming-soon" as const
     },
     {
-      icon: "/vpn.png",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "Pricko VPN",
       description: "Wallet-authenticated VPN. Fast, stealthy, Solana-native.",
       status: "coming-soon" as const
     },
     {
-      icon: "/shield.png",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "Pricko Guard",
       description: "Prevent personal data leaks with automated masking.",
       status: "coming-soon" as const
@@ -173,6 +173,11 @@ const HomePage: React.FC = () => {
                     className="w-full h-auto drop-shadow-lg"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
+                    onError={(e) => {
+                      console.error('Failed to load logo.png');
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={() => console.log('Successfully loaded logo.png')}
                   />
                   
                   {/* Glow Effect */}

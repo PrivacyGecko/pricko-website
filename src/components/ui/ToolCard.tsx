@@ -43,10 +43,15 @@ const ToolCard: React.FC<ToolCardProps> = ({
           className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300"
           whileHover={{ rotate: 5 }}
         >
-          <img 
-            src={icon} 
-            alt={title} 
-            className="w-8 h-8 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" 
+          <img
+            src={icon}
+            alt={title}
+            className="w-8 h-8 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+            onError={(e) => {
+              console.error(`Failed to load image: ${icon}`);
+              e.currentTarget.style.display = 'none';
+            }}
+            onLoad={() => console.log(`Successfully loaded image: ${icon}`)}
           />
         </motion.div>
 
