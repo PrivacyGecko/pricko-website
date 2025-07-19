@@ -2,13 +2,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ToolCardProps } from '../../types';
 
-const ToolCard: React.FC<ToolCardProps> = ({ 
-  icon, 
-  title, 
-  description, 
-  delay = 0, 
-  className = '' 
+const ToolCard: React.FC<ToolCardProps> = ({
+  icon,
+  title,
+  description,
+  status = 'coming-soon',
+  delay = 0,
+  className = ''
 }) => {
+  const getStatusBadge = (status: string) => {
+    const badges = {
+      live: "bg-green-500 text-black",
+      beta: "bg-yellow-500 text-black",
+      "coming-soon": "bg-orange-500 text-white"
+    };
+    const labels = {
+      live: "Live",
+      beta: "Beta",
+      "coming-soon": "Coming Soon"
+    };
+    return { class: badges[status as keyof typeof badges], label: labels[status as keyof typeof labels] };
+  };
+
+  const badge = getStatusBadge(status);
   return (
     <motion.div
       className={`card group cursor-pointer ${className}`}
@@ -36,9 +52,14 @@ const ToolCard: React.FC<ToolCardProps> = ({
 
         {/* Content */}
         <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
-            {title}
-          </h3>
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
+              {title}
+            </h3>
+            <span className={`px-2 py-1 rounded-full text-xs font-medium ${badge.class}`}>
+              {badge.label}
+            </span>
+          </div>
           <p className="text-muted text-sm leading-relaxed group-hover:text-white transition-colors duration-300">
             {description}
           </p>

@@ -5,19 +5,6 @@ import { motion } from 'framer-motion';
 const ToolsPage: React.FC = () => {
   const tools = [
     {
-      icon: "/vpn.png",
-      title: "Pricko VPN",
-      description: "Wallet-authenticated VPN service that provides fast, secure, and truly private internet access. Built on Solana for seamless crypto integration.",
-      features: [
-        "Wallet-based authentication",
-        "No-logs policy",
-        "Global server network",
-        "Solana-native payments",
-        "Kill switch protection"
-      ],
-      status: "coming-soon" as const
-    },
-    {
       icon: "/chat.png",
       title: "Pricko File Sharing - Free",
       description: "Ephemeral, encrypted messaging platform where conversations disappear and privacy is paramount. Connect with your wallet for secure communication.",
@@ -29,6 +16,19 @@ const ToolsPage: React.FC = () => {
         "Anonymous group chats"
       ],
       status: "beta" as const
+    },
+    {
+      icon: "/vpn.png",
+      title: "Pricko VPN",
+      description: "Wallet-authenticated VPN service that provides fast, secure, and truly private internet access. Built on Solana for seamless crypto integration.",
+      features: [
+        "Wallet-based authentication",
+        "No-logs policy",
+        "Global server network",
+        "Solana-native payments",
+        "Kill switch protection"
+      ],
+      status: "coming-soon" as const
     },
     {
       icon: "/shield.png",

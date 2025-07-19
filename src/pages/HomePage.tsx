@@ -7,19 +7,22 @@ import { FaArrowRight } from 'react-icons/fa';
 const HomePage: React.FC = () => {
   const tools = [
     {
-      icon: "/vpn.png",
-      title: "Pricko VPN",
-      description: "Wallet-authenticated VPN. Fast, stealthy, Solana-native."
+      icon: "/chat.png",
+      title: "Pricko File Sharing - Free",
+      description: "Secure and Safe large file Transfer with Encryption",
+      status: "coming-soon" as const
     },
     {
-      icon: "/chat.png",
-      title: "Pricko File Sharing",
-      description: "Secure and Safe large file Transfer with Encryption"
+      icon: "/vpn.png",
+      title: "Pricko VPN",
+      description: "Wallet-authenticated VPN. Fast, stealthy, Solana-native.",
+      status: "coming-soon" as const
     },
     {
       icon: "/shield.png",
       title: "Pricko Guard",
-      description: "Prevent personal data leaks with automated masking."
+      description: "Prevent personal data leaks with automated masking.",
+      status: "coming-soon" as const
     }
   ];
 
@@ -49,7 +52,7 @@ const HomePage: React.FC = () => {
                 className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               >
                 <a href="#buy" className="btn-primary inline-flex items-center justify-center gap-2">
-                  Buy $PRICKOO <FaArrowRight />
+                  Buy $PRICKO <FaArrowRight />
                 </a>
                 <a href="#tools" className="btn-secondary">
                   Explore Tools
@@ -89,7 +92,7 @@ const HomePage: React.FC = () => {
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-6">What is Pricko?</h2>
             <p className="mb-4 max-w-3xl text-lg text-muted leading-relaxed">
-              Pricko is not just a meme coin. It's a movement. $PRICKOO powers stealth-mode tools that fight surveillance and make privacy fun again.
+              Pricko is not just a meme coin. It's a movement. $PRICKO powers stealth-mode tools that fight surveillance and make privacy fun again.
             </p>
             <motion.p 
               className="text-accent text-lg font-medium"
@@ -128,6 +131,7 @@ const HomePage: React.FC = () => {
                 icon={tool.icon}
                 title={tool.title}
                 description={tool.description}
+                status={tool.status}
                 delay={index * 0.2}
               />
             ))}

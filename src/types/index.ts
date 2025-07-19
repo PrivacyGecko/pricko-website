@@ -2,6 +2,7 @@ export interface ToolCardProps {
   icon: string;
   title: string;
   description: string;
+  status?: 'live' | 'beta' | 'coming-soon';
   delay?: number;
   className?: string;
 }
