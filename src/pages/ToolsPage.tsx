@@ -19,7 +19,7 @@ const ToolsPage: React.FC = () => {
     },
     {
       icon: "/chat.png",
-      title: "BurnerChat",
+      title: "Pricko File Sharing - Free",
       description: "Ephemeral, encrypted messaging platform where conversations disappear and privacy is paramount. Connect with your wallet for secure communication.",
       features: [
         "End-to-end encryption",
@@ -32,7 +32,7 @@ const ToolsPage: React.FC = () => {
     },
     {
       icon: "/shield.png",
-      title: "DoxxGuard",
+      title: "Pricko Guard",
       description: "Advanced personal data protection service that automatically detects and masks your information across the web to prevent doxxing.",
       features: [
         "Real-time data monitoring",

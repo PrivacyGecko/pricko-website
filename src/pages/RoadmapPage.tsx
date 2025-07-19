@@ -22,9 +22,9 @@ const RoadmapPage: React.FC = () => {
       status: "in-progress" as const,
       quarter: "Q1 2025",
       items: [
-        "DoxxGuard MVP launch",
-        "BurnerChat beta release",
-        "PrickoVPN development start",
+        "Pricko Guard MVP launch",
+        "Pricko File Sharing - Free beta release",
+        "Pricko VPN development start",
         "Community governance implementation",
         "Staking mechanism deployment"
       ]
@@ -35,7 +35,7 @@ const RoadmapPage: React.FC = () => {
       status: "upcoming" as const,
       quarter: "Q2 2025",
       items: [
-        "PrickoVPN public launch",
+        "Pricko VPN public launch",
         "Mobile app development",
         "Cross-chain bridge implementation",
         "Partnership with privacy advocates",
@@ -132,7 +132,7 @@ const RoadmapPage: React.FC = () => {
             <div>
               <div className="text-3xl mb-2">🚀</div>
               <h3 className="text-xl font-semibold mb-2 text-accent">Next Milestone</h3>
-              <p className="text-muted">PrickoVPN Public Launch</p>
+              <p className="text-muted">Pricko VPN Public Launch</p>
             </div>
             <div>
               <div className="text-3xl mb-2">📈</div>

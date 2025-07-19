@@ -84,21 +84,21 @@ const Footer: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <span className="text-muted">🔒 PrickoVPN</span>
+                <span className="text-muted">🔒 Pricko VPN</span>
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="text-muted">💬 BurnerChat</span>
+                <span className="text-muted">💬 Pricko File Sharing - Free</span>
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <span className="text-muted">🛡️ DoxxGuard</span>
+                <span className="text-muted">🛡️ Pricko Guard</span>
               </motion.li>
             </ul>
           </div>
