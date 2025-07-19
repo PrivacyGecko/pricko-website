@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
 
   const socialLinks = [
     {
@@ -24,7 +25,15 @@ const Footer: React.FC = () => {
         </svg>
       )
     },
-    { name: 'Discord', href: '#', icon: '💬' },
+    {
+      name: 'Discord',
+      href: '#',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+        </svg>
+      )
+    },
     {
       name: 'GitHub',
       href: '#',
@@ -43,116 +52,250 @@ const Footer: React.FC = () => {
     { name: 'Roadmap', href: '/roadmap' },
   ];
 
+  const legalLinks = [
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Terms of Service', href: '#' },
+    { name: 'Cookie Policy', href: '#' },
+    { name: 'Disclaimer', href: '#' },
+  ];
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle newsletter subscription
+    console.log('Newsletter subscription:', email);
+    setEmail('');
+  };
+
   return (
-    <footer className="bg-secondary border-t border-border">
-      <div className="container-max section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <img src="/logo.png" alt="Pricko Logo" className="w-10 h-10" />
-              <h3 className="text-xl font-bold gradient-text">PRICKO</h3>
-            </div>
-            <p className="text-muted mb-4 max-w-md">
-              Privacy-focused memecoin with real utility. Born in memes, forged in data abuse. 
+    <footer className="bg-gradient-to-b from-secondary to-primary border-t border-border relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(74,222,128,0.1),transparent_50%)]"></div>
+      </div>
+      
+      <div className="container-max section-padding relative">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+          {/* Enhanced Brand Section */}
+          <div className="lg:col-span-2">
+            <motion.div
+              className="flex items-center space-x-4 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-accent-hover/30 rounded-full blur-md"></div>
+                <div className="relative w-12 h-12 bg-gradient-to-br from-white to-gray-100 rounded-full flex justify-center items-center p-2 shadow-lg">
+                  <img src="/logo.png" alt="Pricko Logo" className="w-full h-full object-contain" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold gradient-text">PRICKO</h3>
+                <p className="text-sm text-muted font-medium">Privacy Gecko</p>
+              </div>
+            </motion.div>
+            
+            <motion.p
+              className="text-muted mb-6 max-w-md leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Privacy-focused memecoin with real utility. Born in memes, forged in data abuse.
               Your crypto-native gecko guardian fighting surveillance one transaction at a time.
-            </p>
-            <div className="flex space-x-4">
+            </motion.p>
+
+            {/* Newsletter Subscription */}
+            <motion.div
+              className="mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h4 className="text-lg font-semibold mb-3 text-white">Stay Updated</h4>
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 bg-border/50 border border-border rounded-lg text-white placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-200"
+                  required
+                />
+                <motion.button
+                  type="submit"
+                  className="btn-primary whitespace-nowrap"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Subscribe
+                </motion.button>
+              </form>
+            </motion.div>
+
+            {/* Enhanced Social Links */}
+            <motion.div
+              className="flex space-x-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-border rounded-lg flex items-center justify-center hover:bg-accent hover:text-black transition-all duration-200"
-                  whileHover={{ scale: 1.1 }}
+                  className="group relative w-12 h-12 bg-border/50 rounded-xl flex items-center justify-center hover:bg-accent hover:text-black transition-all duration-300 overflow-hidden"
+                  whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.1 + 0.4 }}
                 >
-                  {typeof social.icon === 'string' ? (
-                    <span className="text-lg">{social.icon}</span>
-                  ) : (
-                    social.icon
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent-hover/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    {social.icon}
+                  </div>
                 </motion.a>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
                 >
                   <Link
                     to={link.href}
-                    className="text-muted hover:text-accent transition-colors duration-200"
+                    className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </Link>
                 </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Tools */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Privacy Tools</h4>
-            <ul className="space-y-2">
+          {/* Privacy Tools */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h4 className="text-lg font-semibold mb-6 text-white">Privacy Tools</h4>
+            <ul className="space-y-3">
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0.4 }}
               >
-                <span className="text-muted">💬 Pricko File Sharing - Free</span>
-                
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">💬</span>
+                  <span className="text-muted">Pricko File Sharing</span>
+                  <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded-full">Free</span>
+                </div>
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.5 }}
               >
-                <span className="text-muted">🔒 Pricko VPN</span>
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🔒</span>
+                  <span className="text-muted">Pricko VPN</span>
+                  <span className="text-xs bg-accent-hover/20 text-accent-hover px-2 py-1 rounded-full">Premium</span>
+                </div>
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.6 }}
               >
-                <span className="text-muted">🛡️ Pricko Guard</span>
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🛡️</span>
+                  <span className="text-muted">Pricko Guard</span>
+                  <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">Coming Soon</span>
+                </div>
               </motion.li>
             </ul>
-          </div>
+          </motion.div>
+
+          {/* Legal & Support */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h4 className="text-lg font-semibold mb-6 text-white">Legal & Support</h4>
+            <ul className="space-y-3">
+              {legalLinks.map((link, index) => (
+                <motion.li
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.5 }}
+                >
+                  <a
+                    href={link.href}
+                    className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </motion.li>
+              ))}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.9 }}
+              >
+                <Link
+                  to="/contact"
+                  className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block text-sm"
+                >
+                  Contact Support
+                </Link>
+              </motion.li>
+            </ul>
+          </motion.div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Enhanced Bottom Section */}
         <motion.div
-          className="border-t border-border pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center"
+          className="border-t border-border/50 pt-8 mt-12 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.7 }}
         >
-          <p className="text-sm text-muted mb-4 sm:mb-0">
-            &copy; {currentYear} Pricko. Privacy Gecko Approved. All rights reserved.
-          </p>
-          <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-muted hover:text-accent transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-muted hover:text-accent transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-muted hover:text-accent transition-colors">
-              Disclaimer
-            </a>
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+            <p className="text-sm text-muted">
+              &copy; {currentYear} Pricko. Privacy Gecko Approved. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-2 text-xs text-muted">
+              <span>🦎</span>
+              <span>Built with privacy in mind</span>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-6 text-sm">
+            <motion.div
+              className="flex items-center space-x-2 text-muted"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+              <span>Gecko Status: Active</span>
+            </motion.div>
           </div>
         </motion.div>
       </div>
