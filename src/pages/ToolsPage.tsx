@@ -6,7 +6,7 @@ const ToolsPage: React.FC = () => {
   const tools = [
     {
       icon: "/vpn.png",
-      title: "PrickoVPN",
+      title: "Pricko VPN",
       description: "Wallet-authenticated VPN service that provides fast, secure, and truly private internet access. Built on Solana for seamless crypto integration.",
       features: [
         "Wallet-based authentication",

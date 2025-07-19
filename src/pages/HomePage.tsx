@@ -8,17 +8,17 @@ const HomePage: React.FC = () => {
   const tools = [
     {
       icon: "/vpn.png",
-      title: "PrickoVPN",
+      title: "Pricko VPN",
       description: "Wallet-authenticated VPN. Fast, stealthy, Solana-native."
     },
     {
       icon: "/chat.png",
-      title: "BurnerChat",
-      description: "Ephemeral, encrypted messaging with wallet login."
+      title: "Pricko File Sharing",
+      description: "Secure and Safe large file Transfer with Encryption"
     },
     {
       icon: "/shield.png",
-      title: "DoxxGuard",
+      title: "Pricko Guard",
       description: "Prevent personal data leaks with automated masking."
     }
   ];
@@ -117,7 +117,7 @@ const HomePage: React.FC = () => {
               Tools That Ghost the Grid
             </h2>
             <p className="text-center text-muted mb-12 max-w-2xl mx-auto">
-              Privacy-first tools powered by $PRICK tokens. Each tool is designed to protect your digital footprint while maintaining the fun, irreverent spirit of the gecko community.
+              Privacy-first tools powered by $PRICKO tokens. Each tool is designed to protect your digital footprint while maintaining the fun, irreverent spirit of the gecko community.
             </p>
           </motion.div>
           
