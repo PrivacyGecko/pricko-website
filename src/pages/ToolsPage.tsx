@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ToolCard from '../components/ui/ToolCard';
+
 
 const ToolsPage: React.FC = () => {
   const tools = [
