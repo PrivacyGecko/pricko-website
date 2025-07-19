@@ -1,99 +1,203 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const RoadmapPage: React.FC = () => {
+  const [selectedPhase, setSelectedPhase] = useState<number | null>(null);
+  const [progressPercentage, setProgressPercentage] = useState(0);
+
   const roadmapPhases = [
     {
-      phase: "Phase 1",
-      title: "Foundation & Launch",
+      phase: "✅ Completed",
+      title: "Foundation Milestones",
       status: "completed" as const,
-      quarter: "Q4 2024",
+      quarter: "2024-2025",
+      progress: 100,
+      duration: "6 months",
+      budget: "Achieved",
+      team: "Core Team",
       items: [
-        "Token launch on Solana",
-        "Community building & social presence",
-        "Initial DEX listings",
-        "Gecko mascot & branding development",
-        "Website & documentation launch"
+        {
+          name: "Website Launched",
+          description: "Pricko's official platform is live — your gateway to privacy tools and updates",
+          status: "completed",
+          impact: "High"
+        },
+        {
+          name: "Twitter Setup Completed",
+          description: "Follow us @PrickoPrivacy for daily insights, memes, and project news",
+          status: "completed",
+          impact: "High"
+        },
+        {
+          name: "Telegram Group Created",
+          description: "Join the community on Telegram for discussions, updates, and early access to drops",
+          status: "completed",
+          impact: "High"
+        },
+        {
+          name: "Product Brainstorming: Privacy First",
+          description: "Focused ideation on building tools that protect digital privacy",
+          status: "completed",
+          impact: "Medium"
+        },
+        {
+          name: "Development Tools Identified",
+          description: "Key tech stack finalized to build privacy-first utilities and dApps",
+          status: "completed",
+          impact: "Medium"
+        }
       ]
     },
     {
-      phase: "Phase 2",
-      title: "Privacy Tools Development",
+      phase: "🚀 Next Steps",
+      title: "Q3-Q4 2025 Roadmap",
       status: "in-progress" as const,
-      quarter: "Q1 2025",
+      quarter: "Q3-Q4 2025",
+      progress: 15,
+      duration: "6 months",
+      budget: "$2M+",
+      team: "Full Team",
       items: [
-        "Pricko Guard MVP launch",
-        "Pricko File Sharing - Free beta release",
-        "Pricko VPN development start",
-        "Community governance implementation",
-        "Staking mechanism deployment"
+        {
+          name: "Launch $PRICKO Coin on Pump.fun",
+          description: "Community-driven launch with meme power and real utility",
+          status: "in-progress",
+          impact: "High"
+        },
+        {
+          name: "Token Burn Strategy Design",
+          description: "Transparent and deflationary tokenomics implementation",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Whitepaper Release",
+          description: "Complete vision, tokenomics, and roadmap explanation",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Privacy Tool Prototypes (Beta)",
+          description: "Early versions of browser extensions & secure file sharing",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Community Airdrops & Rewards",
+          description: "Early supporters will be rewarded with exclusive benefits",
+          status: "upcoming",
+          impact: "Medium"
+        },
+        {
+          name: "Coin Listing on DEX (e.g., Jupiter)",
+          description: "Increase accessibility and trading opportunities",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Collaborations with Privacy Projects",
+          description: "Synergize with like-minded platforms in Web3",
+          status: "upcoming",
+          impact: "Medium"
+        },
+        {
+          name: "Staking or Holder Utility Features",
+          description: "Benefits for long-term holders and community members",
+          status: "upcoming",
+          impact: "Medium"
+        }
       ]
     },
     {
-      phase: "Phase 3",
-      title: "Ecosystem Expansion",
+      phase: "📅 Future Vision",
+      title: "2026 & Beyond",
       status: "upcoming" as const,
-      quarter: "Q2 2025",
+      quarter: "2026+",
+      progress: 0,
+      duration: "Long-term",
+      budget: "$10M+",
+      team: "Expanded Team",
       items: [
-        "Pricko VPN public launch",
-        "Mobile app development",
-        "Cross-chain bridge implementation",
-        "Partnership with privacy advocates",
-        "Advanced encryption features"
-      ]
-    },
-    {
-      phase: "Phase 4",
-      title: "Global Adoption",
-      status: "upcoming" as const,
-      quarter: "Q3 2025",
-      items: [
-        "Enterprise privacy solutions",
-        "Multi-language support",
-        "Hardware wallet integration",
-        "Privacy education initiatives",
-        "Regulatory compliance framework"
-      ]
-    },
-    {
-      phase: "Phase 5",
-      title: "Privacy Metaverse",
-      status: "upcoming" as const,
-      quarter: "Q4 2025",
-      items: [
-        "Decentralized identity platform",
-        "Privacy-first social network",
-        "Anonymous marketplace",
-        "Zero-knowledge proof integration",
-        "Global privacy advocacy network"
+        {
+          name: "Launch Full Privacy Suite",
+          description: "Complete VPN, file share, and tracker blocker ecosystem",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Develop DAO Governance",
+          description: "Community-driven decision making and project direction",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Expand Across EVM and Solana",
+          description: "Multi-chain presence for maximum accessibility",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Host Privacy Summits & Hackathons",
+          description: "Educational events and developer competitions",
+          status: "upcoming",
+          impact: "Medium"
+        }
       ]
     }
   ];
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return 'text-accent border-accent';
-      case 'in-progress':
-        return 'text-accent-light border-accent-light';
-      case 'upcoming':
-        return 'text-gray-400 border-gray-400';
-      default:
-        return 'text-gray-400 border-gray-400';
-    }
+  useEffect(() => {
+    const completedPhases = roadmapPhases.filter(phase => phase.status === 'completed').length;
+    const inProgressPhases = roadmapPhases.filter(phase => phase.status === 'in-progress');
+    const totalProgress = completedPhases * 100 + (inProgressPhases.length > 0 ? inProgressPhases[0].progress : 0);
+    const overallProgress = totalProgress / roadmapPhases.length;
+    
+    setProgressPercentage(overallProgress);
+  }, []);
+
+  const getStatusConfig = (status: string) => {
+    const configs = {
+      completed: {
+        color: 'text-green-400 border-green-400',
+        bg: 'bg-green-500/20',
+        icon: '✅',
+        glow: 'shadow-green-500/20',
+        badge: 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
+      },
+      'in-progress': {
+        color: 'text-yellow-400 border-yellow-400',
+        bg: 'bg-yellow-500/20',
+        icon: '🚧',
+        glow: 'shadow-yellow-500/20',
+        badge: 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
+      },
+      upcoming: {
+        color: 'text-purple-400 border-purple-400',
+        bg: 'bg-purple-500/20',
+        icon: '🔮',
+        glow: 'shadow-purple-500/20',
+        badge: 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white'
+      }
+    };
+    return configs[status as keyof typeof configs];
   };
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return '✅';
-      case 'in-progress':
-        return '🚧';
-      case 'upcoming':
-        return '🔮';
-      default:
-        return '⏳';
-    }
+  const getItemStatusConfig = (status: string) => {
+    const configs = {
+      completed: { icon: '✅', color: 'text-green-400' },
+      'in-progress': { icon: '🔄', color: 'text-yellow-400' },
+      upcoming: { icon: '⏳', color: 'text-gray-400' }
+    };
+    return configs[status as keyof typeof configs];
+  };
+
+  const getImpactColor = (impact: string) => {
+    const colors = {
+      High: 'text-red-400 bg-red-500/20',
+      Medium: 'text-yellow-400 bg-yellow-500/20',
+      Low: 'text-green-400 bg-green-500/20'
+    };
+    return colors[impact as keyof typeof colors];
   };
 
   return (
@@ -101,161 +205,337 @@ const RoadmapPage: React.FC = () => {
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Privacy <span className="gradient-text">Roadmap</span>
+          <motion.div
+            className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <span className="text-accent">🗺️</span>
+            <span className="text-sm font-medium text-accent">Strategic Development Plan</span>
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
+            🦎 Pricko <span className="gradient-text-animated">Roadmap: Year 1</span>
           </h1>
-          <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-            Our journey to build the most comprehensive privacy ecosystem in crypto. 
-            From meme coin to privacy revolution, here's how we're changing the game.
+          <p className="text-xl text-muted max-w-4xl mx-auto leading-relaxed mb-8">
+            From completed milestones to ambitious future plans. Track our journey from foundation setup
+            to becoming the leading privacy-first ecosystem in crypto. Meme power meets real utility.
           </p>
+          
+          {/* Overall Progress */}
+          <motion.div
+            className="max-w-2xl mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-accent">Overall Progress</span>
+              <span className="text-sm font-bold text-white">{Math.round(progressPercentage)}%</span>
+            </div>
+            <div className="w-full bg-secondary/50 rounded-full h-3 overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-accent to-accent-hover rounded-full shadow-lg shadow-accent/30"
+                initial={{ width: 0 }}
+                animate={{ width: `${progressPercentage}%` }}
+                transition={{ duration: 1.5, delay: 0.6 }}
+              />
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Current Status */}
+        {/* Enhanced Status Dashboard */}
         <motion.section
-          className="mb-16 bg-secondary/30 rounded-2xl p-8"
+          className="mb-20 grid grid-cols-1 md:grid-cols-4 gap-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl mb-2">🎯</div>
-              <h3 className="text-xl font-semibold mb-2 text-accent">Current Focus</h3>
-              <p className="text-muted">Privacy Tools Development</p>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">🚀</div>
-              <h3 className="text-xl font-semibold mb-2 text-accent">Next Milestone</h3>
-              <p className="text-muted">Pricko VPN Public Launch</p>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">📈</div>
-              <h3 className="text-xl font-semibold mb-2 text-accent">Progress</h3>
-              <p className="text-muted">40% Complete</p>
-            </div>
-          </div>
+          <motion.div
+            className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-6 border border-green-500/30 shadow-professional"
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="text-3xl mb-3">🎯</div>
+            <h3 className="text-lg font-semibold mb-2 text-yellow-400">Current Phase</h3>
+            <p className="text-white font-medium">Q3-Q4 2025 Roadmap</p>
+            <div className="mt-3 text-xs text-yellow-300">15% Complete</div>
+          </motion.div>
+          
+          <motion.div
+            className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl p-6 border border-blue-500/30 shadow-professional"
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="text-3xl mb-3">🚀</div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-400">Next Milestone</h3>
+            <p className="text-white font-medium">$PRICKO Coin Launch</p>
+            <div className="mt-3 text-xs text-blue-300">Q3 2025</div>
+          </motion.div>
+          
+          <motion.div
+            className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-2xl p-6 border border-purple-500/30 shadow-professional"
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="text-3xl mb-3">💰</div>
+            <h3 className="text-lg font-semibold mb-2 text-purple-400">Total Investment</h3>
+            <p className="text-white font-medium">$12M+ Planned</p>
+            <div className="mt-3 text-xs text-purple-300">Multi-Year Vision</div>
+          </motion.div>
+          
+          <motion.div
+            className="bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-2xl p-6 border border-orange-500/30 shadow-professional"
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="text-3xl mb-3">👥</div>
+            <h3 className="text-lg font-semibold mb-2 text-orange-400">Community</h3>
+            <p className="text-white font-medium">Growing Ecosystem</p>
+            <div className="mt-3 text-xs text-orange-300">Privacy First</div>
+          </motion.div>
         </motion.section>
 
-        {/* Roadmap Timeline */}
+        {/* Enhanced Roadmap Timeline */}
         <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent/30 hidden md:block"></div>
+          {/* Enhanced Vertical Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent-hover to-accent/30 rounded-full hidden md:block shadow-lg shadow-accent/20"></div>
           
-          <div className="space-y-12">
-            {roadmapPhases.map((phase, index) => (
-              <motion.div
-                key={phase.phase}
-                className="relative"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {/* Timeline Dot */}
-                <div className={`absolute left-6 w-4 h-4 rounded-full border-2 bg-bg-main hidden md:block ${getStatusColor(phase.status)}`}></div>
-                
-                {/* Content Card */}
-                <div className="md:ml-20 bg-secondary/50 rounded-2xl p-8 border border-border hover:border-accent/50 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-                    <div className="flex items-center gap-4 mb-4 sm:mb-0">
-                      <span className="text-2xl">{getStatusIcon(phase.status)}</span>
-                      <div>
-                        <h3 className="text-2xl font-bold">{phase.title}</h3>
-                        <p className="text-accent font-medium">{phase.phase} • {phase.quarter}</p>
+          <div className="space-y-16">
+            {roadmapPhases.map((phase, index) => {
+              const statusConfig = getStatusConfig(phase.status);
+              const isExpanded = selectedPhase === index;
+              
+              return (
+                <motion.div
+                  key={phase.phase}
+                  className="relative"
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {/* Enhanced Timeline Dot */}
+                  <motion.div 
+                    className={`absolute left-6 w-6 h-6 rounded-full border-3 bg-bg-main hidden md:flex items-center justify-center ${statusConfig.color} ${statusConfig.glow} shadow-lg`}
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="w-2 h-2 bg-current rounded-full"></div>
+                  </motion.div>
+                  
+                  {/* Enhanced Content Card */}
+                  <motion.div 
+                    className={`md:ml-20 bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl p-8 border border-border/50 backdrop-blur-sm shadow-professional-lg hover:border-accent/30 transition-all duration-500 ${statusConfig.glow}`}
+                    whileHover={{ scale: 1.01, y: -5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-4">
+                          <span className="text-3xl">{statusConfig.icon}</span>
+                          <div>
+                            <h3 className="text-3xl font-bold text-professional">{phase.title}</h3>
+                            <p className="text-accent font-medium text-lg">{phase.phase} • {phase.quarter}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                          <div className="bg-bg-main/30 rounded-lg p-3">
+                            <div className="text-xs text-muted mb-1">Duration</div>
+                            <div className="font-semibold text-white">{phase.duration}</div>
+                          </div>
+                          <div className="bg-bg-main/30 rounded-lg p-3">
+                            <div className="text-xs text-muted mb-1">Budget</div>
+                            <div className="font-semibold text-accent">{phase.budget}</div>
+                          </div>
+                          <div className="bg-bg-main/30 rounded-lg p-3">
+                            <div className="text-xs text-muted mb-1">Team</div>
+                            <div className="font-semibold text-white">{phase.team}</div>
+                          </div>
+                          <div className="bg-bg-main/30 rounded-lg p-3">
+                            <div className="text-xs text-muted mb-1">Progress</div>
+                            <div className="font-semibold text-white">{phase.progress}%</div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-col items-end gap-3">
+                        <span className={`px-4 py-2 rounded-full text-sm font-semibold ${statusConfig.badge} shadow-lg`}>
+                          {phase.status.replace('-', ' ').toUpperCase()}
+                        </span>
+                        
+                        {phase.progress > 0 && (
+                          <div className="w-32">
+                            <div className="flex justify-between text-xs mb-1">
+                              <span className="text-muted">Progress</span>
+                              <span className="text-white font-medium">{phase.progress}%</span>
+                            </div>
+                            <div className="w-full bg-secondary/50 rounded-full h-2">
+                              <motion.div
+                                className={`h-full rounded-full ${statusConfig.bg}`}
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${phase.progress}%` }}
+                                transition={{ duration: 1, delay: index * 0.2 }}
+                                viewport={{ once: true }}
+                              />
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
-                    <span className={`px-4 py-2 rounded-full text-sm font-medium border ${getStatusColor(phase.status)} bg-bg-main/50`}>
-                      {phase.status.replace('-', ' ').toUpperCase()}
-                    </span>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {phase.items.map((item, itemIndex) => (
-                      <motion.div
-                        key={itemIndex}
-                        className="flex items-center gap-3 p-3 bg-bg-main/30 rounded-lg"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: itemIndex * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <span className="text-accent">•</span>
-                        <span className="text-sm">{item}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                    
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <h4 className="text-xl font-semibold text-accent">Deliverables</h4>
+                        <motion.button
+                          onClick={() => setSelectedPhase(isExpanded ? null : index)}
+                          className="text-sm text-accent hover:text-accent-hover transition-colors font-medium"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {isExpanded ? '▲ Show Less' : '▼ Show Details'}
+                        </motion.button>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 gap-4">
+                        {phase.items.slice(0, isExpanded ? phase.items.length : 3).map((item, itemIndex) => {
+                          const itemStatus = getItemStatusConfig(item.status);
+                          return (
+                            <motion.div
+                              key={itemIndex}
+                              className="group p-4 bg-bg-main/40 rounded-xl border border-border/30 hover:border-accent/30 transition-all duration-300"
+                              initial={{ opacity: 0, y: 10 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, delay: itemIndex * 0.1 }}
+                              viewport={{ once: true }}
+                              whileHover={{ scale: 1.01, x: 5 }}
+                            >
+                              <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-3 mb-2">
+                                    <span className="text-lg">{itemStatus.icon}</span>
+                                    <h5 className="font-semibold text-white group-hover:text-accent transition-colors">
+                                      {item.name}
+                                    </h5>
+                                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getImpactColor(item.impact)}`}>
+                                      {item.impact}
+                                    </span>
+                                  </div>
+                                  <AnimatePresence>
+                                    {isExpanded && (
+                                      <motion.p
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="text-sm text-muted leading-relaxed"
+                                      >
+                                        {item.description}
+                                      </motion.p>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                                <span className={`text-xs font-medium ${itemStatus.color}`}>
+                                  {item.status.replace('-', ' ').toUpperCase()}
+                                </span>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Future Vision */}
+        {/* Enhanced Future Vision */}
         <motion.section
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 20 }}
+          className="mt-24 relative overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6">Beyond 2025: The Privacy Revolution</h2>
-          <p className="text-muted mb-8 max-w-3xl mx-auto leading-relaxed">
-            Our roadmap extends far beyond these phases. We envision a world where privacy is not a luxury 
-            but a fundamental right. PRICKO will continue to evolve, adapt, and lead the charge in 
-            protecting digital freedom for everyone.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <motion.div
-              className="card text-center"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="text-4xl mb-4">🌍</div>
-              <h3 className="text-xl font-semibold mb-3 text-accent">Global Impact</h3>
-              <p className="text-muted">
-                Protecting millions of users worldwide with cutting-edge privacy technology.
-              </p>
-            </motion.div>
+          <div className="bg-gradient-to-br from-secondary/40 to-secondary/10 rounded-3xl p-12 border border-border/50 backdrop-blur-sm shadow-professional-lg">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5 rounded-3xl"></div>
             
             <motion.div
-              className="card text-center"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
+              className="relative z-10 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <div className="text-4xl mb-4">🔬</div>
-              <h3 className="text-xl font-semibold mb-3 text-accent">Innovation</h3>
-              <p className="text-muted">
-                Pioneering new privacy technologies and setting industry standards.
+              <h2 className="text-4xl font-bold mb-6 text-professional">
+                2026 & Beyond: The <span className="gradient-text-animated">Privacy Revolution</span>
+              </h2>
+              <p className="text-xl text-muted mb-12 max-w-4xl mx-auto leading-relaxed">
+                Our long-term vision extends far beyond token launches. We're building a comprehensive privacy ecosystem
+                that will revolutionize how people protect their digital lives. From full privacy suites to DAO governance,
+                PRICKO will lead the charge in making privacy accessible to everyone.
               </p>
-            </motion.div>
-            
-            <motion.div
-              className="card text-center"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-xl font-semibold mb-3 text-accent">Community</h3>
-              <p className="text-muted">
-                Building the largest privacy-focused community in the crypto space.
-              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <motion.div
+                  className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl p-8 border border-blue-500/30 shadow-professional"
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="text-5xl mb-6">🛡️</div>
+                  <h3 className="text-2xl font-semibold mb-4 text-blue-400">Full Privacy Suite</h3>
+                  <p className="text-muted leading-relaxed">
+                    Launch complete VPN, file sharing, and tracker blocker ecosystem.
+                    A comprehensive solution for all your digital privacy needs.
+                  </p>
+                </motion.div>
+                
+                <motion.div
+                  className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-2xl p-8 border border-purple-500/30 shadow-professional"
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="text-5xl mb-6">🏛️</div>
+                  <h3 className="text-2xl font-semibold mb-4 text-purple-400">DAO Governance</h3>
+                  <p className="text-muted leading-relaxed">
+                    Develop community-driven governance where token holders shape the future
+                    of privacy technology and project direction.
+                  </p>
+                </motion.div>
+                
+                <motion.div
+                  className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-8 border border-green-500/30 shadow-professional"
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="text-5xl mb-6">🌐</div>
+                  <h3 className="text-2xl font-semibold mb-4 text-green-400">Multi-Chain Expansion</h3>
+                  <p className="text-muted leading-relaxed">
+                    Expand across EVM and Solana ecosystems while hosting Privacy Summits
+                    & Hackathons to educate and grow the community.
+                  </p>
+                </motion.div>
+              </div>
+
+              <motion.button
+                className="btn-primary px-10 py-4 text-lg font-semibold shadow-professional glow-pulse"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                🚀 Join the Revolution
+              </motion.button>
             </motion.div>
           </div>
-
-          <motion.button
-            className="btn-primary px-8 py-3 text-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Join the Journey
-          </motion.button>
         </motion.section>
       </div>
     </div>
