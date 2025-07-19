@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 
 import ContactPage from './pages/ContactPage';
+import ToolsPage from './pages/ToolsPage';
+import RoadmapPage from './pages/RoadmapPage';
 
 function App() {
   return (
@@ -11,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        {/* <Route path="/tools" element={<ToolsPage />} /> */}
+        <Route path="/tools" element={<ToolsPage />} />
         {/* <Route path="/tokenomics" element={<TokenomicsPage />} /> */}
-        {/* <Route path="/roadmap" element={<RoadmapPage />} /> */}
+        <Route path="/roadmap" element={<RoadmapPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Layout>
