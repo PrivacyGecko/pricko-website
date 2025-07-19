@@ -44,22 +44,22 @@ const ContactPage: React.FC = () => {
   const teamContacts = [
     {
       role: 'Community Manager',
-      email: 'community@pricko.io',
+      email: 'community@pricko.com',
       description: 'General inquiries, partnerships, and community questions'
     },
     {
       role: 'Technical Support',
-      email: 'support@pricko.io',
+      email: 'support@pricko.com',
       description: 'Help with privacy tools, wallet issues, and technical problems'
     },
     {
       role: 'Business Development',
-      email: 'business@pricko.io',
+      email: 'business@pricko.com',
       description: 'Partnership opportunities and enterprise solutions'
     },
     {
       role: 'Media & Press',
-      email: 'press@pricko.io',
+      email: 'press@pricko.com',
       description: 'Media inquiries, interviews, and press releases'
     }
   ];
@@ -67,15 +67,15 @@ const ContactPage: React.FC = () => {
   const faqs = [
     {
       question: 'How do I get $PRICKO tokens?',
-      answer: 'You can purchase $PRICKO tokens on major DEXs like Raydium and Jupiter. Make sure to use the official contract address.'
+      answer: 'You can purchase $PRICKO tokens on major DEXs. Make sure to use the official contract address.'
     },
     {
       question: 'When will the privacy tools be available?',
-      answer: 'Pricko Guard is already live, Pricko File Sharing - Free is in beta, and Pricko VPN is launching in Q2 2025. Check our roadmap for detailed timelines.'
+      answer: 'Privacy Tools are in Development. Please follows on Social Media to get updates'
     },
     {
       question: 'Is PRICKO open source?',
-      answer: 'Yes! Our privacy tools and smart contracts are open source. You can find everything on our GitHub repository.'
+      answer: 'Yes! Our privacy tools and smart contracts are open source. You will find everything on our GitHub repository.'
     },
     {
       question: 'How can I contribute to the project?',
@@ -94,7 +94,7 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Join the <span className="gradient-text">Gecko Army</span>
+            Join the <span className="gradient-text">Pricko Army</span>
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             Connect with our privacy-focused community, get support, and help us build 
