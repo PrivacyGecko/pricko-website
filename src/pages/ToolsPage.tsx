@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import PremiumFeature from '../components/ui/PremiumFeature';
 
 const ToolsPage: React.FC = () => {
   const [selectedTool, setSelectedTool] = useState<number | null>(null);
@@ -7,56 +8,80 @@ const ToolsPage: React.FC = () => {
 
   const tools = [
     {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMmM1LjUgMCAxMCA0LjUgMTAgMTBzLTQuNSAxMC0xMCAxMGMtMS43IDAtMy4zLS40LTQuNy0xLjJsLTQuMyAxLjJjLS41LjEtLjktLjMtLjgtLjhsMS4yLTQuM2MtLjgtMS40LTEuMi0zLTEuMi00LjcgMC01LjUgNC41LTEwIDEwLTEweiIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Pricko File Sharing",
-      subtitle: "AI-Powered Secure File Sharing - FREE",
-      description: "Revolutionary AI-powered file sharing platform with military-grade encryption. Share files securely with automatic AI content analysis and threat detection. Completely FREE for all users.",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
+      title: "PrickoShare",
+      subtitle: "Zero-Knowledge File Sharing SaaS",
+      description: "Revolutionary zero-knowledge, token-gated file-sharing platform with instant uploads, persistent vault storage, and wallet-connect premium access. Features daily quotas system for fair usage.",
       features: [
-        { name: "AI-powered threat detection", description: "Advanced AI scans all files for malware and threats" },
-        { name: "End-to-end encryption", description: "AES-256 military-grade encryption for all transfers" },
-        { name: "Self-destructing files", description: "Automatic file deletion after specified time" },
-        { name: "Wallet-based identity", description: "Seamless Solana wallet authentication" },
-        { name: "Zero storage policy", description: "Files never stored on our servers" },
-        { name: "Free for everyone", description: "No limits, no fees, completely free service" }
+        { name: "Instant link → upload", description: "Generate sharing links before files finish uploading in background" },
+        { name: "Persistent vault (Pro tier)", description: "Long-term storage with premium wallet authentication" },
+        { name: "Daily quotas system", description: "Fair usage limits with premium tier benefits" },
+        { name: "Wallet-connect premium", description: "Token-gated access to advanced features" },
+        { name: "Zero-knowledge encryption", description: "End-to-end encryption with no server-side access to content" },
+        { name: "Background processing", description: "Upload files while sharing links are already active" }
       ],
-      status: "coming-soon" as const,
-      // users: "15K+",
-      // rating: 4.9,
-      category: "File Sharing"
+      status: "live" as const,
+      users: "2.1K+ Active Users",
+      rating: 4.8,
+      category: "File Sharing",
+      url: "https://prickoshare.com"
     },
     {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "Pricko VPN",
-      subtitle: "Next-Gen Privacy Network",
-      description: "Revolutionary blockchain-powered VPN with global infrastructure. Currently in development with planned launch after successful coin deployment.",
-      features: [
-        { name: "Wallet-based authentication", description: "One-click Solana wallet login" },
-        { name: "Zero-logs policy", description: "Certified no-logging infrastructure" },
-        { name: "Global server network", description: "50+ countries, 200+ servers planned" },
-        { name: "Crypto-native payments", description: "Pay with $PRICKO tokens" },
-        { name: "Advanced kill switch", description: "Automatic protection on disconnect" }
-      ],
-      status: "coming-soon" as const,
-      // users: "Waitlist: 35K+",
-      // rating: null,
-      category: "Network Security"
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
       title: "Pricko Guard",
-      subtitle: "AI-Powered Privacy Shield",
-      description: "Intelligent personal data protection powered by advanced AI algorithms. Currently in final development phase with launch planned after VPN deployment.",
+      subtitle: "Manifest V3 Privacy Extension",
+      description: "Advanced Manifest V3 browser extension providing comprehensive privacy protection with anti-fingerprinting technology, tracker blocking, and multiple stealth modes for different privacy levels.",
       features: [
-        { name: "Real-time monitoring", description: "24/7 AI-powered surveillance" },
-        { name: "Smart data masking", description: "Intelligent PII protection" },
-        { name: "Instant breach alerts", description: "Real-time security notifications" },
-        { name: "Social media shield", description: "Cross-platform privacy protection" },
-        { name: "Identity theft prevention", description: "Proactive threat mitigation" }
+        { name: "Anti-fingerprinting protection", description: "Advanced techniques to prevent browser fingerprinting and tracking" },
+        { name: "Tracker/cookie blocking", description: "Intelligent blocking of tracking scripts and invasive cookies" },
+        { name: "Multiple stealth modes", description: "Choose from different privacy levels: Balanced, Strict, Ultimate" },
+        { name: "Premium vs free protection", description: "Tiered access with enhanced features for token holders" },
+        { name: "Manifest V3 compatibility", description: "Built for Chrome's latest extension framework" },
+        { name: "Real-time threat detection", description: "Active monitoring and blocking of privacy threats" }
+      ],
+      status: "beta" as const,
+      users: "Beta: 850+ Testers",
+      rating: 4.6,
+      category: "Browser Extension",
+      url: undefined
+    },
+    {
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOWY3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
+      title: "Pricko Shell",
+      subtitle: "Mobile Privacy Browser",
+      description: "Cross-platform mobile privacy browser built with Capacitor framework. Features native iOS and Android support, plugin system architecture, Solana wallet integration, and comprehensive privacy toolkit SDK.",
+      features: [
+        { name: "Cross-platform (iOS, Android)", description: "Native mobile experience on both major platforms" },
+        { name: "Plugin system architecture", description: "Extensible framework for privacy tools and features" },
+        { name: "Solana wallet integration", description: "Built-in wallet functionality with DeFi access" },
+        { name: "Privacy toolkit SDK", description: "Comprehensive privacy tools and utilities" },
+        { name: "Capacitor-based framework", description: "Hybrid app technology for optimal performance" },
+        { name: "Mobile-first design", description: "Optimized UI/UX for mobile privacy workflows" }
       ],
       status: "coming-soon" as const,
-      // users: "Waitlist: 12K+",
-      // rating: null,
-      category: "Data Protection"
+      users: "Waitlist: 1.8K+",
+      rating: null,
+      category: "Mobile Browser",
+      url: undefined
+    },
+    {
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
+      title: "Pricko Browser",
+      subtitle: "Desktop Privacy Browser",
+      description: "Full-featured desktop browser forked from Ungoogled Chromium. Features built-in crypto wallet, plugin marketplace, privacy-first architecture, and integrated DeFi tools for the ultimate privacy-focused browsing experience.",
+      features: [
+        { name: "Built-in crypto wallet", description: "Native wallet integration with multi-chain support" },
+        { name: "Plugin marketplace", description: "Curated ecosystem of privacy and productivity plugins" },
+        { name: "Privacy-first architecture", description: "Ungoogled Chromium base with enhanced privacy features" },
+        { name: "Integrated DeFi tools", description: "Built-in access to decentralized finance protocols" },
+        { name: "Custom privacy engine", description: "Advanced tracking protection and fingerprint resistance" },
+        { name: "Enterprise-grade security", description: "Professional-level security features and controls" }
+      ],
+      status: "in-development" as const,
+      users: "In Development",
+      rating: null,
+      category: "Desktop Browser",
+      url: undefined
     }
   ];
 
@@ -64,14 +89,32 @@ const ToolsPage: React.FC = () => {
     const configs = {
       live: {
         badge: "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/25",
-        label: "Live & Free",
+        label: "Live & Available",
         icon: "🟢",
         glow: "shadow-green-500/20"
       },
+      beta: {
+        badge: "bg-gradient-to-r from-yellow-500 to-amber-500 text-black shadow-lg shadow-yellow-500/25",
+        label: "Beta Release",
+        icon: "🧪",
+        glow: "shadow-yellow-500/20"
+      },
       "coming-soon": {
-        badge: "bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg shadow-purple-500/25",
+        badge: "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25",
         label: "Coming Soon",
         icon: "🔮",
+        glow: "shadow-blue-500/20"
+      },
+      "in-development": {
+        badge: "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-500/25",
+        label: "In Development",
+        icon: "⚡",
+        glow: "shadow-orange-500/20"
+      },
+      "long-term": {
+        badge: "bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg shadow-purple-500/25",
+        label: "Phase 3 - Long-term",
+        icon: "🚀",
         glow: "shadow-purple-500/20"
       }
     };
@@ -107,25 +150,29 @@ const ToolsPage: React.FC = () => {
             delivering enterprise-level performance and security.
           </p>
           
-          {/* <motion.div
+          <motion.div
             className="flex flex-wrap justify-center gap-6 text-sm text-muted"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>1 Live Tool (FREE)</span>
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span>PrickoShare Live</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
+              <span>Guard Beta Release</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-              <span>15K+ Active Users</span>
+              <span>Shell Coming Soon</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-              <span>2 Tools in Development</span>
+              <span>Browser Phase 3</span>
             </div>
-          </motion.div> */}
+          </motion.div>
         </motion.div>
 
         {/* Tools Grid */}
@@ -161,13 +208,13 @@ const ToolsPage: React.FC = () => {
                       
                       <div className="text-right">
                         <div className="text-sm text-muted mb-1">{tool.category}</div>
-                        {/* <div className="text-lg font-semibold text-accent">{tool.users}</div> */}
-                        {/* {tool.rating && (
+                        <div className="text-lg font-semibold text-accent">{tool.users}</div>
+                        {tool.rating && (
                           <div className="flex items-center gap-1 mt-1">
                             <span className="text-yellow-400">⭐</span>
                             <span className="text-sm font-medium">{tool.rating}</span>
                           </div>
-                        )} */}
+                        )}
                       </div>
                     </div>
                     
@@ -189,52 +236,91 @@ const ToolsPage: React.FC = () => {
                       </div>
                       
                       <div className="grid grid-cols-1 gap-3">
-                        {tool.features.slice(0, isExpanded ? tool.features.length : 3).map((feature, featureIndex) => (
-                          <motion.div
-                            key={featureIndex}
-                            className="group p-4 bg-bg-main/30 rounded-xl border border-border/30 hover:border-accent/30 transition-all duration-300 cursor-pointer"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
-                            viewport={{ once: true }}
-                            onHoverStart={() => setHoveredFeature(`${index}-${featureIndex}`)}
-                            onHoverEnd={() => setHoveredFeature(null)}
-                            whileHover={{ scale: 1.02 }}
-                          >
-                            <div className="flex items-start gap-3">
-                              <span className="text-accent mt-1 group-hover:scale-110 transition-transform">✓</span>
-                              <div className="flex-1">
-                                <div className="font-medium text-white group-hover:text-accent transition-colors">
-                                  {feature.name}
+                        {tool.features.slice(0, isExpanded ? tool.features.length : 3).map((feature, featureIndex) => {
+                          const isPrickoShare = tool.title === "PrickoShare";
+                          const isPremiumFeature = isPrickoShare && (
+                            feature.name.includes("Pro") || 
+                            feature.name.includes("premium") || 
+                            feature.name.includes("Wallet-connect")
+                          );
+                          
+                          return (
+                            <motion.div
+                              key={featureIndex}
+                              className={`group p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
+                                isPremiumFeature 
+                                  ? 'bg-gradient-to-r from-yellow-500/5 to-amber-500/5 border-yellow-500/20 hover:border-yellow-500/40' 
+                                  : 'bg-bg-main/30 border-border/30 hover:border-accent/30'
+                              }`}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
+                              viewport={{ once: true }}
+                              onHoverStart={() => setHoveredFeature(`${index}-${featureIndex}`)}
+                              onHoverEnd={() => setHoveredFeature(null)}
+                              whileHover={{ scale: 1.02 }}
+                            >
+                              <div className="flex items-start gap-3">
+                                {isPremiumFeature ? (
+                                  <div className="flex items-center gap-1 mt-1">
+                                    <span className="text-yellow-400 text-sm">👑</span>
+                                    <span className="text-yellow-400 text-xs font-bold">PRO</span>
+                                  </div>
+                                ) : (
+                                  <span className="text-accent mt-1 group-hover:scale-110 transition-transform">✓</span>
+                                )}
+                                <div className="flex-1">
+                                  <div className={`font-medium transition-colors ${
+                                    isPremiumFeature 
+                                      ? 'text-yellow-100 group-hover:text-yellow-50' 
+                                      : 'text-white group-hover:text-accent'
+                                  }`}>
+                                    {feature.name}
+                                    {isPremiumFeature && (
+                                      <span className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-xs">
+                                        🔒 Token Required
+                                      </span>
+                                    )}
+                                  </div>
+                                  <AnimatePresence>
+                                    {(isExpanded || hoveredFeature === `${index}-${featureIndex}`) && (
+                                      <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className={`text-sm mt-1 ${
+                                          isPremiumFeature ? 'text-yellow-200' : 'text-muted'
+                                        }`}
+                                      >
+                                        {feature.description}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
                                 </div>
-                                <AnimatePresence>
-                                  {(isExpanded || hoveredFeature === `${index}-${featureIndex}`) && (
-                                    <motion.div
-                                      initial={{ opacity: 0, height: 0 }}
-                                      animate={{ opacity: 1, height: 'auto' }}
-                                      exit={{ opacity: 0, height: 0 }}
-                                      transition={{ duration: 0.3 }}
-                                      className="text-sm text-muted mt-1"
-                                    >
-                                      {feature.description}
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
                               </div>
-                            </div>
-                          </motion.div>
-                        ))}
+                            </motion.div>
+                          );
+                        })}
                       </div>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
                       <motion.button
-                        className={`${tool.status ? 'btn-primary' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
+                        className={`${tool.status === 'live' ? 'btn-primary' : tool.status === 'beta' ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
-                        disabled={tool.status === 'coming-soon'}
+                        disabled={tool.status === 'coming-soon' || tool.status === 'in-development' || tool.status === 'long-term'}
+                        onClick={() => {
+                          if (tool.status === 'live' && tool.url) {
+                            window.open(tool.url, '_blank', 'noopener,noreferrer');
+                          }
+                        }}
                       >
-                        {tool.status  ? '🚀 Launch Tool' : '📋 Join Waitlist'}
+                        {tool.status === 'live' ? '🚀 Use Now' : 
+                         tool.status === 'beta' ? '🧪 Join Beta' :
+                         tool.status === 'coming-soon' ? '📋 Join Waitlist' :
+                         '📅 Notify Me'}
                       </motion.button>
                       
                       <motion.button
@@ -307,8 +393,8 @@ const ToolsPage: React.FC = () => {
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
               </h2>
               <p className="text-xl text-muted mb-10 max-w-3xl mx-auto leading-relaxed">
-                Join over 15,000 users who trust PRICKO to protect their digital privacy.
-                Start with our FREE File Sharing tool and be part of the privacy revolution.
+                Join over 2,100+ users already using PrickoShare and 850+ beta testers trying Pricko Guard.
+                Experience live privacy tools today and be part of the growing PRICKO ecosystem.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
@@ -317,7 +403,7 @@ const ToolsPage: React.FC = () => {
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  🚀 Get Started Now
+                  🚀 Join Waitlist
                 </motion.button>
                 <motion.button
                   className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional"

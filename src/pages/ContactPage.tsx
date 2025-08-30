@@ -104,7 +104,7 @@ const ContactPage: React.FC = () => {
   const faqs = [
     {
       question: 'How do I acquire $PRICKO tokens?',
-      answer: 'You can purchase $PRICKO tokens on major decentralized exchanges (DEXs) on the Solana network. Always verify the official contract address on our website before making any transactions to avoid scams.'
+      answer: 'PRICKO tokens are currently in pre-launch phase. Join our waitlist to be notified when tokens become available for purchase on Solana DEXs. We will announce the official launch date and contract address through our official channels first.'
     },
     {
       question: 'When will the privacy tools be available?',
@@ -502,7 +502,7 @@ const ContactPage: React.FC = () => {
             viewport={{ once: true }}
           >
             Subscribe to our newsletter for exclusive updates on privacy tools, token developments,
-            community events, and educational content. Join thousands of privacy advocates worldwide.
+            community events, and educational content. Join 1,200+ privacy advocates worldwide.
           </motion.p>
           
           <motion.div
@@ -562,7 +562,7 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Join thousands of privacy advocates who have chosen PRICKO as their gateway to digital freedom.
+            Join 1,200+ privacy advocates who have chosen PRICKO as their gateway to digital freedom.
             Your journey towards true privacy starts with a single step.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -576,7 +576,7 @@ const ContactPage: React.FC = () => {
               viewport={{ once: true }}
             >
               <FaRocket />
-              Get $PRICKO Tokens
+              Join Waitlist
             </motion.button>
             <motion.button
               className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"

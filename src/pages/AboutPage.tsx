@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import ContractAddress from '../components/ui/ContractAddress';
 import {
   FaCalendarAlt,
   FaUsers,
@@ -14,7 +16,9 @@ import {
   FaSeedling,
   FaHeart,
   FaRocket,
-  FaBook
+  FaBook,
+  FaTwitter,
+  FaGithub
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
@@ -80,8 +84,8 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaUsers className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">10K+</div>
-              <div className="text-lg font-semibold mb-2">Community Members</div>
+              <div className="text-4xl font-bold text-accent mb-2">1.2K+</div>
+              <div className="text-lg font-semibold mb-2">Early Supporters</div>
               <div className="text-muted">Growing privacy advocates</div>
             </motion.div>
             <motion.div
@@ -391,6 +395,154 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
+        {/* Team Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-4xl font-bold mb-12 text-center text-professional"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Meet the <span className="gradient-text">Gecko Team</span>
+          </motion.h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              className="card text-center group hover:shadow-professional"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
+                🦎
+              </div>
+              <h3 className="text-xl font-semibold text-accent mb-2">GeckoMaster</h3>
+              <p className="text-sm text-accent/80 mb-4">Founder & CEO</p>
+              <p className="text-muted leading-relaxed mb-4">
+                Privacy advocate with 8+ years in blockchain. Previously built privacy tools used by 100K+ users. 
+                Passionate about making digital privacy accessible to everyone.
+              </p>
+              <div className="flex justify-center space-x-3">
+                <a href="https://twitter.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors">
+                  <FaTwitter />
+                </a>
+                <a href="https://github.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors">
+                  <FaGithub />
+                </a>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="card text-center group hover:shadow-professional"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
+                ⚡
+              </div>
+              <h3 className="text-xl font-semibold text-accent mb-2">CryptoSafe</h3>
+              <p className="text-sm text-accent/80 mb-4">Lead Developer</p>
+              <p className="text-muted leading-relaxed mb-4">
+                Full-stack engineer specializing in Solana and privacy-preserving technologies. 
+                Former security researcher with expertise in cryptographic protocols.
+              </p>
+              <div className="flex justify-center space-x-3">
+                <a href="https://twitter.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors">
+                  <FaTwitter />
+                </a>
+                <a href="https://github.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors">
+                  <FaGithub />
+                </a>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="card text-center group hover:shadow-professional"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
+                🎨
+              </div>
+              <h3 className="text-xl font-semibold text-accent mb-2">DesignGecko</h3>
+              <p className="text-sm text-accent/80 mb-4">Creative Director</p>
+              <p className="text-muted leading-relaxed mb-4">
+                UX/UI designer with a passion for making complex privacy tools intuitive and enjoyable. 
+                Background in human-computer interaction and behavioral psychology.
+              </p>
+              <div className="flex justify-center space-x-3">
+                <a href="https://twitter.com/designgecko" className="text-accent hover:text-accent-hover transition-colors">
+                  <FaTwitter />
+                </a>
+                <a href="https://dribbble.com/designgecko" className="text-accent hover:text-accent-hover transition-colors">
+                  <FaGlobe />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+          
+          <motion.div
+            className="text-center mt-12 glass-morphism rounded-2xl p-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-semibold text-accent mb-4">Join Our Team</h3>
+            <p className="text-muted mb-6 max-w-2xl mx-auto">
+              We're always looking for passionate privacy advocates, talented developers, and creative minds 
+              to join the gecko revolution. Check out our open positions or reach out with your ideas.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <motion.button
+                  className="btn-primary px-6 py-3 inline-flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaUsers />
+                  Join Team
+                </motion.button>
+              </Link>
+              <a href="https://github.com/pricko-project" target="_blank" rel="noopener noreferrer">
+                <motion.button
+                  className="btn-secondary px-6 py-3 inline-flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaGithub />
+                  Contribute
+                </motion.button>
+              </a>
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* Contract Address Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-2xl mx-auto">
+            <ContractAddress />
+          </div>
+        </motion.section>
+
         {/* Call to Action */}
         <motion.section
           className="text-center glass-morphism rounded-3xl p-12"
@@ -429,7 +581,7 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true }}
             >
               <FaRocket />
-              Get Started with PRICKO
+              Join Waitlist
             </motion.button>
             <motion.button
               className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
