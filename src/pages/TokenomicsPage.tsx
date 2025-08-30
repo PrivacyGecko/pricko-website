@@ -1,5 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FaRocket, FaEye } from 'react-icons/fa';
+import ContractAddress from '../components/ui/ContractAddress';
 
 const TokenomicsPage: React.FC = () => {
   const tokenomicsData = {
@@ -15,7 +18,7 @@ const TokenomicsPage: React.FC = () => {
         category: "Privacy Tool Development",
         percentage: 25,
         amount: "250,000,000",
-        description: "Funding development of Pricko VPN, Pricko File Sharing - Free, Pricko Guard, and future privacy tools."
+        description: "Funding development of PrickoShare, Pricko Guard, Pricko Shell, Pricko Browser, and future privacy tools."
       },
       {
         category: "Liquidity Pool",
@@ -41,7 +44,7 @@ const TokenomicsPage: React.FC = () => {
   const utilities = [
     {
       title: "Privacy Tool Access",
-      description: "Use $PRICKO tokens to access premium features in Pricko VPN, Pricko File Sharing - Free, and Pricko Guard.",
+      description: "Use $PRICKO tokens to access premium features in PrickoShare Pro, Pricko Guard premium tiers, and future privacy tools.",
       icon: "🔐"
     },
     {
@@ -197,13 +200,13 @@ const TokenomicsPage: React.FC = () => {
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-3 text-accent">Deflationary Mechanism</h3>
               <p className="text-muted">
-                A portion of tokens used for privacy tools are burned, creating deflationary pressure and increasing scarcity over time.
+                A portion of tokens used for premium privacy tool features are burned, creating deflationary pressure and increasing scarcity over time.
               </p>
             </div>
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-3 text-accent">Revenue Sharing</h3>
               <p className="text-muted">
-                Tool subscription revenues are partially distributed back to token holders through staking rewards and community treasury.
+                Premium tier revenues from PrickoShare and other privacy tools are partially distributed back to token holders through staking rewards and community treasury.
               </p>
             </div>
             <div className="text-center">
@@ -212,6 +215,19 @@ const TokenomicsPage: React.FC = () => {
                 Early adopters and active community members receive bonus tokens for contributing to ecosystem growth and privacy advocacy.
               </p>
             </div>
+          </div>
+        </motion.section>
+
+        {/* Contract Address Section */}
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-2xl mx-auto">
+            <ContractAddress />
           </div>
         </motion.section>
 
@@ -225,24 +241,30 @@ const TokenomicsPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-6">Ready to Join the Gecko Economy?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
-            Get $PRICKO tokens and become part of the privacy revolution. 
-            The earlier you join, the more you benefit from our growing ecosystem.
+            $PRICKO tokens are currently in pre-launch phase. Join our waitlist to be first in line when tokens become available. 
+            Early supporters get priority access and potential bonus allocations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              className="btn-primary px-8 py-3 text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Buy $PRICKO Now
-            </motion.button>
-            <motion.button
-              className="btn-secondary px-8 py-3 text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View on DEX
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                className="btn-primary px-8 py-3 text-lg inline-flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaRocket />
+                Join Waitlist
+              </motion.button>
+            </Link>
+            <Link to="/roadmap">
+              <motion.button
+                className="btn-secondary px-8 py-3 text-lg inline-flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaEye />
+                View Roadmap
+              </motion.button>
+            </Link>
           </div>
         </motion.section>
       </div>

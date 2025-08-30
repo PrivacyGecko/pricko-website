@@ -7,138 +7,192 @@ const RoadmapPage: React.FC = () => {
 
   const roadmapPhases = [
     {
-      phase: "✅ Completed",
-      title: "Foundation Milestones",
+      phase: "Phase 1 ✅",
+      title: "PrickoShare Launch & Foundation",
       status: "completed" as const,
-      quarter: "2024-2025",
+      quarter: "2024 Q4",
       progress: 100,
-      duration: "6 months",
+      duration: "Completed",
       budget: "Achieved",
-      team: "Core Team",
+      team: "Core Development",
       items: [
         {
-          name: "Website Launched",
-          description: "Pricko's official platform is live — your gateway to privacy tools and updates",
+          name: "PrickoShare SaaS Live",
+          description: "Zero-knowledge file sharing platform with instant uploads and token-gated premium features",
           status: "completed",
           impact: "High"
         },
         {
-          name: "Twitter Setup Completed",
-          description: "Follow us @PrickoPrivacy for daily insights, memes, and project news",
+          name: "Community Building & Pre-Launch",
+          description: "Growing community of 1,200+ supporters preparing for upcoming token launch",
           status: "completed",
           impact: "High"
         },
         {
-          name: "Telegram Group Created",
-          description: "Join the community on Telegram for discussions, updates, and early access to drops",
+          name: "Website & Social Presence",
+          description: "Official platform launched with Twitter, Telegram, and comprehensive documentation",
           status: "completed",
           impact: "High"
         },
         {
-          name: "Product Brainstorming: Privacy First",
-          description: "Focused ideation on building tools that protect digital privacy",
+          name: "Persistent Vault Storage",
+          description: "Pro-tier users can store files long-term with wallet-connect authentication",
           status: "completed",
           impact: "Medium"
         },
         {
-          name: "Development Tools Identified",
-          description: "Key tech stack finalized to build privacy-first utilities and dApps",
+          name: "Daily Quotas System",
+          description: "Fair usage system implemented for free and premium users",
           status: "completed",
           impact: "Medium"
         }
       ]
     },
     {
-      phase: "🚀 Next Steps",
-      title: "Q3-Q4 2025 Roadmap",
+      phase: "Phase 2 🧪",
+      title: "Pricko Guard Beta Release",
       status: "in-progress" as const,
-      quarter: "Q3-Q4 2025",
-      progress: 15,
-      duration: "6 months",
-      budget: "$2M+",
-      team: "Full Team",
+      quarter: "2025 Q1",
+      progress: 75,
+      duration: "3 months",
+      budget: "In Progress",
+      team: "Extension Development",
       items: [
         {
-          name: "Launch $PRICKO Coin on Pump.fun",
-          description: "Community-driven launch with meme power and real utility",
+          name: "$PRICKO Token Launch",
+          description: "Official token deployment on Solana with contract address and trading capabilities",
           status: "in-progress",
           impact: "High"
         },
         {
-          name: "Token Burn Strategy Design",
-          description: "Transparent and deflationary tokenomics implementation",
-          status: "upcoming",
+          name: "Manifest V3 Extension Development",
+          description: "Building privacy extension compatible with Chrome's latest framework",
+          status: "in-progress",
           impact: "High"
         },
         {
-          name: "Whitepaper Release",
-          description: "Complete vision, tokenomics, and roadmap explanation",
-          status: "upcoming",
+          name: "Anti-fingerprinting Protection",
+          description: "Advanced techniques to prevent browser fingerprinting and tracking",
+          status: "in-progress",
           impact: "High"
         },
         {
-          name: "Privacy Tool Prototypes (Beta)",
-          description: "Early versions of browser extensions & secure file sharing",
-          status: "upcoming",
+          name: "Multiple Stealth Modes",
+          description: "Balanced, Strict, and Ultimate privacy levels for different user needs",
+          status: "in-progress",
           impact: "High"
         },
         {
-          name: "Community Airdrops & Rewards",
-          description: "Early supporters will be rewarded with exclusive benefits",
+          name: "Beta Testing Program",
+          description: "Open beta with 850+ testers providing feedback and bug reports",
+          status: "in-progress",
+          impact: "Medium"
+        },
+        {
+          name: "Premium Tier Features",
+          description: "Token-gated enhanced protection for PRICKO holders",
           status: "upcoming",
           impact: "Medium"
         },
         {
-          name: "Coin Listing on DEX (e.g., Jupiter)",
-          description: "Increase accessibility and trading opportunities",
+          name: "Chrome Web Store Approval",
+          description: "Final review and publication to Chrome extension marketplace",
           status: "upcoming",
           impact: "High"
-        },
-        {
-          name: "Collaborations with Privacy Projects",
-          description: "Synergize with like-minded platforms in Web3",
-          status: "upcoming",
-          impact: "Medium"
-        },
-        {
-          name: "Staking or Holder Utility Features",
-          description: "Benefits for long-term holders and community members",
-          status: "upcoming",
-          impact: "Medium"
         }
       ]
     },
     {
-      phase: "📅 Future Vision",
-      title: "2026 & Beyond",
+      phase: "Phase 2.5 📱",
+      title: "Pricko Shell Mobile Browser",
+      status: "upcoming" as const,
+      quarter: "2025 Q2-Q3",
+      progress: 0,
+      duration: "6 months",
+      budget: "Planned",
+      team: "Mobile Development",
+      items: [
+        {
+          name: "Capacitor Framework Setup",
+          description: "Cross-platform mobile browser foundation for iOS and Android",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Solana Wallet Integration",
+          description: "Built-in wallet functionality with DeFi access and token management",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Plugin System Architecture",
+          description: "Extensible framework for privacy tools and third-party integrations",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Privacy Toolkit SDK",
+          description: "Comprehensive privacy utilities and developer tools",
+          status: "upcoming",
+          impact: "Medium"
+        },
+        {
+          name: "iOS App Store Submission",
+          description: "Apple App Store approval and distribution",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Google Play Store Launch",
+          description: "Android marketplace approval and public release",
+          status: "upcoming",
+          impact: "High"
+        }
+      ]
+    },
+    {
+      phase: "Phase 3 🚀",
+      title: "Pricko Browser Desktop - In Development",
       status: "upcoming" as const,
       quarter: "2026+",
       progress: 0,
-      duration: "Long-term",
-      budget: "$10M+",
-      team: "Expanded Team",
+      duration: "12+ months",
+      budget: "Long-term",
+      team: "Full Browser Team",
       items: [
         {
-          name: "Launch Full Privacy Suite",
-          description: "Complete VPN, file share, and tracker blocker ecosystem",
+          name: "Ungoogled Chromium Fork",
+          description: "Full-featured desktop browser based on privacy-focused Chromium",
           status: "upcoming",
           impact: "High"
         },
         {
-          name: "Develop DAO Governance",
-          description: "Community-driven decision making and project direction",
+          name: "Built-in Crypto Wallet",
+          description: "Native multi-chain wallet with advanced DeFi integration",
           status: "upcoming",
           impact: "High"
         },
         {
-          name: "Expand Across EVM and Solana",
-          description: "Multi-chain presence for maximum accessibility",
+          name: "Plugin Marketplace",
+          description: "Curated ecosystem of privacy and productivity plugins",
           status: "upcoming",
           impact: "High"
         },
         {
-          name: "Host Privacy Summits & Hackathons",
-          description: "Educational events and developer competitions",
+          name: "Enterprise-grade Security",
+          description: "Professional-level security features and enterprise controls",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Custom Privacy Engine",
+          description: "Advanced tracking protection and fingerprint resistance technology",
+          status: "upcoming",
+          impact: "High"
+        },
+        {
+          name: "Cross-platform Distribution",
+          description: "Windows, macOS, and Linux releases with auto-update system",
           status: "upcoming",
           impact: "Medium"
         }

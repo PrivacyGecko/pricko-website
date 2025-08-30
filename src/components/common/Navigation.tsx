@@ -89,9 +89,11 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
         transition={{ delay: mobile ? navigationItems.length * 0.1 : navigationItems.length * 0.05 }}
         className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}
       >
-        <button className="btn-primary text-sm px-4 py-2">
-          Buy $PRICKO
-        </button>
+        <Link to="/contact">
+          <button className="btn-primary text-sm px-4 py-2">
+            Join Waitlist
+          </button>
+        </Link>
       </motion.div>
     </nav>
   );

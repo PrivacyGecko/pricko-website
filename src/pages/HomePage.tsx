@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ToolCard from '../components/ui/ToolCard';
+import ContractAddress from '../components/ui/ContractAddress';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -18,22 +19,33 @@ import {
 const HomePage: React.FC = () => {
   const tools = [
     {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMmM1LjUgMCAxMCA0LjUgMTAgMTBzLTQuNSAxMC0xMCAxMGMtMS43IDAtMy4zLS40LTQuNy0xLjJsLTQuMyAxLjJjLS41LjEtLjktLjMtLjgtLjhsMS4yLTQuM2MtLjgtMS40LTEuMi0zLTEuMi00LjcgMC01LjUgNC41LTEwIDEwLTEweiIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Pricko File Sharing - Free",
-      description: "Secure and Safe large file Transfer with Encryption",
-      status: "coming-soon" as const
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
+      title: "PrickoShare",
+      description: "Zero-knowledge, token-gated file-sharing SaaS with instant uploads and persistent vault storage.",
+      status: "live" as const,
+      features: ["Instant link → upload", "Persistent vault (Pro)", "Daily quotas system", "Wallet-connect premium"],
+      url: "https://prickoshare.com"
     },
     {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "Pricko VPN",
-      description: "Wallet-authenticated VPN. Fast, stealthy, Solana-native.",
-      status: "coming-soon" as const
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJNOSAxMmwzIDNsNi02Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
       title: "Pricko Guard",
-      description: "Prevent personal data leaks with automated masking.",
-      status: "coming-soon" as const
+      description: "Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes.",
+      status: "beta" as const,
+      features: ["Anti-fingerprinting protection", "Tracker/cookie blocking", "Multiple stealth modes", "Premium vs free tiers"]
+    },
+    {
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOXY3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
+      title: "Pricko Shell",
+      description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK.",
+      status: "coming-soon" as const,
+      features: ["Cross-platform (iOS, Android)", "Plugin system architecture", "Solana wallet integration", "Privacy toolkit SDK"]
+    },
+    {
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
+      title: "Pricko Browser",
+      description: "Forked desktop browser based on Ungoogled Chromium with built-in crypto wallet and DeFi integration.",
+      status: "in-development" as const,
+      features: ["Built-in crypto wallet", "Plugin marketplace", "Privacy-first architecture", "Integrated DeFi tools"]
     }
   ];
 
@@ -86,14 +98,15 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <motion.a
-                  href="#buy"
-                  className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-8 py-4 shadow-lg"
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Buy $PRICKO <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-                </motion.a>
+                <Link to="/contact">
+                  <motion.button
+                    className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-8 py-4 shadow-lg"
+                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Join Waitlist <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                  </motion.button>
+                </Link>
                 <motion.a
                   href="#tools"
                   className="btn-secondary text-lg px-8 py-4"
@@ -286,6 +299,21 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Contract Address Section */}
+      <section className="section-padding bg-gradient-to-b from-secondary/30 to-transparent">
+        <div className="container-max">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <ContractAddress variant="hero" />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Tools Section */}
       <section className="relative section-padding bg-gradient-to-br from-secondary/80 via-secondary/50 to-secondary/30 overflow-hidden">
         {/* Background Pattern */}
@@ -333,7 +361,9 @@ const HomePage: React.FC = () => {
                 title={tool.title}
                 description={tool.description}
                 status={tool.status}
+                features={tool.features}
                 delay={index * 0.2}
+                url={tool.url}
               />
             ))}
           </motion.div>
@@ -356,6 +386,109 @@ const HomePage: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 Explore All Tools <FaArrowRight className="inline ml-2" />
+              </motion.button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Expanding Privacy Ecosystem Section */}
+      <section className="section-padding bg-secondary/40">
+        <div className="container-max">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="gradient-text">Expanding Privacy Ecosystem</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-hover mx-auto mb-6"></div>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              The gecko army grows stronger every day. Many more privacy tools are in discussion and development, 
+              with the community helping shape the future of digital privacy.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {/* Placeholder Tool Cards */}
+            <motion.div
+              className="card text-center opacity-60"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 0.6, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">❓</span>
+              </div>
+              <h3 className="text-lg font-semibold text-accent mb-2">Privacy Tool #5</h3>
+              <p className="text-muted text-sm mb-4">In discussion with the community</p>
+              <div className="px-3 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full inline-block">
+                Coming Soon
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="card text-center opacity-60"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 0.6, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🔮</span>
+              </div>
+              <h3 className="text-lg font-semibold text-accent mb-2">Privacy Tool #6</h3>
+              <p className="text-muted text-sm mb-4">Community proposal phase</p>
+              <div className="px-3 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full inline-block">
+                In Discussion
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="card text-center opacity-60"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 0.6, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h3 className="text-lg font-semibold text-accent mb-2">More Tools</h3>
+              <p className="text-muted text-sm mb-4">The gecko ecosystem expands</p>
+              <div className="px-3 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full inline-block">
+                Future Vision
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="text-center mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-accent font-medium mb-4">
+              🦎 Have ideas for new privacy tools? Join the conversation!
+            </p>
+            <Link to="/contact">
+              <motion.button
+                className="btn-secondary px-6 py-3"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Suggest a Tool
               </motion.button>
             </Link>
           </motion.div>
@@ -475,16 +608,17 @@ const HomePage: React.FC = () => {
                 Ready to Go Stealth? 🦎
               </h3>
               <p className="text-muted mb-6 max-w-2xl mx-auto">
-                Join thousands of privacy advocates who trust Pricko to keep their digital lives secure.
+                Join 1,200+ privacy advocates who trust Pricko to keep their digital lives secure.
               </p>
-              <motion.a
-                href="#buy"
-                className="btn-primary inline-flex items-center gap-3 px-8 py-3 text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get $PRICKO Now <FaArrowRight />
-              </motion.a>
+              <Link to="/contact">
+                <motion.button
+                  className="btn-primary inline-flex items-center gap-3 px-8 py-3 text-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Join Waitlist <FaArrowRight />
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

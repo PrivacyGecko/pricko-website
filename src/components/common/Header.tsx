@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
+import ContractAddress from '../ui/ContractAddress';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,6 +132,22 @@ const Header: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
+      
+      {/* Contract Address Banner - Only show when token launches */}
+      {/* Uncomment this section when token launches:
+      <motion.div
+        className="bg-gradient-to-r from-accent/10 to-accent/5 border-b border-accent/20 py-2"
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: 'auto', opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center">
+            <ContractAddress variant="minimal" />
+          </div>
+        </div>
+      </motion.div>
+      */}
     </motion.header>
   );
 };

@@ -2,9 +2,11 @@ export interface ToolCardProps {
   icon: string;
   title: string;
   description: string;
-  status?: 'live' | 'beta' | 'coming-soon';
+  status?: 'live' | 'beta' | 'coming-soon' | 'in-development' | 'long-term';
+  features?: string[];
   delay?: number;
   className?: string;
+  url?: string;
 }
 
 export interface NavigationItem {

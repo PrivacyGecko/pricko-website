@@ -1,30 +1,47 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ToolCardProps } from '../../types';
+import { FaCheck, FaChevronDown, FaChevronUp, FaCrown } from 'react-icons/fa';
+import PremiumFeature from './PremiumFeature';
 
 const ToolCard: React.FC<ToolCardProps> = ({
   icon,
   title,
   description,
   status = 'coming-soon',
+  features = [],
   delay = 0,
-  className = ''
+  className = '',
+  url
 }) => {
+  const [showFeatures, setShowFeatures] = useState(false);
+  
   const getStatusBadge = (status: string) => {
     const badges = {
-      live: "bg-green-500 text-black",
-      beta: "bg-yellow-500 text-black",
-      "coming-soon": "bg-orange-500 text-white"
+      live: "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/25",
+      beta: "bg-gradient-to-r from-yellow-500 to-amber-500 text-black shadow-lg shadow-yellow-500/25",
+      "coming-soon": "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25",
+      "in-development": "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-500/25",
+      "long-term": "bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg shadow-purple-500/25"
     };
     const labels = {
-      live: "Live",
-      beta: "Beta",
-      "coming-soon": "Coming Soon"
+      live: "Live & Available",
+      beta: "Beta Release",
+      "coming-soon": "Coming Soon",
+      "in-development": "In Development",
+      "long-term": "Phase 3"
     };
     return { class: badges[status as keyof typeof badges], label: labels[status as keyof typeof labels] };
   };
 
   const badge = getStatusBadge(status);
+  
+  const handleClick = () => {
+    if (url && status === 'live') {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <motion.div
       className={`card group cursor-pointer ${className}`}
@@ -36,6 +53,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
         boxShadow: "0 10px 30px rgba(234, 88, 12, 0.2)"
       }}
       whileTap={{ scale: 0.98 }}
+      onClick={handleClick}
     >
       <div className="flex flex-col items-center text-center space-y-4">
         {/* Icon */}
@@ -56,18 +74,82 @@ const ToolCard: React.FC<ToolCardProps> = ({
         </motion.div>
 
         {/* Content */}
-        <div className="space-y-2">
+        <div className="space-y-3 w-full">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
               {title}
             </h3>
-            <span className={`px-2 py-1 rounded-full text-xs font-medium ${badge.class}`}>
+            <span className={`px-3 py-1 rounded-full text-xs font-bold ${badge.class}`}>
               {badge.label}
             </span>
           </div>
-          <p className="text-muted text-sm leading-relaxed group-hover:text-white transition-colors duration-300">
+          <p className="text-muted text-sm leading-relaxed group-hover:text-white transition-colors duration-300 px-2">
             {description}
           </p>
+          
+          {/* Features Section */}
+          {features.length > 0 && (
+            <div className="w-full">
+              <motion.button
+                className="flex items-center justify-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm font-medium w-full py-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowFeatures(!showFeatures);
+                }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Key Features
+                {showFeatures ? <FaChevronUp className="text-xs" /> : <FaChevronDown className="text-xs" />}
+              </motion.button>
+              
+              <AnimatePresence>
+                {showFeatures && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pt-2 space-y-2">
+                      {features.map((feature, index) => {
+                        // Check if this is PrickoShare and if the feature is premium
+                        const isPrickoShare = title === "PrickoShare";
+                        const isPremiumFeature = isPrickoShare && (
+                          feature.includes("Pro") || 
+                          feature.includes("premium") || 
+                          feature.includes("Wallet-connect")
+                        );
+                        
+                        return (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2, delay: index * 0.1 }}
+                          >
+                            {isPrickoShare ? (
+                              <PremiumFeature 
+                                feature={feature} 
+                                tier={isPremiumFeature ? 'pro' : 'free'}
+                                className="group-hover:text-white transition-colors"
+                              />
+                            ) : (
+                              <div className="flex items-start gap-2 text-xs text-muted group-hover:text-white transition-colors">
+                                <FaCheck className="text-accent mt-0.5 text-xs flex-shrink-0" />
+                                <span>{feature}</span>
+                              </div>
+                            )}
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )}
         </div>
 
         {/* Hover Effect */}

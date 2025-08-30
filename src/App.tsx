@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ToolsPage from './pages/ToolsPage';
 import RoadmapPage from './pages/RoadmapPage';
+import TokenomicsPage from './pages/TokenomicsPage';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/tools" element={<ToolsPage />} />
-        {/* <Route path="/tokenomics" element={<TokenomicsPage />} /> */}
+        <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/roadmap" element={<RoadmapPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
