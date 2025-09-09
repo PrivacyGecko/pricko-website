@@ -37,7 +37,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
   const badge = getStatusBadge(status);
   
   const handleClick = () => {
-    if (url && status === 'live') {
+    if (url && (status === 'live' || status === 'beta')) {
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
