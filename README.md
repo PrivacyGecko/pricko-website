@@ -201,8 +201,8 @@ PRICKO is more than just a meme coin—it's a movement for digital privacy. Born
 
 ## 🔗 Links
 
-- **Twitter**: [@pricko_official](https://twitter.com/pricko_official)
-- **Telegram**: [PRICKO Community](https://t.me/pricko_community)
+- **Twitter**: [@PrivacyGecko](https://twitter.com/PrivacyGecko)
+- **Telegram**: [GeckoArmy](https://t.me/+mDFnSI8_A54wZDE1)
 - **Discord**: [Join Server](https://discord.gg/pricko)
 - **GitHub**: [PRICKO Project](https://github.com/pricko-project)
 
