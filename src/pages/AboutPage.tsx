@@ -431,7 +431,7 @@ const AboutPage: React.FC = () => {
                 Passionate about making digital privacy accessible to everyone.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors">
                   <FaTwitter />
                 </a>
                 <a href="https://github.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors">
@@ -457,7 +457,7 @@ const AboutPage: React.FC = () => {
                 Former security researcher with expertise in cryptographic protocols.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors">
                   <FaTwitter />
                 </a>
                 <a href="https://github.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors">
@@ -483,7 +483,7 @@ const AboutPage: React.FC = () => {
                 Background in human-computer interaction and behavioral psychology.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/designgecko" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors">
                   <FaTwitter />
                 </a>
                 <a href="https://dribbble.com/designgecko" className="text-accent hover:text-accent-hover transition-colors">

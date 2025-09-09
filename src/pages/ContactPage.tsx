@@ -42,14 +42,14 @@ const ContactPage: React.FC = () => {
   const socialLinks = [
     {
       name: 'Twitter',
-      href: 'https://twitter.com/pricko_official',
+      href: 'https://twitter.com/PrivacyGecko',
       icon: <FaTwitter className="w-8 h-8" />,
       description: 'Latest updates, announcements, and community discussions',
       //  followers: '15.2K'
     },
     {
       name: 'Telegram',
-      href: 'https://t.me/+q2Q7TwuwNC5jNGNl',
+      href: 'https://t.me/+mDFnSI8_A54wZDE1',
       icon: <FaTelegram className="w-8 h-8" />,
       description: 'Real-time community chat, support, and exclusive updates',
       //  followers: '8.7K'
