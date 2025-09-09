@@ -312,7 +312,7 @@ const ToolsPage: React.FC = () => {
                         whileTap={{ scale: 0.95 }}
                         disabled={tool.status === 'coming-soon' || tool.status === 'in-development' || tool.status === 'long-term'}
                         onClick={() => {
-                          if (tool.status === 'live' && tool.url) {
+                          if ((tool.status === 'live' || tool.status === 'beta') && tool.url) {
                             window.open(tool.url, '_blank', 'noopener,noreferrer');
                           }
                         }}
