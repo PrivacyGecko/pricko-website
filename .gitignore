@@ -2,12 +2,14 @@
 node_modules/
 /.pnp
 .pnp.js
-assets/
+
+# Claude Code (keep project docs)
 .claude/
 CLAUDE.md
+
+# Testing
 test-results/
 playwright-report/
-
 
 # Production build
 /dist
@@ -96,14 +98,13 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
-# Gatsby files
+# Gatsby files (we need our public folder)
 .cache/
-public
 
 # Vite build tool cache
 .vite
+node_modules/.vite/
 
 # Storybook build outputs
 .out
