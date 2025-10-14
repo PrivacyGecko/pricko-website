@@ -135,27 +135,27 @@ const ToolsPage: React.FC = () => {
       }
     },
     {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJINVY2aDE0djJ6bTAgMTBINVY4aDE0djh6Ii8+CiAgPHBhdGggZD0iTTcgMTBoMTB2Mkg3eiIvPgo8L3N2Zz4KPC9zdmc+",
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOVI3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
       title: "GeckoShell",
-      subtitle: "Disposable Email Addresses",
-      description: "Generate unlimited disposable email addresses for privacy protection. Features auto-forwarding, spam filtering, and instant email creation without registration. Perfect for protecting your real email from spam and tracking.",
+      subtitle: "Cross-Platform Mobile Privacy Browser",
+      description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK. Features plugin system architecture for extensibility, built-in crypto wallet, and comprehensive privacy protection on iOS and Android.",
       features: [
-        { name: "Unlimited disposable emails", description: "Create as many temporary email addresses as you need" },
-        { name: "Auto-forwarding", description: "Automatically forward emails to your real address" },
-        { name: "Spam filtering", description: "Built-in spam protection for your temporary emails" },
-        { name: "No registration required", description: "Instant email creation without signing up" },
-        { name: "Customizable expiration", description: "Set how long each disposable email remains active" },
-        { name: "Privacy protection", description: "Keep your real email address hidden from services" }
+        { name: "Cross-platform (iOS, Android)", description: "Native mobile experience on both iOS and Android platforms" },
+        { name: "Plugin system architecture", description: "Extensible plugin system for custom privacy tools" },
+        { name: "Solana wallet integration", description: "Built-in Solana wallet for seamless Web3 browsing" },
+        { name: "Privacy toolkit SDK", description: "Comprehensive SDK for privacy-focused features" },
+        { name: "Anti-tracking protection", description: "Advanced tracker blocking and fingerprint resistance" },
+        { name: "Encrypted browsing", description: "End-to-end encryption for all browsing activity" }
       ],
-      status: "in-development" as const,
-      users: "In Development (30% Complete)",
+      status: "beta" as const,
+      users: `${METRICS.geckoShell.formatted} ${METRICS.geckoShell.label}`,
       rating: null,
-      category: "Email Privacy",
+      category: "Mobile Browser",
       url: undefined,
       securitySpecs: {
-        encryption: "TLS 1.3 for email transmission",
-        architecture: "Temporary email routing with automatic deletion",
-        auditStatus: "Security design phase - audit planned Q3 2025",
+        encryption: "TLS 1.3 with additional application-layer encryption",
+        architecture: "Plugin-based with sandboxed security model",
+        auditStatus: "Beta security audit in progress Q4 2024",
         openSource: "https://github.com/privacygecko/gecko-shell"
       }
     },
