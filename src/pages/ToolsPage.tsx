@@ -11,7 +11,7 @@ const ToolsPage: React.FC = () => {
   const tools = [
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "PrickoShare",
+      title: "GeckoShare",
       subtitle: "zero-knowledge File Sharing SaaS",
       description: "Revolutionary zero-knowledge, token-gated file-sharing platform with instant uploads, persistent vault storage, and wallet-connect premium access. Features daily quotas system for fair usage.",
       features: [
@@ -36,7 +36,7 @@ const ToolsPage: React.FC = () => {
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Pricko Guard",
+      title: "GeckoGuard",
       subtitle: "Manifest V3 Privacy Extension",
       description: "Advanced Manifest V3 browser extension providing comprehensive privacy protection with anti-fingerprinting technology, tracker blocking, and multiple stealth modes for different privacy levels.",
       features: [
@@ -61,7 +61,7 @@ const ToolsPage: React.FC = () => {
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOWY3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
-      title: "Pricko Shell",
+      title: "GeckoShell",
       subtitle: "Mobile Privacy Browser",
       description: "Cross-platform mobile privacy browser built with Capacitor framework. Features native iOS and Android support, plugin system architecture, Solana wallet integration, and comprehensive privacy toolkit SDK.",
       features: [
@@ -86,7 +86,7 @@ const ToolsPage: React.FC = () => {
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Pricko Browser",
+      title: "GeckoBrowser",
       subtitle: "Desktop Privacy Browser",
       description: "Full-featured desktop browser forked from Ungoogled Chromium. Features built-in crypto wallet, plugin marketplace, privacy-first architecture, and integrated DeFi tools for the ultimate privacy-focused browsing experience.",
       features: [
@@ -184,19 +184,19 @@ const ToolsPage: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span>PrickoShare Live</span>
+              <span>GeckoShare Live</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
-              <span>Guard Beta Release</span>
+              <span>GeckoGuard Beta Release</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-              <span>Shell Coming Soon</span>
+              <span>GeckoShell Coming Soon</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-              <span>Browser Phase 3</span>
+              <span>GeckoBrowser Phase 3</span>
             </div>
           </motion.div>
         </motion.div>
@@ -263,8 +263,8 @@ const ToolsPage: React.FC = () => {
                       
                       <div className="grid grid-cols-1 gap-3">
                         {tool.features.slice(0, isExpanded ? tool.features.length : 3).map((feature, featureIndex) => {
-                          const isPrickoShare = tool.title === "PrickoShare";
-                          const isPremiumFeature = isPrickoShare && (
+                          const isGeckoShare = tool.title === "GeckoShare";
+                          const isPremiumFeature = isGeckoShare && (
                             feature.name.includes("Pro") || 
                             feature.name.includes("premium") || 
                             feature.name.includes("Wallet-connect")
@@ -274,8 +274,8 @@ const ToolsPage: React.FC = () => {
                             <motion.div
                               key={featureIndex}
                               className={`group p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
-                                isPremiumFeature 
-                                  ? 'bg-gradient-to-r from-yellow-500/5 to-amber-500/5 border-yellow-500/20 hover:border-yellow-500/40' 
+                                isPremiumFeature
+                                  ? 'bg-gradient-to-r from-yellow-500/5 to-amber-500/5 border-yellow-500/20 hover:border-yellow-500/40'
                                   : 'bg-bg-main/30 border-border/30 hover:border-accent/30'
                               }`}
                               initial={{ opacity: 0, x: -20 }}
@@ -297,8 +297,8 @@ const ToolsPage: React.FC = () => {
                                 )}
                                 <div className="flex-1">
                                   <div className={`font-medium transition-colors ${
-                                    isPremiumFeature 
-                                      ? 'text-yellow-100 group-hover:text-yellow-50' 
+                                    isPremiumFeature
+                                      ? 'text-yellow-100 group-hover:text-yellow-50'
                                       : 'text-white group-hover:text-accent'
                                   }`}>
                                     {feature.name}
@@ -474,7 +474,7 @@ const ToolsPage: React.FC = () => {
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
               </h2>
               <p className="text-xl text-muted mb-10 max-w-3xl mx-auto leading-relaxed">
-                Join over {METRICS.prickoshare.formatted} users already using PrickoShare and {METRICS.prickoGuard.formatted} beta testers trying Pricko Guard.
+                Join over {METRICS.prickoshare.formatted} users already using GeckoShare and {METRICS.prickoGuard.formatted} beta testers trying GeckoGuard.
                 Experience live privacy tools today and be part of the growing PRICKO ecosystem.
               </p>
               

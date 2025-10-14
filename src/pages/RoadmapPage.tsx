@@ -8,7 +8,7 @@ const RoadmapPage: React.FC = () => {
   const roadmapPhases = [
     {
       phase: "Phase 1 ✅",
-      title: "PrickoShare Launch & Foundation",
+      title: "GeckoShare Launch & Foundation",
       status: "completed" as const,
       quarter: "2024 Q4",
       progress: 100,
@@ -17,7 +17,7 @@ const RoadmapPage: React.FC = () => {
       team: "Core Development",
       items: [
         {
-          name: "PrickoShare SaaS Live",
+          name: "GeckoShare SaaS Live",
           description: "Zero-knowledge file sharing platform with instant uploads and token-gated premium features",
           status: "completed",
           impact: "High"
@@ -50,7 +50,7 @@ const RoadmapPage: React.FC = () => {
     },
     {
       phase: "Phase 2 🧪",
-      title: "Pricko Guard Beta Release",
+      title: "GeckoGuard Beta Release",
       status: "in-progress" as const,
       quarter: "2025 Q3-Q4",
       progress: 75,
@@ -104,7 +104,7 @@ const RoadmapPage: React.FC = () => {
     },
     {
       phase: "Phase 2.5 📱",
-      title: "Pricko Shell Mobile Browser",
+      title: "GeckoShell Mobile Browser",
       status: "upcoming" as const,
       quarter: "2026 Q1-Q2",
       progress: 0,
@@ -152,7 +152,7 @@ const RoadmapPage: React.FC = () => {
     },
     {
       phase: "Phase 3 🚀",
-      title: "Pricko Browser Desktop - In Development",
+      title: "GeckoBrowser Desktop - In Development",
       status: "upcoming" as const,
       quarter: "2026+",
       progress: 0,

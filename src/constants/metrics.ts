@@ -29,8 +29,8 @@ export const METRICS = {
 } as const;
 
 export const TOOLS_COUNT = {
-  live: 1,  // PrickoShare
-  beta: 1,  // Pricko Guard
+  live: 1,  // GeckoShare
+  beta: 1,  // GeckoGuard
   coming: 2, // Shell + Browser (coming soon)
   inDevelopment: 0, // Currently none marked as "in development"
   total: 4

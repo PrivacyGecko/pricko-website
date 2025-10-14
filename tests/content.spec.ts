@@ -72,7 +72,7 @@ test.describe('Content and SEO', () => {
     await acceptCookieConsent(page);
 
     // Check for tool cards
-    await expect(page.locator('text=/PrickoShare|Pricko Guard/i').first()).toBeVisible();
+    await expect(page.locator('text=/GeckoShare|GeckoGuard/i').first()).toBeVisible();
   });
 
   test('should have contact information', async ({ page }) => {

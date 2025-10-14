@@ -426,7 +426,7 @@ const AboutPage: React.FC = () => {
                 🦎
               </div>
               <h3 className="text-xl font-semibold text-accent mb-2">GeckoMaster</h3>
-              <p className="text-sm text-accent/80 mb-4">Founder & CEO</p>
+              <p className="text-sm text-accent/80 mb-4">Co-Founder</p>
               <p className="text-muted leading-relaxed mb-4">
                 Privacy advocate with 8+ years in blockchain. Previously built privacy tools used by 100K+ users. 
                 Passionate about making digital privacy accessible to everyone.
@@ -451,8 +451,8 @@ const AboutPage: React.FC = () => {
               <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
                 ⚡
               </div>
-              <h3 className="text-xl font-semibold text-accent mb-2">CryptoSafe</h3>
-              <p className="text-sm text-accent/80 mb-4">Lead Developer</p>
+              <h3 className="text-xl font-semibold text-accent mb-2">@0xAnonA</h3>
+              <p className="text-sm text-accent/80 mb-4">Co-Founder</p>
               <p className="text-muted leading-relaxed mb-4">
                 Full-stack engineer specializing in Solana and privacy-preserving technologies. 
                 Former security researcher with expertise in cryptographic protocols.

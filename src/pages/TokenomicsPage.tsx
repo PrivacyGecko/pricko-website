@@ -26,7 +26,7 @@ const TokenomicsPage: React.FC = () => {
   const utilities = [
     {
       title: "Privacy Tool Access",
-      description: "Hold $PRICKO tokens to unlock premium features in PrickoShare, Pricko Guard, and future privacy tools in the ecosystem.",
+      description: "Hold $PRICKO tokens to unlock premium features in GeckoShare, GeckoGuard, and future privacy tools in the ecosystem.",
       icon: "🔐"
     },
     {

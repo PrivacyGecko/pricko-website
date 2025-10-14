@@ -117,7 +117,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   record-keeping regulations. These records are anonymized where possible.
                 </div>
                 <div>
-                  <strong className="text-white">PrickoShare Files:</strong> Free tier files are automatically
+                  <strong className="text-white">GeckoShare Files:</strong> Free tier files are automatically
                   deleted after 24 hours. Pro tier files are retained until you delete them manually, or
                   upon account closure plus 30-day grace period.
                 </div>
