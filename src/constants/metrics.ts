@@ -11,12 +11,12 @@ export const METRICS = {
     formatted: "1,200+",
     label: "privacy advocates"
   },
-  geckoShare: {
+  prickoshare: {
     users: 2100,
     formatted: "2,100+",
     label: "Active Users"
   },
-  geckoGuard: {
+  prickoGuard: {
     testers: 850,
     formatted: "850+",
     label: "Beta Testers"
@@ -29,16 +29,15 @@ export const METRICS = {
 } as const;
 
 export const TOOLS_COUNT = {
-  live: 1,  // GeckoShare
-  beta: 1,  // GeckoGuard
-  coming: 2, // Shell + Browser (coming soon)
-  inDevelopment: 0, // Currently none marked as "in development"
-  total: 4
+  live: 3,  // GeckoAdvisor, GeckoShare, GeckoGuard
+  beta: 0,  // None currently in beta
+  inDevelopment: 5, // GeckoLock, GeckoView, GeckoShell, GeckoVPN, GeckoWatch
+  total: 8
 } as const;
 
 export const FOUNDED_YEAR = 2024;
 
 export const RATING = {
-  geckoShare: 4.8,
-  geckoGuard: 4.6
+  prickoshare: "4.8",
+  prickoGuard: "4.6"
 } as const;
