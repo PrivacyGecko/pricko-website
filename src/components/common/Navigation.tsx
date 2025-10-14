@@ -13,6 +13,7 @@ const navigationItems: NavigationItem[] = [
   { name: 'About', href: '/about' },
   { name: 'Tools', href: '/tools' },
   { name: 'Tokenomics', href: '/tokenomics' },
+  { name: 'How to Buy', href: '/how-to-buy' },
   { name: 'Roadmap', href: '/roadmap' },
   { name: 'Contact', href: '/contact' },
 ];
