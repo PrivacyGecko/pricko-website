@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import { METRICS, RATING } from '../constants/metrics';
 
 const ToolsPage: React.FC = () => {
@@ -247,7 +248,14 @@ const ToolsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-bg-main text-white pt-24">
+    <>
+      <SEO
+        title="Privacy Tools - GeckoShare, GeckoGuard, GeckoLock & More | PRICKO"
+        description="Explore PRICKO's ecosystem of privacy tools including GeckoShare (file sharing), GeckoGuard (tracker blocker), GeckoLock (password manager), and more. Powered by $PRICKO token."
+        keywords="privacy tools, GeckoShare, GeckoGuard, GeckoLock, encrypted file sharing, password manager, tracker blocker, privacy browser, PRICKO tools"
+        canonicalUrl="/tools"
+      />
+      <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -585,6 +593,7 @@ const ToolsPage: React.FC = () => {
         </motion.section>
       </div>
     </div>
+    </>
   );
 };
 

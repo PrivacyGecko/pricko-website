@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaEye } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
+import SEO from '../components/common/SEO';
 
 const TokenomicsPage: React.FC = () => {
   const tokenomicsData = {
@@ -47,7 +48,14 @@ const TokenomicsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-bg-main text-white pt-24">
+    <>
+      <SEO
+        title="$PRICKO Tokenomics - Fair Launch & Token Distribution | PRICKO"
+        description="$PRICKO tokenomics: 1B total supply, 80% community via pump.fun fair launch, 20% development. Deflationary utility token for privacy tools on Solana."
+        keywords="PRICKO tokenomics, pump.fun launch, Solana token, utility token, token distribution, fair launch, deflationary token, crypto tokenomics"
+        canonicalUrl="/tokenomics"
+      />
+      <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -309,6 +317,7 @@ const TokenomicsPage: React.FC = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 
