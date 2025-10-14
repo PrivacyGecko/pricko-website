@@ -115,14 +115,14 @@ const ToolCard: React.FC<ToolCardProps> = ({
                   >
                     <div className="pt-2 space-y-2">
                       {features.map((feature, index) => {
-                        // Check if this is PrickoShare and if the feature is premium
-                        const isPrickoShare = title === "PrickoShare";
-                        const isPremiumFeature = isPrickoShare && (
-                          feature.includes("Pro") || 
-                          feature.includes("premium") || 
+                        // Check if this is GeckoShare and if the feature is premium
+                        const isGeckoShare = title === "GeckoShare";
+                        const isPremiumFeature = isGeckoShare && (
+                          feature.includes("Pro") ||
+                          feature.includes("premium") ||
                           feature.includes("Wallet-connect")
                         );
-                        
+
                         return (
                           <motion.div
                             key={index}
@@ -130,7 +130,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.2, delay: index * 0.1 }}
                           >
-                            {isPrickoShare ? (
+                            {isGeckoShare ? (
                               <PremiumFeature 
                                 feature={feature} 
                                 tier={isPremiumFeature ? 'pro' : 'free'}
