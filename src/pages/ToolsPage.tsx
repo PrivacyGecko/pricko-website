@@ -10,6 +10,31 @@ const ToolsPage: React.FC = () => {
 
   const tools = [
     {
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik05IDE0bDIgMiA0LTQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo8L3N2Zz4=",
+      title: "GeckoAdvisor",
+      subtitle: "Privacy & Security Audit Tool",
+      description: "Comprehensive privacy and security audit tool that scans your devices for vulnerabilities, tracks privacy leaks, and provides actionable recommendations to enhance your digital security posture.",
+      features: [
+        { name: "Device scanning", description: "Comprehensive scan of device settings and configurations for privacy risks" },
+        { name: "Vulnerability detection", description: "Identify security weaknesses and potential exploit vectors" },
+        { name: "Privacy score", description: "Real-time privacy rating based on your device configuration and behavior" },
+        { name: "Actionable recommendations", description: "Step-by-step guidance to fix identified privacy and security issues" },
+        { name: "Tracking detection", description: "Detect hidden trackers, spyware, and unwanted monitoring tools" },
+        { name: "Secure configuration", description: "Automatically apply security best practices and hardening measures" }
+      ],
+      status: "live" as const,
+      users: "Live & Available",
+      rating: 4.7,
+      category: "Security Audit",
+      url: "https://geckoadvisor.com",
+      securitySpecs: {
+        encryption: "TLS 1.3 + Local processing",
+        architecture: "Client-side analysis (no data leaves device)",
+        auditStatus: "Independent security review completed Q4 2024",
+        openSource: "https://github.com/pricko-project/gecko-advisor"
+      }
+    },
+    {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "GeckoShare",
       subtitle: "zero-knowledge File Sharing SaaS",
@@ -57,6 +82,31 @@ const ToolsPage: React.FC = () => {
         architecture: "Client-side processing (no data sent to servers)",
         auditStatus: "Beta testing with community security review",
         openSource: "https://github.com/pricko-project/pricko-guard"
+      }
+    },
+    {
+      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cmVjdCB4PSI2IiB5PSI4IiB3aWR0aD0iMTIiIGhlaWdodD0iMTAiIHJ4PSIyIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxyZWN0IHg9IjgiIHk9IjUiIHdpZHRoPSI4IiBoZWlnaHQ9IjQiIHJ4PSIxIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTMiIHI9IjIiIGZpbGw9IiMwMDAiLz4KPC9zdmc+Cjwvc3ZnPg==",
+      title: "GeckoLock",
+      subtitle: "Password Manager",
+      description: "Zero-knowledge password manager with military-grade AES-256 encryption and cross-platform synchronization. Store, generate, and autofill passwords securely with biometric unlock and multi-device sync.",
+      features: [
+        { name: "AES-256 encryption", description: "Military-grade encryption ensuring your passwords are never accessible to anyone but you" },
+        { name: "Zero-knowledge architecture", description: "Your master password never leaves your device - complete privacy guaranteed" },
+        { name: "Cross-platform sync", description: "Seamlessly access your passwords across all devices with end-to-end encryption" },
+        { name: "Biometric unlock", description: "Fingerprint and Face ID support for quick and secure access" },
+        { name: "Secure password generation", description: "Create strong, unique passwords with customizable complexity requirements" },
+        { name: "65% complete", description: "Currently in active development with core features implemented and tested" }
+      ],
+      status: "in-development" as const,
+      users: "In Development (65% Complete)",
+      rating: null,
+      category: "Password Manager",
+      url: undefined,
+      securitySpecs: {
+        encryption: "AES-256-GCM with PBKDF2 key derivation",
+        architecture: "Zero-knowledge (no server-side password access)",
+        auditStatus: "Security audit planned for Q2 2026 pre-launch",
+        openSource: "https://github.com/pricko-project/gecko-lock"
       }
     },
     {
@@ -184,11 +234,19 @@ const ToolsPage: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span>GeckoAdvisor Live</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               <span>GeckoShare Live</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
-              <span>GeckoGuard Beta Release</span>
+              <span>GeckoGuard Beta</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+              <span>GeckoLock In Dev</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-blue-500 rounded-full"></span>

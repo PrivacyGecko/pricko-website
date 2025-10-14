@@ -205,6 +205,17 @@ const Footer: React.FC = () => {
                 transition={{ delay: 0.4 }}
               >
                 <div className="flex items-center space-x-2">
+                  <span className="text-lg">✅</span>
+                  <span className="text-muted">GeckoAdvisor</span>
+                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
+                </div>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.45 }}
+              >
+                <div className="flex items-center space-x-2">
                   <span className="text-lg">📁</span>
                   <span className="text-muted">GeckoShare</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
@@ -224,6 +235,17 @@ const Footer: React.FC = () => {
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.55 }}
+              >
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🔒</span>
+                  <span className="text-muted">GeckoLock</span>
+                  <span className="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded-full">In Dev (65%)</span>
+                </div>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
               >
                 <div className="flex items-center space-x-2">
@@ -235,7 +257,7 @@ const Footer: React.FC = () => {
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0.65 }}
               >
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">💻</span>
