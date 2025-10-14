@@ -26,7 +26,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy address:', err);
+      // Failed to copy address - silently handle
     }
   };
 
@@ -69,18 +69,20 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
             <div className="flex gap-2">
               <motion.button
                 onClick={handleCopy}
-                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent"
+                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 disabled={copied}
+                aria-label={copied ? "Contract address copied to clipboard" : "Copy contract address to clipboard"}
               >
                 {copied ? <FaCheck /> : <FaCopy />}
               </motion.button>
               <motion.button
                 onClick={handleViewOnExplorer}
-                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent"
+                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="View contract address on Solscan explorer"
               >
                 <FaExternalLinkAlt />
               </motion.button>
@@ -90,7 +92,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
         
         {!isLaunched && (
           <p className="text-center text-muted text-sm mt-4">
-            Contract address will be announced on launch day. Join our waitlist to be notified first!
+            Contract address will be announced on pump.fun launch day. Join our community to be notified first!
           </p>
         )}
       </motion.div>
@@ -107,9 +109,10 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
         {isLaunched && (
           <motion.button
             onClick={handleCopy}
-            className="text-accent hover:text-accent-hover transition-colors"
+            className="text-accent hover:text-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label={copied ? "Contract address copied" : "Copy contract address"}
           >
             {copied ? <FaCheck className="text-sm" /> : <FaCopy className="text-sm" />}
           </motion.button>
@@ -151,18 +154,20 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
             <div className="flex gap-2">
               <motion.button
                 onClick={handleCopy}
-                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent"
+                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label={copied ? "Contract address copied to clipboard" : "Copy contract address to clipboard"}
                 title={copied ? "Copied!" : "Copy address"}
               >
                 {copied ? <FaCheck /> : <FaCopy />}
               </motion.button>
               <motion.button
                 onClick={handleViewOnExplorer}
-                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent"
+                className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="View contract address on Solscan explorer"
                 title="View on Solscan"
               >
                 <FaExternalLinkAlt />
@@ -175,7 +180,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
       {!isLaunched ? (
         <div className="text-center">
           <p className="text-muted text-sm mb-3">
-            Contract address will be announced on official launch day
+            Contract address will be announced on pump.fun launch day
           </p>
           <p className="text-accent text-sm font-medium">
             ⚠️ Beware of fake contracts before official launch

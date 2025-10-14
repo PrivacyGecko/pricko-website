@@ -16,10 +16,11 @@ A modern, privacy-focused memecoin website built with React, TypeScript, and Tai
 ### 📱 Pages & Content
 - **Homepage**: Hero section with call-to-action buttons and tools preview
 - **About**: Origin story and mission of the PRICKO project
-- **Privacy Tools**: Detailed showcase of PrickoVPN, BurnerChat, and DoxxGuard
-- **Tokenomics**: Complete breakdown of $PRICK token distribution and utility
+- **Privacy Tools**: Detailed showcase of PrickoShare, Pricko Guard, Pricko Shell, Pricko Browser
+- **Tokenomics**: Complete breakdown of $PRICKO token distribution and utility
 - **Roadmap**: Development timeline and future milestones
 - **Contact**: Community channels and team contact information
+- **Legal Pages**: Privacy Policy, Terms of Service, Disclaimer
 
 ### 🛠️ Technical Features
 - **TypeScript**: Full type safety and better developer experience
@@ -34,15 +35,23 @@ A modern, privacy-focused memecoin website built with React, TypeScript, and Tai
 ```
 pricko-website/
 ├── public/
-│   ├── logo.png          # Main PRICKO gecko logo
-│   ├── vpn.png           # PrickoVPN tool icon
-│   ├── chat.png          # BurnerChat tool icon
-│   └── shield.png        # DoxxGuard tool icon
+│   └── logo.png          # Main PRICKO gecko logo
 ├── src/
 │   ├── components/
 │   │   ├── common/       # Layout components (Header, Footer, Navigation)
 │   │   └── ui/           # Reusable UI components (ToolCard, Button)
-│   ├── pages/            # Page components for each route
+│   ├── pages/
+│   │   ├── HomePage.tsx
+│   │   ├── AboutPage.tsx
+│   │   ├── ToolsPage.tsx
+│   │   ├── TokenomicsPage.tsx
+│   │   ├── RoadmapPage.tsx
+│   │   ├── ContactPage.tsx
+│   │   ├── PrivacyPolicyPage.tsx      # Legal
+│   │   ├── TermsOfServicePage.tsx     # Legal
+│   │   └── DisclaimerPage.tsx         # Legal
+│   ├── constants/
+│   │   └── metrics.ts                 # Centralized metrics
 │   ├── types/            # TypeScript type definitions
 │   ├── styles/           # Global CSS and Tailwind configuration
 │   └── utils/            # Utility functions and constants
@@ -129,25 +138,38 @@ pricko-website/
 ## 🌟 Key Features Explained
 
 ### Privacy Tools Showcase
-The website highlights three main privacy tools:
+The website highlights four main privacy tools:
 
-1. **PrickoVPN** (Coming Soon)
-   - Wallet-authenticated VPN service
-   - Solana-native payments
-   - No-logs policy
+1. **PrickoShare** (Live - 2,100+ Users)
+   - Zero-knowledge file sharing SaaS
+   - Token-gated premium features
+   - Persistent vault storage for Pro tier
+   - Daily quotas system with wallet-connect authentication
+   - URL: https://prickoshare.com
 
-2. **BurnerChat** (Beta)
-   - Ephemeral encrypted messaging
-   - Self-destructing messages
-   - Wallet-based identity
+2. **Pricko Guard** (Beta - 850+ Testers)
+   - Manifest V3 browser extension
+   - Anti-fingerprinting protection
+   - Tracker and cookie blocking
+   - Multiple stealth modes
+   - Premium tiers for token holders
+   - URL: https://prickoguard.com
 
-3. **DoxxGuard** (Live)
-   - Personal data protection
-   - Automated masking
-   - Real-time monitoring
+3. **Pricko Shell** (Coming Soon - 1,800+ Waitlist)
+   - Cross-platform mobile privacy browser (iOS, Android)
+   - Solana wallet integration
+   - Plugin system architecture
+   - Privacy toolkit SDK
+
+4. **Pricko Browser** (In Development - Phase 3)
+   - Desktop browser forked from Ungoogled Chromium
+   - Built-in crypto wallet
+   - Plugin marketplace
+   - Privacy-first architecture
+   - Integrated DeFi tools
 
 ### Tokenomics
-- **Total Supply**: 1,000,000,000 $PRICK tokens
+- **Total Supply**: 1,000,000,000 $PRICKO tokens
 - **Blockchain**: Solana (fast and low cost)
 - **Utility**: Access to privacy tools, governance, staking
 
@@ -194,10 +216,10 @@ PRICKO is more than just a meme coin—it's a movement for digital privacy. Born
 
 ## 📞 Contact
 
-- **Community**: community@pricko.io
-- **Technical Support**: support@pricko.io
-- **Business**: business@pricko.io
-- **Press**: press@pricko.io
+- **Community**: community@pricko.com
+- **Technical Support**: support@pricko.com
+- **Business**: business@pricko.com
+- **Press**: press@pricko.com
 
 ## 🔗 Links
 

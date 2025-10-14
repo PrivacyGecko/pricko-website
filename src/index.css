@@ -19,15 +19,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent hover:bg-accent-hover text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
+    @apply bg-accent hover:bg-accent-hover text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
   }
-  
+
   .btn-secondary {
-    @apply border border-accent text-accent hover:bg-accent hover:text-white py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
+    @apply border border-accent text-accent hover:bg-accent hover:text-white py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
   }
   
   .card {
-    @apply bg-secondary border border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300;
+    @apply bg-secondary border border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
   }
   
   .gradient-text {
@@ -51,10 +51,35 @@
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
-  
+
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Accessibility: Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Accessibility: Show element on focus for keyboard navigation */
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 }
 

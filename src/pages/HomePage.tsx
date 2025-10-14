@@ -10,7 +10,6 @@ import {
   FaBullseye,
   FaUsers,
   FaRocket,
-  FaGem,
   FaInfinity,
   FaEye,
   FaLock
@@ -23,7 +22,7 @@ const HomePage: React.FC = () => {
       title: "PrickoShare",
       description: "Zero-knowledge, token-gated file-sharing SaaS with instant uploads and persistent vault storage.",
       status: "live" as const,
-      features: ["Instant link → upload", "Persistent vault (Pro)", "Daily quotas system", "Wallet-connect premium"],
+      features: ["Instant link → upload", "Persistent vault (Pro)", "Zero-knowledge encryption", "Wallet-connect premium", "Daily quotas system", "Background processing"],
       url: "https://prickoshare.com"
     },
     {
@@ -31,7 +30,7 @@ const HomePage: React.FC = () => {
       title: "Pricko Guard",
       description: "Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes.",
       status: "beta" as const,
-      features: ["Anti-fingerprinting protection", "Tracker/cookie blocking", "Multiple stealth modes", "Premium vs free tiers"],
+      features: ["Anti-fingerprinting protection", "Tracker/cookie blocking", "Multiple stealth modes", "Pro vs free tiers"],
       url: "https://prickoguard.com"
     },
     {
@@ -78,14 +77,14 @@ const HomePage: React.FC = () => {
                   <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                   <span className="text-accent font-medium text-sm">Privacy Gecko</span>
                 </div>
-                
-                <h2 className="text-2xl md:text-3xl font-bold text-accent mb-3">
-                  <span className="gradient-text">Memes With a Mission</span>
-                </h2>
-                
+
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
                   <span className="gradient-text text-shadow">PRICKO</span>
                 </h1>
+
+                <p className="text-2xl md:text-3xl font-bold text-accent mb-3">
+                  <span className="gradient-text">Memes With a Mission</span>
+                </p>
                 
                 <p className="text-xl md:text-2xl text-muted max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
                   A <span className="text-accent font-semibold">Solana-powered</span> memecoin with a purpose.
@@ -188,10 +187,8 @@ const HomePage: React.FC = () => {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                     onError={(e) => {
-                      console.error('Failed to load logo.png');
                       e.currentTarget.style.display = 'none';
                     }}
-                    onLoad={() => console.log('Successfully loaded logo.png')}
                   />
                   
                   {/* Glow Effect */}
@@ -261,7 +258,7 @@ const HomePage: React.FC = () => {
                 <p className="text-accent text-xl md:text-2xl font-medium leading-relaxed">
                   🦎 Born in memes. Forged in data abuse.
                   <br />
-                  <span className="gradient-text">Pricko is your crypto-native gecko guardian.</span>
+                  <span className="gradient-text">Pricko is your crypto-native privacy guardian.</span>
                 </p>
               </motion.div>
 
@@ -343,7 +340,7 @@ const HomePage: React.FC = () => {
               <p className="text-center text-muted mb-4 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
                 Privacy-first tools powered by <span className="text-accent font-semibold">$PRICKO</span> tokens.
                 Each tool is designed to protect your digital footprint while maintaining the fun,
-                irreverent spirit of the gecko community.
+                irreverent spirit of the community.
               </p>
             </motion.div>
           </motion.div>
@@ -408,7 +405,7 @@ const HomePage: React.FC = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-hover mx-auto mb-6"></div>
             <p className="text-muted text-lg max-w-3xl mx-auto">
-              The gecko army grows stronger every day. Many more privacy tools are in discussion and development, 
+              The community grows stronger every day. Many more privacy tools are in discussion and development, 
               with the community helping shape the future of digital privacy.
             </p>
           </motion.div>
@@ -466,7 +463,7 @@ const HomePage: React.FC = () => {
                 <span className="text-2xl">⚡</span>
               </div>
               <h3 className="text-lg font-semibold text-accent mb-2">More Tools</h3>
-              <p className="text-muted text-sm mb-4">The gecko ecosystem expands</p>
+              <p className="text-muted text-sm mb-4">The privacy ecosystem expands</p>
               <div className="px-3 py-1 bg-gray-500/20 text-gray-400 text-xs rounded-full inline-block">
                 Future Vision
               </div>
@@ -521,13 +518,13 @@ const HomePage: React.FC = () => {
               className="mb-12"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Join the <span className="gradient-text">Gecko Revolution</span>
+                Join the <span className="gradient-text">Privacy Revolution</span>
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-accent to-accent-hover mx-auto mb-8"></div>
               <p className="text-muted mb-8 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
                 Be part of a community that values <span className="text-accent font-semibold">privacy</span>,
                 <span className="text-accent font-semibold"> fun</span>, and
-                <span className="text-accent font-semibold"> financial freedom</span>.
+                <span className="text-accent font-semibold"> digital sovereignty</span>.
                 Together, we're building the future of private, decentralized tools.
               </p>
             </motion.div>
@@ -562,7 +559,7 @@ const HomePage: React.FC = () => {
                 <div className="text-2xl font-bold text-accent mb-1">
                   <FaRocket className="mx-auto" />
                 </div>
-                <div className="text-sm text-muted">To The Moon</div>
+                <div className="text-sm text-muted">Long-term Vision</div>
               </div>
             </motion.div>
             

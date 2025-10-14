@@ -5,6 +5,9 @@ node_modules/
 assets/
 .claude/
 CLAUDE.md
+test-results/
+playwright-report/
+
 
 # Production build
 /dist

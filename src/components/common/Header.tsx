@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
-import ContractAddress from '../ui/ContractAddress';
+// import ContractAddress from '../ui/ContractAddress';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
       <div className="container-max">
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
           {/* Enhanced Logo Section */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded-lg">
             <motion.div
               className="relative w-12 h-12 sm:w-14 sm:h-14"
               whileHover={{ scale: 1.1 }}
@@ -78,8 +78,9 @@ const Header: React.FC = () => {
           {/* Enhanced Mobile Menu Button */}
           <motion.button
             onClick={toggleMenu}
-            className="md:hidden p-3 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative"
-            aria-label="Toggle menu"
+            className="md:hidden p-3 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
             whileTap={{ scale: 0.95 }}
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">

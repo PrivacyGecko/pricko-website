@@ -53,16 +53,19 @@ const Footer: React.FC = () => {
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
-    { name: 'Disclaimer', href: '#' },
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms of Service', href: '/terms' },
+    { name: 'Cookie Policy', href: '/privacy#cookies' },
+    { name: 'Do Not Sell My Personal Information', href: '/privacy#ccpa' },
+    { name: 'Disclaimer', href: '/disclaimer' },
   ];
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log('Newsletter subscription:', email);
+    // Create mailto link for newsletter subscription
+    const subject = encodeURIComponent('Newsletter Subscription Request');
+    const body = encodeURIComponent(`Email: ${email}\n\nPlease add me to the PRICKO newsletter.`);
+    window.location.href = `mailto:newsletter@pricko.com?subject=${subject}&body=${body}`;
     setEmail('');
   };
 
@@ -86,7 +89,7 @@ const Footer: React.FC = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-accent-hover/30 rounded-full blur-md"></div>
                 <div className="relative w-12 h-12 bg-gradient-to-br from-white to-gray-100 rounded-full flex justify-center items-center p-2 shadow-lg">
-                  <img src="/logo.png" alt="Pricko Logo" className="w-full h-full object-contain" />
+                  <img src="/logo.png" alt="Pricko Logo" loading="lazy" className="w-full h-full object-contain" />
                 </div>
               </div>
               <div>
@@ -102,7 +105,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               Privacy-focused memecoin with real utility. Born in memes, forged in data abuse.
-              Your crypto-native gecko guardian fighting surveillance one transaction at a time.
+              Your crypto-native privacy guardian fighting surveillance one transaction at a time.
             </motion.p>
 
             {/* Newsletter Subscription */}
@@ -258,12 +261,12 @@ const Footer: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.5 }}
                 >
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
               <motion.li

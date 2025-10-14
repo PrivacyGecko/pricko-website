@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
+import { METRICS, FOUNDED_YEAR, TOOLS_COUNT } from '../constants/metrics';
 import {
   FaCalendarAlt,
   FaUsers,
@@ -48,8 +49,8 @@ const AboutPage: React.FC = () => {
             About <span className="gradient-text-animated">PRICKO</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
-            Pioneering the future of digital privacy through innovative blockchain technology,
-            community-driven development, and unwavering commitment to user empowerment.
+            Building privacy tools that don't suck. Community-owned, meme-powered, actually useful.
+            Privacy protection without the corporate BS.
           </p>
         </motion.div>
 
@@ -71,7 +72,7 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaCalendarAlt className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">2024</div>
+              <div className="text-4xl font-bold text-accent mb-2">{FOUNDED_YEAR}</div>
               <div className="text-lg font-semibold mb-2">Founded</div>
               <div className="text-muted">Established with a vision for privacy</div>
             </motion.div>
@@ -84,9 +85,9 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaUsers className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">1.2K+</div>
+              <div className="text-4xl font-bold text-accent mb-2">{METRICS.community.formatted}</div>
               <div className="text-lg font-semibold mb-2">Early Supporters</div>
-              <div className="text-muted">Growing privacy advocates</div>
+              <div className="text-muted">Growing {METRICS.community.label}</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -97,7 +98,7 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaTools className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">5+</div>
+              <div className="text-4xl font-bold text-accent mb-2">{TOOLS_COUNT.total}+</div>
               <div className="text-lg font-semibold mb-2">Privacy Tools</div>
               <div className="text-muted">In development pipeline</div>
             </motion.div>
@@ -130,9 +131,9 @@ const AboutPage: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  In an era where digital privacy has become a luxury rather than a right, PRICKO emerged
-                  from the collective vision of privacy advocates, blockchain developers, and community leaders
-                  who refused to accept the status quo of surveillance capitalism.
+                  Your data is being sold. Every search, every message, every click. We got tired of watching
+                  people hand over their privacy to corporations who profit from it. So we built something better:
+                  privacy tools that work, backed by a community that owns them.
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -140,9 +141,9 @@ const AboutPage: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  Our journey began with a simple yet powerful realization: every day, billions of people
-                  unknowingly surrender their most valuable asset—their personal data—to corporations that
-                  profit from their digital footprints while offering little in return.
+                  We started PRICKO because we were sick of the hypocrisy. Companies claiming to care about your
+                  privacy while mining your data for billions. VPNs that log everything. "Secure" apps with
+                  backdoors. Enough is enough.
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -150,9 +151,9 @@ const AboutPage: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   viewport={{ once: true }}
                 >
-                  Built on Solana's high-performance blockchain, PRICKO represents more than just a token—
-                  it's a comprehensive ecosystem designed to restore digital sovereignty to individuals
-                  through innovative privacy-preserving technologies and community governance.
+                  Built on Solana for speed, powered by $PRICKO for access, governed by the community.
+                  This isn't just another crypto project—it's your digital privacy toolkit with actual utility.
+                  No VC overlords, no corporate puppeteers. Just real tools for real people who give a damn about privacy.
                 </motion.p>
               </div>
             </div>
@@ -410,7 +411,7 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Meet the <span className="gradient-text">Gecko Team</span>
+            Meet the <span className="gradient-text">Core Team</span>
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -503,7 +504,7 @@ const AboutPage: React.FC = () => {
             <h3 className="text-2xl font-semibold text-accent mb-4">Join Our Team</h3>
             <p className="text-muted mb-6 max-w-2xl mx-auto">
               We're always looking for passionate privacy advocates, talented developers, and creative minds 
-              to join the gecko revolution. Check out our open positions or reach out with your ideas.
+              to join the privacy revolution. Check out our open positions or reach out with your ideas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">

@@ -23,7 +23,7 @@ export default {
         secondary: '#18181b',
         accent: '#4ade80',
         'accent-hover': '#22c55e',
-        muted: '#a1a1aa',
+        muted: '#d4d4d8', // Updated from #a1a1aa (zinc-400) to #d4d4d8 (zinc-300) for WCAG AA compliance (4.5:1 contrast ratio)
         border: '#27272a'
       },
       fontFamily: {

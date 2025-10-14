@@ -4,19 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "node node_modules/vite/bin/vite.js build",
-  "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-  "preview": "vite preview"
+    "dev": "vite",
+    "build": "node node_modules/vite/bin/vite.js build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "framer-motion": "^10.16.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
     "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
@@ -24,10 +29,12 @@
     "@vitejs/plugin-react": "^4.1.1",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6",
+    "terser": "^5.44.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
   }

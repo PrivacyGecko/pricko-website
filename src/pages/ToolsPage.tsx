@@ -1,30 +1,38 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import PremiumFeature from '../components/ui/PremiumFeature';
+// import PremiumFeature from '../components/ui/PremiumFeature';
+import { METRICS, RATING } from '../constants/metrics';
 
 const ToolsPage: React.FC = () => {
   const [selectedTool, setSelectedTool] = useState<number | null>(null);
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
+  const [showSecurity, setShowSecurity] = useState<number | null>(null);
 
   const tools = [
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "PrickoShare",
-      subtitle: "Zero-Knowledge File Sharing SaaS",
+      subtitle: "zero-knowledge File Sharing SaaS",
       description: "Revolutionary zero-knowledge, token-gated file-sharing platform with instant uploads, persistent vault storage, and wallet-connect premium access. Features daily quotas system for fair usage.",
       features: [
         { name: "Instant link → upload", description: "Generate sharing links before files finish uploading in background" },
         { name: "Persistent vault (Pro tier)", description: "Long-term storage with premium wallet authentication" },
-        { name: "Daily quotas system", description: "Fair usage limits with premium tier benefits" },
-        { name: "Wallet-connect premium", description: "Token-gated access to advanced features" },
+        { name: "Daily quotas system", description: "Fair usage limits with Pro tier benefits" },
+        { name: "Wallet-connect premium", description: "token-gated access to advanced features" },
         { name: "Zero-knowledge encryption", description: "End-to-end encryption with no server-side access to content" },
         { name: "Background processing", description: "Upload files while sharing links are already active" }
       ],
       status: "live" as const,
-      users: "2.1K+ Active Users",
-      rating: 4.8,
+      users: `${METRICS.prickoshare.formatted} ${METRICS.prickoshare.label}`,
+      rating: RATING.prickoshare,
       category: "File Sharing",
-      url: "https://prickoshare.com"
+      url: "https://prickoshare.com",
+      securitySpecs: {
+        encryption: "AES-256-GCM end-to-end encryption",
+        architecture: "Zero-knowledge (server-side blind)",
+        auditStatus: "Security audit scheduled Q1 2026",
+        openSource: "https://github.com/pricko-project/prickoshare"
+      }
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
@@ -35,15 +43,21 @@ const ToolsPage: React.FC = () => {
         { name: "Anti-fingerprinting protection", description: "Advanced techniques to prevent browser fingerprinting and tracking" },
         { name: "Tracker/cookie blocking", description: "Intelligent blocking of tracking scripts and invasive cookies" },
         { name: "Multiple stealth modes", description: "Choose from different privacy levels: Balanced, Strict, Ultimate" },
-        { name: "Premium vs free protection", description: "Tiered access with enhanced features for token holders" },
+        { name: "Pro vs free protection", description: "Tiered access with enhanced features for token holders" },
         { name: "Manifest V3 compatibility", description: "Built for Chrome's latest extension framework" },
         { name: "Real-time threat detection", description: "Active monitoring and blocking of privacy threats" }
       ],
       status: "beta" as const,
-      users: "Beta: 850+ Testers",
-      rating: 4.6,
+      users: `Beta: ${METRICS.prickoGuard.formatted} ${METRICS.prickoGuard.label}`,
+      rating: RATING.prickoGuard,
       category: "Browser Extension",
-      url: "https://prickoguard.com"
+      url: "https://prickoguard.com",
+      securitySpecs: {
+        encryption: "TLS 1.3 + Local storage encryption",
+        architecture: "Client-side processing (no data sent to servers)",
+        auditStatus: "Beta testing with community security review",
+        openSource: "https://github.com/pricko-project/pricko-guard"
+      }
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOWY3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
@@ -59,10 +73,16 @@ const ToolsPage: React.FC = () => {
         { name: "Mobile-first design", description: "Optimized UI/UX for mobile privacy workflows" }
       ],
       status: "coming-soon" as const,
-      users: "Waitlist: 1.8K+",
+      users: `${METRICS.prickoShell.label}: ${METRICS.prickoShell.formatted}`,
       rating: null,
       category: "Mobile Browser",
-      url: undefined
+      url: undefined,
+      securitySpecs: {
+        encryption: "Military-grade AES-256 encryption",
+        architecture: "Sandboxed execution environment",
+        auditStatus: "Design phase - audit planned pre-launch",
+        openSource: "https://github.com/pricko-project/pricko-shell"
+      }
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
@@ -81,7 +101,13 @@ const ToolsPage: React.FC = () => {
       users: "In Development",
       rating: null,
       category: "Desktop Browser",
-      url: undefined
+      url: undefined,
+      securitySpecs: {
+        encryption: "Hardware-backed encryption + Secure Enclaves",
+        architecture: "Ungoogled Chromium fork with privacy hardening",
+        auditStatus: "Independent security audit planned for Phase 3",
+        openSource: "https://github.com/pricko-project/pricko-browser"
+      }
     }
   ];
 
@@ -304,7 +330,64 @@ const ToolsPage: React.FC = () => {
                         })}
                       </div>
                     </div>
-                    
+
+                    {/* Security Specifications Section */}
+                    {tool.securitySpecs && (
+                      <motion.div className="mb-8">
+                        <button
+                          className="text-accent hover:text-accent-hover text-sm font-medium flex items-center gap-2 mb-3"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowSecurity(showSecurity === index ? null : index);
+                          }}
+                        >
+                          <span>🔒</span>
+                          <span>Security Details</span>
+                          <span className="text-xs">{showSecurity === index ? '▲' : '▼'}</span>
+                        </button>
+
+                        <AnimatePresence>
+                          {showSecurity === index && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="bg-secondary/30 border border-accent/20 rounded-xl p-4 space-y-3">
+                                <div className="text-sm">
+                                  <strong className="text-accent">Encryption:</strong>{' '}
+                                  <span className="text-gray-300">{tool.securitySpecs.encryption}</span>
+                                </div>
+                                <div className="text-sm">
+                                  <strong className="text-accent">Architecture:</strong>{' '}
+                                  <span className="text-gray-300">{tool.securitySpecs.architecture}</span>
+                                </div>
+                                <div className="text-sm">
+                                  <strong className="text-accent">Audit Status:</strong>{' '}
+                                  <span className="text-gray-300">{tool.securitySpecs.auditStatus}</span>
+                                </div>
+                                {tool.securitySpecs.openSource && (
+                                  <div className="text-sm">
+                                    <strong className="text-accent">Source Code:</strong>{' '}
+                                    <a
+                                      href={tool.securitySpecs.openSource}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-accent hover:text-accent-hover hover:underline"
+                                    >
+                                      View on GitHub →
+                                    </a>
+                                  </div>
+                                )}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    )}
+
                     <div className="flex flex-col sm:flex-row gap-4">
                       <motion.button
                         className={`${tool.status === 'live' ? 'btn-primary' : tool.status === 'beta' ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
@@ -348,10 +431,8 @@ const ToolsPage: React.FC = () => {
                           whileHover={{ scale: 1.1, rotate: 5 }}
                           transition={{ duration: 0.3 }}
                           onError={(e) => {
-                            console.error(`Failed to load image: ${tool.icon}`);
                             e.currentTarget.style.display = 'none';
                           }}
-                          onLoad={() => console.log(`Successfully loaded image: ${tool.icon}`)}
                         />
                       </div>
                       
@@ -393,7 +474,7 @@ const ToolsPage: React.FC = () => {
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
               </h2>
               <p className="text-xl text-muted mb-10 max-w-3xl mx-auto leading-relaxed">
-                Join over 2,100+ users already using PrickoShare and 850+ beta testers trying Pricko Guard.
+                Join over {METRICS.prickoshare.formatted} users already using PrickoShare and {METRICS.prickoGuard.formatted} beta testers trying Pricko Guard.
                 Experience live privacy tools today and be part of the growing PRICKO ecosystem.
               </p>
               
