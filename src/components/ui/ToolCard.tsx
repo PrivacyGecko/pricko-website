@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ToolCardProps } from '../../types';
-import { FaCheck, FaChevronDown, FaChevronUp, FaCrown } from 'react-icons/fa';
+import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import PremiumFeature from './PremiumFeature';
 
 const ToolCard: React.FC<ToolCardProps> = ({
@@ -64,12 +64,11 @@ const ToolCard: React.FC<ToolCardProps> = ({
           <img
             src={icon}
             alt={title}
+            loading="lazy"
             className="w-8 h-8 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
             onError={(e) => {
-              console.error(`Failed to load image: ${icon}`);
               e.currentTarget.style.display = 'none';
             }}
-            onLoad={() => console.log(`Successfully loaded image: ${icon}`)}
           />
         </motion.div>
 
@@ -91,13 +90,15 @@ const ToolCard: React.FC<ToolCardProps> = ({
           {features.length > 0 && (
             <div className="w-full">
               <motion.button
-                className="flex items-center justify-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm font-medium w-full py-2"
+                className="flex items-center justify-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm font-medium w-full py-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowFeatures(!showFeatures);
                 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                aria-label={showFeatures ? "Hide key features" : "Show key features"}
+                aria-expanded={showFeatures}
               >
                 Key Features
                 {showFeatures ? <FaChevronUp className="text-xs" /> : <FaChevronDown className="text-xs" />}

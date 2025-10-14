@@ -52,7 +52,7 @@ const RoadmapPage: React.FC = () => {
       phase: "Phase 2 🧪",
       title: "Pricko Guard Beta Release",
       status: "in-progress" as const,
-      quarter: "2025 Q1",
+      quarter: "2025 Q3-Q4",
       progress: 75,
       duration: "3 months",
       budget: "In Progress",
@@ -89,8 +89,8 @@ const RoadmapPage: React.FC = () => {
           impact: "Medium"
         },
         {
-          name: "Premium Tier Features",
-          description: "Token-gated enhanced protection for PRICKO holders",
+          name: "Pro Tier Features",
+          description: "token-gated enhanced protection for PRICKO holders",
           status: "upcoming",
           impact: "Medium"
         },
@@ -106,7 +106,7 @@ const RoadmapPage: React.FC = () => {
       phase: "Phase 2.5 📱",
       title: "Pricko Shell Mobile Browser",
       status: "upcoming" as const,
-      quarter: "2025 Q2-Q3",
+      quarter: "2026 Q1-Q2",
       progress: 0,
       duration: "6 months",
       budget: "Planned",
@@ -205,8 +205,9 @@ const RoadmapPage: React.FC = () => {
     const inProgressPhases = roadmapPhases.filter(phase => phase.status === 'in-progress');
     const totalProgress = completedPhases * 100 + (inProgressPhases.length > 0 ? inProgressPhases[0].progress : 0);
     const overallProgress = totalProgress / roadmapPhases.length;
-    
+
     setProgressPercentage(overallProgress);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getStatusConfig = (status: string) => {
@@ -319,7 +320,7 @@ const RoadmapPage: React.FC = () => {
           >
             <div className="text-3xl mb-3">🎯</div>
             <h3 className="text-lg font-semibold mb-2 text-yellow-400">Current Phase</h3>
-            <p className="text-white font-medium">Q3-Q4 2025 Roadmap</p>
+            <p className="text-white font-medium">Q4 2025 Roadmap</p>
             <div className="mt-3 text-xs text-yellow-300">15% Complete</div>
           </motion.div>
           

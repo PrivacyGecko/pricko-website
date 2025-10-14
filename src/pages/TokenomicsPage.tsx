@@ -9,34 +9,16 @@ const TokenomicsPage: React.FC = () => {
     totalSupply: "1,000,000,000",
     distribution: [
       {
-        category: "Community & Rewards",
-        percentage: 40,
-        amount: "400,000,000",
-        description: "Distributed to community members through airdrops, staking rewards, and privacy tool usage incentives."
+        category: "Community & Market",
+        percentage: 80,
+        amount: "800,000,000",
+        description: "Fair launch via pump.fun. Tokens released to the open market for community acquisition, trading, and privacy tool usage."
       },
       {
-        category: "Privacy Tool Development",
-        percentage: 25,
-        amount: "250,000,000",
-        description: "Funding development of PrickoShare, Pricko Guard, Pricko Shell, Pricko Browser, and future privacy tools."
-      },
-      {
-        category: "Liquidity Pool",
+        category: "Development Team",
         percentage: 20,
         amount: "200,000,000",
-        description: "Providing deep liquidity on DEXs and ensuring smooth trading for the community."
-      },
-      {
-        category: "Team & Advisors",
-        percentage: 10,
-        amount: "100,000,000",
-        description: "Team allocation with 2-year vesting to ensure long-term commitment to the project."
-      },
-      {
-        category: "Marketing & Partnerships",
-        percentage: 5,
-        amount: "50,000,000",
-        description: "Growing the gecko army through strategic partnerships and community building initiatives."
+        description: "Reserved for ongoing development of privacy tools, platform maintenance, and long-term project sustainability."
       }
     ]
   };
@@ -44,23 +26,23 @@ const TokenomicsPage: React.FC = () => {
   const utilities = [
     {
       title: "Privacy Tool Access",
-      description: "Use $PRICKO tokens to access premium features in PrickoShare Pro, Pricko Guard premium tiers, and future privacy tools.",
+      description: "Hold $PRICKO tokens to unlock premium features in PrickoShare, Pricko Guard, and future privacy tools in the ecosystem.",
       icon: "🔐"
     },
     {
       title: "Governance Rights",
-      description: "Vote on protocol upgrades, new tool development, and community proposals.",
+      description: "Token holders can participate in governance decisions on protocol upgrades, new tool development, and community proposals.",
       icon: "🗳️"
     },
     {
-      title: "Staking Rewards",
-      description: "Stake $PRICKO tokens to earn rewards and support network security.",
-      icon: "💰"
+      title: "Community Benefits",
+      description: "Exclusive access to beta features, early releases, community events, and PRICKO merchandise for token holders.",
+      icon: "🎁"
     },
     {
-      title: "Community Benefits",
-      description: "Exclusive access to beta features, community events, and gecko merchandise.",
-      icon: "🎁"
+      title: "Deflationary Model",
+      description: "Token burns from privacy tool usage reduce supply over time, creating scarcity and potential value appreciation.",
+      icon: "🔥"
     }
   ];
 
@@ -79,7 +61,7 @@ const TokenomicsPage: React.FC = () => {
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             A fair and sustainable token economy designed to reward privacy advocates, 
-            fund tool development, and build the strongest gecko community in crypto.
+            fund tool development, and build the strongest privacy community in crypto.
           </p>
         </motion.div>
 
@@ -132,7 +114,11 @@ const TokenomicsPage: React.FC = () => {
                 {/* Legend dots positioned around the circle */}
                 <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center">
                   <div className="w-4 h-4 bg-accent rounded-full mx-auto mb-1"></div>
-                  <span className="text-xs">Community 40%</span>
+                  <span className="text-xs">Market 80%</span>
+                </div>
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
+                  <div className="w-4 h-4 bg-accent-hover rounded-full mx-auto mb-1"></div>
+                  <span className="text-xs">Dev 20%</span>
                 </div>
               </div>
             </div>
@@ -187,7 +173,44 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* Roadmap Integration */}
+        {/* Token Launch Information */}
+        <motion.section
+          className="mb-16 bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-2xl p-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <span className="gradient-text">Fair Launch via pump.fun</span>
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              $PRICKO will launch on pump.fun, the leading Solana token launchpad. This ensures a completely
+              fair distribution with no presales, no whitelists, and equal opportunity for all community members
+              to participate from day one.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              <div className="bg-secondary/50 rounded-lg p-4">
+                <div className="text-3xl mb-2">⚖️</div>
+                <h3 className="font-semibold text-white mb-1">Fair Launch</h3>
+                <p className="text-sm text-muted">No presales or private rounds</p>
+              </div>
+              <div className="bg-secondary/50 rounded-lg p-4">
+                <div className="text-3xl mb-2">🚀</div>
+                <h3 className="font-semibold text-white mb-1">Instant Liquidity</h3>
+                <p className="text-sm text-muted">Trade immediately on Raydium</p>
+              </div>
+              <div className="bg-secondary/50 rounded-lg p-4">
+                <div className="text-3xl mb-2">🔒</div>
+                <h3 className="font-semibold text-white mb-1">Community Owned</h3>
+                <p className="text-sm text-muted">80% to market, 20% to devs</p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Token Economics */}
         <motion.section
           className="mb-16 bg-secondary/30 rounded-2xl p-8"
           initial={{ opacity: 0, y: 20 }}
@@ -195,24 +218,18 @@ const TokenomicsPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-center">Economic Sustainability</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-bold mb-6 text-center">Token Economics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="text-center">
-              <h3 className="text-xl font-semibold mb-3 text-accent">Deflationary Mechanism</h3>
+              <h3 className="text-xl font-semibold mb-3 text-accent">Deflationary Model</h3>
               <p className="text-muted">
-                A portion of tokens used for premium privacy tool features are burned, creating deflationary pressure and increasing scarcity over time.
+                Tokens used for premium privacy tool subscriptions are burned permanently, reducing total supply over time and creating scarcity.
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-semibold mb-3 text-accent">Revenue Sharing</h3>
+              <h3 className="text-xl font-semibold mb-3 text-accent">Organic Growth</h3>
               <p className="text-muted">
-                Premium tier revenues from PrickoShare and other privacy tools are partially distributed back to token holders through staking rewards and community treasury.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-3 text-accent">Growth Incentives</h3>
-              <p className="text-muted">
-                Early adopters and active community members receive bonus tokens for contributing to ecosystem growth and privacy advocacy.
+                As privacy tools gain users, token demand increases while supply decreases through burns, driving sustainable tokenomics.
               </p>
             </div>
           </div>
@@ -233,16 +250,16 @@ const TokenomicsPage: React.FC = () => {
 
         {/* Call to Action */}
         <motion.section
-          className="text-center"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6">Ready to Join the Gecko Economy?</h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Join the Privacy Revolution?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
-            $PRICKO tokens are currently in pre-launch phase. Join our waitlist to be first in line when tokens become available. 
-            Early supporters get priority access and potential bonus allocations.
+            $PRICKO will launch on pump.fun with a fair distribution model. Join our community to stay
+            updated on the launch date and be among the first to participate when the token goes live.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
@@ -252,7 +269,7 @@ const TokenomicsPage: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaRocket />
-                Join Waitlist
+                Join Community
               </motion.button>
             </Link>
             <Link to="/roadmap">
@@ -267,6 +284,29 @@ const TokenomicsPage: React.FC = () => {
             </Link>
           </div>
         </motion.section>
+
+        {/* Risk Disclaimer */}
+        <motion.div
+          className="mt-16 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl p-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-3xl">⚠️</div>
+            <div>
+              <h3 className="text-xl font-bold text-yellow-300 mb-3">Important Disclaimer</h3>
+              <p className="text-gray-300 leading-relaxed">
+                $PRICKO is a utility token for accessing privacy tools within our ecosystem.
+                It is not an investment vehicle or security. Cryptocurrency markets are highly
+                volatile and unpredictable. Only acquire tokens you can afford to lose. This
+                information does not constitute financial advice. Always conduct your own research
+                before participating in any cryptocurrency project.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

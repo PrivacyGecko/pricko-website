@@ -28,8 +28,8 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   };
 
   const linkClass = mobile
-    ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent"
-    : "px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-accent relative";
+    ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded"
+    : "px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-accent relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded";
 
   const activeLinkClass = mobile
     ? "text-accent border-l-2 border-accent bg-accent/10"
