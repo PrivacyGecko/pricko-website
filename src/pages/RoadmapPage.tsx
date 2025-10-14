@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '../components/common/SEO';
 
 const RoadmapPage: React.FC = () => {
   const [selectedPhase, setSelectedPhase] = useState<number | null>(null);
@@ -256,7 +257,14 @@ const RoadmapPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-bg-main text-white pt-24">
+    <>
+      <SEO
+        title="PRICKO Roadmap - Development Timeline & Milestones | PRICKO"
+        description="Track PRICKO's development roadmap from GeckoShare launch to GeckoBrowser desktop. Phases include token launch, privacy tools, and DAO governance. Transparent project timeline."
+        keywords="PRICKO roadmap, development timeline, crypto roadmap, privacy tools roadmap, GeckoShare, GeckoGuard, GeckoBrowser, blockchain development"
+        canonicalUrl="/roadmap"
+      />
+      <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -594,6 +602,7 @@ const RoadmapPage: React.FC = () => {
         </motion.section>
       </div>
     </div>
+    </>
   );
 };
 

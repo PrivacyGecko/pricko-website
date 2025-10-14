@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ToolCard from '../components/ui/ToolCard';
 import ContractAddress from '../components/ui/ContractAddress';
+import SEO from '../components/common/SEO';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -50,7 +51,14 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO
+        title="PRICKO - Privacy Gecko Approved Memecoin | Solana Privacy Tools"
+        description="PRICKO is a Solana-powered memecoin with real utility. Privacy-focused tools including GeckoShare, GeckoGuard, GeckoShell, and GeckoBrowser. Join the privacy revolution."
+        keywords="PRICKO, memecoin, Solana, privacy tools, cryptocurrency, GeckoShare, GeckoGuard, privacy browser, encrypted file sharing, blockchain privacy"
+        canonicalUrl="/"
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative section-padding pt-32 pb-20 overflow-hidden">
         {/* Background Elements */}
@@ -622,6 +630,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

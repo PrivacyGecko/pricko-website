@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import { METRICS } from '../constants/metrics';
 import {
   FaEnvelope,
@@ -292,7 +293,14 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-primary text-white pt-24">
+    <>
+      <SEO
+        title="Contact PRICKO - Get in Touch with Our Team | PRICKO"
+        description="Contact PRICKO team for partnerships, support, or questions. Join our community on Twitter, Telegram, Discord. Email us directly or use our contact form. 24-hour response time."
+        keywords="contact PRICKO, PRICKO support, crypto community, blockchain partnerships, privacy tools support, PRICKO email, PRICKO telegram"
+        canonicalUrl="/contact"
+      />
+      <div className="min-h-screen bg-primary text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -1023,6 +1031,7 @@ const ContactPage: React.FC = () => {
         </motion.section>
       </div>
     </div>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
+import SEO from '../components/common/SEO';
 import { METRICS, FOUNDED_YEAR, TOOLS_COUNT } from '../constants/metrics';
 import {
   FaCalendarAlt,
@@ -24,7 +25,14 @@ import {
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-primary text-white pt-24">
+    <>
+      <SEO
+        title="About PRICKO - Privacy-First Memecoin Mission | PRICKO"
+        description="Learn about PRICKO's mission to build privacy tools that protect user data. Founded in 2024, community-driven, and committed to making digital privacy accessible to everyone."
+        keywords="PRICKO about, privacy tools, memecoin mission, blockchain privacy, digital privacy, community-driven crypto, Solana privacy"
+        canonicalUrl="/about"
+      />
+      <div className="min-h-screen bg-primary text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
@@ -600,6 +608,7 @@ const AboutPage: React.FC = () => {
         </motion.section>
       </div>
     </div>
+    </>
   );
 };
 
