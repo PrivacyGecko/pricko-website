@@ -29,11 +29,11 @@ export const METRICS = {
 } as const;
 
 export const TOOLS_COUNT = {
-  live: 1,  // GeckoShare
+  live: 2,  // GeckoAdvisor + GeckoShare
   beta: 1,  // GeckoGuard
-  coming: 2, // Shell + Browser (coming soon)
-  inDevelopment: 0, // Currently none marked as "in development"
-  total: 4
+  comingSoon: 1, // GeckoShell
+  inDevelopment: 2, // GeckoLock + GeckoBrowser
+  total: 6
 } as const;
 
 export const FOUNDED_YEAR = 2024;
