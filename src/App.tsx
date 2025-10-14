@@ -11,6 +11,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ToolsPage = lazy(() => import('./pages/ToolsPage'));
 const RoadmapPage = lazy(() => import('./pages/RoadmapPage'));
 const TokenomicsPage = lazy(() => import('./pages/TokenomicsPage'));
+const HowToBuyPage = lazy(() => import('./pages/HowToBuyPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
@@ -45,6 +46,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/tools" element={<ToolsPage />} />
               <Route path="/tokenomics" element={<TokenomicsPage />} />
+              <Route path="/how-to-buy" element={<HowToBuyPage />} />
               <Route path="/roadmap" element={<RoadmapPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
