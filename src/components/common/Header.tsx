@@ -78,7 +78,7 @@ const Header: React.FC = () => {
           {/* Enhanced Mobile Menu Button */}
           <motion.button
             onClick={toggleMenu}
-            className="md:hidden p-3 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             whileTap={{ scale: 0.95 }}
