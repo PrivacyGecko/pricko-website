@@ -125,15 +125,16 @@ export const TOOLS: Record<string, Tool> = {
       { name: 'Cookie management', description: 'Intelligent blocking of invasive cookies and tracking scripts' },
       { name: 'Multiple stealth modes', description: 'Choose from Balanced, Strict, or Ultimate privacy levels' }
     ],
-    status: 'live',
-    users: '850+ Beta Testers',
-    rating: '4.6',
+    status: 'in-development',
+    users: 'Extension Store Review',
+    rating: null,
     category: 'Browser Extension',
-    url: 'https://geckoguard.com',
+    completionPercentage: 90,
+    url: undefined,
     securitySpecs: {
       encryption: 'TLS 1.3 + Local storage encryption',
       architecture: 'Client-side processing (no data sent to servers)',
-      auditStatus: 'Community security review completed',
+      auditStatus: 'Community security review completed - awaiting store approval',
       openSource: 'https://github.com/privacygecko/gecko-guard'
     }
   },

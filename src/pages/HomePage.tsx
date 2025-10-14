@@ -39,10 +39,9 @@ const HomePage: React.FC = () => {
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
       title: "GeckoGuard",
-      description: "Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes.",
-      status: "live" as const,
-      features: ["Anti-fingerprinting protection", "Tracker/cookie blocking", "Multiple stealth modes", "Pro vs free tiers"],
-      url: "https://privacygecko.com/products/guard"
+      description: "Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes. (90% Complete - Store Review)",
+      status: "in-development" as const,
+      features: ["Anti-fingerprinting protection", "Tracker/cookie blocking", "Multiple stealth modes", "Pro vs free tiers"]
     },
     // BETA PRODUCTS (1)
     {

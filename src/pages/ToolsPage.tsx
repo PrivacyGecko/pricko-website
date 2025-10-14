@@ -72,15 +72,15 @@ const ToolsPage: React.FC = () => {
         { name: "Cookie management", description: "Intelligent blocking of invasive cookies and tracking scripts" },
         { name: "Multiple stealth modes", description: "Choose from Balanced, Strict, or Ultimate privacy levels" }
       ],
-      status: "live" as const,
-      users: `${METRICS.prickoGuard.formatted} ${METRICS.prickoGuard.label}`,
-      rating: RATING.prickoGuard,
+      status: "in-development" as const,
+      users: "Extension Store Review (90% Complete)",
+      rating: null,
       category: "Browser Extension",
-      url: "https://geckoguard.com",
+      url: undefined,
       securitySpecs: {
         encryption: "TLS 1.3 + Local storage encryption",
         architecture: "Client-side processing (no data sent to servers)",
-        auditStatus: "Community security review completed",
+        auditStatus: "Community security review completed - awaiting store approval",
         openSource: "https://github.com/privacygecko/gecko-guard"
       }
     },
@@ -291,11 +291,11 @@ const ToolsPage: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span>3 Tools Live Now</span>
+              <span>2 Tools Live Now</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              <span>5 Tools In Development</span>
+              <span>6 Tools In Development (1 Beta + 5 In-Dev)</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-accent rounded-full"></span>
