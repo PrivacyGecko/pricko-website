@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ToolCard from '../components/ui/ToolCard';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
+import ProofOfDevelopment from '../components/ProofOfDevelopment';
+import { useProjectConfig } from '../hooks/useProjectConfig';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -13,10 +15,25 @@ import {
   FaRocket,
   FaInfinity,
   FaEye,
-  FaLock
+  FaLock,
+  FaCheckCircle,
+  FaClock
 } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
+  const {
+    getHomepageProducts,
+    getProductCounts,
+    getFormattedMetrics,
+    getTokenDisclaimer,
+    tokenSymbol
+  } = useProjectConfig();
+
+  const productCounts = getProductCounts();
+  const metrics = getFormattedMetrics();
+  const homepageProducts = getHomepageProducts(4);
+  const heroDisclaimer = getTokenDisclaimer('homepage');
+
   // Tools ordered by status: Live → Beta → In Development (by completion %)
   const tools = [
     // LIVE PRODUCTS (3)
@@ -101,49 +118,63 @@ const HomePage: React.FC = () => {
               >
                 <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-6">
                   <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                  <span className="text-accent font-medium text-sm">Privacy Gecko</span>
+                  <span className="text-accent font-medium text-sm">Privacy Gecko Ecosystem</span>
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-                  <span className="gradient-text text-shadow">PRICKO</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+                  <span className="gradient-text text-shadow">
+                    Privacy Tools Powered by {tokenSymbol} Token.
+                  </span>
                 </h1>
 
                 <p className="text-2xl md:text-3xl font-bold text-accent mb-3">
-                  <span className="gradient-text">Memes With a Mission</span>
+                  <span className="gradient-text">Zero Vaporware. All Utility.</span>
                 </p>
-                
-                <p className="text-xl md:text-2xl text-muted max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                  A <span className="text-accent font-semibold">Solana-powered</span> memecoin with a purpose.
-                  Building privacy-focused tools to empower individuals in the digital age.
+
+                <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+                  <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.community.formatted} users.
+                  <span className="text-accent"> 2 more at 90%+ completion.</span> Real code. Real traction. Real results.
                 </p>
+
+                {/* Legal Disclaimer - Prominent Placement */}
+                <motion.div
+                  className="bg-secondary/40 border border-accent/20 rounded-lg p-4 mb-8 max-w-2xl mx-auto lg:mx-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <p className="text-xs md:text-sm text-muted leading-relaxed">
+                    <span className="text-accent font-semibold">⚠️ Disclaimer:</span> {heroDisclaimer}
+                  </p>
+                </motion.div>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <Link to="/contact">
+                <Link to="/tools">
                   <motion.button
                     className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-8 py-4 shadow-lg"
                     whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Join Waitlist <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    Explore Live Products <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                   </motion.button>
                 </Link>
                 <motion.a
-                  href="#tools"
+                  href="#proof-of-development"
                   className="btn-secondary text-lg px-8 py-4"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Explore Tools
+                  See Proof of Development
                 </motion.a>
               </motion.div>
 
-              {/* Stats Section */}
+              {/* Stats Section - Proof-Focused */}
               <motion.div
                 className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
@@ -152,24 +183,24 @@ const HomePage: React.FC = () => {
               >
                 <div className="text-center">
                   <div className="text-accent mb-2">
-                    <FaEye className="mx-auto text-xl" />
+                    <FaCheckCircle className="mx-auto text-xl" />
                   </div>
-                  <div className="text-2xl font-bold text-accent">8</div>
-                  <div className="text-sm text-muted">Privacy Tools</div>
+                  <div className="text-2xl font-bold text-accent">{productCounts.live}</div>
+                  <div className="text-sm text-muted">LIVE Products Now</div>
                 </div>
                 <div className="text-center">
                   <div className="text-accent mb-2">
-                    <FaLock className="mx-auto text-xl" />
+                    <FaUsers className="mx-auto text-xl" />
                   </div>
-                  <div className="text-2xl font-bold text-accent">100%</div>
-                  <div className="text-sm text-muted">Decentralized</div>
+                  <div className="text-2xl font-bold text-accent">{metrics.community.formatted}</div>
+                  <div className="text-sm text-muted">Active Users</div>
                 </div>
                 <div className="text-center">
                   <div className="text-accent mb-2">
-                    <FaInfinity className="mx-auto text-xl" />
+                    <FaClock className="mx-auto text-xl" />
                   </div>
-                  <div className="text-2xl font-bold text-accent">∞</div>
-                  <div className="text-sm text-muted">Possibilities</div>
+                  <div className="text-2xl font-bold text-accent">90%+</div>
+                  <div className="text-sm text-muted">Near Launch</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -237,6 +268,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Proof of Development Section */}
+      <ProofOfDevelopment />
 
       {/* What is Pricko Section */}
       <section className="section-padding bg-gradient-to-b from-transparent to-secondary/30">
