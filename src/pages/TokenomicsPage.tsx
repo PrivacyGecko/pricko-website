@@ -4,48 +4,41 @@ import { Link } from 'react-router-dom';
 import { FaRocket, FaEye } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
+import { useProjectConfig } from '../hooks/useProjectConfig';
 
 const TokenomicsPage: React.FC = () => {
+  const { config, getTokenDisclaimer } = useProjectConfig();
+
+  // Get token distribution data from config and transform to expected format
   const tokenomicsData = {
-    totalSupply: "1,000,000,000",
-    distribution: [
-      {
-        category: "Community & Market",
-        percentage: 80,
-        amount: "800,000,000",
-        description: "Fair launch via pump.fun. Tokens released to the open market for community acquisition, trading, and privacy tool usage."
-      },
-      {
-        category: "Development Team",
-        percentage: 20,
-        amount: "200,000,000",
-        description: "Reserved for ongoing development of privacy tools, platform maintenance, and long-term project sustainability."
-      }
-    ]
+    totalSupply: config.token.totalSupply,
+    distribution: Object.values(config.token.distribution).map((item: any) => ({
+      category: item.description.split(' ')[0] === 'Fair' ? 'Community & Market' :
+                 item.description.includes('Locked liquidity') ? 'Liquidity Pool' :
+                 item.description.includes('ecosystem growth') ? 'Development' :
+                 item.description.includes('Community growth') ? 'Marketing' :
+                 'Team',
+      percentage: item.percentage,
+      amount: item.amount,
+      description: item.description
+    }))
   };
 
-  const utilities = [
-    {
-      title: "Privacy Tool Access",
-      description: "Hold $PRICKO tokens to unlock premium features in GeckoShare, GeckoGuard, and future privacy tools in the ecosystem.",
-      icon: "🔐"
-    },
-    {
-      title: "Governance Rights",
-      description: "Token holders can participate in governance decisions on protocol upgrades, new tool development, and community proposals.",
-      icon: "🗳️"
-    },
-    {
-      title: "Community Benefits",
-      description: "Exclusive access to beta features, early releases, community events, and PRICKO merchandise for token holders.",
-      icon: "🎁"
-    },
-    {
-      title: "Deflationary Model",
-      description: "Token burns from privacy tool usage reduce supply over time, creating scarcity and potential value appreciation.",
-      icon: "🔥"
-    }
-  ];
+  const utilities = config.token.utility.benefits.slice(0, 5).map((benefit, index) => {
+    const icons = ["🔐", "🗳️", "🎁", "🔥", "⚡"];
+    const titles = [
+      "Privacy Tool Access",
+      "Governance Rights",
+      "Community Benefits",
+      "Deflationary Model",
+      "Staking Rewards"
+    ];
+    return {
+      title: titles[index] || benefit.substring(0, 30),
+      description: benefit,
+      icon: icons[index]
+    };
+  });
 
   return (
     <>
@@ -89,7 +82,7 @@ const TokenomicsPage: React.FC = () => {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Blockchain</h3>
-              <p className="text-3xl font-bold">Solana</p>
+              <p className="text-3xl font-bold">{config.token.blockchain}</p>
               <p className="text-muted mt-2">Fast & Low Cost</p>
             </div>
             <div>
@@ -306,11 +299,7 @@ const TokenomicsPage: React.FC = () => {
             <div>
               <h3 className="text-xl font-bold text-yellow-300 mb-3">Important Disclaimer</h3>
               <p className="text-gray-300 leading-relaxed">
-                $PRICKO is a utility token for accessing privacy tools within our ecosystem.
-                It is not an investment vehicle or security. Cryptocurrency markets are highly
-                volatile and unpredictable. Only acquire tokens you can afford to lose. This
-                information does not constitute financial advice. Always conduct your own research
-                before participating in any cryptocurrency project.
+                {getTokenDisclaimer('tokenomics')}
               </p>
             </div>
           </div>
