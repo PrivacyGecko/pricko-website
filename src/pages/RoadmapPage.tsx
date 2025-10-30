@@ -1,205 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/common/SEO';
+import { useProjectConfig } from '../hooks/useProjectConfig';
 
 const RoadmapPage: React.FC = () => {
+  const { config, getTokenDisclaimer } = useProjectConfig();
   const [selectedPhase, setSelectedPhase] = useState<number | null>(null);
   const [progressPercentage, setProgressPercentage] = useState(0);
 
-  const roadmapPhases = [
-    {
-      phase: "Phase 1 ✅",
-      title: "GeckoShare Launch & Foundation",
-      status: "completed" as const,
-      quarter: "2024 Q4",
-      progress: 100,
-      duration: "Completed",
-      budget: "Achieved",
-      team: "Core Development",
-      items: [
-        {
-          name: "GeckoShare SaaS Live",
-          description: "Zero-knowledge file sharing platform with instant uploads and token-gated premium features",
-          status: "completed",
-          impact: "High"
-        },
-        {
-          name: "Community Building & Pre-Launch",
-          description: "Growing community of 1,200+ supporters preparing for upcoming token launch",
-          status: "completed",
-          impact: "High"
-        },
-        {
-          name: "Website & Social Presence",
-          description: "Official platform launched with Twitter, Telegram, and comprehensive documentation",
-          status: "completed",
-          impact: "High"
-        },
-        {
-          name: "Persistent Vault Storage",
-          description: "Pro-tier users can store files long-term with wallet-connect authentication",
-          status: "completed",
-          impact: "Medium"
-        },
-        {
-          name: "Daily Quotas System",
-          description: "Fair usage system implemented for free and premium users",
-          status: "completed",
-          impact: "Medium"
-        }
-      ]
-    },
-    {
-      phase: "Phase 2 🧪",
-      title: "GeckoGuard Beta Release",
-      status: "in-progress" as const,
-      quarter: "2025 Q3-Q4",
-      progress: 75,
-      duration: "3 months",
-      budget: "In Progress",
-      team: "Extension Development",
-      items: [
-        {
-          name: "$PRICKO Token Launch",
-          description: "Official token deployment on Solana with contract address and trading capabilities",
-          status: "in-progress",
-          impact: "High"
-        },
-        {
-          name: "Manifest V3 Extension Development",
-          description: "Building privacy extension compatible with Chrome's latest framework",
-          status: "in-progress",
-          impact: "High"
-        },
-        {
-          name: "Anti-fingerprinting Protection",
-          description: "Advanced techniques to prevent browser fingerprinting and tracking",
-          status: "in-progress",
-          impact: "High"
-        },
-        {
-          name: "Multiple Stealth Modes",
-          description: "Balanced, Strict, and Ultimate privacy levels for different user needs",
-          status: "in-progress",
-          impact: "High"
-        },
-        {
-          name: "Beta Testing Program",
-          description: "Open beta with 850+ testers providing feedback and bug reports",
-          status: "in-progress",
-          impact: "Medium"
-        },
-        {
-          name: "Pro Tier Features",
-          description: "token-gated enhanced protection for PRICKO holders",
-          status: "upcoming",
-          impact: "Medium"
-        },
-        {
-          name: "Chrome Web Store Approval",
-          description: "Final review and publication to Chrome extension marketplace",
-          status: "upcoming",
-          impact: "High"
-        }
-      ]
-    },
-    {
-      phase: "Phase 2.5 📱",
-      title: "GeckoShell Mobile Browser",
-      status: "upcoming" as const,
-      quarter: "2026 Q1-Q2",
-      progress: 0,
-      duration: "6 months",
-      budget: "Planned",
-      team: "Mobile Development",
-      items: [
-        {
-          name: "Capacitor Framework Setup",
-          description: "Cross-platform mobile browser foundation for iOS and Android",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Solana Wallet Integration",
-          description: "Built-in wallet functionality with DeFi access and token management",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Plugin System Architecture",
-          description: "Extensible framework for privacy tools and third-party integrations",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Privacy Toolkit SDK",
-          description: "Comprehensive privacy utilities and developer tools",
-          status: "upcoming",
-          impact: "Medium"
-        },
-        {
-          name: "iOS App Store Submission",
-          description: "Apple App Store approval and distribution",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Google Play Store Launch",
-          description: "Android marketplace approval and public release",
-          status: "upcoming",
-          impact: "High"
-        }
-      ]
-    },
-    {
-      phase: "Phase 3 🚀",
-      title: "GeckoBrowser Desktop - In Development",
-      status: "upcoming" as const,
-      quarter: "2026+",
-      progress: 0,
-      duration: "12+ months",
-      budget: "Long-term",
-      team: "Full Browser Team",
-      items: [
-        {
-          name: "Ungoogled Chromium Fork",
-          description: "Full-featured desktop browser based on privacy-focused Chromium",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Built-in Crypto Wallet",
-          description: "Native multi-chain wallet with advanced DeFi integration",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Plugin Marketplace",
-          description: "Curated ecosystem of privacy and productivity plugins",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Enterprise-grade Security",
-          description: "Professional-level security features and enterprise controls",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Custom Privacy Engine",
-          description: "Advanced tracking protection and fingerprint resistance technology",
-          status: "upcoming",
-          impact: "High"
-        },
-        {
-          name: "Cross-platform Distribution",
-          description: "Windows, macOS, and Linux releases with auto-update system",
-          status: "upcoming",
-          impact: "Medium"
-        }
-      ]
-    }
-  ];
+  // Transform config roadmap data to match the existing component structure
+  const roadmapPhases = config.roadmap.phases.map(phase => ({
+    phase: phase.status === 'completed' ? `${phase.title} ✅` :
+           phase.status === 'in-progress' ? `${phase.title} 🧪` :
+           `${phase.title} 🚀`,
+    title: phase.title,
+    status: phase.status,
+    quarter: phase.quarter,
+    progress: phase.status === 'completed' ? 100 :
+              phase.status === 'in-progress' ? 50 : 0,
+    duration: phase.status === 'completed' ? 'Completed' :
+              phase.status === 'in-progress' ? 'In Progress' :
+              'Planned',
+    budget: phase.status === 'completed' ? 'Achieved' :
+            phase.status === 'in-progress' ? 'In Progress' :
+            'Planned',
+    team: 'Development Team',
+    items: phase.milestones.map(milestone => ({
+      name: milestone.title,
+      description: milestone.description,
+      status: milestone.status,
+      impact: 'High'
+    }))
+  }));
+
 
   useEffect(() => {
     const completedPhases = roadmapPhases.filter(phase => phase.status === 'completed').length;

@@ -1,215 +1,38 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/common/SEO';
-import { METRICS, RATING } from '../constants/metrics';
+import { useProjectConfig } from '../hooks/useProjectConfig';
 
 const ToolsPage: React.FC = () => {
+  const { getAllProducts, getProductCounts, config } = useProjectConfig();
   const [selectedTool, setSelectedTool] = useState<number | null>(null);
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [showSecurity, setShowSecurity] = useState<number | null>(null);
 
-  const tools = [
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "GeckoAdvisor",
-      subtitle: "Privacy & Security Audit Tool",
-      description: "Comprehensive privacy and security audit tool for your devices. Scan for vulnerabilities, detect tracking, and get actionable recommendations to improve your digital privacy posture.",
-      features: [
-        { name: "Device scanning & vulnerability detection", description: "Comprehensive scan of your device for privacy and security issues" },
-        { name: "Privacy score & recommendations", description: "Get a privacy score with actionable steps to improve your security" },
-        { name: "Tracking detection", description: "Identify trackers and data collection on your device and browser" },
-        { name: "Security audit reports", description: "Detailed reports on your privacy and security status" },
-        { name: "Real-time monitoring", description: "Continuous monitoring of privacy threats and vulnerabilities" },
-        { name: "Automated recommendations", description: "AI-powered suggestions for improving your privacy setup" }
-      ],
-      status: "live" as const,
-      users: "Live & Available",
-      rating: "4.8",
-      category: "Security Audit",
-      url: "https://geckoadvisor.com",
-      securitySpecs: {
-        encryption: "Client-side processing only",
-        architecture: "No data sent to servers - local analysis only",
-        auditStatus: "Open-source security audit completed Q4 2024",
-        openSource: "https://github.com/privacygecko/gecko-advisor"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "GeckoShare",
-      subtitle: "Zero-Knowledge File Sharing",
-      description: "End-to-end encrypted file sharing with expiring links. Share files securely with 256-bit AES encryption, password protection, and no registration required. Perfect for sensitive document sharing.",
-      features: [
-        { name: "256-bit AES encryption", description: "Military-grade encryption for all your shared files" },
-        { name: "Expiring links", description: "Set automatic expiration times for shared files" },
-        { name: "Password protection", description: "Add password protection to shared files for extra security" },
-        { name: "No registration required", description: "Share files instantly without creating an account" },
-        { name: "Zero-knowledge architecture", description: "End-to-end encryption with no server-side access to content" },
-        { name: "Persistent vault (Pro tier)", description: "Long-term storage with premium wallet authentication" }
-      ],
-      status: "live" as const,
-      users: `${METRICS.prickoshare.formatted} ${METRICS.prickoshare.label}`,
-      rating: RATING.prickoshare,
-      category: "File Sharing",
-      url: "https://geckoshare.com",
-      securitySpecs: {
-        encryption: "AES-256-GCM end-to-end encryption",
-        architecture: "Zero-knowledge (server-side blind)",
-        auditStatus: "Security audit completed Q4 2024",
-        openSource: "https://github.com/privacygecko/gecko-share"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "GeckoGuard",
-      subtitle: "Tracker & Ad Blocker",
-      description: "Browser extension for tracker and ad blocking. Features real-time tracker blocking, privacy dashboard, and custom filter lists to protect your browsing from invasive tracking and advertisements.",
-      features: [
-        { name: "Real-time tracker blocking", description: "Block trackers and ads as you browse in real-time" },
-        { name: "Privacy dashboard", description: "View detailed statistics on blocked trackers and ads" },
-        { name: "Custom filter lists", description: "Create and manage custom filter rules for advanced users" },
-        { name: "Anti-fingerprinting protection", description: "Advanced techniques to prevent browser fingerprinting" },
-        { name: "Cookie management", description: "Intelligent blocking of invasive cookies and tracking scripts" },
-        { name: "Multiple stealth modes", description: "Choose from Balanced, Strict, or Ultimate privacy levels" }
-      ],
-      status: "in-development" as const,
-      users: "Extension Store Review (90% Complete)",
-      rating: null,
-      category: "Browser Extension",
-      url: undefined,
-      securitySpecs: {
-        encryption: "TLS 1.3 + Local storage encryption",
-        architecture: "Client-side processing (no data sent to servers)",
-        auditStatus: "Community security review completed - awaiting store approval",
-        openSource: "https://github.com/privacygecko/gecko-guard"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTggOGgtMVY2YzAtMi43Ni0yLjI0LTUtNS01UzIgMy4yNCAyIDZoMmMwLTEuNjYgMS4zNC0zIDMtM3MzIDEuMzQgMyAzdjJoLTFjLTEuMSAwLTIgLjktMiAydjEwYzAgMS4xLjkgMiAyIDJoMTBjMS4xIDAgMi0uOSAyLTJWMTBjMC0xLjEtLjktMi0yLTJ6bS01IDljLTEuMSAwLTItLjktMi0ycy45LTIgMi0yIDIgLjkgMiAyLS45IDItMiAyeiIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "GeckoLock",
-      subtitle: "Zero-Knowledge Password Manager",
-      description: "Zero-knowledge password manager with AES-256 encryption and cross-platform sync. Store and manage your passwords securely with military-grade encryption that even we can't access.",
-      features: [
-        { name: "AES-256 encryption", description: "Military-grade encryption for all stored passwords" },
-        { name: "Zero-knowledge architecture", description: "Your master password never leaves your device" },
-        { name: "Cross-platform sync", description: "Seamlessly sync passwords across all your devices" },
-        { name: "Password generator", description: "Generate strong, unique passwords for every account" },
-        { name: "Secure sharing", description: "Share passwords securely with team members or family" },
-        { name: "Breach monitoring", description: "Get alerts if your passwords appear in data breaches" }
-      ],
-      status: "in-development" as const,
-      users: "In Development (65% Complete)",
-      rating: null,
-      category: "Password Manager",
-      url: undefined,
-      securitySpecs: {
-        encryption: "AES-256-GCM with PBKDF2 key derivation",
-        architecture: "Zero-knowledge - master key never transmitted",
-        auditStatus: "Security audit planned for Q2 2025",
-        openSource: "https://github.com/privacygecko/gecko-lock"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTkgM0g1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6TTkgMTdIN3YtN2gydjd6bTQgMGgtMlY3aDJ2MTB6bTQgMGgtMnYtNGgydjR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "GeckoView",
-      subtitle: "AI Content Summarization",
-      description: "AI-powered content summarization with encrypted bookmarks. Save and summarize web articles using GPT-3.5 and GPT-4, with end-to-end encrypted bookmark storage and browser extension integration.",
-      features: [
-        { name: "AI summaries with GPT-3.5 & GPT-4", description: "Generate intelligent summaries of web content using advanced AI" },
-        { name: "End-to-end encrypted bookmarks", description: "Store and sync bookmarks with military-grade encryption" },
-        { name: "Browser extension integration", description: "Seamlessly integrate with your browser workflow" },
-        { name: "Smart tagging & organization", description: "Automatically organize content with AI-powered tags" },
-        { name: "Offline reading mode", description: "Save articles for offline reading with summaries" },
-        { name: "Collaborative annotations", description: "Share and collaborate on saved content with team" }
-      ],
-      status: "in-development" as const,
-      users: "In Development (45% Complete)",
-      rating: null,
-      category: "Content Tools",
-      url: undefined,
-      securitySpecs: {
-        encryption: "AES-256 for stored content and bookmarks",
-        architecture: "Hybrid - AI processing on secure servers, data encrypted",
-        auditStatus: "Security review planned Q2 2025",
-        openSource: "https://github.com/privacygecko/gecko-view"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOVI3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
-      title: "GeckoShell",
-      subtitle: "Cross-Platform Mobile Privacy Browser",
-      description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK. Features plugin system architecture for extensibility, built-in crypto wallet, and comprehensive privacy protection on iOS and Android.",
-      features: [
-        { name: "Cross-platform (iOS, Android)", description: "Native mobile experience on both iOS and Android platforms" },
-        { name: "Plugin system architecture", description: "Extensible plugin system for custom privacy tools" },
-        { name: "Solana wallet integration", description: "Built-in Solana wallet for seamless Web3 browsing" },
-        { name: "Privacy toolkit SDK", description: "Comprehensive SDK for privacy-focused features" },
-        { name: "Anti-tracking protection", description: "Advanced tracker blocking and fingerprint resistance" },
-        { name: "Encrypted browsing", description: "End-to-end encryption for all browsing activity" }
-      ],
-      status: "beta" as const,
-      users: `${METRICS.geckoShell.formatted} ${METRICS.geckoShell.label}`,
-      rating: null,
-      category: "Mobile Browser",
-      url: undefined,
-      securitySpecs: {
-        encryption: "TLS 1.3 with additional application-layer encryption",
-        architecture: "Plugin-based with sandboxed security model",
-        auditStatus: "Beta security audit in progress Q4 2024",
-        openSource: "https://github.com/privacygecko/gecko-shell"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+CiAgPHBhdGggZD0iTTEyIDZjLTMuMzEgMC02IDIuNjktNiA2czIuNjkgNiA2IDYgNi0yLjY5IDYtNi0yLjY5LTYtNi02em0wIDEwYy0yLjIxIDAtNC0xLjc5LTQtNHMxLjc5LTQgNC00IDQgMS43OSA0IDQtMS43OSA0LTQgNHoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "GeckoVPN",
-      subtitle: "Privacy-First VPN",
-      description: "Privacy-first VPN with no-logs policy and global server network. Features kill switch protection, split tunneling, and multi-hop routing for maximum privacy and security while browsing.",
-      features: [
-        { name: "No-logs policy", description: "Strict no-logs policy - we don't track your activity" },
-        { name: "Global server network", description: "Servers in 50+ countries for optimal performance" },
-        { name: "Kill switch protection", description: "Automatically blocks internet if VPN connection drops" },
-        { name: "Split tunneling", description: "Choose which apps use VPN and which use direct connection" },
-        { name: "Multi-hop routing", description: "Route traffic through multiple servers for extra privacy" },
-        { name: "Ad & malware blocking", description: "Built-in protection from ads and malicious sites" }
-      ],
-      status: "in-development" as const,
-      users: "In Development (20% Complete)",
-      rating: null,
-      category: "VPN",
-      url: undefined,
-      securitySpecs: {
-        encryption: "AES-256 with WireGuard and OpenVPN protocols",
-        architecture: "RAM-only servers with automatic data wiping",
-        auditStatus: "Independent security audit planned Q4 2025",
-        openSource: "https://github.com/privacygecko/gecko-vpn"
-      }
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgNEw0IDE4aDh2Mmg4di0yaC04bDgtMTR6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMCIgcj0iMiIvPgogIDxjaXJjbGUgY3g9IjgiIGN5PSIxNCIgcj0iMSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTQiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
-      title: "GeckoWatch",
-      subtitle: "Privacy Compliance Analyzer",
-      description: "Analyze and monitor privacy compliance of websites. Features GDPR compliance checking, cookie and tracker analysis, and privacy policy scanning to ensure websites respect your privacy rights.",
-      features: [
-        { name: "GDPR compliance checking", description: "Verify if websites comply with GDPR regulations" },
-        { name: "Cookie & tracker analysis", description: "Detailed analysis of all cookies and trackers on websites" },
-        { name: "Privacy policy scanning", description: "Automated scanning and analysis of privacy policies" },
-        { name: "Real-time monitoring", description: "Monitor websites for privacy compliance changes" },
-        { name: "Compliance scoring", description: "Get detailed privacy compliance scores for any website" },
-        { name: "Automated reporting", description: "Generate compliance reports for legal and audit purposes" }
-      ],
-      status: "in-development" as const,
-      users: "In Development (55% Complete)",
-      rating: null,
-      category: "Compliance",
-      url: undefined,
-      securitySpecs: {
-        encryption: "Client-side analysis with encrypted reporting",
-        architecture: "Browser-based scanning - no data collection",
-        auditStatus: "Security review planned Q3 2025",
-        openSource: "https://github.com/privacygecko/gecko-watch"
-      }
+  // Get all products from configuration and transform to expected format
+  const tools = getAllProducts().map(product => ({
+    icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+Cjwvc3ZnPgo8L3N2Zz4=",
+    title: product.name,
+    subtitle: product.subtitle,
+    description: product.description,
+    features: product.features.map(feature => ({
+      name: feature,
+      description: `${feature} feature for ${product.name}`
+    })),
+    status: product.status,
+    users: product.metrics.users,
+    rating: product.metrics.rating,
+    category: product.category,
+    url: product.url || undefined,
+    securitySpecs: {
+      encryption: product.security.encryption,
+      architecture: product.security.architecture,
+      auditStatus: product.security.auditStatus,
+      openSource: product.security.openSource
     }
-  ];
+  }));
+
+  const productCounts = getProductCounts();
 
   const getStatusConfig = (status: string) => {
     const configs = {
@@ -291,15 +114,15 @@ const ToolsPage: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span>2 Tools Live Now</span>
+              <span>{productCounts.live} Tools Live Now</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              <span>6 Tools In Development (1 Beta + 5 In-Dev)</span>
+              <span>{productCounts.beta + productCounts.inDevelopment} Tools In Development ({productCounts.beta} Beta + {productCounts.inDevelopment} In-Dev)</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-accent rounded-full"></span>
-              <span>Powered by $PRICKO Token</span>
+              <span>Powered by ${config.token.symbol.replace('$', '')} Token</span>
             </div>
           </motion.div>
         </motion.div>
@@ -549,8 +372,8 @@ const ToolsPage: React.FC = () => {
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
               </h2>
               <p className="text-xl text-muted mb-10 max-w-3xl mx-auto leading-relaxed">
-                Join over {METRICS.prickoshare.formatted} users already using GeckoShare and {METRICS.prickoGuard.formatted} testers trying GeckoGuard.
-                Experience 3 live privacy tools today and be part of the growing Privacy Gecko ecosystem powered by $PRICKO token.
+                Join {config.community.total.toLocaleString()}+ users in the Privacy Gecko community.
+                Experience {productCounts.live} live privacy tools today and be part of the growing ecosystem powered by ${config.token.symbol.replace('$', '')} token.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">

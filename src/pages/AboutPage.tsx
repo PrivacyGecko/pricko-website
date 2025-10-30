@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
-import { METRICS, FOUNDED_YEAR, TOOLS_COUNT } from '../constants/metrics';
+import { useProjectConfig } from '../hooks/useProjectConfig';
 import {
   FaCalendarAlt,
   FaUsers,
@@ -24,6 +24,9 @@ import {
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
+  const { config, getProductCounts } = useProjectConfig();
+  const productCounts = getProductCounts();
+
   return (
     <>
       <SEO
@@ -80,7 +83,7 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaCalendarAlt className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">{FOUNDED_YEAR}</div>
+              <div className="text-4xl font-bold text-accent mb-2">{config.project.foundedYear}</div>
               <div className="text-lg font-semibold mb-2">Founded</div>
               <div className="text-muted">Established with a vision for privacy</div>
             </motion.div>
@@ -93,9 +96,9 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaUsers className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">{METRICS.community.formatted}</div>
+              <div className="text-4xl font-bold text-accent mb-2">{config.community.total.toLocaleString()}+</div>
               <div className="text-lg font-semibold mb-2">Early Supporters</div>
-              <div className="text-muted">Growing {METRICS.community.label}</div>
+              <div className="text-muted">Growing community</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -106,7 +109,7 @@ const AboutPage: React.FC = () => {
               <div className="text-accent mb-3">
                 <FaTools className="mx-auto text-3xl" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">{TOOLS_COUNT.total}+</div>
+              <div className="text-4xl font-bold text-accent mb-2">{productCounts.total}+</div>
               <div className="text-lg font-semibold mb-2">Privacy Tools</div>
               <div className="text-muted">In development pipeline</div>
             </motion.div>
