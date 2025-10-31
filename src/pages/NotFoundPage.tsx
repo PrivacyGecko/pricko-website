@@ -10,7 +10,7 @@ const NotFoundPage: React.FC = () => {
   const popularPages = [
     { icon: FaHome, label: 'Home', path: '/', description: 'Return to homepage' },
     { icon: FaTools, label: 'Privacy Tools', path: '/tools', description: 'Explore our tools' },
-    { icon: FaShieldAlt, label: 'Tokenomics', path: '/tokenomics', description: 'Learn about $PRICK' },
+    { icon: FaShieldAlt, label: 'Tokenomics', path: '/tokenomics', description: 'Learn about $PRICKO' },
     { icon: FaRocket, label: 'Roadmap', path: '/roadmap', description: 'See our vision' },
   ];
 

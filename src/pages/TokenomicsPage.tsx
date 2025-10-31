@@ -60,7 +60,7 @@ const TokenomicsPage: React.FC = () => {
     {
       tier: 2,
       name: "Token Holder",
-      tokenRequirement: "Hold 10,000+ $PRICK",
+      tokenRequirement: "Hold 10,000+ $PRICKO",
       description: "Unlock premium features across all tools",
       features: [
         "Unlimited file sizes & persistent vault",
@@ -74,7 +74,7 @@ const TokenomicsPage: React.FC = () => {
     {
       tier: 3,
       name: "Staker",
-      tokenRequirement: "Stake 50,000+ $PRICK",
+      tokenRequirement: "Stake 50,000+ $PRICKO",
       description: "Enhanced benefits for long-term commitment",
       features: [
         "All Token Holder benefits",
@@ -88,7 +88,7 @@ const TokenomicsPage: React.FC = () => {
     {
       tier: 4,
       name: "Governance",
-      tokenRequirement: "100,000+ $PRICK staked",
+      tokenRequirement: "100,000+ $PRICKO staked",
       description: "Shape the future of Privacy Gecko",
       features: [
         "All Staker benefits",
@@ -119,7 +119,7 @@ const TokenomicsPage: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">$PRICK</span> Tokenomics
+            <span className="gradient-text">$PRICKO</span> Tokenomics
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy tools.
@@ -138,7 +138,7 @@ const TokenomicsPage: React.FC = () => {
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-yellow-300 mb-3">Important Notice</h3>
               <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-                <strong>$PRICK is a utility token for accessing Privacy Gecko services.</strong> It is NOT an investment vehicle or security.
+                <strong>$PRICKO is a utility token for accessing Privacy Gecko services.</strong> It is NOT an investment vehicle or security.
                 Token value may fluctuate significantly or decline to zero. Purchase only if you intend to use Privacy Gecko tools.
                 Cryptocurrency investments carry risk, including total loss of capital. This is not financial advice.
               </p>
@@ -158,7 +158,7 @@ const TokenomicsPage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Total Supply</h3>
               <p className="text-3xl font-bold">{tokenomicsData.totalSupply}</p>
-              <p className="text-muted mt-2">$PRICK Tokens</p>
+              <p className="text-muted mt-2">$PRICKO Tokens</p>
             </div>
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Blockchain</h3>
@@ -183,10 +183,10 @@ const TokenomicsPage: React.FC = () => {
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">How $PRICK Works:</span> 4-Tier Utility Model
+              <span className="gradient-text">How $PRICKO Works:</span> 4-Tier Utility Model
             </h2>
             <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
-              $PRICK unlocks features across our privacy tools. The more you hold, the more capabilities you access.
+              $PRICKO unlocks features across our privacy tools. The more you hold, the more capabilities you access.
               This is about <strong>functionality</strong>, not investment.
             </p>
           </div>
@@ -380,7 +380,7 @@ const TokenomicsPage: React.FC = () => {
               <p className="text-sm text-gray-300 leading-relaxed">
                 <strong className="text-yellow-300">Important:</strong> This is NOT designed to increase token value.
                 It's an operational model where tokens are consumed like traditional currency to pay for services.
-                Think of it like paying for Netflix - your payment funds operations. When you use $PRICK for services,
+                Think of it like paying for Netflix - your payment funds operations. When you use $PRICKO for services,
                 tokens are consumed (burned) to ensure sustainable funding for continued development and operations.
               </p>
             </div>
@@ -410,7 +410,7 @@ const TokenomicsPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-6">Ready to Join the Privacy Revolution?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
-            $PRICK will launch with a fair distribution model. Join our community to stay
+            $PRICKO will launch with a fair distribution model. Join our community to stay
             updated on the launch date and be among the first to participate when the token goes live.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -451,7 +451,7 @@ const TokenomicsPage: React.FC = () => {
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-red-300 mb-2">Understanding the Risks</h2>
                 <p className="text-gray-300 text-sm">
-                  Before acquiring $PRICK tokens, carefully review and understand these important risks:
+                  Before acquiring $PRICKO tokens, carefully review and understand these important risks:
                 </p>
               </div>
             </div>
