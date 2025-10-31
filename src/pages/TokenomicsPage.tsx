@@ -6,6 +6,7 @@ import ContractAddress from '../components/ui/ContractAddress';
 import UtilityTierCard from '../components/ui/UtilityTierCard';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
+import MascotImage from '../components/ui/MascotImage';
 
 const TokenomicsPage: React.FC = () => {
   const { config, getTokenDisclaimer } = useProjectConfig();
@@ -118,6 +119,7 @@ const TokenomicsPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <MascotImage size="lg" className="mb-6 mx-auto" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">$PRICKO</span> Tokenomics
           </h1>

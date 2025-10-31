@@ -9,6 +9,7 @@ import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import SocialProof from '../components/SocialProof';
 import { useProjectConfig } from '../hooks/useProjectConfig';
+import MascotImage from '../components/ui/MascotImage';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -254,31 +255,14 @@ const HomePage: React.FC = () => {
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 />
                 
-                {/* Main Logo Container */}
+                {/* MascotImage Component (handles white circle + logo) */}
                 <motion.div
-                  className="relative w-80 h-80 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-full flex justify-center items-center p-12 shadow-2xl"
+                  className="relative z-10"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  whileHover={{
-                    scale: 1.05,
-                    rotate: 5,
-                    boxShadow: "0 25px 50px rgba(74, 222, 128, 0.2)"
-                  }}
                 >
-                  <motion.img
-                    src="/logo.png"
-                    alt="Pricko Logo"
-                    className="w-full h-auto drop-shadow-lg"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                  <MascotImage size="xl" className="mx-auto" />
                 </motion.div>
 
                 {/* Floating Elements */}

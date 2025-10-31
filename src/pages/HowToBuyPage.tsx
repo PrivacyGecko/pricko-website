@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaWallet, FaExchangeAlt, FaCheckCircle, FaTwitter } from 'react-icons/fa';
 import SEO from '../components/common/SEO';
+import MascotImage from '../components/ui/MascotImage';
 
 const HowToBuyPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -75,6 +76,7 @@ const HowToBuyPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <MascotImage size="md" className="mb-6 mx-auto" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             How to Buy <span className="gradient-text">$PRICKO</span>
           </h1>
