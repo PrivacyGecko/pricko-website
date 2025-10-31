@@ -207,6 +207,46 @@ export function useProjectConfig() {
     [config]
   );
 
+  /**
+   * Get all testimonials
+   */
+  const getAllTestimonials = useMemo(
+    () => (): typeof config.testimonials => {
+      return config.testimonials;
+    },
+    [config]
+  );
+
+  /**
+   * Get testimonials by product
+   */
+  const getTestimonialsByProduct = useMemo(
+    () => (productName: string): typeof config.testimonials => {
+      return config.testimonials.filter(t => t.product === productName);
+    },
+    [config]
+  );
+
+  /**
+   * Get team members
+   */
+  const getTeamMembers = useMemo(
+    () => (): typeof config.team.members => {
+      return config.team.members;
+    },
+    [config]
+  );
+
+  /**
+   * Get trust badges
+   */
+  const getTrustBadges = useMemo(
+    () => (): typeof config.trustBadges => {
+      return config.trustBadges;
+    },
+    [config]
+  );
+
   return {
     // Core configuration
     config,
@@ -227,6 +267,12 @@ export function useProjectConfig() {
     getCompletedPhases,
     getCurrentPhases,
     getUpcomingPhases,
+
+    // Social proof queries
+    getAllTestimonials,
+    getTestimonialsByProduct,
+    getTeamMembers,
+    getTrustBadges,
 
     // Utility functions
     getTokenDisclaimer,

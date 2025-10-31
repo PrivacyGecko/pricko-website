@@ -200,6 +200,36 @@ export interface ContactInfo {
   social: SocialLinks;
 }
 
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  avatar: string | null;
+  linkedin: string | null;
+  twitter: string | null;
+  github: string | null;
+}
+
+export interface TeamInfo_New {
+  members: TeamMember[];
+}
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  author: string;
+  role: string;
+  product: string | null;
+  rating: number;
+}
+
+export interface TrustBadge {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
 export interface FounderInfo {
   name: string;
   title: string;
@@ -235,6 +265,9 @@ export interface ProjectConfig {
   investmentThesis: InvestmentThesis;
   community: CommunityInfo;
   contact: ContactInfo;
+  team: TeamInfo_New;
+  testimonials: Testimonial[];
+  trustBadges: TrustBadge[];
   founder: FounderInfo;
   legal: LegalInfo;
 }
