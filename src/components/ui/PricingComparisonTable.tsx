@@ -8,7 +8,7 @@ import { useProjectConfig } from '../../hooks/useProjectConfig';
  * Displays a 3-column pricing comparison for the Privacy Gecko ecosystem:
  * - Free Tier: Basic features
  * - Pro (Subscription): Monthly subscription pricing
- * - Pro (Token): Lifetime access via $PRICK token holding
+ * - Pro (Token): Lifetime access via $PRICKO token holding
  *
  * Purpose: Demonstrate token utility and conversion opportunity
  * Mobile responsive: Stacks vertically on small screens

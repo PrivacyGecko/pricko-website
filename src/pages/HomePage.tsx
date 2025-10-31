@@ -98,7 +98,7 @@ const HomePage: React.FC = () => {
         "alternateName": "PRICKO",
         "url": "https://pricko.com",
         "logo": "https://pricko.com/logo.png",
-        "description": "Privacy-first tools powered by PRICK utility token. 2 live products serving 2,100+ users. Real code, real traction, real results.",
+        "description": "Privacy-first tools powered by PRICKO utility token. 2 live products serving 2,100+ users. Real code, real traction, real results.",
         "sameAs": [
           "https://twitter.com/PrivacyGecko",
           "https://github.com/privacygecko",

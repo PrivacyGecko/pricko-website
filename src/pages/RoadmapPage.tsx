@@ -295,7 +295,7 @@ const RoadmapPage: React.FC = () => {
             />
             <PastMilestone
               title="Smart Contract Development"
-              description="PRICK token smart contract developed and audited in preparation for Token Generation Event (TGE)."
+              description="PRICKO token smart contract developed and audited in preparation for Token Generation Event (TGE)."
               date="Q1 2025"
               delay={0.7}
             />

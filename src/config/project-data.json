@@ -12,8 +12,8 @@
   },
 
   "token": {
-    "name": "PRICK",
-    "symbol": "$PRICK",
+    "name": "PRICKO",
+    "symbol": "$PRICKO",
     "blockchain": "Solana",
     "contractAddress": "[TO_BE_ANNOUNCED]",
     "totalSupply": "1,000,000,000",
@@ -47,7 +47,7 @@
       }
     },
     "utility": {
-      "description": "PRICK token provides access to premium features across the Privacy Gecko ecosystem",
+      "description": "PRICKO token provides access to premium features across the Privacy Gecko ecosystem",
       "benefits": [
         "Access to premium tiers in GeckoShare, GeckoView, and other tools",
         "Governance rights for ecosystem development decisions",
@@ -57,8 +57,8 @@
       ]
     },
     "disclaimers": {
-      "homepage": "PRICK is a utility token for accessing Privacy Gecko's ecosystem of privacy tools. It is not an investment vehicle or security. Token value may fluctuate. Purchase only if you intend to use Privacy Gecko services.",
-      "tokenomics": "This token is designed solely for utility within the Privacy Gecko ecosystem. It grants access to premium features, governance participation, and service discounts. This is not financial advice. Cryptocurrency investments carry risk, including total loss of capital. PRICK tokens are not securities and make no promises of profit. Conduct your own research before purchasing.",
+      "homepage": "PRICKO is a utility token for accessing Privacy Gecko's ecosystem of privacy tools. It is not an investment vehicle or security. Token value may fluctuate. Purchase only if you intend to use Privacy Gecko services.",
+      "tokenomics": "This token is designed solely for utility within the Privacy Gecko ecosystem. It grants access to premium features, governance participation, and service discounts. This is not financial advice. Cryptocurrency investments carry risk, including total loss of capital. PRICKO tokens are not securities and make no promises of profit. Conduct your own research before purchasing.",
       "roadmap": "All timelines and features are subject to change based on development progress and market conditions. This roadmap represents current intentions, not guarantees. Token holders have no expectation of profit from the efforts of the Privacy Gecko team."
     }
   },
@@ -460,7 +460,7 @@
             "title": "Token Generation Event (TGE)",
             "status": "upcoming",
             "date": "[TGE_DATE_PLACEHOLDER]",
-            "description": "PRICK token launched on Solana blockchain"
+            "description": "PRICKO token launched on Solana blockchain"
           }
         ]
       },
@@ -708,12 +708,12 @@
       "Cryptocurrency investments are highly volatile and risky",
       "You may lose all invested capital",
       "Past performance does not guarantee future results",
-      "PRICK is a utility token, not a security or investment",
+      "PRICKO is a utility token, not a security or investment",
       "No promises or guarantees of profit",
       "Conduct thorough research before purchasing"
     ],
     "complianceNotes": {
-      "securities": "PRICK is designed as a utility token for ecosystem access, not as a security. It does not represent equity, ownership, or profit-sharing rights.",
+      "securities": "PRICKO is designed as a utility token for ecosystem access, not as a security. It does not represent equity, ownership, or profit-sharing rights.",
       "jurisdiction": "Token availability and compliance varies by jurisdiction. Verify local regulations before purchase.",
       "kyc": "KYC/AML procedures may be required based on purchase method and jurisdiction."
     }
@@ -727,7 +727,7 @@
           {
             "id": "what-is-pricko",
             "question": "What is PRICKO?",
-            "answer": "PRICKO ($PRICK) is a utility token that powers the Privacy Gecko ecosystem of privacy-first tools. Unlike typical meme coins, PRICKO provides real utility by granting access to premium features across 8 privacy tools. We've already launched 2 live products serving 2,100+ users, with 2 more at 90%+ completion."
+            "answer": "PRICKO ($PRICKO) is a utility token that powers the Privacy Gecko ecosystem of privacy-first tools. Unlike typical meme coins, PRICKO provides real utility by granting access to premium features across 8 privacy tools. We've already launched 2 live products serving 2,100+ users, with 2 more at 90%+ completion."
           },
           {
             "id": "is-pricko-investment",
