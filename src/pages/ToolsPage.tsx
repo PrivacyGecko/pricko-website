@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
+import PricingComparisonTable from '../components/ui/PricingComparisonTable';
 
 const ToolsPage: React.FC = () => {
-  const { getAllProducts, getProductCounts, config } = useProjectConfig();
+  const { getLiveProducts, getBetaProducts, getInDevelopmentProducts, getProductCounts, config } = useProjectConfig();
   const [selectedTool, setSelectedTool] = useState<number | null>(null);
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [showSecurity, setShowSecurity] = useState<number | null>(null);
 
-  // Get all products from configuration and transform to expected format
-  const tools = getAllProducts().map(product => ({
+  // Helper function to transform products for display
+  const transformProduct = (product: any) => ({
     icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+Cjwvc3ZnPgo8L3N2Zz4=",
     title: product.name,
     subtitle: product.subtitle,
     description: product.description,
-    features: product.features.map(feature => ({
+    features: product.features.map((feature: string) => ({
       name: feature,
       description: `${feature} feature for ${product.name}`
     })),
@@ -24,15 +25,289 @@ const ToolsPage: React.FC = () => {
     rating: product.metrics.rating,
     category: product.category,
     url: product.url || undefined,
+    progress: product.progress || 0,
+    betaTesters: product.metrics.betaTesters || 0,
+    estimatedLaunch: product.metrics.estimatedLaunch || '',
     securitySpecs: {
       encryption: product.security.encryption,
       architecture: product.security.architecture,
       auditStatus: product.security.auditStatus,
       openSource: product.security.openSource
     }
-  }));
+  });
+
+  // Get products organized by status
+  const liveTools = getLiveProducts().map(transformProduct);
+  const betaTools = getBetaProducts().map(transformProduct);
+  const inDevelopmentTools = getInDevelopmentProducts().map(transformProduct);
 
   const productCounts = getProductCounts();
+
+  // Render a section of tools
+  const renderToolSection = (tools: any[], sectionTitle: string, sectionDescription: string, sectionIndex: number) => {
+    if (tools.length === 0) return null;
+
+    return (
+      <motion.div
+        key={sectionTitle}
+        className="mb-24"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: sectionIndex * 0.1 }}
+        viewport={{ once: true }}
+      >
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4 text-professional">
+            {sectionTitle} <span className="text-accent">({tools.length})</span>
+          </h2>
+          <p className="text-lg text-muted max-w-3xl mx-auto">{sectionDescription}</p>
+        </div>
+
+        <div className="space-y-20">
+          {tools.map((tool, index) => {
+            const toolIndex = sectionIndex * 100 + index; // Unique index for each tool across sections
+            return renderToolCard(tool, toolIndex);
+          })}
+        </div>
+      </motion.div>
+    );
+  };
+
+  // Render individual tool card
+  const renderToolCard = (tool: any, toolIndex: number) => {
+    const statusConfig = getStatusConfig(tool.status);
+    const isExpanded = selectedTool === toolIndex;
+
+    return (
+      <motion.div
+        key={`${tool.title}-${toolIndex}`}
+        className="relative"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: (toolIndex % 10) * 0.15 }}
+        viewport={{ once: true }}
+      >
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-8 rounded-3xl border border-border/50 bg-gradient-to-br from-secondary/30 to-secondary/10 backdrop-blur-sm hover:border-accent/30 transition-all duration-500 ${statusConfig.glow}`}>
+
+          {/* Content Section */}
+          <div className={toolIndex % 2 === 1 ? "lg:order-2" : ""}>
+            <div className="flex items-start justify-between mb-6">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl">{statusConfig.icon}</span>
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusConfig.badge}`}>
+                    {statusConfig.label}
+                  </span>
+                </div>
+                <h3 className="text-3xl font-bold mb-2 text-professional">{tool.title}</h3>
+                <p className="text-accent font-medium mb-4">{tool.subtitle}</p>
+              </div>
+
+              <div className="text-right">
+                <div className="text-sm text-muted mb-1">{tool.category}</div>
+                <div className="text-lg font-semibold text-accent">{tool.users}</div>
+                {tool.rating && (
+                  <div className="flex items-center gap-1 mt-1">
+                    <span className="text-yellow-400">⭐</span>
+                    <span className="text-sm font-medium">{tool.rating}</span>
+                  </div>
+                )}
+                {tool.progress > 0 && tool.progress < 100 && (
+                  <div className="mt-2">
+                    <div className="text-xs text-muted mb-1">Progress</div>
+                    <div className="w-24 bg-secondary/50 rounded-full h-2">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-accent to-accent-hover rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${tool.progress}%` }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                    <div className="text-xs font-medium text-accent mt-1">{tool.progress}%</div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <p className="text-muted mb-8 leading-relaxed text-lg">
+              {tool.description}
+            </p>
+
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-xl font-semibold text-accent">Key Features</h4>
+                <motion.button
+                  onClick={() => setSelectedTool(isExpanded ? null : toolIndex)}
+                  className="text-sm text-accent hover:text-accent-hover transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {isExpanded ? 'Show Less' : 'Show Details'}
+                </motion.button>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {tool.features.slice(0, isExpanded ? tool.features.length : 3).map((feature: any, featureIndex: number) => {
+
+                  return (
+                    <motion.div
+                      key={featureIndex}
+                      className="group p-4 rounded-xl border bg-bg-main/30 border-border/30 hover:border-accent/30 transition-all duration-300 cursor-pointer"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
+                      viewport={{ once: true }}
+                      onHoverStart={() => setHoveredFeature(`${toolIndex}-${featureIndex}`)}
+                      onHoverEnd={() => setHoveredFeature(null)}
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-accent mt-1 group-hover:scale-110 transition-transform">✓</span>
+                        <div className="flex-1">
+                          <div className="font-medium text-white group-hover:text-accent transition-colors">
+                            {feature.name}
+                          </div>
+                          <AnimatePresence>
+                            {(isExpanded || hoveredFeature === `${toolIndex}-${featureIndex}`) && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="text-sm mt-1 text-muted"
+                              >
+                                {feature.description}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Security Specifications Section */}
+            {tool.securitySpecs && (
+              <motion.div className="mb-8">
+                <button
+                  className="text-accent hover:text-accent-hover text-sm font-medium flex items-center gap-2 mb-3"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowSecurity(showSecurity === toolIndex ? null : toolIndex);
+                  }}
+                >
+                  <span>🔒</span>
+                  <span>Security Details</span>
+                  <span className="text-xs">{showSecurity === toolIndex ? '▲' : '▼'}</span>
+                </button>
+
+                <AnimatePresence>
+                  {showSecurity === toolIndex && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="bg-secondary/30 border border-accent/20 rounded-xl p-4 space-y-3">
+                        <div className="text-sm">
+                          <strong className="text-accent">Encryption:</strong>{' '}
+                          <span className="text-gray-300">{tool.securitySpecs.encryption}</span>
+                        </div>
+                        <div className="text-sm">
+                          <strong className="text-accent">Architecture:</strong>{' '}
+                          <span className="text-gray-300">{tool.securitySpecs.architecture}</span>
+                        </div>
+                        <div className="text-sm">
+                          <strong className="text-accent">Audit Status:</strong>{' '}
+                          <span className="text-gray-300">{tool.securitySpecs.auditStatus}</span>
+                        </div>
+                        {tool.securitySpecs.openSource && (
+                          <div className="text-sm">
+                            <strong className="text-accent">Source Code:</strong>{' '}
+                            <a
+                              href={tool.securitySpecs.openSource}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent hover:text-accent-hover hover:underline"
+                            >
+                              View on GitHub →
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            )}
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <motion.button
+                className={`${tool.status === 'live' ? 'btn-primary' : tool.status === 'beta' ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                disabled={tool.status !== 'live' && tool.status !== 'beta'}
+                onClick={() => {
+                  if ((tool.status === 'live' || tool.status === 'beta') && tool.url) {
+                    window.open(tool.url, '_blank', 'noopener,noreferrer');
+                  }
+                }}
+              >
+                {tool.status === 'live' ? '🚀 Use Now' :
+                 tool.status === 'beta' ? '🧪 Join Beta' :
+                 tool.status === 'in-development' ? '📋 Join Waitlist' :
+                 '📅 Notify Me'}
+              </motion.button>
+
+              <motion.button
+                className="border border-accent/30 text-accent hover:bg-accent/10 px-6 py-4 rounded-lg transition-all duration-200 font-medium"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                📖 Learn More
+              </motion.button>
+            </div>
+          </div>
+
+          {/* Visual Section */}
+          <motion.div
+            className={`flex justify-center ${toolIndex % 2 === 1 ? "lg:order-1" : ""}`}
+            whileHover={{ scale: 1.05, rotateY: 5 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="relative">
+              <div className={`w-80 h-80 bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl flex items-center justify-center border border-border/50 shadow-professional-lg ${statusConfig.glow}`}>
+                <motion.img
+                  src={tool.icon}
+                  alt={tool.title}
+                  className="w-32 h-32 filter brightness-0 invert opacity-90"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              </div>
+
+              {/* Floating Status Indicator */}
+              <motion.div
+                className={`absolute -top-2 -right-2 w-6 h-6 rounded-full ${statusConfig.badge} flex items-center justify-center`}
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+  };
 
   const getStatusConfig = (status: string) => {
     const configs = {
@@ -127,228 +402,30 @@ const ToolsPage: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Tools Grid */}
-        <div className="space-y-20">
-          {tools.map((tool, index) => {
-            const statusConfig = getStatusConfig(tool.status);
-            const isExpanded = selectedTool === index;
+        {/* Product Sections: Organized by Status */}
+        {renderToolSection(
+          liveTools,
+          'LIVE NOW',
+          'Available today. Start protecting your privacy with these production-ready tools.',
+          0
+        )}
 
-            return (
-              <motion.div
-                key={tool.title}
-                className="relative"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-8 rounded-3xl border border-border/50 bg-gradient-to-br from-secondary/30 to-secondary/10 backdrop-blur-sm hover:border-accent/30 transition-all duration-500 ${statusConfig.glow}`}>
+        {renderToolSection(
+          betaTools,
+          'LAUNCHING SOON',
+          'In beta testing. Join thousands of early users and help shape these products.',
+          1
+        )}
 
-                  {/* Content Section */}
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-2xl">{statusConfig.icon}</span>
-                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusConfig.badge}`}>
-                            {statusConfig.label}
-                          </span>
-                        </div>
-                        <h2 className="text-3xl font-bold mb-2 text-professional">{tool.title}</h2>
-                        <p className="text-accent font-medium mb-4">{tool.subtitle}</p>
-                      </div>
+        {renderToolSection(
+          inDevelopmentTools,
+          'IN DEVELOPMENT',
+          'Coming soon. Track progress and join waitlists for upcoming privacy tools.',
+          2
+        )}
 
-                      <div className="text-right">
-                        <div className="text-sm text-muted mb-1">{tool.category}</div>
-                        <div className="text-lg font-semibold text-accent">{tool.users}</div>
-                        {tool.rating && (
-                          <div className="flex items-center gap-1 mt-1">
-                            <span className="text-yellow-400">⭐</span>
-                            <span className="text-sm font-medium">{tool.rating}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <p className="text-muted mb-8 leading-relaxed text-lg">
-                      {tool.description}
-                    </p>
-
-                    <div className="mb-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-xl font-semibold text-accent">Key Features</h3>
-                        <motion.button
-                          onClick={() => setSelectedTool(isExpanded ? null : index)}
-                          className="text-sm text-accent hover:text-accent-hover transition-colors"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {isExpanded ? 'Show Less' : 'Show Details'}
-                        </motion.button>
-                      </div>
-
-                      <div className="grid grid-cols-1 gap-3">
-                        {tool.features.slice(0, isExpanded ? tool.features.length : 3).map((feature, featureIndex) => {
-
-                          return (
-                            <motion.div
-                              key={featureIndex}
-                              className="group p-4 rounded-xl border bg-bg-main/30 border-border/30 hover:border-accent/30 transition-all duration-300 cursor-pointer"
-                              initial={{ opacity: 0, x: -20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
-                              viewport={{ once: true }}
-                              onHoverStart={() => setHoveredFeature(`${index}-${featureIndex}`)}
-                              onHoverEnd={() => setHoveredFeature(null)}
-                              whileHover={{ scale: 1.02 }}
-                            >
-                              <div className="flex items-start gap-3">
-                                <span className="text-accent mt-1 group-hover:scale-110 transition-transform">✓</span>
-                                <div className="flex-1">
-                                  <div className="font-medium text-white group-hover:text-accent transition-colors">
-                                    {feature.name}
-                                  </div>
-                                  <AnimatePresence>
-                                    {(isExpanded || hoveredFeature === `${index}-${featureIndex}`) && (
-                                      <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="text-sm mt-1 text-muted"
-                                      >
-                                        {feature.description}
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
-                                </div>
-                              </div>
-                            </motion.div>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Security Specifications Section */}
-                    {tool.securitySpecs && (
-                      <motion.div className="mb-8">
-                        <button
-                          className="text-accent hover:text-accent-hover text-sm font-medium flex items-center gap-2 mb-3"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setShowSecurity(showSecurity === index ? null : index);
-                          }}
-                        >
-                          <span>🔒</span>
-                          <span>Security Details</span>
-                          <span className="text-xs">{showSecurity === index ? '▲' : '▼'}</span>
-                        </button>
-
-                        <AnimatePresence>
-                          {showSecurity === index && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="bg-secondary/30 border border-accent/20 rounded-xl p-4 space-y-3">
-                                <div className="text-sm">
-                                  <strong className="text-accent">Encryption:</strong>{' '}
-                                  <span className="text-gray-300">{tool.securitySpecs.encryption}</span>
-                                </div>
-                                <div className="text-sm">
-                                  <strong className="text-accent">Architecture:</strong>{' '}
-                                  <span className="text-gray-300">{tool.securitySpecs.architecture}</span>
-                                </div>
-                                <div className="text-sm">
-                                  <strong className="text-accent">Audit Status:</strong>{' '}
-                                  <span className="text-gray-300">{tool.securitySpecs.auditStatus}</span>
-                                </div>
-                                {tool.securitySpecs.openSource && (
-                                  <div className="text-sm">
-                                    <strong className="text-accent">Source Code:</strong>{' '}
-                                    <a
-                                      href={tool.securitySpecs.openSource}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="text-accent hover:text-accent-hover hover:underline"
-                                    >
-                                      View on GitHub →
-                                    </a>
-                                  </div>
-                                )}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </motion.div>
-                    )}
-
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <motion.button
-                        className={`${tool.status === 'live' ? 'btn-primary' : tool.status === 'beta' ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black' : 'btn-secondary'} px-8 py-4 text-lg font-semibold shadow-professional`}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        disabled={tool.status !== 'live' && tool.status !== 'beta'}
-                        onClick={() => {
-                          if ((tool.status === 'live' || tool.status === 'beta') && tool.url) {
-                            window.open(tool.url, '_blank', 'noopener,noreferrer');
-                          }
-                        }}
-                      >
-                        {tool.status === 'live' ? '🚀 Use Now' :
-                         tool.status === 'beta' ? '🧪 Join Beta' :
-                         tool.status === 'coming-soon' ? '📋 Join Waitlist' :
-                         '📅 Notify Me'}
-                      </motion.button>
-
-                      <motion.button
-                        className="border border-accent/30 text-accent hover:bg-accent/10 px-6 py-4 rounded-lg transition-all duration-200 font-medium"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        📖 Learn More
-                      </motion.button>
-                    </div>
-                  </div>
-
-                  {/* Visual Section */}
-                  <motion.div
-                    className={`flex justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}
-                    whileHover={{ scale: 1.05, rotateY: 5 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <div className="relative">
-                      <div className={`w-80 h-80 bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl flex items-center justify-center border border-border/50 shadow-professional-lg ${statusConfig.glow}`}>
-                        <motion.img
-                          src={tool.icon}
-                          alt={tool.title}
-                          className="w-32 h-32 filter brightness-0 invert opacity-90"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ duration: 0.3 }}
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                          }}
-                        />
-                      </div>
-
-                      {/* Floating Status Indicator */}
-                      <motion.div
-                        className={`absolute -top-2 -right-2 w-6 h-6 rounded-full ${statusConfig.badge} flex items-center justify-center`}
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        {/* Pricing Comparison Section */}
+        <PricingComparisonTable />
 
         {/* Enhanced Call to Action */}
         <motion.section
