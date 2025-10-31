@@ -20,6 +20,12 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 // Product pages
 const GeckoAdvisorPage = lazy(() => import('./pages/products/GeckoAdvisorPage'));
 const GeckoSharePage = lazy(() => import('./pages/products/GeckoSharePage'));
+const GeckoShellPage = lazy(() => import('./pages/products/GeckoShellPage'));
+const GeckoGuardPage = lazy(() => import('./pages/products/GeckoGuardPage'));
+const GeckoLockPage = lazy(() => import('./pages/products/GeckoLockPage'));
+const GeckoWatchPage = lazy(() => import('./pages/products/GeckoWatchPage'));
+const GeckoViewPage = lazy(() => import('./pages/products/GeckoViewPage'));
+const GeckoVPNPage = lazy(() => import('./pages/products/GeckoVPNPage'));
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -59,6 +65,12 @@ function App() {
               {/* Product Pages */}
               <Route path="/gecko-advisor" element={<GeckoAdvisorPage />} />
               <Route path="/gecko-share" element={<GeckoSharePage />} />
+              <Route path="/gecko-shell" element={<GeckoShellPage />} />
+              <Route path="/gecko-guard" element={<GeckoGuardPage />} />
+              <Route path="/gecko-lock" element={<GeckoLockPage />} />
+              <Route path="/gecko-watch" element={<GeckoWatchPage />} />
+              <Route path="/gecko-view" element={<GeckoViewPage />} />
+              <Route path="/gecko-vpn" element={<GeckoVPNPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
