@@ -4,6 +4,10 @@ node_modules/
 .pnp.js
 assets/
 playwright-tests/
+.playwright-mcp/
+docs/
+node_modules/.bin/
+node_modules/.vite/
 
 # Claude Code (keep project docs)
 .claude/
