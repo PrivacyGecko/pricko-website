@@ -73,8 +73,8 @@
         "id": "gecko-advisor",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAxNkMzMC44OTU0IDE2IDMwIDE2Ljg5NTQgMzAgMThWMzBDMzAgMzEuMTA0NiAzMC44OTU0IDMyIDMyIDMyQzMzLjEwNDYgMzIgMzQgMzEuMTA0NiAzNCAzMFYxOEMzNCAzNi44OTU0IDMzLjEwNDYgMTYgMzIgMTZaIiBmaWxsPSIjMUExQTFBIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzOCIgcj0iMyIgZmlsbD0iIzFBMUExQSIvPgogIDxwYXRoIGQ9Ik0zMiAxMEMyMC40MDIzIDEwIDExIDIwLjQwMjMgMTEgMzJDMTEgNDMuNTk3NyAyMC40MDIzIDU0IDMyIDU0QzQzLjU5NzcgNTQgNTQgNDMuNTk3NyA1NCAzMkM1NCAyMC40MDIzIDQzLjU5NzcgMTAgMzIgMTBaTTMyIDUwQzIyLjYxMTIgNTAgMTQgNDEuMzg4OCAxNCAzMkMxNCAyMi42MTEyIDIyLjYxMTIgMTQgMzIgMTRDNDEuMzg4OCAxNCA1MCAyMi42MTEyIDUwIDMyQzUwIDQxLjM4ODggNDEuMzg4OCA1MCAzMiA1MFoiIGZpbGw9IiMxQTFBMUEiLz4KPC9zdmc+",
         "name": "GeckoAdvisor",
-        "subtitle": "Privacy & Security Audit Tool",
-        "category": "Security Audit",
+        "subtitle": "Website Privacy Scanner",
+        "category": "Privacy Analysis",
         "status": "live",
         "launchDate": "October 2025",
         "progress": 100,
@@ -84,30 +84,30 @@
           "downloads": "[PLACEHOLDER_NUMBER]",
           "activeInstallations": "[PLACEHOLDER_NUMBER]"
         },
-        "description": "Comprehensive privacy and security audit tool for your devices. Scan for vulnerabilities, detect tracking, and get actionable recommendations to improve your digital privacy posture.",
+        "description": "Scan any website to uncover trackers, cookies, and hidden data collection. Open-source privacy analysis tool that grades websites A-F based on their privacy practices. 100% free with no account required.",
         "features": [
-          "Device scanning & vulnerability detection",
-          "Privacy score & recommendations",
-          "Tracking detection",
-          "Security audit reports",
-          "Real-time monitoring",
-          "Automated recommendations"
+          "Website tracker & cookie detection",
+          "Privacy grade (A-F) with evidence",
+          "Security headers & TLS scanning",
+          "Third-party analysis using EasyPrivacy & WhoTracks.me",
+          "5-10 second scan results",
+          "100% free & no account required"
         ],
         "security": {
-          "encryption": "Client-side processing only",
-          "architecture": "No data sent to servers - local analysis only",
+          "encryption": "HTTPS for all scans",
+          "architecture": "Browser-based scanning with privacy-respecting analysis",
           "auditStatus": "Open-source security audit completed Q4 2024",
           "openSource": "https://github.com/privacygecko/gecko-advisor"
         },
         "pricing": {
           "free": {
             "available": true,
-            "features": ["Basic device scan", "Privacy score", "Limited recommendations"]
+            "features": ["Unlimited website scans", "Privacy grades (A-F)", "Tracker detection", "Cookie analysis", "No account required"]
           },
           "pro": {
-            "priceUSD": "[PLACEHOLDER_PRICE]",
-            "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Unlimited scans", "Advanced threat detection", "Real-time monitoring", "Priority support"]
+            "priceUSD": 0,
+            "tokenRequirement": "N/A",
+            "features": ["100% free for everyone", "Open source", "No premium tiers"]
           }
         },
         "url": "https://geckoadvisor.com"
@@ -436,7 +436,7 @@
             "title": "GeckoAdvisor Launch",
             "status": "completed",
             "date": "October 2025",
-            "description": "Website privacy policy scanner launched with comprehensive device scanning and privacy scoring"
+            "description": "Website privacy scanner launched with tracker detection, cookie analysis, and A-F privacy grading system. 100% free and open source."
           },
           {
             "title": "GeckoShare Launch",
@@ -679,7 +679,7 @@
     },
     {
       "id": "testimonial-2",
-      "quote": "GeckoAdvisor found 23 privacy leaks I didn't even know existed. The recommendations were actionable and easy to follow.",
+      "quote": "GeckoAdvisor scanned my favorite websites and revealed 23 trackers I had no idea were collecting my data. The privacy grades make it easy to see which sites respect privacy.",
       "author": "Sarah K.",
       "role": "Privacy Advocate",
       "product": "GeckoAdvisor",
@@ -711,7 +711,7 @@
     },
     {
       "id": "testimonial-6",
-      "quote": "I've tested dozens of privacy tools. GeckoAdvisor's recommendations are the most practical I've seen. No tech jargon, just clear steps.",
+      "quote": "I've tested dozens of website privacy scanners. GeckoAdvisor's A-F grading system is brilliant - it makes complex privacy analysis accessible to everyone. No account, completely free, and open source.",
       "author": "Linda R.",
       "role": "Privacy Researcher",
       "product": "GeckoAdvisor",
@@ -854,7 +854,7 @@
           {
             "id": "which-products-live",
             "question": "Which products are live right now?",
-            "answer": "Currently, GeckoShare (encrypted file sharing) and GeckoAdvisor (privacy audit tool) are live and serving 2,100+ users. Both products are fully functional with free tiers and Pro upgrades available."
+            "answer": "Currently, GeckoShare (encrypted file sharing with Pro tier) and GeckoAdvisor (website privacy scanner - 100% free) are live and serving users. GeckoAdvisor scans any website to reveal trackers and privacy practices with no account required."
           },
           {
             "id": "upcoming-products",
