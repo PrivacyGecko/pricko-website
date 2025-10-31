@@ -25,11 +25,11 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={\`fixed top-0 left-0 right-0 z-50 transition-all duration-300 \${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-primary/95 backdrop-blur-custom border-b border-border shadow-lg'
           : 'bg-primary/80 backdrop-blur-custom border-b border-border/50'
-      }\`}
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -74,9 +74,9 @@ const Header: React.FC = () => {
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
               <motion.span
-                className={\`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out \${
+                className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
                   isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'
-                }\`}
+                }`}
                 animate={{
                   rotate: isMenuOpen ? 45 : 0,
                   y: isMenuOpen ? 6 : -4
@@ -90,9 +90,9 @@ const Header: React.FC = () => {
                 }}
               />
               <motion.span
-                className={\`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out \${
+                className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
                   isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'
-                }\`}
+                }`}
                 animate={{
                   rotate: isMenuOpen ? -45 : 0,
                   y: isMenuOpen ? -6 : 4
