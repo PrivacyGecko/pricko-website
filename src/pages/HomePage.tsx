@@ -42,9 +42,9 @@ const HomePage: React.FC = () => {
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+Cjwvc3ZnPgo8L3N2Zz4=",
       title: "GeckoAdvisor",
-      description: "Comprehensive privacy and security audit tool for your devices with vulnerability detection and privacy scoring.",
+      description: "Scan any website to uncover trackers, cookies, and hidden data collection. Open-source privacy analysis tool that grades websites A-F based on their privacy practices. 100% free with no account required.",
       status: "live" as const,
-      features: ["Device scanning & vulnerability detection", "Privacy score & recommendations", "Tracking detection", "Security audit reports", "Real-time monitoring", "AI recommendations"],
+      features: ["Website tracker & cookie detection", "Privacy grade (A-F) with evidence", "Security headers & TLS scanning", "Third-party analysis", "5-10 second scan results", "100% free & no account required"],
       url: "https://geckoadvisor.com"
     },
     {
@@ -174,7 +174,7 @@ const HomePage: React.FC = () => {
                 </p>
 
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
-                  <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.community.formatted} users.
+                  <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.betaTesters.formatted} users.
                   <span className="text-accent"> 2 more at 90%+ completion.</span> Real code. Real traction. Real results.
                 </p>
               </motion.div>
@@ -219,7 +219,7 @@ const HomePage: React.FC = () => {
                   delay={500}
                 />
                 <AnimatedCounter
-                  value={metrics.community.formatted}
+                  value={metrics.betaTesters.formatted}
                   label="Active Users"
                   icon={<FaUsers className="mx-auto text-xl" />}
                   duration={2000}

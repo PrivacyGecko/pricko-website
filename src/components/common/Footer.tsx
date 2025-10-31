@@ -208,8 +208,8 @@ const Footer: React.FC = () => {
                 transition={{ delay: 0.4 }}
               >
                 <div className="flex items-center space-x-2">
-                  <span className="text-lg">📁</span>
-                  <span className="text-muted">GeckoShare</span>
+                  <span className="text-lg">🔍</span>
+                  <span className="text-muted">GeckoAdvisor</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
               </motion.li>
@@ -219,9 +219,9 @@ const Footer: React.FC = () => {
                 transition={{ delay: 0.5 }}
               >
                 <div className="flex items-center space-x-2">
-                  <span className="text-lg">🛡️</span>
-                  <span className="text-muted">GeckoGuard</span>
-                  <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full animate-pulse">Beta</span>
+                  <span className="text-lg">📁</span>
+                  <span className="text-muted">GeckoShare</span>
+                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
               </motion.li>
               <motion.li
@@ -232,7 +232,18 @@ const Footer: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">📱</span>
                   <span className="text-muted">GeckoShell</span>
-                  <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Coming Soon</span>
+                  <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Beta</span>
+                </div>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🛡️</span>
+                  <span className="text-muted">GeckoGuard</span>
+                  <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">In Dev</span>
                 </div>
               </motion.li>
               <motion.li
