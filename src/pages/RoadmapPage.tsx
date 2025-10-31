@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
+import PastMilestone from '../components/ui/PastMilestone';
 
 const RoadmapPage: React.FC = () => {
   const { config, getTokenDisclaimer } = useProjectConfig();
@@ -199,6 +200,108 @@ const RoadmapPage: React.FC = () => {
           </motion.div>
         </motion.section>
 
+        {/* Roadmap Timeline Disclaimer */}
+        <motion.div
+          className="mb-12 bg-gradient-to-br from-yellow-500/10 to-orange-500/5 border border-yellow-500/30 rounded-2xl p-6 backdrop-blur-sm"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-start gap-4">
+            <span className="text-3xl">⚠️</span>
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-yellow-400">Important: Roadmap Disclaimer</h3>
+              <div className="text-sm text-gray-300 space-y-2 leading-relaxed">
+                <p>
+                  <strong>Timelines are estimates</strong> based on current development progress and available resources.
+                  Actual delivery dates may vary due to:
+                </p>
+                <ul className="list-disc list-inside ml-4 space-y-1">
+                  <li>Market conditions and regulatory developments</li>
+                  <li>Technical challenges encountered during development</li>
+                  <li>Resource availability and team capacity changes</li>
+                  <li>Security audit requirements and findings</li>
+                  <li>Community feedback and feature prioritization</li>
+                </ul>
+                <p className="mt-3">
+                  <strong>We commit to transparency:</strong> You will receive regular updates on progress, challenges, and timeline adjustments.
+                  Our focus is delivering quality, secure products—not rushing to meet arbitrary deadlines.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Past Milestones Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Past Milestones - <span className="gradient-text-animated">What We've Delivered</span>
+            </h2>
+            <p className="text-lg text-muted max-w-3xl mx-auto">
+              Track record matters. Here's proof of our execution and commitment to building real products.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <PastMilestone
+              title="GeckoShare Launched"
+              description="Zero-knowledge file sharing platform went live with 2,100+ active users. Full end-to-end encryption, persistent vault storage, and token-gated features."
+              date="August 2024"
+              delay={0}
+            />
+            <PastMilestone
+              title="GeckoAdvisor Launched"
+              description="Privacy audit tool released to public with device scanning, vulnerability detection, and actionable security recommendations."
+              date="September 2024"
+              delay={0.1}
+            />
+            <PastMilestone
+              title="Website & Branding Complete"
+              description="Official Privacy Gecko website, brand identity, and marketing materials launched to establish professional presence."
+              date="October 2024"
+              delay={0.2}
+            />
+            <PastMilestone
+              title="1,000+ Beta Users Acquired"
+              description="Crossed 1,000 early adopters across GeckoShare and GeckoAdvisor, validating product-market fit and user demand."
+              date="Q4 2024"
+              delay={0.3}
+            />
+            <PastMilestone
+              title="GeckoShell 85% Complete"
+              description="Cross-platform mobile privacy browser reached 85% completion with 1,800+ users on beta waitlist. Plugin architecture implemented."
+              date="November 2024"
+              delay={0.4}
+            />
+            <PastMilestone
+              title="GeckoGuard 90% Complete"
+              description="Browser extension completed development and submitted to extension stores. Awaiting final store review and approval."
+              date="December 2024"
+              delay={0.5}
+            />
+            <PastMilestone
+              title="3,750+ Beta Testers Onboarded"
+              description="Growing community of beta testers providing feedback and helping shape product development across the ecosystem."
+              date="Q1 2025"
+              delay={0.6}
+            />
+            <PastMilestone
+              title="Smart Contract Development"
+              description="PRICK token smart contract developed and audited in preparation for Token Generation Event (TGE)."
+              date="Q1 2025"
+              delay={0.7}
+            />
+          </div>
+        </motion.section>
+
         {/* Enhanced Roadmap Timeline */}
         <div className="relative">
           {/* Enhanced Vertical Line */}
@@ -354,6 +457,112 @@ const RoadmapPage: React.FC = () => {
             })}
           </div>
         </div>
+
+        {/* Transparency Section: What Could Change & Why */}
+        <motion.section
+          className="mt-20 mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl p-12 border border-border/50 backdrop-blur-sm shadow-professional-lg">
+            <div className="text-center mb-10">
+              <h2 className="text-4xl font-bold mb-4 text-professional">
+                Transparency: <span className="gradient-text-animated">What Could Change & Why</span>
+              </h2>
+              <p className="text-lg text-muted max-w-3xl mx-auto">
+                We believe in setting realistic expectations. Here's what could impact our roadmap and how we'll respond.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                className="bg-bg-main/30 rounded-2xl p-6 border border-border/30 hover:border-accent/30 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -3 }}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <span className="text-4xl">📊</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Market Conditions</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      Crypto market volatility, regulatory changes, and economic conditions may affect funding availability and launch timing.
+                      <strong className="text-accent block mt-2">Our Response:</strong> We maintain runway for 18+ months and will adjust feature prioritization based on available resources.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-bg-main/30 rounded-2xl p-6 border border-border/30 hover:border-accent/30 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -3 }}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <span className="text-4xl">⚖️</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Regulatory Developments</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      Changing privacy laws (GDPR, CCPA) and cryptocurrency regulations may require architectural changes or feature modifications.
+                      <strong className="text-accent block mt-2">Our Response:</strong> We work with legal counsel and stay ahead of compliance requirements to ensure products meet evolving standards.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-bg-main/30 rounded-2xl p-6 border border-border/30 hover:border-accent/30 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -3 }}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <span className="text-4xl">🔧</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Technical Challenges</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      Unforeseen security vulnerabilities, integration complexities, or platform restrictions (app store policies) may delay launches.
+                      <strong className="text-accent block mt-2">Our Response:</strong> We prioritize security and quality over speed. If issues arise, we'll communicate transparently and adjust timelines accordingly.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-bg-main/30 rounded-2xl p-6 border border-border/30 hover:border-accent/30 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -3 }}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <span className="text-4xl">👥</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Resource Availability</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      Team capacity, developer availability, and talent acquisition challenges may impact development velocity.
+                      <strong className="text-accent block mt-2">Our Response:</strong> We're building a sustainable team and will scale hiring based on funding. Community contributors may also accelerate certain features.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="mt-10 p-6 bg-accent/10 border border-accent/30 rounded-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">✅</span>
+                <div>
+                  <h4 className="text-lg font-bold text-accent mb-2">Our Commitment to Transparency</h4>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Regardless of changes, we commit to <strong>regular updates</strong> via our blog, social channels, and community forums.
+                    You'll always know where we are, what we're working on, and why timelines may shift. We'd rather be honest about delays
+                    than rush out subpar products. <strong className="text-white">Quality and security always come first.</strong>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
 
         {/* Enhanced Future Vision */}
         <motion.section

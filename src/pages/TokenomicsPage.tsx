@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaEye } from 'react-icons/fa';
+import { FaRocket, FaEye, FaShieldAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
+import UtilityTierCard from '../components/ui/UtilityTierCard';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 
@@ -40,6 +41,66 @@ const TokenomicsPage: React.FC = () => {
     };
   });
 
+  // 4-Tier Utility Model
+  const utilityTiers = [
+    {
+      tier: 1,
+      name: "Free Access",
+      tokenRequirement: "No tokens required",
+      description: "Experience basic privacy tools at no cost",
+      features: [
+        "Basic privacy scanning",
+        "Limited file sharing (1GB, 24hr)",
+        "Standard ad blocking",
+        "Community access"
+      ],
+      badge: "🆓",
+      color: "zinc" as const
+    },
+    {
+      tier: 2,
+      name: "Token Holder",
+      tokenRequirement: "Hold 10,000+ $PRICK",
+      description: "Unlock premium features across all tools",
+      features: [
+        "Unlimited file sizes & persistent vault",
+        "Advanced threat detection",
+        "Premium stealth modes",
+        "Priority support"
+      ],
+      badge: "💎",
+      color: "accent" as const
+    },
+    {
+      tier: 3,
+      name: "Staker",
+      tokenRequirement: "Stake 50,000+ $PRICK",
+      description: "Enhanced benefits for long-term commitment",
+      features: [
+        "All Token Holder benefits",
+        "Staking rewards",
+        "Early access to beta features",
+        "Exclusive community channels"
+      ],
+      badge: "⭐",
+      color: "accent-hover" as const
+    },
+    {
+      tier: 4,
+      name: "Governance",
+      tokenRequirement: "100,000+ $PRICK staked",
+      description: "Shape the future of Privacy Gecko",
+      features: [
+        "All Staker benefits",
+        "Vote on roadmap priorities",
+        "Propose new features",
+        "Direct team communication"
+      ],
+      badge: "👑",
+      color: "yellow" as const
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -52,18 +113,37 @@ const TokenomicsPage: React.FC = () => {
       <div className="container-max section-padding">
         {/* Hero Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">$PRICKO</span> Tokenomics
+            <span className="gradient-text">$PRICK</span> Tokenomics
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-            A fair and sustainable token economy designed to reward privacy advocates, 
-            fund tool development, and build the strongest privacy community in crypto.
+            A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy tools.
           </p>
+        </motion.div>
+
+        {/* Top Disclaimer - CRITICAL LEGAL REQUIREMENT */}
+        <motion.div
+          className="mb-16 bg-yellow-500/10 border-2 border-yellow-500/50 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-4xl flex-shrink-0">⚠️</div>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-yellow-300 mb-3">Important Notice</h3>
+              <p className="text-gray-200 leading-relaxed text-sm md:text-base">
+                <strong>$PRICK is a utility token for accessing Privacy Gecko services.</strong> It is NOT an investment vehicle or security.
+                Token value may fluctuate significantly or decline to zero. Purchase only if you intend to use Privacy Gecko tools.
+                Cryptocurrency investments carry risk, including total loss of capital. This is not financial advice.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Token Overview */}
@@ -78,7 +158,7 @@ const TokenomicsPage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Total Supply</h3>
               <p className="text-3xl font-bold">{tokenomicsData.totalSupply}</p>
-              <p className="text-muted mt-2">$PRICKO Tokens</p>
+              <p className="text-muted mt-2">$PRICK Tokens</p>
             </div>
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Blockchain</h3>
@@ -91,6 +171,55 @@ const TokenomicsPage: React.FC = () => {
               <p className="text-muted mt-2">Privacy Tools Access</p>
             </div>
           </div>
+        </motion.section>
+
+        {/* 4-Tier Utility Model - MOST IMPORTANT SECTION */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="gradient-text">How $PRICK Works:</span> 4-Tier Utility Model
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
+              $PRICK unlocks features across our privacy tools. The more you hold, the more capabilities you access.
+              This is about <strong>functionality</strong>, not investment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {utilityTiers.map((tier, index) => (
+              <UtilityTierCard
+                key={tier.tier}
+                {...tier}
+                delay={index * 0.1}
+              />
+            ))}
+          </div>
+
+          <motion.div
+            className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-start gap-3">
+              <FaShieldAlt className="text-blue-400 text-2xl flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-bold text-blue-300 mb-2">Utility-First Design</h4>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Each tier grants specific capabilities within Privacy Gecko tools. You're not buying an investment -
+                  you're unlocking features to enhance your privacy. Token requirements are subject to change based on
+                  pricing adjustments for service sustainability.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </motion.section>
 
         {/* Distribution Chart */}
@@ -211,7 +340,7 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* Token Economics */}
+        {/* Ecosystem Sustainability */}
         <motion.section
           className="mb-16 bg-secondary/30 rounded-2xl p-8"
           initial={{ opacity: 0, y: 20 }}
@@ -219,18 +348,40 @@ const TokenomicsPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-center">Token Economics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-3 text-accent">Deflationary Model</h3>
-              <p className="text-muted">
-                Tokens used for premium privacy tool subscriptions are burned permanently, reducing total supply over time and creating scarcity.
-              </p>
+          <h2 className="text-3xl font-bold mb-6 text-center">Ecosystem Sustainability</h2>
+          <div className="max-w-4xl mx-auto space-y-6">
+            <p className="text-gray-300 leading-relaxed">
+              The Privacy Gecko ecosystem operates on a <strong>utility-consumption model</strong> designed for long-term sustainability.
+            </p>
+
+            <div className="bg-bg-main rounded-xl p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-accent mb-3">How It Works:</h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-accent text-xl flex-shrink-0">•</span>
+                  <p className="text-gray-300">Users spend tokens to access premium features across Privacy Gecko tools</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-accent text-xl flex-shrink-0">•</span>
+                  <p className="text-gray-300">Smart contracts automatically burn consumed tokens (remove from circulation)</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-accent text-xl flex-shrink-0">•</span>
+                  <p className="text-gray-300">This mechanism maintains operational balance over time</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-accent text-xl flex-shrink-0">•</span>
+                  <p className="text-gray-300">The system ensures sustainable funding without inflation</p>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-3 text-accent">Organic Growth</h3>
-              <p className="text-muted">
-                As privacy tools gain users, token demand increases while supply decreases through burns, driving sustainable tokenomics.
+
+            <div className="bg-yellow-500/5 border border-yellow-500/20 rounded-xl p-6">
+              <p className="text-sm text-gray-300 leading-relaxed">
+                <strong className="text-yellow-300">Important:</strong> This is NOT designed to increase token value.
+                It's an operational model where tokens are consumed like traditional currency to pay for services.
+                Think of it like paying for Netflix - your payment funds operations. When you use $PRICK for services,
+                tokens are consumed (burned) to ensure sustainable funding for continued development and operations.
               </p>
             </div>
           </div>
@@ -259,7 +410,7 @@ const TokenomicsPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-6">Ready to Join the Privacy Revolution?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
-            $PRICKO will launch on pump.fun with a fair distribution model. Join our community to stay
+            $PRICK will launch with a fair distribution model. Join our community to stay
             updated on the launch date and be among the first to participate when the token goes live.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -283,6 +434,114 @@ const TokenomicsPage: React.FC = () => {
                 View Roadmap
               </motion.button>
             </Link>
+          </div>
+        </motion.section>
+
+        {/* Risk Disclosures - CRITICAL LEGAL REQUIREMENT */}
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-4xl mx-auto bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
+            <div className="flex items-start gap-4 mb-6">
+              <FaShieldAlt className="text-red-400 text-3xl flex-shrink-0 mt-1" />
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-red-300 mb-2">Understanding the Risks</h2>
+                <p className="text-gray-300 text-sm">
+                  Before acquiring $PRICK tokens, carefully review and understand these important risks:
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-red-300 mb-2">Market Risks</h3>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Cryptocurrency markets are highly volatile and unpredictable</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Token value can fluctuate significantly or decline to zero</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>No guarantees of liquidity or favorable market conditions</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-red-300 mb-2">Development Risks</h3>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Product timelines may change due to technical challenges or resource constraints</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Features may be modified, delayed, or not delivered as described</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>No guarantees regarding future development or ecosystem growth</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-red-300 mb-2">Regulatory Risks</h3>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Cryptocurrency regulations vary by jurisdiction and may change</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Future regulatory actions may impact token utility or accessibility</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>You are responsible for compliance with laws in your jurisdiction</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-red-300 mb-2">Utility & Technology Risks</h3>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>This is a utility token for accessing services, not an investment vehicle</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Smart contracts and blockchain technology carry inherent technical risks</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>Token holders have no expectation of profit from the efforts of the Privacy Gecko team</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-400 mt-1 flex-shrink-0">•</span>
+                    <span>You should only purchase tokens if you intend to use Privacy Gecko services</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-red-500/20">
+                <p className="text-sm text-gray-300 font-semibold">
+                  <span className="text-red-300">No Financial Advice:</span> This information is educational only
+                  and does not constitute financial, investment, or legal advice. Conduct thorough research and
+                  consult with qualified professionals before making any decisions. Never invest more than you can
+                  afford to lose completely.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.section>
 
