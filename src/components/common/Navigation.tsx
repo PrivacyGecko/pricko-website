@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NavigationItem } from '../../types';
+import NavigationDropdown, { DropdownItem } from './NavigationDropdown';
+import { useProjectConfig } from '../../hooks/useProjectConfig';
 
 interface NavigationProps {
   mobile?: boolean;
@@ -11,7 +13,7 @@ interface NavigationProps {
 const navigationItems: NavigationItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Tools', href: '/tools' },
+  // Tools will be replaced with dropdown
   { name: 'Tokenomics', href: '/tokenomics' },
   { name: 'How to Buy', href: '/how-to-buy' },
   { name: 'Roadmap', href: '/roadmap' },
@@ -20,6 +22,7 @@ const navigationItems: NavigationItem[] = [
 
 const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) => {
   const location = useLocation();
+  const { getAllProducts } = useProjectConfig();
 
   const isActive = (href: string) => {
     if (href === '/') {
@@ -27,6 +30,20 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     }
     return location.pathname.startsWith(href);
   };
+
+  // Build dropdown items from products
+  const toolsDropdownItems: DropdownItem[] = getAllProducts().map(product => ({
+    label: product.name,
+    href: `/${product.id}`,
+    status: product.status as 'live' | 'beta' | 'in-development',
+    external: !!product.url
+  }));
+
+  // Add "View All Tools" link at the end
+  toolsDropdownItems.push({
+    label: 'View All Tools',
+    href: '/tools'
+  });
 
   const linkClass = mobile
     ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded"
@@ -38,6 +55,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
 
   return (
     <nav className={mobile ? "space-y-1 mt-4" : "flex items-center space-x-1"}>
+      {/* Render regular navigation items */}
       {navigationItems.map((item, index) => {
         const active = isActive(item.href);
         
@@ -82,6 +100,20 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
           </motion.div>
         );
       })}
+      
+      {/* Tools Dropdown - Positioned after "About" */}
+      <motion.div
+        initial={mobile ? { x: -20, opacity: 0 } : { y: -10, opacity: 0 }}
+        animate={mobile ? { x: 0, opacity: 1 } : { y: 0, opacity: 1 }}
+        transition={{ delay: mobile ? 2 * 0.1 : 2 * 0.05 }}
+      >
+        <NavigationDropdown
+          label="Tools"
+          items={toolsDropdownItems}
+          mobile={mobile}
+          onItemClick={onItemClick}
+        />
+      </motion.div>
       
       {/* CTA Button */}
       <motion.div
