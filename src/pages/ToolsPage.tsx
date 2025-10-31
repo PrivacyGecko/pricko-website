@@ -285,7 +285,7 @@ const ToolsPage: React.FC = () => {
                 <motion.img
                   src={tool.icon}
                   alt={tool.title}
-                  className="w-32 h-32 filter brightness-0 invert opacity-90"
+                  className="w-48 h-48 rounded-2xl shadow-2xl shadow-accent/20"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                   onError={(e) => {
