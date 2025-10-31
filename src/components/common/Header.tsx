@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
+import MascotImage from '../ui/MascotImage';
 // import ContractAddress from '../ui/ContractAddress';
 
 const Header: React.FC = () => {
@@ -24,36 +25,24 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={\`fixed top-0 left-0 right-0 z-50 transition-all duration-300 \${
         isScrolled
           ? 'bg-primary/95 backdrop-blur-custom border-b border-border shadow-lg'
           : 'bg-primary/80 backdrop-blur-custom border-b border-border/50'
-      }`}
+      }\`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container-max">
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
-          {/* Enhanced Logo Section */}
+          {/* Enhanced Logo Section with MascotImage */}
           <Link to="/" className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded-lg">
-            <motion.div
-              className="relative w-12 h-12 sm:w-14 sm:h-14"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              {/* Glow effect background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent-hover/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300"></div>
-              
-              {/* Logo container */}
-              <div className="relative w-full h-full bg-gradient-to-br from-white to-gray-100 rounded-full flex justify-center items-center p-2 shadow-lg ring-2 ring-accent/20 group-hover:ring-accent/40 transition-all duration-300">
-                <img
-                  src="/logo.png"
-                  alt="Pricko Logo"
-                  className="w-full h-full object-contain filter drop-shadow-sm"
-                />
-              </div>
-            </motion.div>
+            <MascotImage 
+              size="sm" 
+              className="transition-transform duration-300 group-hover:scale-110"
+              alt="Privacy Gecko Logo"
+            />
             
             {/* Enhanced Brand Text */}
             <div className="flex flex-col">
@@ -85,9 +74,9 @@ const Header: React.FC = () => {
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
               <motion.span
-                className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
+                className={\`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out \${
                   isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'
-                }`}
+                }\`}
                 animate={{
                   rotate: isMenuOpen ? 45 : 0,
                   y: isMenuOpen ? 6 : -4
@@ -101,9 +90,9 @@ const Header: React.FC = () => {
                 }}
               />
               <motion.span
-                className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
+                className={\`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out \${
                   isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'
-                }`}
+                }\`}
                 animate={{
                   rotate: isMenuOpen ? -45 : 0,
                   y: isMenuOpen ? -6 : 4
