@@ -8,6 +8,7 @@ interface SEOProps {
   ogType?: string;
   twitterCard?: string;
   canonicalUrl?: string;
+  structuredData?: object;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -18,9 +19,29 @@ const SEO: React.FC<SEOProps> = ({
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl,
+  structuredData,
 }) => {
   const siteUrl = "https://pricko.com";
   const fullUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
+
+  // Default Organization structured data
+  const defaultStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Privacy Gecko",
+    "alternateName": "PRICKO",
+    "url": siteUrl,
+    "logo": `${siteUrl}/logo.png`,
+    "description": description,
+    "sameAs": [
+      "https://twitter.com/PrivacyGecko",
+      "https://github.com/privacygecko",
+      "https://t.me/privacygecko",
+      "https://discord.gg/privacygecko"
+    ]
+  };
+
+  const jsonLd = structuredData || defaultStructuredData;
 
   return (
     <Helmet>
@@ -53,6 +74,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       <meta name="author" content="Privacy Gecko" />
+
+      {/* Structured Data (JSON-LD) */}
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
     </Helmet>
   );
 };

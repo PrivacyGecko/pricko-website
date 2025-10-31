@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
+import TeamMember from '../components/ui/TeamMember';
+import { useProjectConfig } from '../hooks/useProjectConfig';
 import { METRICS } from '../constants/metrics';
 import {
   FaEnvelope,
@@ -36,6 +38,9 @@ interface FormErrors {
 }
 
 const ContactPage: React.FC = () => {
+  const { getTeamMembers } = useProjectConfig();
+  const teamMembers = getTeamMembers();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -327,6 +332,45 @@ const ContactPage: React.FC = () => {
             or use our contact form below. We respond within 24 hours.
           </p>
         </motion.div>
+
+        {/* Meet the Team Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Meet the <span className="gradient-text">Team</span>
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              Privacy advocates, blockchain engineers, and open-source contributors building the future of digital privacy.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={member.name}
+                name={member.name}
+                role={member.role}
+                bio={member.bio}
+                avatar={member.avatar || undefined}
+                linkedin={member.linkedin || undefined}
+                twitter={member.twitter || undefined}
+                github={member.github || undefined}
+                delay={index * 0.1}
+              />
+            ))}
+          </div>
+        </motion.section>
 
         {/* Direct Email Contact - PRIMARY METHOD */}
         <motion.section

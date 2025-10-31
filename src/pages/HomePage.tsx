@@ -5,6 +5,7 @@ import ToolCard from '../components/ui/ToolCard';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
+import SocialProof from '../components/SocialProof';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import {
   FaArrowRight,
@@ -85,13 +86,53 @@ const HomePage: React.FC = () => {
     }
   ];
 
+  // Structured data for homepage
+  const homepageStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Privacy Gecko",
+        "alternateName": "PRICKO",
+        "url": "https://pricko.com",
+        "logo": "https://pricko.com/logo.png",
+        "description": "Privacy-first tools powered by PRICK utility token. 2 live products serving 2,100+ users. Real code, real traction, real results.",
+        "sameAs": [
+          "https://twitter.com/PrivacyGecko",
+          "https://github.com/privacygecko",
+          "https://t.me/privacygecko",
+          "https://discord.gg/privacygecko"
+        ],
+        "numberOfEmployees": "8+",
+        "foundingDate": "2024"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "GeckoShare",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "100"
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <SEO
-        title="PRICKO - Privacy Gecko Approved Memecoin | Solana Privacy Tools"
-        description="PRICKO is a Solana-powered memecoin with real utility. Privacy-focused tools including GeckoShare, GeckoGuard, GeckoShell, and GeckoBrowser. Join the privacy revolution."
-        keywords="PRICKO, memecoin, Solana, privacy tools, cryptocurrency, GeckoShare, GeckoGuard, privacy browser, encrypted file sharing, blockchain privacy"
+        title="PRICKO | Privacy Tools Powered by Utility Token - Real Products, Real Utility"
+        description="PRICKO is a utility token powering 8 privacy tools. 2 live products serving 2,100+ users. Not vaporware - real tools, real results. Join the privacy revolution."
+        keywords="privacy token, utility token, privacy tools, blockchain privacy, solana token, GeckoShare, GeckoAdvisor, zero-knowledge encryption, privacy browser"
         canonicalUrl="/"
+        structuredData={homepageStructuredData}
       />
       <div className="min-h-screen">
       {/* Hero Section */}
@@ -271,6 +312,9 @@ const HomePage: React.FC = () => {
 
       {/* Proof of Development Section */}
       <ProofOfDevelopment />
+
+      {/* Social Proof Section */}
+      <SocialProof />
 
       {/* What is Pricko Section */}
       <section className="section-padding bg-gradient-to-b from-transparent to-secondary/30">

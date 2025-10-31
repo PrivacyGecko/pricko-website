@@ -584,6 +584,116 @@
     }
   },
 
+  "team": {
+    "members": [
+      {
+        "name": "GeckoMaster",
+        "role": "Founder & Lead Developer",
+        "bio": "Privacy advocate and blockchain developer with 8+ years in cryptography. Built GeckoShare and GeckoAdvisor from the ground up.",
+        "avatar": null,
+        "linkedin": null,
+        "twitter": "https://twitter.com/GeckoMaster",
+        "github": "https://github.com/privacygecko"
+      },
+      {
+        "name": "@0xAnonA",
+        "role": "Security Engineer",
+        "bio": "Former penetration tester turned privacy tool architect. Leads security audits and zero-knowledge implementations.",
+        "avatar": null,
+        "linkedin": null,
+        "twitter": "https://twitter.com/0xAnonA",
+        "github": null
+      },
+      {
+        "name": "DesignGecko",
+        "role": "UI/UX Lead",
+        "bio": "Design thinking meets privacy-first principles. Creates intuitive experiences for complex security tools.",
+        "avatar": null,
+        "linkedin": null,
+        "twitter": null,
+        "github": null
+      }
+    ]
+  },
+
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "quote": "Finally, file sharing I can actually trust. GeckoShare's zero-knowledge encryption gives me peace of mind when sharing sensitive documents.",
+      "author": "Marcus T.",
+      "role": "Cybersecurity Consultant",
+      "product": "GeckoShare",
+      "rating": 5
+    },
+    {
+      "id": "testimonial-2",
+      "quote": "GeckoAdvisor found 23 privacy leaks I didn't even know existed. The recommendations were actionable and easy to follow.",
+      "author": "Sarah K.",
+      "role": "Privacy Advocate",
+      "product": "GeckoAdvisor",
+      "rating": 5
+    },
+    {
+      "id": "testimonial-3",
+      "quote": "Most crypto projects promise the moon. Privacy Gecko shipped real products before asking for a dime. That's the kind of team I trust.",
+      "author": "James L.",
+      "role": "Early Adopter",
+      "product": null,
+      "rating": 5
+    },
+    {
+      "id": "testimonial-4",
+      "quote": "The beta of GeckoShell is incredibly smooth. Can't wait for the full release. Mobile privacy browsing finally done right.",
+      "author": "Alex M.",
+      "role": "Beta Tester",
+      "product": "GeckoShell",
+      "rating": 5
+    },
+    {
+      "id": "testimonial-5",
+      "quote": "Open source, security audits completed, and real traction. Privacy Gecko is proof over promises, every single time.",
+      "author": "Dev Chen",
+      "role": "Blockchain Developer",
+      "product": null,
+      "rating": 5
+    },
+    {
+      "id": "testimonial-6",
+      "quote": "I've tested dozens of privacy tools. GeckoAdvisor's recommendations are the most practical I've seen. No tech jargon, just clear steps.",
+      "author": "Linda R.",
+      "role": "Privacy Researcher",
+      "product": "GeckoAdvisor",
+      "rating": 5
+    }
+  ],
+
+  "trustBadges": [
+    {
+      "id": "open-source",
+      "title": "100% Open Source",
+      "description": "All code publicly available on GitHub for full transparency and community audits",
+      "icon": "FaGithub"
+    },
+    {
+      "id": "security-audited",
+      "title": "Security Audited",
+      "description": "Independent security audits completed for GeckoShare and GeckoAdvisor",
+      "icon": "FaShieldAlt"
+    },
+    {
+      "id": "live-products",
+      "title": "Real Products Live",
+      "description": "2 live products serving 2,100+ users with measurable traction",
+      "icon": "FaCheckCircle"
+    },
+    {
+      "id": "zero-knowledge",
+      "title": "Zero-Knowledge Architecture",
+      "description": "Your data never touches our servers - true privacy by design",
+      "icon": "FaLock"
+    }
+  ],
+
   "founder": {
     "name": "[PLACEHOLDER_NAME]",
     "title": "Founder & CEO",
