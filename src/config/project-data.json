@@ -75,7 +75,7 @@
         "subtitle": "Privacy & Security Audit Tool",
         "category": "Security Audit",
         "status": "live",
-        "launchDate": "2024-09-15",
+        "launchDate": "Q3 2024",
         "progress": 100,
         "metrics": {
           "users": "Live & Available",
@@ -118,7 +118,7 @@
         "subtitle": "Zero-Knowledge File Sharing",
         "category": "File Sharing",
         "status": "live",
-        "launchDate": "2024-08-01",
+        "launchDate": "Q3 2024",
         "progress": 100,
         "metrics": {
           "users": "2,100+",
@@ -161,7 +161,7 @@
         "subtitle": "Cross-Platform Mobile Privacy Browser",
         "category": "Mobile Browser",
         "status": "beta",
-        "launchDate": "2024-11-15",
+        "launchDate": "Q4 2024",
         "progress": 85,
         "metrics": {
           "users": "1,800+ Waitlist",
@@ -204,7 +204,7 @@
         "subtitle": "Tracker & Ad Blocker",
         "category": "Browser Extension",
         "status": "in-development",
-        "launchDate": "[Q1_2025_PLACEHOLDER]",
+        "launchDate": "Q1 2025",
         "progress": 90,
         "metrics": {
           "users": "Extension Store Review",
@@ -246,7 +246,7 @@
         "subtitle": "Zero-Knowledge Password Manager",
         "category": "Password Manager",
         "status": "in-development",
-        "launchDate": "[Q2_2025_PLACEHOLDER]",
+        "launchDate": "Q4 2025",
         "progress": 65,
         "metrics": {
           "users": "In Development",
@@ -288,7 +288,7 @@
         "subtitle": "Privacy Compliance Analyzer",
         "category": "Compliance",
         "status": "in-development",
-        "launchDate": "[Q3_2025_PLACEHOLDER]",
+        "launchDate": "Q1 2026",
         "progress": 55,
         "metrics": {
           "users": "In Development",
@@ -330,7 +330,7 @@
         "subtitle": "AI Content Summarization",
         "category": "Content Tools",
         "status": "in-development",
-        "launchDate": "[Q2_2025_PLACEHOLDER]",
+        "launchDate": "Q4 2025",
         "progress": 45,
         "metrics": {
           "users": "In Development",
@@ -372,7 +372,7 @@
         "subtitle": "Privacy-First VPN",
         "category": "VPN",
         "status": "in-development",
-        "launchDate": "[Q4_2025_PLACEHOLDER]",
+        "launchDate": "Q1 2026",
         "progress": 20,
         "metrics": {
           "users": "In Development",
@@ -414,105 +414,137 @@
     "phases": [
       {
         "id": "phase-1",
-        "quarter": "Q4 2024",
-        "title": "Foundation & Launch",
+        "quarter": "Q3-Q4 2024",
+        "title": "Foundation & Initial Launch",
         "status": "completed",
         "milestones": [
           {
             "title": "GeckoShare Launch",
             "status": "completed",
-            "date": "2024-08-01",
-            "description": "Zero-knowledge file sharing platform goes live"
+            "date": "Q3 2024",
+            "description": "Zero-knowledge file sharing platform goes live with 2,100+ users"
           },
           {
             "title": "GeckoAdvisor Launch",
             "status": "completed",
-            "date": "2024-09-15",
-            "description": "Privacy audit tool released to public"
+            "date": "Q3 2024",
+            "description": "Privacy audit tool released to public with comprehensive device scanning"
           },
           {
             "title": "Website & Brand Identity",
             "status": "completed",
-            "date": "2024-10-01",
-            "description": "Official website and brand materials launched"
+            "date": "Q4 2024",
+            "description": "Official website and brand materials launched with full documentation"
           }
         ]
       },
       {
         "id": "phase-2",
-        "quarter": "Q1 2025",
-        "title": "Ecosystem Expansion",
+        "quarter": "Q4 2024 - Q1 2025",
+        "title": "Mobile & Browser Extension",
         "status": "in-progress",
         "milestones": [
           {
             "title": "GeckoShell Beta Launch",
             "status": "in-progress",
-            "date": "2024-11-15",
-            "description": "Mobile privacy browser beta testing begins"
+            "date": "Q4 2024",
+            "description": "Mobile privacy browser enters public beta testing on iOS and Android"
           },
           {
-            "title": "GeckoGuard Extension Store Approval",
-            "status": "in-progress",
-            "date": "[Q1_2025_PLACEHOLDER]",
-            "description": "Browser extension submitted and approved"
+            "title": "GeckoGuard Extension Launch",
+            "status": "upcoming",
+            "date": "Q1 2025",
+            "description": "Privacy browser extension approved and launched on Chrome & Firefox stores"
           },
           {
             "title": "Token Generation Event (TGE)",
             "status": "upcoming",
-            "date": "[TGE_DATE_PLACEHOLDER]",
-            "description": "PRICKO token launched on Solana blockchain"
+            "date": "Q1 2025",
+            "description": "PRICKO token launched on Solana via pump.fun with fair distribution"
           }
         ]
       },
       {
         "id": "phase-3",
-        "quarter": "Q2 2025",
-        "title": "Advanced Tools",
+        "quarter": "Q1-Q2 2025",
+        "title": "Planning & Architecture",
         "status": "upcoming",
         "milestones": [
           {
-            "title": "GeckoLock Launch",
+            "title": "Ecosystem Architecture Planning",
             "status": "upcoming",
-            "date": "[Q2_2025_PLACEHOLDER]",
-            "description": "Zero-knowledge password manager release"
+            "date": "Q1 2025",
+            "description": "Complete technical architecture design for unified ecosystem integration and cross-tool authentication"
           },
           {
-            "title": "GeckoView Launch",
+            "title": "Advanced Tools Specification",
             "status": "upcoming",
-            "date": "[Q2_2025_PLACEHOLDER]",
-            "description": "AI content summarization tool release"
+            "date": "Q1-Q2 2025",
+            "description": "Detailed specifications and technical design for GeckoLock, GeckoView, GeckoBrowser, GeckoWatch, and GeckoVPN"
           },
           {
-            "title": "Community Governance",
+            "title": "Community Governance Framework",
             "status": "upcoming",
-            "date": "[Q2_2025_PLACEHOLDER]",
-            "description": "Token holder voting system activated"
+            "date": "Q2 2025",
+            "description": "Design token holder voting system and governance framework with community input"
           }
         ]
       },
       {
         "id": "phase-4",
-        "quarter": "Q3-Q4 2025",
-        "title": "Complete Ecosystem",
+        "quarter": "Q3 2025",
+        "title": "Active Development",
         "status": "upcoming",
         "milestones": [
           {
-            "title": "GeckoWatch Launch",
+            "title": "Core Tools Development Sprint",
             "status": "upcoming",
-            "date": "[Q3_2025_PLACEHOLDER]",
-            "description": "Privacy compliance analyzer released"
+            "date": "Q3 2025",
+            "description": "Intensive development of GeckoLock, GeckoView, GeckoBrowser, and GeckoWatch with internal testing"
           },
           {
-            "title": "GeckoVPN Launch",
+            "title": "GeckoVPN Foundation",
             "status": "upcoming",
-            "date": "[Q4_2025_PLACEHOLDER]",
-            "description": "Privacy-first VPN service goes live"
+            "date": "Q3 2025",
+            "description": "Begin VPN infrastructure development and decentralized node architecture"
           },
           {
-            "title": "Ecosystem Integration",
+            "title": "Beta Testing Program",
             "status": "upcoming",
-            "date": "[Q4_2025_PLACEHOLDER]",
-            "description": "All 8 tools seamlessly integrated with unified authentication"
+            "date": "Q3 2025",
+            "description": "Launch closed beta testing for advanced tools with community testers"
+          }
+        ]
+      },
+      {
+        "id": "phase-5",
+        "quarter": "Q4 2025 - Q2 2026",
+        "title": "Full Ecosystem Launch",
+        "status": "upcoming",
+        "milestones": [
+          {
+            "title": "GeckoLock & GeckoView Launch",
+            "status": "upcoming",
+            "date": "Q4 2025",
+            "description": "Password manager and content summarization tools released to public"
+          },
+          {
+            "title": "GeckoBrowser & GeckoWatch Launch",
+            "status": "upcoming",
+            "date": "Q1 2026",
+            "description": "Desktop browser and compliance analyzer complete the advanced tools suite"
+          },
+          {
+            "title": "GeckoVPN & Community Governance",
+            "status": "upcoming",
+            "date": "Q1 2026",
+            "description": "VPN service launch and token holder voting system activation"
+          },
+          {
+            "title": "Full Ecosystem Integration",
+            "status": "upcoming",
+            "date": "Q2 2026",
+            "description": "All 8 tools unified with single sign-on and seamless cross-platform experience"
           }
         ]
       }
