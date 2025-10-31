@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useProjectConfig } from '../../hooks/useProjectConfig';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
+  const { getTokenDisclaimer } = useProjectConfig();
+  const footerDisclaimer = getTokenDisclaimer('homepage');
 
   const socialLinks = [
     {
@@ -285,9 +288,23 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
 
+        {/* Legal Disclaimer */}
+        <motion.div
+          className="border-t border-border/50 pt-8 mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          <div className="bg-secondary/40 border border-accent/20 rounded-lg p-6 max-w-4xl mx-auto">
+            <p className="text-xs md:text-sm text-muted leading-relaxed text-center">
+              <span className="text-accent font-semibold">⚠️ Legal Disclaimer:</span> {footerDisclaimer}
+            </p>
+          </div>
+        </motion.div>
+
         {/* Enhanced Bottom Section */}
         <motion.div
-          className="border-t border-border/50 pt-8 mt-12 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0"
+          className="border-t border-border/50 pt-8 mt-8 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}

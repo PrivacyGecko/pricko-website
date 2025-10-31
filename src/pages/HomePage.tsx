@@ -28,14 +28,12 @@ const HomePage: React.FC = () => {
     getHomepageProducts,
     getProductCounts,
     getFormattedMetrics,
-    getTokenDisclaimer,
     tokenSymbol
   } = useProjectConfig();
 
   const productCounts = getProductCounts();
   const metrics = getFormattedMetrics();
   const homepageProducts = getHomepageProducts(4);
-  const heroDisclaimer = getTokenDisclaimer('homepage');
 
   // Tools ordered by status: Live → Beta → In Development (by completion %)
   const tools = [
@@ -178,18 +176,6 @@ const HomePage: React.FC = () => {
                   <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.community.formatted} users.
                   <span className="text-accent"> 2 more at 90%+ completion.</span> Real code. Real traction. Real results.
                 </p>
-
-                {/* Legal Disclaimer - Prominent Placement */}
-                <motion.div
-                  className="bg-secondary/40 border border-accent/20 rounded-lg p-4 mb-8 max-w-2xl mx-auto lg:mx-0"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  <p className="text-xs md:text-sm text-muted leading-relaxed">
-                    <span className="text-accent font-semibold">⚠️ Disclaimer:</span> {heroDisclaimer}
-                  </p>
-                </motion.div>
               </motion.div>
 
               <motion.div
