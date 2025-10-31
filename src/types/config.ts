@@ -270,6 +270,7 @@ export interface ProjectConfig {
   trustBadges: TrustBadge[];
   founder: FounderInfo;
   legal: LegalInfo;
+  faq: FAQInfo;
 }
 
 /**
@@ -286,3 +287,34 @@ export type MilestoneStatus = 'completed' | 'in-progress' | 'upcoming';
  * Helper type for phase status
  */
 export type PhaseStatus = 'completed' | 'in-progress' | 'upcoming';
+
+/**
+ * FAQ Question interface
+ */
+export interface FAQQuestion {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+/**
+ * FAQ Category interface
+ */
+export interface FAQCategory {
+  title: string;
+  questions: FAQQuestion[];
+}
+
+/**
+ * FAQ Structure interface
+ */
+export interface FAQInfo {
+  categories: {
+    general: FAQCategory;
+    token: FAQCategory;
+    utility: FAQCategory;
+    products: FAQCategory;
+    technical: FAQCategory;
+    community: FAQCategory;
+  };
+}
