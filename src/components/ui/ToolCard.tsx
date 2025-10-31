@@ -58,14 +58,14 @@ const ToolCard: React.FC<ToolCardProps> = ({
       <div className="flex flex-col items-center text-center space-y-4">
         {/* Icon */}
         <motion.div
-          className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300"
-          whileHover={{ rotate: 5 }}
+          className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300"
+          whileHover={{ scale: 1.05, rotate: 2 }}
         >
           <img
             src={icon}
             alt={title}
             loading="lazy"
-            className="w-8 h-8 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+            className="w-full h-full rounded-2xl shadow-lg group-hover:shadow-xl group-hover:shadow-accent/30 transition-all duration-300"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
             }}
