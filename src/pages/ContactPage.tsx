@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import TeamMember from '../components/ui/TeamMember';
+import NewsletterForm from '../components/ui/NewsletterForm';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import { METRICS } from '../constants/metrics';
 import {
@@ -1046,20 +1047,26 @@ const ContactPage: React.FC = () => {
             Join {METRICS.community.formatted} {METRICS.community.label} who have chosen PRICKO as their gateway to digital freedom.
             Your journey towards true privacy starts with a single step.
           </motion.p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <motion.button
-              className="btn-primary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <FaRocket />
-              Join Waitlist
-            </motion.button>
-            <motion.button
+
+          {/* Newsletter Signup */}
+          <motion.div
+            className="max-w-2xl mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <NewsletterForm
+              variant="hero"
+              placeholder="Enter your email to join the whitelist"
+              buttonText="Join Whitelist"
+              showDescription={true}
+            />
+          </motion.div>
+
+          <div className="flex justify-center">
+            <motion.a
+              href="/tools"
               className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -1070,7 +1077,7 @@ const ContactPage: React.FC = () => {
             >
               <FaTools />
               Explore Privacy Tools
-            </motion.button>
+            </motion.a>
           </div>
         </motion.section>
       </div>

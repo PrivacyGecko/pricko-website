@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import ProofMetric from '../components/ui/ProofMetric';
+import FAQSection from '../components/FAQSection';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import {
@@ -687,6 +688,9 @@ const AboutPage: React.FC = () => {
             <ContractAddress />
           </div>
         </motion.section>
+
+        {/* FAQ Section */}
+        <FAQSection className="bg-transparent" />
 
         {/* Call to Action */}
         <motion.section

@@ -717,5 +717,160 @@
       "jurisdiction": "Token availability and compliance varies by jurisdiction. Verify local regulations before purchase.",
       "kyc": "KYC/AML procedures may be required based on purchase method and jurisdiction."
     }
+  },
+
+  "faq": {
+    "categories": {
+      "general": {
+        "title": "General Questions",
+        "questions": [
+          {
+            "id": "what-is-pricko",
+            "question": "What is PRICKO?",
+            "answer": "PRICKO ($PRICK) is a utility token that powers the Privacy Gecko ecosystem of privacy-first tools. Unlike typical meme coins, PRICKO provides real utility by granting access to premium features across 8 privacy tools. We've already launched 2 live products serving 2,100+ users, with 2 more at 90%+ completion."
+          },
+          {
+            "id": "is-pricko-investment",
+            "question": "Is PRICKO an investment?",
+            "answer": "No. PRICKO is a utility token designed to provide access to Privacy Gecko's ecosystem of privacy tools. It is NOT an investment vehicle, security, or promise of profit. You should only purchase PRICKO if you intend to use Privacy Gecko's services. Token value may fluctuate, and you could lose your entire investment."
+          },
+          {
+            "id": "why-trust-pricko",
+            "question": "Why should I trust PRICKO over other crypto projects?",
+            "answer": "Privacy Gecko has shipped 2 live products (GeckoShare and GeckoAdvisor) before asking for investment. We're 100% open source with completed security audits, and we've attracted 1,800+ beta testers. We believe in 'proof over promises' - our working products speak for themselves."
+          },
+          {
+            "id": "blockchain-choice",
+            "question": "Why Solana?",
+            "answer": "Solana offers the speed and low transaction costs necessary for everyday utility. With sub-second transaction times and minimal fees, users can access premium features instantly without worrying about gas costs eating into their benefits."
+          }
+        ]
+      },
+      "token": {
+        "title": "Token Economics",
+        "questions": [
+          {
+            "id": "total-supply",
+            "question": "What is the total supply of PRICKO?",
+            "answer": "The total supply is fixed at 1 billion (1,000,000,000) PRICKO tokens. There will never be more tokens created, ensuring no dilution from future minting."
+          },
+          {
+            "id": "token-distribution",
+            "question": "How are PRICKO tokens distributed?",
+            "answer": "Distribution: 40% Public Sale (400M), 30% Liquidity Pool (300M locked), 15% Development (150M with 24-month vesting), 10% Marketing (100M), 5% Team (50M with 12-month lock + 18-month vesting). The team has minimal allocation and long lock periods to align incentives with the community."
+          },
+          {
+            "id": "how-to-buy",
+            "question": "How do I buy PRICKO tokens?",
+            "answer": "Once launched, PRICKO will be available on Solana DEXs like Raydium and Jupiter. We'll announce the official launch date and provide step-by-step purchase guides. Currently, you can join our whitelist for early access notifications."
+          },
+          {
+            "id": "staking-rewards",
+            "question": "Can I stake PRICKO tokens?",
+            "answer": "Yes! Staking will be available starting Q1 2026, approximately 3 months after the public launch. Stakers will earn rewards and gain additional governance rights. Details on APY and lock periods will be announced closer to the staking launch."
+          }
+        ]
+      },
+      "utility": {
+        "title": "Token Utility & Features",
+        "questions": [
+          {
+            "id": "what-can-i-do",
+            "question": "What can I do with PRICKO tokens?",
+            "answer": "PRICKO tokens unlock premium features across all Privacy Gecko tools. Instead of paying monthly subscriptions, you can hold tokens to access Pro features. You also get governance rights to vote on ecosystem priorities, discounts on services, and priority access to new product launches."
+          },
+          {
+            "id": "token-vs-subscription",
+            "question": "How does token access compare to subscriptions?",
+            "answer": "Token holders enjoy lifetime access to premium features as long as they hold the required amount. Subscriptions cost $9.99/month per product, while holding 10,000 PRICKO tokens grants the same access without recurring payments. For multiple products, token holdings scale better than subscription bundles."
+          },
+          {
+            "id": "governance",
+            "question": "What governance rights do token holders have?",
+            "answer": "Token holders can vote on ecosystem development priorities, propose new privacy tools, and participate in feature roadmap decisions. The DAO governance portal launches in Q1 2026, giving the community direct influence over the project's direction."
+          },
+          {
+            "id": "token-requirements",
+            "question": "How many tokens do I need to hold for premium access?",
+            "answer": "Requirements vary by product and tier. For example: Single Product Pro access requires ~10,000 PRICKO, 3-Product Bundle requires ~25,000 PRICKO, and All 8 Products requires ~50,000 PRICKO. These thresholds may be adjusted based on token value and community feedback."
+          }
+        ]
+      },
+      "products": {
+        "title": "Privacy Tools & Products",
+        "questions": [
+          {
+            "id": "which-products-live",
+            "question": "Which products are live right now?",
+            "answer": "Currently, GeckoShare (encrypted file sharing) and GeckoAdvisor (privacy audit tool) are live and serving 2,100+ users. Both products are fully functional with free tiers and Pro upgrades available."
+          },
+          {
+            "id": "upcoming-products",
+            "question": "What's launching next?",
+            "answer": "GeckoGuard (AI ad blocker browser extension) is at 90% completion and in Chrome Web Store review, expected in Q3 2025. GeckoShell (mobile privacy browser) is in beta with 850+ testers. GeckoLock (password manager) is at 65% completion, targeting Q4 2025."
+          },
+          {
+            "id": "products-work-without-tokens",
+            "question": "Do the products work without holding tokens?",
+            "answer": "Yes! All products have free tiers that work without any token holdings. Tokens unlock premium features and remove limitations, but basic functionality is always available to everyone."
+          },
+          {
+            "id": "open-source",
+            "question": "Are the products open source?",
+            "answer": "Yes, all Privacy Gecko products are 100% open source. You can review the code on our GitHub (github.com/privacygecko) and verify our privacy and security claims independently. We believe transparency is essential for privacy tools."
+          }
+        ]
+      },
+      "technical": {
+        "title": "Technical Questions",
+        "questions": [
+          {
+            "id": "wallet-needed",
+            "question": "Do I need a crypto wallet to use Privacy Gecko tools?",
+            "answer": "For basic free features, no wallet is required. To access premium features via token holdings, you'll need a Solana-compatible wallet like Phantom, Solflare, or Backpack. Wallet integration is optional for free tier users."
+          },
+          {
+            "id": "data-privacy",
+            "question": "How does Privacy Gecko protect my data?",
+            "answer": "We use zero-knowledge architecture wherever possible, meaning your data never touches our servers. For tools like GeckoShare, files are encrypted client-side before upload. We can't access your data even if we wanted to. All products undergo independent security audits."
+          },
+          {
+            "id": "mobile-support",
+            "question": "Do the tools work on mobile?",
+            "answer": "Yes! GeckoShare and GeckoAdvisor work on mobile browsers. GeckoShell is a dedicated mobile app (currently in beta) with native iOS and Android support. All web-based tools are mobile-responsive."
+          },
+          {
+            "id": "security-audits",
+            "question": "Have the products been security audited?",
+            "answer": "Yes. GeckoShare and GeckoAdvisor have completed independent security audits in Q4 2024. Audit reports are publicly available on our GitHub. Products currently in development will undergo audits before public launch."
+          }
+        ]
+      },
+      "community": {
+        "title": "Community & Support",
+        "questions": [
+          {
+            "id": "how-to-join",
+            "question": "How can I join the community?",
+            "answer": "Join our Discord server, Telegram group, or follow us on Twitter @PrivacyGecko. We have an active community of privacy advocates, developers, and early adopters who help shape the ecosystem's direction."
+          },
+          {
+            "id": "beta-testing",
+            "question": "Can I beta test new products?",
+            "answer": "Yes! We regularly invite community members to test products in development. Join our Discord and opt into the Beta Tester role to get early access to GeckoLock, GeckoBrowser, and other upcoming tools."
+          },
+          {
+            "id": "contribute",
+            "question": "Can I contribute to development?",
+            "answer": "Absolutely! All our code is open source on GitHub. We welcome contributions ranging from bug fixes to new features. Check our GitHub Issues page for good first issues, or propose your own improvements."
+          },
+          {
+            "id": "whitelist",
+            "question": "What is the whitelist for?",
+            "answer": "The whitelist gives early supporters priority access to the token launch and potential pre-sale opportunities. Whitelist members also get exclusive updates, early product access, and community perks. Join via our Contact page."
+          }
+        ]
+      }
+    }
   }
 }

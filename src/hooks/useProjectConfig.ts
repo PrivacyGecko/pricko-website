@@ -247,6 +247,57 @@ export function useProjectConfig() {
     [config]
   );
 
+  /**
+   * Get all FAQ categories
+   */
+  const getAllFAQCategories = useMemo(
+    () => (): typeof config.faq.categories => {
+      return config.faq.categories;
+    },
+    [config]
+  );
+
+  /**
+   * Get FAQ category by key
+   */
+  const getFAQCategory = useMemo(
+    () => (category: keyof typeof config.faq.categories): typeof config.faq.categories[typeof category] => {
+      return config.faq.categories[category];
+    },
+    [config]
+  );
+
+  /**
+   * Get all FAQ questions (flattened from all categories)
+   */
+  const getAllFAQQuestions = useMemo(
+    () => () => {
+      return Object.values(config.faq.categories).flatMap(category =>
+        category.questions.map(q => ({
+          ...q,
+          categoryTitle: category.title
+        }))
+      );
+    },
+    [config]
+  );
+
+  /**
+   * Search FAQ questions by keyword
+   */
+  const searchFAQ = useMemo(
+    () => (keyword: string) => {
+      const lowerKeyword = keyword.toLowerCase();
+      const allQuestions = getAllFAQQuestions();
+
+      return allQuestions.filter(q =>
+        q.question.toLowerCase().includes(lowerKeyword) ||
+        q.answer.toLowerCase().includes(lowerKeyword)
+      );
+    },
+    [config]
+  );
+
   return {
     // Core configuration
     config,
@@ -273,6 +324,12 @@ export function useProjectConfig() {
     getTestimonialsByProduct,
     getTeamMembers,
     getTrustBadges,
+
+    // FAQ queries
+    getAllFAQCategories,
+    getFAQCategory,
+    getAllFAQQuestions,
+    searchFAQ,
 
     // Utility functions
     getTokenDisclaimer,

@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ToolCard from '../components/ui/ToolCard';
 import ContractAddress from '../components/ui/ContractAddress';
+import AnimatedCounter from '../components/ui/AnimatedCounter';
+import NewsletterForm from '../components/ui/NewsletterForm';
 import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import SocialProof from '../components/SocialProof';
@@ -215,34 +217,34 @@ const HomePage: React.FC = () => {
                 </motion.a>
               </motion.div>
 
-              {/* Stats Section - Proof-Focused */}
+              {/* Stats Section - Proof-Focused with Animated Counters */}
               <motion.div
                 className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <div className="text-center">
-                  <div className="text-accent mb-2">
-                    <FaCheckCircle className="mx-auto text-xl" />
-                  </div>
-                  <div className="text-2xl font-bold text-accent">{productCounts.live}</div>
-                  <div className="text-sm text-muted">LIVE Products Now</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-accent mb-2">
-                    <FaUsers className="mx-auto text-xl" />
-                  </div>
-                  <div className="text-2xl font-bold text-accent">{metrics.community.formatted}</div>
-                  <div className="text-sm text-muted">Active Users</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-accent mb-2">
-                    <FaClock className="mx-auto text-xl" />
-                  </div>
-                  <div className="text-2xl font-bold text-accent">90%+</div>
-                  <div className="text-sm text-muted">Near Launch</div>
-                </div>
+                <AnimatedCounter
+                  value={productCounts.live}
+                  label="LIVE Products Now"
+                  icon={<FaCheckCircle className="mx-auto text-xl" />}
+                  duration={1500}
+                  delay={500}
+                />
+                <AnimatedCounter
+                  value={metrics.community.formatted}
+                  label="Active Users"
+                  icon={<FaUsers className="mx-auto text-xl" />}
+                  duration={2000}
+                  delay={700}
+                />
+                <AnimatedCounter
+                  value="90%+"
+                  label="Near Launch"
+                  icon={<FaClock className="mx-auto text-xl" />}
+                  duration={1800}
+                  delay={900}
+                />
               </motion.div>
             </motion.div>
 
@@ -697,7 +699,7 @@ const HomePage: React.FC = () => {
               </Link>
             </motion.div>
 
-            {/* Call to Action Banner */}
+            {/* Call to Action Banner with Newsletter Signup */}
             <motion.div
               className="mt-16 bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-8 backdrop-blur-sm"
               initial={{ opacity: 0, y: 20 }}
@@ -710,17 +712,16 @@ const HomePage: React.FC = () => {
                 Ready to Go Stealth? 🦎
               </h3>
               <p className="text-muted mb-6 max-w-2xl mx-auto">
-                Join 1,200+ privacy advocates who trust Pricko to keep their digital lives secure.
+                Join the whitelist for early access to token launch, exclusive updates, and beta features.
               </p>
-              <Link to="/contact">
-                <motion.button
-                  className="btn-primary inline-flex items-center gap-3 px-8 py-3 text-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Join Waitlist <FaArrowRight />
-                </motion.button>
-              </Link>
+              <div className="max-w-xl mx-auto">
+                <NewsletterForm
+                  variant="hero"
+                  placeholder="Your email address"
+                  buttonText="Join Whitelist"
+                  showDescription={false}
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>
