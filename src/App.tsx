@@ -17,6 +17,10 @@ const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
+// Product pages
+const GeckoAdvisorPage = lazy(() => import('./pages/products/GeckoAdvisorPage'));
+const GeckoSharePage = lazy(() => import('./pages/products/GeckoSharePage'));
+
 // Loading fallback component
 const LoadingFallback = () => (
   <div className="min-h-screen bg-primary flex items-center justify-center">
@@ -52,6 +56,9 @@ function App() {
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsOfServicePage />} />
               <Route path="/disclaimer" element={<DisclaimerPage />} />
+              {/* Product Pages */}
+              <Route path="/gecko-advisor" element={<GeckoAdvisorPage />} />
+              <Route path="/gecko-share" element={<GeckoSharePage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
+import MascotImage from '../components/ui/MascotImage';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
 import { SIMPLIFIED_TOOLS, TOOLS_COUNT } from '../constants/toolsSimplified';
 
@@ -22,6 +23,7 @@ const ToolsPageSimplified: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <MascotImage size="lg" className="mb-6 mx-auto" />
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-professional">
               Privacy <span className="gradient-text-animated">Tools</span>
             </h1>

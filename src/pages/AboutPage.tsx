@@ -6,6 +6,7 @@ import ProofMetric from '../components/ui/ProofMetric';
 import FAQSection from '../components/FAQSection';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
+import MascotImage from '../components/ui/MascotImage';
 import {
   FaCalendarAlt,
   FaUsers,
@@ -50,18 +51,7 @@ const AboutPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="inline-block mb-6"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <img
-              src="/logo.png"
-              alt="Pricko Logo"
-              className="w-24 h-24 mx-auto mb-6 float-animation"
-            />
-          </motion.div>
+          <MascotImage size="lg" className="mb-6 mx-auto" />
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
             About <span className="gradient-text-animated">PRICKO</span>
           </h1>

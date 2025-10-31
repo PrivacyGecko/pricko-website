@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
+import MascotImage from '../components/ui/MascotImage';
 import TeamMember from '../components/ui/TeamMember';
 import NewsletterForm from '../components/ui/NewsletterForm';
 import { useProjectConfig } from '../hooks/useProjectConfig';
