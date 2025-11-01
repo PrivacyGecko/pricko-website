@@ -7,6 +7,7 @@ import UtilityTierCard from '../components/ui/UtilityTierCard';
 import TokenDistributionDonut from '../components/ui/TokenDistributionDonut';
 import DistributionBreakdown from '../components/ui/DistributionBreakdown';
 import VestingTimeline from '../components/ui/VestingTimeline';
+import ProgressBar from '../components/ui/ProgressBar';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
@@ -217,6 +218,81 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </motion.section>
 
+        {/* Distribution Progress Visualization - NEW */}
+        <motion.section
+          className="mb-16 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            Distribution Breakdown
+          </h2>
+
+          <div className="space-y-6">
+            <div className="p-6 bg-secondary/40 rounded-xl border border-border/30">
+              <ProgressBar
+                value={config.token.distribution.publicSale.percentage}
+                label={`Public Sale: ${config.token.distribution.publicSale.percentage}%`}
+                showPercentage={true}
+                color="cyan"
+                animated={true}
+                delay={0.1}
+              />
+              <p className="text-muted text-sm mt-3">{config.token.distribution.publicSale.description}</p>
+            </div>
+
+            <div className="p-6 bg-secondary/40 rounded-xl border border-border/30">
+              <ProgressBar
+                value={config.token.distribution.liquidityPool.percentage}
+                label={`Liquidity Pool: ${config.token.distribution.liquidityPool.percentage}%`}
+                showPercentage={true}
+                color="success"
+                animated={true}
+                delay={0.2}
+              />
+              <p className="text-muted text-sm mt-3">{config.token.distribution.liquidityPool.description}</p>
+            </div>
+
+            <div className="p-6 bg-secondary/40 rounded-xl border border-border/30">
+              <ProgressBar
+                value={config.token.distribution.development.percentage}
+                label={`Development: ${config.token.distribution.development.percentage}%`}
+                showPercentage={true}
+                color="purple"
+                animated={true}
+                delay={0.3}
+              />
+              <p className="text-muted text-sm mt-3">{config.token.distribution.development.description}</p>
+            </div>
+
+            <div className="p-6 bg-secondary/40 rounded-xl border border-border/30">
+              <ProgressBar
+                value={config.token.distribution.marketing.percentage}
+                label={`Marketing: ${config.token.distribution.marketing.percentage}%`}
+                showPercentage={true}
+                color="warning"
+                animated={true}
+                delay={0.4}
+              />
+              <p className="text-muted text-sm mt-3">{config.token.distribution.marketing.description}</p>
+            </div>
+
+            <div className="p-6 bg-secondary/40 rounded-xl border border-border/30">
+              <ProgressBar
+                value={config.token.distribution.team.percentage}
+                label={`Team: ${config.token.distribution.team.percentage}%`}
+                showPercentage={true}
+                color="accent"
+                animated={true}
+                delay={0.5}
+              />
+              <p className="text-muted text-sm mt-3">{config.token.distribution.team.description}</p>
+            </div>
+          </div>
+        </motion.section>
+
         {/* Distribution Chart - MOVED UP */}
         <motion.section
           className="mb-16"
@@ -225,7 +301,7 @@ const TokenomicsPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-12 text-center">Token Distribution</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Visual Overview</h2>
           
           <TokenDistributionDonut
             totalSupply={tokenomicsData.totalSupply}
@@ -344,7 +420,7 @@ const TokenomicsPage: React.FC = () => {
             {utilities.map((utility, index) => (
               <motion.div
                 key={utility.title}
-                className="card text-center"
+                className="card-interactive text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
