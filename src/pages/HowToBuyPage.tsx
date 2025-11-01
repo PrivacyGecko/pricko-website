@@ -79,7 +79,9 @@ const HowToBuyPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <MascotImage size="md" className="mb-6 mx-auto" />
+          <div className="flex justify-center mb-6">
+            <MascotImage size="md" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             How to Buy <span className="gradient-text">$PRICKO</span>
           </h1>

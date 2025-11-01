@@ -38,8 +38,8 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
           {/* Enhanced Logo Section with MascotImage */}
           <Link to="/" className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded-lg">
-            <MascotImage 
-              size="sm" 
+            <MascotImage
+              size="xs"
               className="transition-transform duration-300 group-hover:scale-110"
               alt="Privacy Gecko Logo"
             />
