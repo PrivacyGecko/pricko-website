@@ -7,6 +7,7 @@ import FAQSection from '../components/FAQSection';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
+import SecurityBadge from '../components/ui/SecurityBadge';
 import {
   FaCalendarAlt,
   FaUsers,
@@ -386,6 +387,63 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </motion.section>
 
+        {/* Trust & Security Section - NEW */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-12">
+            <motion.h2
+              className="text-4xl font-bold mb-4 text-professional bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Trust & Security
+            </motion.h2>
+            <motion.p
+              className="text-muted text-lg max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Built on proven security practices and transparent development standards.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <SecurityBadge
+              variant="audit"
+              title="Security Audited"
+              description="All live products undergo professional security audits to ensure user protection."
+              delay={0.1}
+            />
+            <SecurityBadge
+              variant="encryption"
+              title="End-to-End Encryption"
+              description="Military-grade encryption protocols protect all user data in transit and at rest."
+              delay={0.2}
+            />
+            <SecurityBadge
+              variant="open-source"
+              title="Open Source"
+              description="100% transparent codebase on GitHub for community review and contributions."
+              delay={0.3}
+            />
+            <SecurityBadge
+              variant="verified"
+              title="Verified Identity"
+              description="Team members verified and transparent. No anonymous founders or hidden operations."
+              delay={0.4}
+            />
+          </div>
+        </motion.section>
+
         {/* Core Values Section */}
         <motion.section
           className="mb-20"
@@ -406,7 +464,7 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <motion.div
-                className="card group cursor-default"
+                className="card-interactive group cursor-default"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -426,7 +484,7 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
               <motion.div
-                className="card group cursor-default"
+                className="card-interactive group cursor-default"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -446,7 +504,7 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
               <motion.div
-                className="card group cursor-default"
+                className="card-interactive group cursor-default"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -468,7 +526,7 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="space-y-8">
               <motion.div
-                className="card group cursor-default"
+                className="card-interactive group cursor-default"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -488,7 +546,7 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
               <motion.div
-                className="card group cursor-default"
+                className="card-interactive group cursor-default"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -508,7 +566,7 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
               <motion.div
-                className="card group cursor-default"
+                className="card-interactive group cursor-default"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -551,7 +609,7 @@ const AboutPage: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div
-              className="card text-center group hover:shadow-professional"
+              className="card-interactive text-center group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -577,7 +635,7 @@ const AboutPage: React.FC = () => {
             </motion.div>
             
             <motion.div
-              className="card text-center group hover:shadow-professional"
+              className="card-interactive text-center group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -603,7 +661,7 @@ const AboutPage: React.FC = () => {
             </motion.div>
             
             <motion.div
-              className="card text-center group hover:shadow-professional"
+              className="card-interactive text-center group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
