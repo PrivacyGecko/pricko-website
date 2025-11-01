@@ -24,17 +24,17 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   const getStatusBadge = () => {
     const badges = {
       live: {
-        class: "bg-gradient-to-r from-green-500 to-emerald-500 text-white",
+        class: "badge badge-live",
         label: "🟢 Live",
         clickable: true
       },
       beta: {
-        class: "bg-gradient-to-r from-yellow-500 to-amber-500 text-black",
+        class: "badge badge-beta",
         label: "🧪 Beta",
         clickable: true
       },
       'in-development': {
-        class: "border border-blue-500/50 text-blue-400",
+        class: "badge badge-coming-soon",
         label: "⚡ In Development",
         clickable: false
       }
@@ -45,7 +45,7 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   const getCTAButton = () => {
     const buttons = {
       live: { text: "Try Now →", class: "btn-primary" },
-      beta: { text: "Join Beta →", class: "bg-gradient-to-r from-yellow-500 to-amber-500 text-black hover:from-yellow-600 hover:to-amber-600" },
+      beta: { text: "Join Beta →", class: "btn-info" },
       'in-development': { text: "Join Waitlist", class: "btn-secondary" }
     };
     return buttons[status];
@@ -62,12 +62,12 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
 
   return (
     <motion.div
-      className="card flex flex-col h-full"
+      className="card-interactive flex flex-col h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.03, y: -4 }}
     >
       {/* Icon */}
       <div className="flex justify-center mb-4">
@@ -80,9 +80,9 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
       </div>
 
       {/* Title & Status Badge */}
-      <div className="text-center mb-3">
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${badge.class}`}>
+      <div className="text-center mb-4">
+        <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
+        <span className={badge.class}>
           {badge.label}
         </span>
       </div>
@@ -102,9 +102,9 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
 
       {/* Single CTA Button */}
       <motion.button
-        className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${cta.class}`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${cta.class} disabled:opacity-50 disabled:cursor-not-allowed`}
+        whileHover={status !== 'in-development' ? { scale: 1.05, y: -2 } : {}}
+        whileTap={status !== 'in-development' ? { scale: 0.95 } : {}}
         onClick={handleClick}
         disabled={status === 'in-development'}
       >
