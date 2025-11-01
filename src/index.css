@@ -25,9 +25,92 @@
   .btn-secondary {
     @apply border border-accent text-accent hover:bg-accent hover:text-white py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
   }
-  
+
+  /* NEW: Button Variants (Professional Design System) */
+  .btn-tertiary {
+    @apply bg-secondary border border-border text-white hover:bg-accent/10 py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-error hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-info {
+    @apply bg-gradient-info hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-info focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-link {
+    @apply text-accent hover:text-accent-hover underline py-2 px-0 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded;
+  }
+
   .card {
     @apply bg-secondary border border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+  }
+
+  /* NEW: Card Variants (Professional Design System) */
+  .card-elevated {
+    @apply bg-secondary border border-border rounded-lg p-6 shadow-professional hover:shadow-professional-lg transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:translate-y-[-4px];
+  }
+
+  .card-interactive {
+    @apply bg-secondary border border-border rounded-lg p-6 cursor-pointer hover:border-accent/50 hover:shadow-professional hover:scale-105 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+  }
+
+  .card-glass {
+    @apply glass-morphism rounded-lg p-6 border border-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:border-accent/50;
+  }
+
+  .card-outlined {
+    @apply bg-transparent border-2 border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+  }
+
+  .card-premium {
+    @apply bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-royal/30 rounded-lg p-6 hover:border-purple-royal/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-purple-royal shadow-professional;
+  }
+
+  /* NEW: Badge Variants (Professional Design System) */
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-live {
+    @apply bg-success/20 text-success border border-success/50;
+  }
+
+  .badge-beta {
+    @apply bg-warning/20 text-warning border border-warning/50;
+  }
+
+  .badge-in-dev {
+    @apply bg-orange-500/20 text-orange-300 border border-orange-500/50;
+  }
+
+  .badge-coming-soon {
+    @apply bg-info/20 text-info border border-info/50;
+  }
+
+  .badge-premium {
+    @apply bg-gradient-purple bg-clip-text text-transparent border border-purple-royal/50;
+  }
+
+  .badge-success {
+    @apply bg-success/20 text-success border border-success/50;
+  }
+
+  .badge-warning {
+    @apply bg-warning/20 text-warning border border-warning/50;
+  }
+
+  .badge-error {
+    @apply bg-error/20 text-error border border-error/50;
+  }
+
+  .badge-info {
+    @apply bg-info/20 text-info border border-info/50;
+  }
+
+  .badge-subtle {
+    @apply bg-secondary/50 text-muted border border-border/50;
   }
   
   .gradient-text {
