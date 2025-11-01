@@ -5,9 +5,12 @@ import { FaRocket, FaEye, FaShieldAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
 import UtilityTierCard from '../components/ui/UtilityTierCard';
 import TokenDistributionDonut from '../components/ui/TokenDistributionDonut';
+import DistributionBreakdown from '../components/ui/DistributionBreakdown';
+import VestingTimeline from '../components/ui/VestingTimeline';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
+import { TokenDistribution } from '../types/config';
 
 const TokenomicsPage: React.FC = () => {
   const { config, getTokenDisclaimer } = useProjectConfig();
@@ -15,7 +18,7 @@ const TokenomicsPage: React.FC = () => {
   // Get token distribution data from config and transform to expected format
   const tokenomicsData = {
     totalSupply: config.token.totalSupply,
-    distribution: Object.values(config.token.distribution).map((item: any) => ({
+    distribution: Object.values(config.token.distribution).map((item: TokenDistribution) => ({
       category: item.description.split(' ')[0] === 'Fair' ? 'Community & Market' :
                  item.description.includes('Locked liquidity') ? 'Liquidity Pool' :
                  item.description.includes('ecosystem growth') ? 'Development' :
@@ -103,6 +106,64 @@ const TokenomicsPage: React.FC = () => {
     }
   ];
 
+  // Distribution allocations for detailed breakdown
+  const distributionAllocations = [
+    {
+      category: 'Public Sale',
+      percentage: config.token.distribution.publicSale.percentage,
+      amount: config.token.distribution.publicSale.amount,
+      description: config.token.distribution.publicSale.description,
+      color: '#4ade80',
+    },
+    {
+      category: 'Liquidity Pool',
+      percentage: config.token.distribution.liquidityPool.percentage,
+      amount: config.token.distribution.liquidityPool.amount,
+      description: config.token.distribution.liquidityPool.description,
+      color: '#34d399',
+    },
+    {
+      category: 'Development',
+      percentage: config.token.distribution.development.percentage,
+      amount: config.token.distribution.development.amount,
+      description: config.token.distribution.development.description,
+      vestingSchedule: config.token.distribution.development.vestingSchedule,
+      color: '#6ee7b7',
+    },
+    {
+      category: 'Marketing',
+      percentage: config.token.distribution.marketing.percentage,
+      amount: config.token.distribution.marketing.amount,
+      description: config.token.distribution.marketing.description,
+      color: '#a7f3d0',
+    },
+    {
+      category: 'Team',
+      percentage: config.token.distribution.team.percentage,
+      amount: config.token.distribution.team.amount,
+      description: config.token.distribution.team.description,
+      vestingSchedule: config.token.distribution.team.vestingSchedule,
+      color: '#d1fae5',
+    },
+  ];
+
+  // Vesting periods for timeline
+  const vestingPeriods = [
+    {
+      category: 'Development',
+      vestingPeriod: '2-year linear vesting',
+      color: '#6ee7b7',
+      description: 'Tokens released gradually over 24 months to fund continuous product development and infrastructure.'
+    },
+    {
+      category: 'Team',
+      lockPeriod: '12-month lock',
+      vestingPeriod: '18-month vesting',
+      color: '#d1fae5',
+      description: 'Initial 1-year lock period followed by 18-month gradual release to ensure long-term team commitment.'
+    },
+  ];
+
   return (
     <>
       <SEO
@@ -127,26 +188,6 @@ const TokenomicsPage: React.FC = () => {
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy tools.
           </p>
-        </motion.div>
-
-        {/* Top Disclaimer - CRITICAL LEGAL REQUIREMENT */}
-        <motion.div
-          className="mb-16 bg-yellow-500/10 border-2 border-yellow-500/50 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="flex items-start gap-4">
-            <div className="text-4xl flex-shrink-0">⚠️</div>
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold text-yellow-300 mb-3">Important Notice</h3>
-              <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-                <strong>$PRICKO is a utility token for accessing Privacy Gecko services.</strong> It is NOT an investment vehicle or security.
-                Token value may fluctuate significantly or decline to zero. Purchase only if you intend to use Privacy Gecko tools.
-                Cryptocurrency investments carry risk, including total loss of capital. This is not financial advice.
-              </p>
-            </div>
-          </div>
         </motion.div>
 
         {/* Token Overview */}
@@ -176,56 +217,7 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* 4-Tier Utility Model - MOST IMPORTANT SECTION */}
-        <motion.section
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">How $PRICKO Works:</span> 4-Tier Utility Model
-            </h2>
-            <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
-              $PRICKO unlocks features across our privacy tools. The more you hold, the more capabilities you access.
-              This is about <strong>functionality</strong>, not investment.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {utilityTiers.map((tier, index) => (
-              <UtilityTierCard
-                key={tier.tier}
-                {...tier}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
-
-          <motion.div
-            className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-start gap-3">
-              <FaShieldAlt className="text-blue-400 text-2xl flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold text-blue-300 mb-2">Utility-First Design</h4>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  Each tier grants specific capabilities within Privacy Gecko tools. You're not buying an investment -
-                  you're unlocking features to enhance your privacy. Token requirements are subject to change based on
-                  pricing adjustments for service sustainability.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* Distribution Chart - NEW INTERACTIVE DONUT */}
+        {/* Distribution Chart - MOVED UP */}
         <motion.section
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -282,6 +274,61 @@ const TokenomicsPage: React.FC = () => {
               },
             ]}
           />
+        </motion.section>
+
+        {/* Distribution Breakdown - NEW SECTION */}
+        <DistributionBreakdown allocations={distributionAllocations} delay={0.2} />
+
+        {/* Vesting Schedule - NEW SECTION */}
+        <VestingTimeline periods={vestingPeriods} delay={0.3} />
+
+        {/* 4-Tier Utility Model */}
+        <motion.section
+          className="mb-20 mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="gradient-text">How $PRICKO Works:</span> 4-Tier Utility Model
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
+              $PRICKO unlocks features across our privacy tools. The more you hold, the more capabilities you access.
+              This is about <strong>functionality</strong>, not investment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {utilityTiers.map((tier, index) => (
+              <UtilityTierCard
+                key={tier.tier}
+                {...tier}
+                delay={index * 0.1}
+              />
+            ))}
+          </div>
+
+          <motion.div
+            className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-start gap-3">
+              <FaShieldAlt className="text-blue-400 text-2xl flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-bold text-blue-300 mb-2">Utility-First Design</h4>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Each tier grants specific capabilities within Privacy Gecko tools. You're not buying an investment -
+                  you're unlocking features to enhance your privacy. Token requirements are subject to change based on
+                  pricing adjustments for service sustainability.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </motion.section>
 
         {/* Token Utility */}
@@ -445,7 +492,7 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* Risk Disclosures - CRITICAL LEGAL REQUIREMENT */}
+        {/* CONSOLIDATED Risk Disclosures & Legal Notices - SINGLE COMPREHENSIVE SECTION */}
         <motion.section
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -457,10 +504,25 @@ const TokenomicsPage: React.FC = () => {
             <div className="flex items-start gap-4 mb-6">
               <FaShieldAlt className="text-red-400 text-3xl flex-shrink-0 mt-1" />
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-red-300 mb-2">Understanding the Risks</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-red-300 mb-2">Risk Disclosures & Legal Notices</h2>
                 <p className="text-gray-300 text-sm">
-                  Before acquiring $PRICKO tokens, carefully review and understand these important risks:
+                  Before acquiring $PRICKO tokens, carefully review and understand these important risks and legal disclosures:
                 </p>
+              </div>
+            </div>
+
+            {/* Important Notice */}
+            <div className="mb-6 bg-yellow-500/10 border-2 border-yellow-500/50 rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl flex-shrink-0">⚠️</div>
+                <div>
+                  <h3 className="text-xl font-bold text-yellow-300 mb-3">Important Notice</h3>
+                  <p className="text-gray-200 leading-relaxed text-sm md:text-base">
+                    <strong>$PRICKO is a utility token for accessing Privacy Gecko services.</strong> It is NOT an investment vehicle or security.
+                    Token value may fluctuate significantly or decline to zero. Purchase only if you intend to use Privacy Gecko tools.
+                    Cryptocurrency investments carry risk, including total loss of capital. This is not financial advice.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -542,35 +604,19 @@ const TokenomicsPage: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-red-500/20">
-                <p className="text-sm text-gray-300 font-semibold">
+                <p className="text-sm text-gray-300 font-semibold mb-3">
                   <span className="text-red-300">No Financial Advice:</span> This information is educational only
                   and does not constitute financial, investment, or legal advice. Conduct thorough research and
                   consult with qualified professionals before making any decisions. Never invest more than you can
                   afford to lose completely.
                 </p>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  {getTokenDisclaimer('tokenomics')}
+                </p>
               </div>
             </div>
           </div>
         </motion.section>
-
-        {/* Risk Disclaimer */}
-        <motion.div
-          className="mt-16 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-start gap-4">
-            <div className="text-3xl">⚠️</div>
-            <div>
-              <h3 className="text-xl font-bold text-yellow-300 mb-3">Important Disclaimer</h3>
-              <p className="text-gray-300 leading-relaxed">
-                {getTokenDisclaimer('tokenomics')}
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
     </>
