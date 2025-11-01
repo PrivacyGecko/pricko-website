@@ -234,10 +234,10 @@ test.describe('P0 Critical Tests - Data Accuracy', () => {
                           pageContent.includes('2100');
 
     // Should NOT contain geckoShare errors
-    const hasGeckoShareError = pageContent.includes('geckoShare') ||
+    const hasGecko ShareError = pageContent.includes('geckoShare') ||
                                pageContent.includes('undefined');
 
-    expect(hasPrickoshare || !hasGeckoShareError, 'Should reference prickoshare correctly, not geckoShare').toBeTruthy();
+    expect(hasPrickoshare || !hasGecko ShareError, 'Should reference prickoshare correctly, not geckoShare').toBeTruthy();
   });
 
   test('should verify TOOLS_COUNT.total === 8', async ({ page }) => {

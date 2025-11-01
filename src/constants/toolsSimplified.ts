@@ -18,7 +18,7 @@ export interface SimplifiedTool {
 export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   {
     id: 'gecko-advisor',
-    name: 'GeckoAdvisor',
+    name: 'Gecko Advisor',
     oneLiner: 'Scan any website for trackers and get an A-F privacy grade in 10 seconds.',
     topFeatures: [
       'Instant privacy scanning',
@@ -31,7 +31,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-share',
-    name: 'GeckoShare',
+    name: 'Gecko Share',
     oneLiner: 'Share files securely with zero-knowledge encryption. No one can read your files, not even us.',
     topFeatures: [
       '256-bit AES encryption',
@@ -44,7 +44,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-shell',
-    name: 'GeckoShell',
+    name: 'Gecko Shell',
     oneLiner: 'Mobile privacy browser with built-in Solana wallet. Browse safely on iOS and Android.',
     topFeatures: [
       'Cross-platform (iOS, Android)',
@@ -57,7 +57,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-guard',
-    name: 'GeckoGuard',
+    name: 'Gecko Guard',
     oneLiner: 'Block trackers and ads automatically. Privacy protection that works in any browser.',
     topFeatures: [
       'Real-time tracker blocking',
@@ -69,7 +69,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-lock',
-    name: 'GeckoLock',
+    name: 'Gecko Lock',
     oneLiner: 'Password manager with zero-knowledge encryption. Your master password never leaves your device.',
     topFeatures: [
       'AES-256 encryption',
@@ -81,7 +81,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-watch',
-    name: 'GeckoWatch',
+    name: 'Gecko Watch',
     oneLiner: 'Monitor GDPR compliance and privacy violations. Real-time alerts for policy changes.',
     topFeatures: [
       'GDPR compliance checking',
@@ -93,7 +93,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-view',
-    name: 'GeckoView',
+    name: 'Gecko View',
     oneLiner: 'AI-powered content summarization with encrypted bookmarks. Powered by GPT-3.5 and GPT-4.',
     topFeatures: [
       'AI summaries (GPT-3.5 & GPT-4)',
@@ -105,7 +105,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
   },
   {
     id: 'gecko-vpn',
-    name: 'GeckoVPN',
+    name: 'Gecko VPN',
     oneLiner: 'Privacy-first VPN with no-logs policy. Global server network in 50+ countries.',
     topFeatures: [
       'No-logs policy',

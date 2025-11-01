@@ -57,7 +57,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoAdvisor: {
     id: 'gecko-advisor',
     icon: ICONS.advisor,
-    title: 'GeckoAdvisor',
+    title: 'Gecko Advisor',
     subtitle: 'Privacy & Security Audit Tool',
     description: 'Comprehensive privacy and security audit tool for your devices. Scan for vulnerabilities, detect tracking, and get actionable recommendations to improve your digital privacy posture.',
     shortDescription: 'Comprehensive privacy and security audit tool for your devices with vulnerability detection and privacy scoring.',
@@ -85,7 +85,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoShare: {
     id: 'gecko-share',
     icon: ICONS.share,
-    title: 'GeckoShare',
+    title: 'Gecko Share',
     subtitle: 'Zero-Knowledge File Sharing',
     description: 'End-to-end encrypted file sharing with expiring links. Share files securely with 256-bit AES encryption, password protection, and no registration required. Perfect for sensitive document sharing.',
     shortDescription: 'Zero-knowledge, token-gated file-sharing SaaS with instant uploads and persistent vault storage.',
@@ -113,7 +113,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoGuard: {
     id: 'gecko-guard',
     icon: ICONS.guard,
-    title: 'GeckoGuard',
+    title: 'Gecko Guard',
     subtitle: 'Tracker & Ad Blocker',
     description: 'Browser extension for tracker and ad blocking. Features real-time tracker blocking, privacy dashboard, and custom filter lists to protect your browsing from invasive tracking and advertisements.',
     shortDescription: 'Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes.',
@@ -142,7 +142,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoLock: {
     id: 'gecko-lock',
     icon: ICONS.lock,
-    title: 'GeckoLock',
+    title: 'Gecko Lock',
     subtitle: 'Zero-Knowledge Password Manager',
     description: 'Zero-knowledge password manager with AES-256 encryption and cross-platform sync. Store and manage your passwords securely with military-grade encryption that even we can\'t access.',
     shortDescription: 'Zero-knowledge password manager with AES-256 encryption and cross-platform sync.',
@@ -170,7 +170,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoView: {
     id: 'gecko-view',
     icon: ICONS.view,
-    title: 'GeckoView',
+    title: 'Gecko View',
     subtitle: 'AI Content Summarization',
     description: 'AI-powered content summarization with encrypted bookmarks. Save and summarize web articles using GPT-3.5 and GPT-4, with end-to-end encrypted bookmark storage and browser extension integration.',
     shortDescription: 'AI-powered content summarization with end-to-end encrypted bookmarks across all devices.',
@@ -198,7 +198,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoShell: {
     id: 'gecko-shell',
     icon: ICONS.shell,
-    title: 'GeckoShell',
+    title: 'Gecko Shell',
     subtitle: 'Cross-Platform Mobile Privacy Browser',
     description: 'Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK. Features plugin system architecture for extensibility, built-in crypto wallet, and comprehensive privacy protection on iOS and Android.',
     shortDescription: 'Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK.',
@@ -226,7 +226,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoVPN: {
     id: 'gecko-vpn',
     icon: ICONS.vpn,
-    title: 'GeckoVPN',
+    title: 'Gecko VPN',
     subtitle: 'Privacy-First VPN',
     description: 'Privacy-first VPN with no-logs policy and global server network. Features kill switch protection, split tunneling, and multi-hop routing for maximum privacy and security while browsing.',
     shortDescription: 'Privacy-first VPN with no-logs policy, kill switch, and multi-hop routing.',
@@ -254,7 +254,7 @@ export const TOOLS: Record<string, Tool> = {
   geckoWatch: {
     id: 'gecko-watch',
     icon: ICONS.watch,
-    title: 'GeckoWatch',
+    title: 'Gecko Watch',
     subtitle: 'Privacy Compliance Analyzer',
     description: 'Analyze and monitor privacy compliance of websites. Features GDPR compliance checking, cookie and tracker analysis, and privacy policy scanning to ensure websites respect your privacy rights.',
     shortDescription: 'Analyze and monitor privacy compliance of websites with GDPR checking and cookie analysis.',

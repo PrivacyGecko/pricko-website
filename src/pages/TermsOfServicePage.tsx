@@ -141,8 +141,8 @@ const TermsOfServicePage: React.FC = () => {
                   features within our privacy tools ecosystem. Token holders may receive:
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Enhanced storage quotas in GeckoShare</li>
-                  <li>Advanced protection features in GeckoGuard</li>
+                  <li>Enhanced storage quotas in Gecko Share</li>
+                  <li>Advanced protection features in Gecko Guard</li>
                   <li>Early access to new privacy tools</li>
                   <li>Governance voting rights (when implemented)</li>
                 </ul>

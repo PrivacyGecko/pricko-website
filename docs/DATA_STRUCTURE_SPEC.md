@@ -41,7 +41,7 @@ Every product MUST include these fields:
 | Field | Type | Required | Description | Example |
 |-------|------|----------|-------------|---------|
 | `id` | string | Yes | Unique kebab-case identifier | `"gecko-share"` |
-| `name` | string | Yes | Official product name | `"GeckoShare"` |
+| `name` | string | Yes | Official product name | `"Gecko Share"` |
 | `subtitle` | string | Yes | One-line descriptor | `"Zero-Knowledge File Sharing"` |
 | `category` | string | Yes | Product category | `"File Sharing"` |
 | `status` | enum | Yes | Current status | `"live"` |

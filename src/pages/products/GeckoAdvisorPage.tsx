@@ -19,7 +19,7 @@ const GeckoAdvisorPage: React.FC = () => {
     {
       step: 1,
       title: "Enter Website URL",
-      description: "Paste any website URL into GeckoAdvisor's scanner. Works with any publicly accessible site."
+      description: "Paste any website URL into Gecko Advisor's scanner. Works with any publicly accessible site."
     },
     {
       step: 2,
@@ -40,8 +40,8 @@ const GeckoAdvisorPage: React.FC = () => {
   
   const faqs = [
     {
-      question: "How accurate is GeckoAdvisor?",
-      answer: "GeckoAdvisor uses industry-standard databases (EasyPrivacy, WhoTracks.me) combined with real-time scanning. Our accuracy rate is 95%+ for tracker detection, verified against manual audits."
+      question: "How accurate is Gecko Advisor?",
+      answer: "Gecko Advisor uses industry-standard databases (EasyPrivacy, WhoTracks.me) combined with real-time scanning. Our accuracy rate is 95%+ for tracker detection, verified against manual audits."
     },
     {
       question: "Is my scan data stored?",
@@ -49,10 +49,10 @@ const GeckoAdvisorPage: React.FC = () => {
     },
     {
       question: "Can I scan any website?",
-      answer: "Yes! GeckoAdvisor can scan any publicly accessible website. For password-protected sites or intranets, you'll need to provide access credentials (never stored)."
+      answer: "Yes! Gecko Advisor can scan any publicly accessible website. For password-protected sites or intranets, you'll need to provide access credentials (never stored)."
     },
     {
-      question: "Is GeckoAdvisor really free?",
+      question: "Is Gecko Advisor really free?",
       answer: "100% free with unlimited scans. No account required. No premium tiers. No hidden fees. This is our commitment to privacy advocacy and transparency."
     },
     {
@@ -60,7 +60,7 @@ const GeckoAdvisorPage: React.FC = () => {
       answer: "We recommend scanning websites quarterly or after major updates. Many sites add new trackers during redesigns or when integrating new services. Set calendar reminders!"
     },
     {
-      question: "What trackers does GeckoAdvisor detect?",
+      question: "What trackers does Gecko Advisor detect?",
       answer: "We detect advertising trackers (Google Analytics, Facebook Pixel), third-party cookies, fingerprinting scripts, social media widgets, and analytics platforms. Our database covers 10,000+ known trackers."
     }
   ];
@@ -70,7 +70,7 @@ const GeckoAdvisorPage: React.FC = () => {
       product={product}
       howItWorks={howItWorks}
       faqs={faqs}
-      pageTitle="GeckoAdvisor - Website Privacy Scanner | Privacy Gecko"
+      pageTitle="Gecko Advisor - Website Privacy Scanner | Privacy Gecko"
       pageDescription="Scan any website to uncover trackers, cookies, and hidden data collection. Get A-F privacy grades in 5-10 seconds. 100% free, unlimited scans."
       canonicalUrl="/gecko-advisor"
     />

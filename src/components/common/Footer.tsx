@@ -209,7 +209,7 @@ const Footer: React.FC = () => {
               >
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">🔍</span>
-                  <span className="text-muted">GeckoAdvisor</span>
+                  <span className="text-muted">Gecko Advisor</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
               </motion.li>
@@ -220,7 +220,7 @@ const Footer: React.FC = () => {
               >
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">📁</span>
-                  <span className="text-muted">GeckoShare</span>
+                  <span className="text-muted">Gecko Share</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
               </motion.li>
@@ -231,7 +231,7 @@ const Footer: React.FC = () => {
               >
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">📱</span>
-                  <span className="text-muted">GeckoShell</span>
+                  <span className="text-muted">Gecko Shell</span>
                   <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Beta</span>
                 </div>
               </motion.li>
@@ -242,7 +242,7 @@ const Footer: React.FC = () => {
               >
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">🛡️</span>
-                  <span className="text-muted">GeckoGuard</span>
+                  <span className="text-muted">Gecko Guard</span>
                   <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">In Dev</span>
                 </div>
               </motion.li>
@@ -253,7 +253,7 @@ const Footer: React.FC = () => {
               >
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">💻</span>
-                  <span className="text-muted">GeckoBrowser</span>
+                  <span className="text-muted">Gecko Browser</span>
                   <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full">Phase 3</span>
                 </div>
               </motion.li>

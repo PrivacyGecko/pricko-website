@@ -24,7 +24,7 @@ const GeckoWatchPage: React.FC = () => {
     {
       step: 2,
       title: "AI-Powered Monitoring",
-      description: "GeckoWatch scans dark web, data breaches, and public leaks 24/7. AI algorithms detect patterns and anomalies to catch breaches faster than traditional services."
+      description: "Gecko Watch scans dark web, data breaches, and public leaks 24/7. AI algorithms detect patterns and anomalies to catch breaches faster than traditional services."
     },
     {
       step: 3,
@@ -40,7 +40,7 @@ const GeckoWatchPage: React.FC = () => {
   
   const faqs = [
     {
-      question: "What data sources does GeckoWatch monitor?",
+      question: "What data sources does Gecko Watch monitor?",
       answer: "We monitor 50+ data breach databases, dark web marketplaces, paste sites (Pastebin, GitHub Gists), public leaks, and credential dumps. Updated hourly with new breach data from security researchers."
     },
     {
@@ -52,8 +52,8 @@ const GeckoWatchPage: React.FC = () => {
       answer: "Only hashed email addresses and usernames. We never store passwords, security questions, or personal information. All monitoring uses one-way hashes and secure comparison algorithms."
     },
     {
-      question: "Can GeckoWatch prevent data breaches?",
-      answer: "No tool can prevent breaches. GeckoWatch helps you respond quickly to minimize damage. Think of it as a smoke detector, not a fire extinguisher - early warning gives you time to act."
+      question: "Can Gecko Watch prevent data breaches?",
+      answer: "No tool can prevent breaches. Gecko Watch helps you respond quickly to minimize damage. Think of it as a smoke detector, not a fire extinguisher - early warning gives you time to act."
     },
     {
       question: "How much does monitoring cost?",
@@ -66,7 +66,7 @@ const GeckoWatchPage: React.FC = () => {
       product={product}
       howItWorks={howItWorks}
       faqs={faqs}
-      pageTitle="GeckoWatch - Data Breach Monitoring | Privacy Gecko"
+      pageTitle="Gecko Watch - Data Breach Monitoring | Privacy Gecko"
       pageDescription="Monitor dark web and data breaches for your email, passwords, and personal info. Instant alerts and guided remediation."
       canonicalUrl="/gecko-watch"
     />

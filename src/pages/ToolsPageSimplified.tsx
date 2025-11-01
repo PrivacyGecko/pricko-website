@@ -10,8 +10,8 @@ const ToolsPageSimplified: React.FC = () => {
     <>
       <SEO
         title="Privacy Tools - 8 Products, 2 Live Now | PRICKO"
-        description="Explore PRICKO's ecosystem: GeckoShare (file sharing), GeckoAdvisor (privacy scanner), GeckoShell (mobile browser), and 5 more privacy tools. Powered by $PRICKO token."
-        keywords="privacy tools, GeckoShare, GeckoAdvisor, GeckoShell, GeckoGuard, encrypted file sharing, privacy browser, PRICKO tools"
+        description="Explore PRICKO's ecosystem: Gecko Share (file sharing), Gecko Advisor (privacy scanner), Gecko Shell (mobile browser), and 5 more privacy tools. Powered by $PRICKO token."
+        keywords="privacy tools, Gecko Share, Gecko Advisor, Gecko Shell, Gecko Guard, encrypted file sharing, privacy browser, PRICKO tools"
         canonicalUrl="/tools"
       />
       <div className="min-h-screen bg-bg-main text-white pt-24">
@@ -77,7 +77,7 @@ const ToolsPageSimplified: React.FC = () => {
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
               </h2>
               <p className="text-xl text-muted mb-10 max-w-3xl mx-auto">
-                Join 2,100+ users protecting their privacy with GeckoShare and GeckoAdvisor.
+                Join 2,100+ users protecting their privacy with Gecko Share and Gecko Advisor.
               </p>
 
               <motion.button

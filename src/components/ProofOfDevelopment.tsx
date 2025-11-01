@@ -448,15 +448,15 @@ const ProofOfDevelopment: React.FC = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex items-start gap-2">
                   <FaCheckCircle className="text-accent mt-0.5 flex-shrink-0" />
-                  <span className="text-muted">GeckoShare: Audit Completed Q4 2024</span>
+                  <span className="text-muted">Gecko Share: Audit Completed Q4 2024</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <FaCheckCircle className="text-accent mt-0.5 flex-shrink-0" />
-                  <span className="text-muted">GeckoAdvisor: Open-Source Audit Complete</span>
+                  <span className="text-muted">Gecko Advisor: Open-Source Audit Complete</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <FaClock className="text-yellow-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-muted">GeckoShell: Beta Audit In Progress</span>
+                  <span className="text-muted">Gecko Shell: Beta Audit In Progress</span>
                 </div>
               </div>
             </div>

@@ -288,9 +288,9 @@
 
 **Metrics Found Across Pages:**
 - Community: "1,200+ privacy advocates" (from metrics.ts)
-- GeckoShare: "2,100+ Active Users"
-- GeckoGuard: "850+ Beta Testers"
-- GeckoShell: "1,800+ Waitlist"
+- Gecko Share: "2,100+ Active Users"
+- Gecko Guard: "850+ Beta Testers"
+- Gecko Shell: "1,800+ Waitlist"
 
 **Issues:**
 - Homepage shows different tool count than expected

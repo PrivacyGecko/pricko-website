@@ -273,7 +273,7 @@ compelling investment opportunity in the privacy sector."
 **✅ GOOD** (Utility-Focused):
 ```
 "PRICK tokens provide functional access to Privacy Gecko's 8-product ecosystem.
-Token holders can unlock premium features in GeckoShare, GeckoView, and other tools,
+Token holders can unlock premium features in Gecko Share, Gecko View, and other tools,
 participate in governance decisions, and access discounted service pricing. The token
 serves as a unified access key across all Privacy Gecko services."
 ```
@@ -291,7 +291,7 @@ gain perpetual access without recurring fees, plus additional benefits like [spe
 
 **Example**:
 ```
-GeckoShare offers both free and premium tiers. Premium features require either a
+Gecko Share offers both free and premium tiers. Premium features require either a
 monthly subscription ($9.99) or holding 10,000 PRICK tokens in your wallet. Token
 holders gain perpetual access without recurring fees, plus additional benefits like
 unlimited file size and persistent vault storage.
@@ -428,7 +428,7 @@ CTA: "Explore Tools"
 
 **Example 1 (Product Announcement)**:
 ```
-🦎 GeckoShare now supports 10GB file transfers!
+🦎 Gecko Share now supports 10GB file transfers!
 
 PRICK token holders get:
 • Unlimited file size
@@ -450,7 +450,7 @@ Explore our ecosystem: [link]
 
 **Example 3 (Feature Highlight)**:
 ```
-🔒 Why GeckoShare?
+🔒 Why Gecko Share?
 
 ✅ Zero-knowledge encryption
 ✅ No data on our servers

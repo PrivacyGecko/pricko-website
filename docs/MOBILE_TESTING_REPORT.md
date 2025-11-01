@@ -44,9 +44,9 @@ Comprehensive mobile responsiveness testing was conducted across **7 breakpoints
 5. Roadmap (/roadmap)
 6. How to Buy (/how-to-buy)
 7. Contact (/contact)
-8. GeckoAdvisor (/gecko-advisor)
-9. GeckoShare (/gecko-share)
-10. GeckoShell (/gecko-shell)
+8. Gecko Advisor (/gecko-advisor)
+9. Gecko Share (/gecko-share)
+10. Gecko Shell (/gecko-shell)
 
 ---
 

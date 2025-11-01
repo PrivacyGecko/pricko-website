@@ -21,8 +21,8 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
     title: 'Foundation & Product Launch',
     status: 'completed',
     achievements: [
-      'GeckoAdvisor launched - website privacy scanner with A-F grades',
-      'GeckoShare launched - 2,100+ users, zero-knowledge file sharing',
+      'Gecko Advisor launched - website privacy scanner with A-F grades',
+      'Gecko Share launched - 2,100+ users, zero-knowledge file sharing',
       'Privacy Gecko community established with active channels'
     ],
     completionDate: 'October 2025'
@@ -45,8 +45,8 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
     title: 'Product Expansion',
     status: 'upcoming',
     achievements: [
-      'GeckoGuard (browser extension) - tracker blocker goes live',
-      'GeckoShell (mobile browser) - beta launch with Solana wallet',
+      'Gecko Guard (browser extension) - tracker blocker goes live',
+      'Gecko Shell (mobile browser) - beta launch with Solana wallet',
       '1,000 beta testers onboarded for AI features'
     ],
     completionDate: 'March 2026'
@@ -57,8 +57,8 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
     title: 'Ecosystem Growth',
     status: 'upcoming',
     achievements: [
-      'GeckoLock (password manager) - zero-knowledge launch',
-      'GeckoWatch & GeckoView - AI-powered privacy tools',
+      'Gecko Lock (password manager) - zero-knowledge launch',
+      'Gecko Watch & Gecko View - AI-powered privacy tools',
       'Cross-platform sync and mobile app releases'
     ],
     completionDate: 'September 2026'
@@ -69,7 +69,7 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
     title: 'Complete Privacy Suite',
     status: 'upcoming',
     achievements: [
-      'GeckoVPN - privacy-first VPN with 50+ countries',
+      'Gecko VPN - privacy-first VPN with 50+ countries',
       'DAO governance activation for token holders',
       'Multi-chain expansion and Privacy Summits'
     ],

@@ -40,8 +40,8 @@ const GeckoViewPage: React.FC = () => {
   
   const faqs = [
     {
-      question: "How is GeckoView different from Pocket or Instapaper?",
-      answer: "GeckoView adds AI-powered summarization with GPT-3.5 and GPT-4, plus end-to-end encryption for all saved content. Unlike Pocket (owned by Mozilla), we don't analyze your reading habits or serve recommendations based on tracking."
+      question: "How is Gecko View different from Pocket or Instapaper?",
+      answer: "Gecko View adds AI-powered summarization with GPT-3.5 and GPT-4, plus end-to-end encryption for all saved content. Unlike Pocket (owned by Mozilla), we don't analyze your reading habits or serve recommendations based on tracking."
     },
     {
       question: "Does AI summarization work offline?",
@@ -52,11 +52,11 @@ const GeckoViewPage: React.FC = () => {
       answer: "Yes! Pro tier includes collaborative collections where team members can share bookmarks, annotations, and notes. All collaboration is end-to-end encrypted."
     },
     {
-      question: "What AI models does GeckoView use?",
+      question: "What AI models does Gecko View use?",
       answer: "Free tier: GPT-3.5 (10 summaries/month). Pro tier: GPT-3.5 unlimited + GPT-4 for complex articles. We're exploring local AI models for Q3 2026 to reduce dependency on OpenAI."
     },
     {
-      question: "How much does GeckoView cost?",
+      question: "How much does Gecko View cost?",
       answer: "Free: 10 AI summaries/month + basic bookmarks. Pro: $12.99/month or 250 $PRICKO tokens for unlimited summaries, GPT-4 access, team collaboration, and advanced search."
     }
   ];
@@ -66,7 +66,7 @@ const GeckoViewPage: React.FC = () => {
       product={product}
       howItWorks={howItWorks}
       faqs={faqs}
-      pageTitle="GeckoView - AI Content Summarization | Privacy Gecko"
+      pageTitle="Gecko View - AI Content Summarization | Privacy Gecko"
       pageDescription="AI-powered content summarization with end-to-end encrypted bookmarks. Save and summarize web articles using GPT-3.5 and GPT-4."
       canonicalUrl="/gecko-view"
     />

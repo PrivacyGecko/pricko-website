@@ -55,7 +55,7 @@ Transform the Pricko-Website to appeal to three key audiences:
 - ❌ No accountability/trust signals (treasury, team lock-ups, audits)
 - ❌ No whitelist signup or wallet integration
 - ❌ Only 6 products shown, need 8 in ecosystem
-- ❌ Missing GeckoView, GeckoWatch, Gecko VPN in product lineup
+- ❌ Missing Gecko View, Gecko Watch, Gecko VPN in product lineup
 
 ---
 
