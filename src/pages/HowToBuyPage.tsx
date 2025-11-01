@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { FaRocket, FaWallet, FaExchangeAlt, FaCheckCircle, FaTwitter } from 'react-icons/fa';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
+import SecurityBadge from '../components/ui/SecurityBadge';
+import ProgressBar from '../components/ui/ProgressBar';
 
 const HowToBuyPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -97,7 +99,7 @@ const HowToBuyPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-2xl p-8">
+              <div className="card-glass bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20">
                 <div className="text-center mb-8">
                   <div className="text-6xl mb-4">🚀</div>
                   <h2 className="text-3xl font-bold mb-4">
@@ -120,7 +122,7 @@ const HowToBuyPage: React.FC = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-secondary border border-border rounded-lg focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 bg-secondary border border-border rounded-lg focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -158,111 +160,161 @@ const HowToBuyPage: React.FC = () => {
             >
               <h2 className="text-3xl font-bold mb-8 text-center">What to Expect at Launch</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="card text-center">
+                <motion.div 
+                  className="card-interactive text-center"
+                  whileHover={{ y: -4 }}
+                >
                   <div className="text-4xl mb-4">⚖️</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Fair Launch</h3>
                   <p className="text-muted leading-relaxed">
                     No presales, no whitelists. Everyone gets the same opportunity to buy at launch.
                   </p>
-                </div>
-                <div className="card text-center">
+                </motion.div>
+                <motion.div 
+                  className="card-interactive text-center"
+                  whileHover={{ y: -4 }}
+                >
                   <div className="text-4xl mb-4">🚀</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Instant Trading</h3>
                   <p className="text-muted leading-relaxed">
                     80% of supply goes to liquidity pool for immediate trading on pump.fun.
                   </p>
-                </div>
-                <div className="card text-center">
+                </motion.div>
+                <motion.div 
+                  className="card-interactive text-center"
+                  whileHover={{ y: -4 }}
+                >
                   <div className="text-4xl mb-4">🔐</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Utility Access</h3>
                   <p className="text-muted leading-relaxed">
                     Start using tokens immediately for premium features in privacy tools.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </motion.section>
 
-            {/* Prepare Now Section */}
+            {/* Prepare Now Section with SecurityBadge */}
             <motion.section
-              className="mb-16 bg-secondary/30 rounded-2xl p-8"
+              className="mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-8 text-center">Prepare Now</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">1️⃣</div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 text-accent">Set Up Your Wallet</h3>
-                    <p className="text-muted mb-3">
-                      Download Phantom, Solflare, or Backpack wallet and create your account.
-                      Save your seed phrase securely.
-                    </p>
-                    <a
-                      href="https://phantom.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline inline-flex items-center gap-2"
-                    >
-                      Get Phantom Wallet <FaWallet />
-                    </a>
-                  </div>
-                </div>
+              <h2 className="text-3xl font-bold mb-4 text-center">Prepare Now</h2>
+              <p className="text-center text-muted mb-8 max-w-2xl mx-auto">
+                Get ready for launch day by setting up your wallet and learning the basics
+              </p>
 
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">2️⃣</div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 text-accent">Get Some SOL</h3>
-                    <p className="text-muted mb-3">
-                      Buy SOL on Coinbase, Binance, or Kraken and transfer it to your wallet.
-                      You'll need SOL to buy $PRICKO.
-                    </p>
-                    <a
-                      href="https://www.coinbase.com/price/solana"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline inline-flex items-center gap-2"
-                    >
-                      Buy SOL <FaExchangeAlt />
-                    </a>
-                  </div>
-                </div>
+              {/* Security Trust Badges */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <SecurityBadge
+                  variant="verified"
+                  title="Verified Launch"
+                  description="Official pump.fun launch with transparent distribution"
+                  delay={0.1}
+                />
+                <SecurityBadge
+                  variant="encryption"
+                  title="Secure Wallets"
+                  description="Use trusted Solana wallets with proven security"
+                  delay={0.2}
+                />
+                <SecurityBadge
+                  variant="audit"
+                  title="Smart Contract"
+                  description="Audited token contracts for safe trading"
+                  delay={0.3}
+                />
+                <SecurityBadge
+                  variant="open-source"
+                  title="Transparent"
+                  description="Open tokenomics and fair distribution model"
+                  delay={0.4}
+                />
+              </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">3️⃣</div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 text-accent">Join Our Community</h3>
-                    <p className="text-muted mb-3">
-                      Follow us on Twitter/X for launch announcements and stay connected with the community.
-                    </p>
-                    <a
-                      href="https://twitter.com/PRICKOtoken"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline inline-flex items-center gap-2"
-                    >
-                      Follow on X <FaTwitter />
-                    </a>
+              {/* Step-by-Step Preparation Progress */}
+              <div className="bg-secondary/30 rounded-2xl p-8 border border-border/50">
+                <h3 className="text-2xl font-bold mb-8 text-center">Launch Readiness Checklist</h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl">1️⃣</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-2 text-accent">Set Up Your Wallet</h3>
+                      <p className="text-muted mb-3">
+                        Download Phantom, Solflare, or Backpack wallet and create your account.
+                        Save your seed phrase securely.
+                      </p>
+                      <ProgressBar value={0} label="Wallet Setup" color="cyan" height="sm" />
+                      <a
+                        href="https://phantom.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline inline-flex items-center gap-2 mt-3"
+                      >
+                        Get Phantom Wallet <FaWallet />
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="text-3xl">4️⃣</div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 text-accent">Learn About pump.fun</h3>
-                    <p className="text-muted mb-3">
-                      Familiarize yourself with the pump.fun platform before launch day.
-                    </p>
-                    <a
-                      href="https://pump.fun"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline inline-flex items-center gap-2"
-                    >
-                      Visit pump.fun <FaRocket />
-                    </a>
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl">2️⃣</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-2 text-accent">Get Some SOL</h3>
+                      <p className="text-muted mb-3">
+                        Buy SOL on Coinbase, Binance, or Kraken and transfer it to your wallet.
+                        You'll need SOL to buy $PRICKO.
+                      </p>
+                      <ProgressBar value={0} label="SOL Acquisition" color="purple" height="sm" />
+                      <a
+                        href="https://www.coinbase.com/price/solana"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline inline-flex items-center gap-2 mt-3"
+                      >
+                        Buy SOL <FaExchangeAlt />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl">3️⃣</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-2 text-accent">Join Our Community</h3>
+                      <p className="text-muted mb-3">
+                        Follow us on Twitter/X for launch announcements and stay connected with the community.
+                      </p>
+                      <ProgressBar value={0} label="Community Engagement" color="info" height="sm" />
+                      <a
+                        href="https://twitter.com/PRICKOtoken"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline inline-flex items-center gap-2 mt-3"
+                      >
+                        Follow on X <FaTwitter />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="text-3xl">4️⃣</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-2 text-accent">Learn About pump.fun</h3>
+                      <p className="text-muted mb-3">
+                        Familiarize yourself with the pump.fun platform before launch day.
+                      </p>
+                      <ProgressBar value={0} label="Platform Knowledge" color="success" height="sm" />
+                      <a
+                        href="https://pump.fun"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline inline-flex items-center gap-2 mt-3"
+                      >
+                        Visit pump.fun <FaRocket />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -278,15 +330,28 @@ const HowToBuyPage: React.FC = () => {
           >
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Step-by-Step Buying Guide</h2>
+              
+              {/* Overall Progress Visualization */}
+              <div className="mb-12">
+                <ProgressBar 
+                  value={0} 
+                  label="Your Progress" 
+                  color="accent" 
+                  height="lg" 
+                  showPercentage={true}
+                />
+              </div>
+
               <div className="space-y-8">
                 {buyingSteps.map((step, index) => (
                   <motion.div
                     key={step.number}
-                    className="card hover:border-accent/50 transition-colors"
+                    className="card-interactive hover:border-accent/50 transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
+                    whileHover={{ y: -4 }}
                   >
                     <div className="flex items-start gap-6">
                       <div className="flex-shrink-0">
@@ -298,6 +363,17 @@ const HowToBuyPage: React.FC = () => {
                         <div className="mb-4">{step.icon}</div>
                         <h3 className="text-2xl font-semibold mb-3 text-accent">{step.title}</h3>
                         <p className="text-muted leading-relaxed mb-4">{step.description}</p>
+                        
+                        {/* Step Progress */}
+                        <div className="mb-4">
+                          <ProgressBar 
+                            value={(step.number / buyingSteps.length) * 100} 
+                            showPercentage={false}
+                            color="accent"
+                            height="sm"
+                          />
+                        </div>
+
                         {step.link && step.linkText && (
                           <a
                             href={step.link}
@@ -327,7 +403,10 @@ const HowToBuyPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-8 text-center">Important Tips</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-6">
+            <motion.div 
+              className="card-interactive bg-blue-500/10 border border-blue-500/30"
+              whileHover={{ y: -4 }}
+            >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">🔒</div>
                 <div>
@@ -337,9 +416,12 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-6">
+            <motion.div 
+              className="card-interactive bg-yellow-500/10 border border-yellow-500/30"
+              whileHover={{ y: -4 }}
+            >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">⚠️</div>
                 <div>
@@ -349,9 +431,12 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
+            <motion.div 
+              className="card-interactive bg-green-500/10 border border-green-500/30"
+              whileHover={{ y: -4 }}
+            >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">💰</div>
                 <div>
@@ -361,9 +446,12 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-6">
+            <motion.div 
+              className="card-interactive bg-purple-500/10 border border-purple-500/30"
+              whileHover={{ y: -4 }}
+            >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">📊</div>
                 <div>
@@ -373,7 +461,7 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.section>
 
