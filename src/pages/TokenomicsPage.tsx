@@ -113,14 +113,14 @@ const TokenomicsPage: React.FC = () => {
       percentage: config.token.distribution.publicSale.percentage,
       amount: config.token.distribution.publicSale.amount,
       description: config.token.distribution.publicSale.description,
-      color: '#4ade80',
+      color: '#06b6d4',
     },
     {
       category: 'Liquidity Pool',
       percentage: config.token.distribution.liquidityPool.percentage,
       amount: config.token.distribution.liquidityPool.amount,
       description: config.token.distribution.liquidityPool.description,
-      color: '#34d399',
+      color: '#10b981',
     },
     {
       category: 'Development',
@@ -128,14 +128,14 @@ const TokenomicsPage: React.FC = () => {
       amount: config.token.distribution.development.amount,
       description: config.token.distribution.development.description,
       vestingSchedule: config.token.distribution.development.vestingSchedule,
-      color: '#6ee7b7',
+      color: '#8b5cf6',
     },
     {
       category: 'Marketing',
       percentage: config.token.distribution.marketing.percentage,
       amount: config.token.distribution.marketing.amount,
       description: config.token.distribution.marketing.description,
-      color: '#a7f3d0',
+      color: '#f59e0b',
     },
     {
       category: 'Team',
@@ -143,7 +143,7 @@ const TokenomicsPage: React.FC = () => {
       amount: config.token.distribution.team.amount,
       description: config.token.distribution.team.description,
       vestingSchedule: config.token.distribution.team.vestingSchedule,
-      color: '#d1fae5',
+      color: '#ec4899',
     },
   ];
 
@@ -152,14 +152,14 @@ const TokenomicsPage: React.FC = () => {
     {
       category: 'Development',
       vestingPeriod: '2-year linear vesting',
-      color: '#6ee7b7',
+      color: '#8b5cf6',
       description: 'Tokens released gradually over 24 months to fund continuous product development and infrastructure.'
     },
     {
       category: 'Team',
       lockPeriod: '12-month lock',
       vestingPeriod: '18-month vesting',
-      color: '#d1fae5',
+      color: '#ec4899',
       description: 'Initial 1-year lock period followed by 18-month gradual release to ensure long-term team commitment.'
     },
   ];
@@ -235,16 +235,16 @@ const TokenomicsPage: React.FC = () => {
                 percentage: config.token.distribution.publicSale.percentage,
                 amount: config.token.distribution.publicSale.amount,
                 description: config.token.distribution.publicSale.description,
-                color: '#4ade80',
-                hoverColor: '#22c55e',
+                color: '#06b6d4',
+                hoverColor: '#22d3ee',
               },
               {
                 category: 'Liquidity Pool',
                 percentage: config.token.distribution.liquidityPool.percentage,
                 amount: config.token.distribution.liquidityPool.amount,
                 description: config.token.distribution.liquidityPool.description,
-                color: '#34d399',
-                hoverColor: '#10b981',
+                color: '#10b981',
+                hoverColor: '#34d399',
               },
               {
                 category: 'Development',
@@ -252,16 +252,16 @@ const TokenomicsPage: React.FC = () => {
                 amount: config.token.distribution.development.amount,
                 description: config.token.distribution.development.description,
                 vestingSchedule: config.token.distribution.development.vestingSchedule,
-                color: '#6ee7b7',
-                hoverColor: '#34d399',
+                color: '#8b5cf6',
+                hoverColor: '#a78bfa',
               },
               {
                 category: 'Marketing',
                 percentage: config.token.distribution.marketing.percentage,
                 amount: config.token.distribution.marketing.amount,
                 description: config.token.distribution.marketing.description,
-                color: '#a7f3d0',
-                hoverColor: '#6ee7b7',
+                color: '#f59e0b',
+                hoverColor: '#fbbf24',
               },
               {
                 category: 'Team',
@@ -269,8 +269,8 @@ const TokenomicsPage: React.FC = () => {
                 amount: config.token.distribution.team.amount,
                 description: config.token.distribution.team.description,
                 vestingSchedule: config.token.distribution.team.vestingSchedule,
-                color: '#d1fae5',
-                hoverColor: '#a7f3d0',
+                color: '#ec4899',
+                hoverColor: '#f472b6',
               },
             ]}
           />
