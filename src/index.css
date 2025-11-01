@@ -49,11 +49,21 @@
 
   /* NEW: Card Variants (Professional Design System) */
   .card-elevated {
-    @apply bg-secondary border border-border rounded-lg p-6 shadow-professional hover:shadow-professional-lg transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:translate-y-[-4px];
+    @apply bg-secondary border border-border rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:translate-y-[-4px];
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-elevated:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .card-interactive {
-    @apply bg-secondary border border-border rounded-lg p-6 cursor-pointer hover:border-accent/50 hover:shadow-professional hover:scale-105 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    @apply bg-secondary border border-border rounded-lg p-6 cursor-pointer hover:border-accent/50 hover:scale-105 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-interactive:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .card-glass {
@@ -65,7 +75,8 @@
   }
 
   .card-premium {
-    @apply bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-royal/30 rounded-lg p-6 hover:border-purple-royal/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-purple-royal shadow-professional;
+    @apply bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-royal/30 rounded-lg p-6 hover:border-purple-royal/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-purple-royal;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   /* NEW: Badge Variants (Professional Design System) */
