@@ -137,7 +137,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
         >
           <text
             x={center}
-            y={center - 20}
+            y={center - 25}
             textAnchor="middle"
             className="text-2xl font-bold fill-accent"
           >
@@ -145,7 +145,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
           </text>
           <text
             x={center}
-            y={center + 10}
+            y={center + 5}
             textAnchor="middle"
             className="text-sm fill-muted uppercase tracking-wide"
           >
@@ -153,7 +153,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
           </text>
           <text
             x={center}
-            y={center + 30}
+            y={center + 25}
             textAnchor="middle"
             className="text-xs fill-muted"
           >
