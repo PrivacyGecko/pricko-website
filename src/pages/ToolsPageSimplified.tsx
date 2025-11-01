@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
+import SecurityBadge from '../components/ui/SecurityBadge';
 import { SIMPLIFIED_TOOLS, TOOLS_COUNT } from '../constants/toolsSimplified';
 
 const ToolsPageSimplified: React.FC = () => {
@@ -25,7 +26,7 @@ const ToolsPageSimplified: React.FC = () => {
           >
             <MascotImage size="lg" className="mb-6 mx-auto" />
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-professional">
-              Privacy <span className="gradient-text-animated">Tools</span>
+              Privacy <span className="bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">Tools</span>
             </h1>
             <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
               8 products. 2 live. All open source.
@@ -63,6 +64,63 @@ const ToolsPageSimplified: React.FC = () => {
               />
             ))}
           </div>
+
+          {/* Product Safety & Security Section - NEW */}
+          <motion.section
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-12">
+              <motion.h2
+                className="text-4xl font-bold mb-4 text-professional bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                Product Safety & Security
+              </motion.h2>
+              <motion.p
+                className="text-muted text-lg max-w-3xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                Every tool in our ecosystem is built with security-first principles and transparent development practices.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <SecurityBadge
+                variant="verified"
+                title="Transparent Team"
+                description="All team members and developers fully identified and verified."
+                delay={0.1}
+              />
+              <SecurityBadge
+                variant="encryption"
+                title="Encrypted Storage"
+                description="All user data encrypted end-to-end using military-grade algorithms."
+                delay={0.2}
+              />
+              <SecurityBadge
+                variant="audit"
+                title="Security Audited"
+                description="All live products undergo third-party security audits regularly."
+                delay={0.3}
+              />
+              <SecurityBadge
+                variant="open-source"
+                title="100% Open Source"
+                description="Complete transparency with all code available on GitHub for review."
+                delay={0.4}
+              />
+            </div>
+          </motion.section>
 
           {/* Footer CTA */}
           <motion.section
