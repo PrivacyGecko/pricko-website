@@ -119,7 +119,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               dominantBaseline="middle"
               fontSize="14"
               fontWeight="bold"
-              fill="white"
+              fill={segment.color}
               className="pointer-events-none"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -221,7 +221,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
 
             {/* Percentage and amount */}
             <div className="text-right flex-shrink-0 ml-4">
-              <div className="text-2xl font-bold text-accent">{segment.percentage}%</div>
+              <div className="text-2xl font-bold" style={{ color: segment.color }}>{segment.percentage}%</div>
               <div className="text-sm text-muted mt-1">{segment.amount}</div>
             </div>
           </motion.div>

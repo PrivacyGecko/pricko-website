@@ -39,13 +39,13 @@ const DistributionBreakdown: React.FC<DistributionBreakdownProps> = ({ allocatio
             {/* Header with Category and Percentage */}
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <div 
-                  className="w-3 h-3 rounded-full" 
+                <div
+                  className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: allocation.color }}
                 ></div>
                 <h4 className="text-lg font-bold text-white">{allocation.category}</h4>
               </div>
-              <span className="text-2xl font-bold text-accent">{allocation.percentage}%</span>
+              <span className="text-2xl font-bold" style={{ color: allocation.color }}>{allocation.percentage}%</span>
             </div>
             
             {/* Amount */}
