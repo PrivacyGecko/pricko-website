@@ -273,37 +273,42 @@ const HomePage: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="relative">
-                {/* Animated Background Rings */}
+              {/* Fixed-size container to hold rings and mascot */}
+              <div className="relative w-96 h-96 flex items-center justify-center">
+                {/* Animated Background Rings - Centered */}
                 <motion.div
-                  className="absolute inset-0 w-80 h-80 border-2 border-accent/20 rounded-full"
+                  className="absolute inset-0 flex items-center justify-center"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                />
+                >
+                  <div className="w-80 h-80 border-2 border-accent/20 rounded-full"></div>
+                </motion.div>
                 <motion.div
-                  className="absolute inset-4 w-72 h-72 border border-accent/10 rounded-full"
+                  className="absolute inset-0 flex items-center justify-center"
                   animate={{ rotate: -360 }}
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                />
-                
-                {/* MascotImage Component (handles white circle + logo) */}
+                >
+                  <div className="w-72 h-72 border border-accent/10 rounded-full"></div>
+                </motion.div>
+
+                {/* MascotImage Component (centered with animations) */}
                 <motion.div
-                  className="relative z-10"
+                  className="absolute inset-0 flex items-center justify-center z-10"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <MascotImage size="xl" className="mx-auto" />
+                  <MascotImage size="xl" />
                 </motion.div>
 
                 {/* Floating Elements */}
                 <motion.div
-                  className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-60"
+                  className="absolute top-8 right-8 w-8 h-8 bg-accent rounded-full opacity-60"
                   animate={{ y: [-10, 10, -10] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.div
-                  className="absolute -bottom-6 -left-6 w-6 h-6 bg-accent/60 rounded-full"
+                  className="absolute bottom-12 left-8 w-6 h-6 bg-accent/60 rounded-full"
                   animate={{ y: [10, -10, 10] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
