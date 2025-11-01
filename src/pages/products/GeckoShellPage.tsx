@@ -19,7 +19,7 @@ const GeckoShellPage: React.FC = () => {
     {
       step: 1,
       title: "Download & Install",
-      description: "Download GeckoShell from App Store or Google Play in under 2 minutes. No account required to start browsing privately."
+      description: "Download Gecko Shell from App Store or Google Play in under 2 minutes. No account required to start browsing privately."
     },
     {
       step: 2,
@@ -40,23 +40,23 @@ const GeckoShellPage: React.FC = () => {
   
   const faqs = [
     {
-      question: "How is GeckoShell different from other mobile browsers?",
-      answer: "GeckoShell is built privacy-first with VPN and tracker blocking integrated by default. Most mobile browsers collect extensive telemetry - we collect zero data. Plus, our plugin system lets you extend functionality while maintaining security."
+      question: "How is Gecko Shell different from other mobile browsers?",
+      answer: "Gecko Shell is built privacy-first with VPN and tracker blocking integrated by default. Most mobile browsers collect extensive telemetry - we collect zero data. Plus, our plugin system lets you extend functionality while maintaining security."
     },
     {
-      question: "Does GeckoShell slow down browsing?",
-      answer: "No. Despite having VPN and blocking, GeckoShell is optimized for speed and uses less battery than Chrome or Safari. Our tests show 15-20% faster page loads due to blocking resource-heavy trackers and ads."
+      question: "Does Gecko Shell slow down browsing?",
+      answer: "No. Despite having VPN and blocking, Gecko Shell is optimized for speed and uses less battery than Chrome or Safari. Our tests show 15-20% faster page loads due to blocking resource-heavy trackers and ads."
     },
     {
       question: "Can I use my favorite extensions?",
-      answer: "GeckoShell supports limited extensions for security. We pre-install essential privacy extensions and allow whitelisted add-ons. Full plugin marketplace coming in Q2 2026 with curated privacy-respecting extensions."
+      answer: "Gecko Shell supports limited extensions for security. We pre-install essential privacy extensions and allow whitelisted add-ons. Full plugin marketplace coming in Q2 2026 with curated privacy-respecting extensions."
     },
     {
-      question: "Is GeckoShell available on both iOS and Android?",
+      question: "Is Gecko Shell available on both iOS and Android?",
       answer: "Currently in beta on Android with 1,800+ testers. iOS version coming April 2026 pending Apple approval. Join our beta program to test early features."
     },
     {
-      question: "How much does GeckoShell cost?",
+      question: "How much does Gecko Shell cost?",
       answer: "Free with basic privacy features including tracker blocking and private browsing. Pro tier ($2.99/month or 50 $PRICKO tokens) includes advanced VPN servers, encrypted sync, and plugin marketplace access."
     }
   ];
@@ -66,7 +66,7 @@ const GeckoShellPage: React.FC = () => {
       product={product}
       howItWorks={howItWorks}
       faqs={faqs}
-      pageTitle="GeckoShell - Privacy Mobile Browser | Privacy Gecko"
+      pageTitle="Gecko Shell - Privacy Mobile Browser | Privacy Gecko"
       pageDescription="Mobile browser with built-in VPN and tracker blocking. Zero data collection. Available on Android (Beta) and iOS (Coming Soon)."
       canonicalUrl="/gecko-shell"
     />

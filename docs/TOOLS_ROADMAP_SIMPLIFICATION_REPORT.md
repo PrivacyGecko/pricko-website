@@ -56,9 +56,9 @@ Successfully redesigned both Tools and Roadmap pages with radical simplification
 - All features visible by default (top 3 only)
 
 **Status Badges:**
-- 🟢 **Live** - Green solid (2 tools: GeckoAdvisor, GeckoShare)
-- 🧪 **Beta** - Orange solid (1 tool: GeckoShell)
-- ⚡ **In Development** - Blue outlined (5 tools: GeckoGuard, GeckoLock, GeckoWatch, GeckoView, GeckoVPN)
+- 🟢 **Live** - Green solid (2 tools: Gecko Advisor, Gecko Share)
+- 🧪 **Beta** - Orange solid (1 tool: Gecko Shell)
+- ⚡ **In Development** - Blue outlined (5 tools: Gecko Guard, Gecko Lock, Gecko Watch, Gecko View, Gecko VPN)
 
 **CTA Buttons:**
 - Live → "Try Now →"
@@ -81,7 +81,7 @@ Successfully redesigned both Tools and Roadmap pages with radical simplification
 }
 ```
 
-**Example (GeckoAdvisor):**
+**Example (Gecko Advisor):**
 - **One-liner:** "Scan any website for trackers and get an A-F privacy grade in 10 seconds."
 - **Top 3 Features:**
   1. Instant privacy scanning
@@ -148,8 +148,8 @@ PhaseCard
 **5 Phases:**
 
 1. **Q2-Q3 2025: Foundation & Product Launch** ✅ (Completed October 2025)
-   - GeckoAdvisor launched - website privacy scanner with A-F grades
-   - GeckoShare launched - 2,100+ users, zero-knowledge file sharing
+   - Gecko Advisor launched - website privacy scanner with A-F grades
+   - Gecko Share launched - 2,100+ users, zero-knowledge file sharing
    - Privacy Gecko community established
 
 2. **Q4 2025: Token Launch & Smart Contracts** 🔄 (In Progress - YOU ARE HERE)
@@ -158,17 +158,17 @@ PhaseCard
    - Staking & governance activation
 
 3. **Q1 2026: Product Expansion** ⏳ (Target: March 2026)
-   - GeckoGuard (browser extension) - tracker blocker goes live
-   - GeckoShell (mobile browser) - beta launch with Solana wallet
+   - Gecko Guard (browser extension) - tracker blocker goes live
+   - Gecko Shell (mobile browser) - beta launch with Solana wallet
    - 1,000 beta testers onboarded for AI features
 
 4. **Q2-Q3 2026: Ecosystem Growth** ⏳ (Target: September 2026)
-   - GeckoLock (password manager) - zero-knowledge launch
-   - GeckoWatch & GeckoView - AI-powered privacy tools
+   - Gecko Lock (password manager) - zero-knowledge launch
+   - Gecko Watch & Gecko View - AI-powered privacy tools
    - Cross-platform sync and mobile app releases
 
 5. **Q4 2026+: Complete Privacy Suite** ⏳ (Target: 2027)
-   - GeckoVPN - privacy-first VPN with 50+ countries
+   - Gecko VPN - privacy-first VPN with 50+ countries
    - DAO governance activation for token holders
    - Multi-chain expansion and Privacy Summits
 
@@ -209,7 +209,7 @@ Future Vision CTA (2027 & Beyond)
 ### Tools Page Test
 **Question:** Show page for 5 seconds, then ask:
 - "How many tools are live?" → **Expected: 2** ✅
-- "What's a live product you can use?" → **Expected: GeckoShare or GeckoAdvisor** ✅
+- "What's a live product you can use?" → **Expected: Gecko Share or Gecko Advisor** ✅
 - "How do I try a tool?" → **Expected: Click the CTA button** ✅
 
 **Result:** PASS - All information visible within 5 seconds
@@ -217,7 +217,7 @@ Future Vision CTA (2027 & Beyond)
 ### Roadmap Page Test
 **Question:** Show page for 5 seconds, then ask:
 - "What phase are we in?" → **Expected: Q4 2025 / Token Launch** ✅
-- "What's been shipped?" → **Expected: 2 products (GeckoAdvisor, GeckoShare)** ✅
+- "What's been shipped?" → **Expected: 2 products (Gecko Advisor, Gecko Share)** ✅
 - "When is token launch?" → **Expected: November 18, 2025** ✅
 
 **Result:** PASS - "YOU ARE HERE" marker makes current phase immediately obvious

@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
     // LIVE PRODUCTS (3)
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "GeckoAdvisor",
+      title: "Gecko Advisor",
       description: "Scan any website to uncover trackers, cookies, and hidden data collection. Open-source privacy analysis tool that grades websites A-F based on their privacy practices. 100% free with no account required.",
       status: "live" as const,
       features: ["Website tracker & cookie detection", "Privacy grade (A-F) with evidence", "Security headers & TLS scanning", "Third-party analysis", "5-10 second scan results", "100% free & no account required"],
@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "GeckoShare",
+      title: "Gecko Share",
       description: "Zero-knowledge, token-gated file-sharing SaaS with instant uploads and persistent vault storage.",
       status: "live" as const,
       features: ["Instant link → upload", "Persistent vault (Pro)", "Zero-knowledge encryption", "Wallet-connect premium", "Daily quotas system", "Background processing"],
@@ -57,7 +57,7 @@ const HomePage: React.FC = () => {
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "GeckoGuard",
+      title: "Gecko Guard",
       description: "Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes. (90% Complete - Store Review)",
       status: "in-development" as const,
       features: ["Anti-fingerprinting protection", "Tracker/cookie blocking", "Multiple stealth modes", "Pro vs free tiers"]
@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
     // BETA PRODUCTS (1)
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOVI3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
-      title: "GeckoShell",
+      title: "Gecko Shell",
       description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK.",
       status: "beta" as const,
       features: ["Cross-platform (iOS, Android)", "Plugin system architecture", "Solana wallet integration", "Privacy toolkit SDK"]
@@ -73,14 +73,14 @@ const HomePage: React.FC = () => {
     // IN DEVELOPMENT (2) - Ordered by completion %: 65% → lower
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTggOGgtMVY2YzAtMi43Ni0yLjI0LTUtNS01UzIgMy4yNCAyIDZoMmMwLTEuNjYgMS4zNC0zIDMtM3MzIDEuMzQgMyAzdjJoLTFjLTEuMSAwLTIgLjktMiAydjEwYzAgMS4xLjkgMiAyIDJoMTBjMS4xIDAgMi0uOSAyLTJWMTBjMC0xLjEtLjktMi0yLTJ6bS01IDljLTEuMSAwLTItLjktMi0ycy45LTIgMi0yIDIgLjkgMiAyLS45IDItMiAyeiIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "GeckoLock",
+      title: "Gecko Lock",
       description: "Zero-knowledge password manager with AES-256 encryption and cross-platform sync. (65% Complete)",
       status: "in-development" as const,
       features: ["AES-256 encryption", "Zero-knowledge architecture", "Cross-platform sync", "Password generator", "Secure sharing", "Breach monitoring"]
     },
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "GeckoBrowser",
+      title: "Gecko Browser",
       description: "Forked desktop browser based on Ungoogled Chromium with built-in crypto wallet and DeFi integration.",
       status: "in-development" as const,
       features: ["Built-in crypto wallet", "Plugin marketplace", "Privacy-first architecture", "Integrated DeFi tools"]
@@ -109,7 +109,7 @@ const HomePage: React.FC = () => {
       },
       {
         "@type": "SoftwareApplication",
-        "name": "GeckoShare",
+        "name": "Gecko Share",
         "applicationCategory": "SecurityApplication",
         "operatingSystem": "Web",
         "offers": {
@@ -131,7 +131,7 @@ const HomePage: React.FC = () => {
       <SEO
         title="PRICKO | Privacy Tools Powered by Utility Token - Real Products, Real Utility"
         description="PRICKO is a utility token powering 8 privacy tools. 2 live products serving 2,100+ users. Not vaporware - real tools, real results. Join the privacy revolution."
-        keywords="privacy token, utility token, privacy tools, blockchain privacy, solana token, GeckoShare, GeckoAdvisor, zero-knowledge encryption, privacy browser"
+        keywords="privacy token, utility token, privacy tools, blockchain privacy, solana token, Gecko Share, Gecko Advisor, zero-knowledge encryption, privacy browser"
         canonicalUrl="/"
         structuredData={homepageStructuredData}
       />

@@ -22,9 +22,9 @@ const PAGES = [
   { path: '/roadmap', name: 'Roadmap' },
   { path: '/how-to-buy', name: 'How to Buy' },
   { path: '/contact', name: 'Contact' },
-  { path: '/gecko-advisor', name: 'GeckoAdvisor' },
-  { path: '/gecko-share', name: 'GeckoShare' },
-  { path: '/gecko-shell', name: 'GeckoShell' }
+  { path: '/gecko-advisor', name: 'Gecko Advisor' },
+  { path: '/gecko-share', name: 'Gecko Share' },
+  { path: '/gecko-shell', name: 'Gecko Shell' }
 ];
 
 // Screenshot directory

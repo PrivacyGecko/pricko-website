@@ -2,7 +2,6 @@
   "$schema": "./project-data.schema.json",
   "version": "1.0.0",
   "lastUpdated": "2025-10-31",
-
   "project": {
     "name": "Privacy Gecko",
     "tagline": "Real Privacy Tools. Real Protection. Real Results.",
@@ -10,7 +9,6 @@
     "description": "Privacy Gecko is building a comprehensive ecosystem of privacy-first tools backed by real development, measurable progress, and a mission to make privacy accessible to everyone.",
     "mission": "To empower individuals with practical privacy tools that actually work, backed by transparent development and proven results."
   },
-
   "token": {
     "name": "PRICKO",
     "symbol": "$PRICKO",
@@ -49,7 +47,7 @@
     "utility": {
       "description": "PRICKO token provides access to premium features across the Privacy Gecko ecosystem",
       "benefits": [
-        "Access to premium tiers in GeckoShare, GeckoView, and other tools",
+        "Access to premium tiers in Gecko Share, Gecko View, and other tools",
         "Governance rights for ecosystem development decisions",
         "Discounted pricing on all Privacy Gecko services",
         "Priority access to beta features and new product launches",
@@ -62,7 +60,6 @@
       "roadmap": "All timelines and features are subject to change based on development progress and market conditions. This roadmap represents current intentions, not guarantees. Token holders have no expectation of profit from the efforts of the Privacy Gecko team."
     }
   },
-
   "ecosystem": {
     "totalProducts": 8,
     "liveProducts": 2,
@@ -72,7 +69,7 @@
       "geckoAdvisor": {
         "id": "gecko-advisor",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAxNkMzMC44OTU0IDE2IDMwIDE2Ljg5NTQgMzAgMThWMzBDMzAgMzEuMTA0NiAzMC44OTU0IDMyIDMyIDMyQzMzLjEwNDYgMzIgMzQgMzEuMTA0NiAzNCAzMFYxOEMzNCAzNi44OTU0IDMzLjEwNDYgMTYgMzIgMTZaIiBmaWxsPSIjMUExQTFBIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzOCIgcj0iMyIgZmlsbD0iIzFBMUExQSIvPgogIDxwYXRoIGQ9Ik0zMiAxMEMyMC40MDIzIDEwIDExIDIwLjQwMjMgMTEgMzJDMTEgNDMuNTk3NyAyMC40MDIzIDU0IDMyIDU0QzQzLjU5NzcgNTQgNTQgNDMuNTk3NyA1NCAzMkM1NCAyMC40MDIzIDQzLjU5NzcgMTAgMzIgMTBaTTMyIDUwQzIyLjYxMTIgNTAgMTQgNDEuMzg4OCAxNCAzMkMxNCAyMi42MTEyIDIyLjYxMTIgMTQgMzIgMTRDNDEuMzg4OCAxNCA1MCAyMi42MTEyIDUwIDMyQzUwIDQxLjM4ODggNDEuMzg4OCA1MCAzMiA1MFoiIGZpbGw9IiMxQTFBMUEiLz4KPC9zdmc+",
-        "name": "GeckoAdvisor",
+        "name": "Gecko Advisor",
         "subtitle": "Website Privacy Scanner",
         "category": "Privacy Analysis",
         "status": "live",
@@ -102,21 +99,30 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["Unlimited website scans", "Privacy grades (A-F)", "Tracker detection", "Cookie analysis", "No account required"]
+            "features": [
+              "Unlimited website scans",
+              "Privacy grades (A-F)",
+              "Tracker detection",
+              "Cookie analysis",
+              "No account required"
+            ]
           },
           "pro": {
             "priceUSD": 0,
             "tokenRequirement": "N/A",
-            "features": ["100% free for everyone", "Open source", "No premium tiers"]
+            "features": [
+              "100% free for everyone",
+              "Open source",
+              "No premium tiers"
+            ]
           }
         },
         "url": "https://geckoadvisor.com"
       },
-
       "geckoShare": {
         "id": "gecko-share",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0yMCAyNEgyOFYzMkgyMFYyNFoiIGZpbGw9IiMxQTFBMUEiLz4KICA8cGF0aCBkPSJNMzYgMzJINDRWNDBIMzZWMzJaIiBmaWxsPSIjMUExQTFBIi8+CiAgPHBhdGggZD0iTTI4IDI4TDM2IDM2IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE2IDM4TDIzIDQ1IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtZGFzaGFycmF5PSIyIDIiLz4KICA8cGF0aCBkPSJNNDEgMTlMNDggMjYiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1kYXNoYXJyYXk9IjIgMiIvPgo8L3N2Zz4=",
-        "name": "GeckoShare",
+        "name": "Gecko Share",
         "subtitle": "Zero-Knowledge File Sharing",
         "category": "File Sharing",
         "status": "live",
@@ -146,21 +152,29 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["1GB file size limit", "24-hour expiration", "Basic encryption"]
+            "features": [
+              "1GB file size limit",
+              "24-hour expiration",
+              "Basic encryption"
+            ]
           },
           "pro": {
             "priceUSD": 9.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Unlimited file size", "Persistent vault", "Custom expiration", "Priority upload speed"]
+            "features": [
+              "Unlimited file size",
+              "Persistent vault",
+              "Custom expiration",
+              "Priority upload speed"
+            ]
           }
         },
         "url": "https://geckoshare.com"
       },
-
       "geckoShell": {
         "id": "gecko-shell",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxyZWN0IHg9IjE2IiB5PSIxMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjQwIiByeD0iNCIgZmlsbD0iIzFBMUExQSIvPgogIDxyZWN0IHg9IjIwIiB5PSIxOCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI4IiBmaWxsPSIjNGFkZTgwIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI0OCIgcj0iMiIgZmlsbD0iIzRhZGU4MCIvPgo8L3N2Zz4=",
-        "name": "GeckoShell",
+        "name": "Gecko Shell",
         "subtitle": "Cross-Platform Mobile Privacy Browser",
         "category": "Mobile Browser",
         "status": "beta",
@@ -170,7 +184,10 @@
           "users": "1,800+ Waitlist",
           "rating": null,
           "betaTesters": 1800,
-          "platforms": ["iOS", "Android"]
+          "platforms": [
+            "iOS",
+            "Android"
+          ]
         },
         "description": "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK. Features plugin system architecture for extensibility.",
         "features": [
@@ -190,21 +207,28 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["Basic privacy browsing", "Ad blocking", "Tracker protection"]
+            "features": [
+              "Basic privacy browsing",
+              "Ad blocking",
+              "Tracker protection"
+            ]
           },
           "pro": {
             "priceUSD": 4.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["VPN integration", "Advanced fingerprint protection", "Plugin marketplace access"]
+            "features": [
+              "VPN integration",
+              "Advanced fingerprint protection",
+              "Plugin marketplace access"
+            ]
           }
         },
         "url": null
       },
-
       "geckoGuard": {
         "id": "gecko-guard",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAxMEwyMCAxNlYyOEMyMCA0MS4yNTQ2IDMyIDU0IDMyIDU0QzMyIDU0IDQ0IDQxLjI1NDYgNDQgMjhWMTZMMzIgMTBaIiBmaWxsPSIjMUExQTFBIi8+CiAgPHBhdGggZD0iTTI3IDMxTDMwIDM0TDM3IDI3IiBzdHJva2U9IiM0YWRlODAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==",
-        "name": "GeckoGuard",
+        "name": "Gecko Guard",
         "subtitle": "Tracker & Ad Blocker",
         "category": "Browser Extension",
         "status": "in-development",
@@ -233,21 +257,28 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["Basic tracker blocking", "Standard stealth mode", "Privacy statistics"]
+            "features": [
+              "Basic tracker blocking",
+              "Standard stealth mode",
+              "Privacy statistics"
+            ]
           },
           "pro": {
             "priceUSD": 2.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Ultimate stealth mode", "Advanced custom filters", "Priority updates"]
+            "features": [
+              "Ultimate stealth mode",
+              "Advanced custom filters",
+              "Priority updates"
+            ]
           }
         },
         "url": null
       },
-
       "geckoLock": {
         "id": "gecko-lock",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxyZWN0IHg9IjE4IiB5PSIzMCIgd2lkdGg9IjI4IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzFBMUExQSIvPgogIDxwYXRoIGQ9Ik0yMiAzMFYyM0MyMiAxOC41ODE3IDI1LjU4MTcgMTUgMzAgMTVDMzQuNDE4MyAxNSAzOCAxOC41ODE3IDM4IDIzVjMwIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI0MCIgcj0iMyIgZmlsbD0iIzRhZGU4MCIvPgogIDxwYXRoIGQ9Ik0zMiA0M1Y0NiIgc3Ryb2tlPSIjNGFkZTgwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=",
-        "name": "GeckoLock",
+        "name": "Gecko Lock",
         "subtitle": "Zero-Knowledge Password Manager",
         "category": "Password Manager",
         "status": "in-development",
@@ -276,21 +307,29 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["Up to 50 passwords", "Single device", "Basic password generator"]
+            "features": [
+              "Up to 50 passwords",
+              "Single device",
+              "Basic password generator"
+            ]
           },
           "pro": {
             "priceUSD": 7.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Unlimited passwords", "Cross-platform sync", "Breach monitoring", "Secure sharing"]
+            "features": [
+              "Unlimited passwords",
+              "Cross-platform sync",
+              "Breach monitoring",
+              "Secure sharing"
+            ]
           }
         },
         "url": null
       },
-
       "geckoWatch": {
         "id": "gecko-watch",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjE4IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxwYXRoIGQ9Ik0zMiAyMFYzMkw0MCA0MCIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxyZWN0IHg9IjI4IiB5PSI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI0IiByeD0iMSIgZmlsbD0iIzFBMUExQSIvPgogIDxyZWN0IHg9IjI4IiB5PSI1MiIgd2lkdGg9IjgiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiMxQTFBMUEiLz4KPC9zdmc+",
-        "name": "GeckoWatch",
+        "name": "Gecko Watch",
         "subtitle": "Privacy Compliance Analyzer",
         "category": "Compliance",
         "status": "in-development",
@@ -319,21 +358,28 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["Basic compliance check", "Limited scans per day"]
+            "features": [
+              "Basic compliance check",
+              "Limited scans per day"
+            ]
           },
           "pro": {
             "priceUSD": 14.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Unlimited scans", "Real-time monitoring", "Automated reports", "API access"]
+            "features": [
+              "Unlimited scans",
+              "Real-time monitoring",
+              "Automated reports",
+              "API access"
+            ]
           }
         },
         "url": null
       },
-
       "geckoView": {
         "id": "gecko-view",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAyMEMyNC4yNjggMjAgMTggMjYuMjY4IDE4IDM0QzE4IDQxLjczMiAyNC4yNjggNDggMzIgNDhDMzkuNzMyIDQ4IDQ2IDQxLjczMiA0NiAzNEM0NiAyNi4yNjggMzkuNzMyIDIwIDMyIDIwWiIgZmlsbD0iIzFBMUExQSIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjYiIGZpbGw9IiM0YWRlODAiLz4KICA8cGF0aCBkPSJNMjAgMjRMMTQgMTgiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNDQgMjRMNTAgMTgiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+",
-        "name": "GeckoView",
+        "name": "Gecko View",
         "subtitle": "AI Content Summarization",
         "category": "Content Tools",
         "status": "in-development",
@@ -362,21 +408,29 @@
         "pricing": {
           "free": {
             "available": true,
-            "features": ["10 AI summaries/month", "Basic bookmarks", "GPT-3.5 model"]
+            "features": [
+              "10 AI summaries/month",
+              "Basic bookmarks",
+              "GPT-3.5 model"
+            ]
           },
           "pro": {
             "priceUSD": 12.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Unlimited AI summaries", "GPT-4 access", "Team collaboration", "Advanced search"]
+            "features": [
+              "Unlimited AI summaries",
+              "GPT-4 access",
+              "Team collaboration",
+              "Advanced search"
+            ]
           }
         },
         "url": null
       },
-
       "geckoVPN": {
         "id": "gecko-vpn",
         "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjIwIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxsaW5lIHgxPSIxMiIgeTE9IjMyIiB4Mj0iNTIiIHkyPSIzMiIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBkPSJNMzIgMTJDMzIgMTIgNDIgMTggNDIgMzJDNDIgNDYgMzIgNTIgMzIgNTIiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHBhdGggZD0iTTMyIDEyQzMyIDEyIDIyIDE4IDIyIDMyQzIyIDQ2IDMyIDUyIDMyIDUyIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Ik0yMCAyMEw0NCA0NCIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=",
-        "name": "GeckoVPN",
+        "name": "Gecko VPN",
         "subtitle": "Privacy-First VPN",
         "category": "VPN",
         "status": "in-development",
@@ -410,14 +464,18 @@
           "pro": {
             "priceUSD": 8.99,
             "tokenRequirement": "[PLACEHOLDER_TOKEN_AMOUNT]",
-            "features": ["Unlimited bandwidth", "50+ countries", "Multi-device support", "24/7 support"]
+            "features": [
+              "Unlimited bandwidth",
+              "50+ countries",
+              "Multi-device support",
+              "24/7 support"
+            ]
           }
         },
         "url": null
       }
     }
   },
-
   "roadmap": {
     "phases": [
       {
@@ -570,7 +628,6 @@
       }
     ]
   },
-
   "development": {
     "metrics": {
       "totalInvestment": "[PLACEHOLDER_INVESTMENT_USD]",
@@ -582,17 +639,43 @@
     },
     "team": {
       "size": "[PLACEHOLDER_TEAM_SIZE]",
-      "roles": ["Full-stack developers", "Security engineers", "UX/UI designers", "DevOps engineers", "Community managers"]
+      "roles": [
+        "Full-stack developers",
+        "Security engineers",
+        "UX/UI designers",
+        "DevOps engineers",
+        "Community managers"
+      ]
     },
     "tech": {
-      "frontend": ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-      "backend": ["Node.js", "Python", "PostgreSQL", "Redis"],
-      "mobile": ["React Native", "Swift", "Kotlin"],
-      "blockchain": ["Solana Web3.js", "Anchor Framework"],
-      "security": ["AES-256-GCM", "TLS 1.3", "Zero-knowledge proofs"]
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS"
+      ],
+      "backend": [
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "mobile": [
+        "React Native",
+        "Swift",
+        "Kotlin"
+      ],
+      "blockchain": [
+        "Solana Web3.js",
+        "Anchor Framework"
+      ],
+      "security": [
+        "AES-256-GCM",
+        "TLS 1.3",
+        "Zero-knowledge proofs"
+      ]
     }
   },
-
   "investmentThesis": {
     "marketSize": {
       "total": "[PLACEHOLDER_TAM_USD]",
@@ -612,7 +695,6 @@
       "Open-source with completed security audits"
     ]
   },
-
   "community": {
     "total": 1200,
     "channels": {
@@ -622,7 +704,6 @@
       "github": "[PLACEHOLDER_FOLLOWERS]"
     }
   },
-
   "contact": {
     "general": "contact@privacygecko.com",
     "support": "support@privacygecko.com",
@@ -635,7 +716,6 @@
       "github": "https://github.com/privacygecko"
     }
   },
-
   "team": {
     "members": [
       {
@@ -667,7 +747,6 @@
       }
     ]
   },
-
   "testimonials": [
     {
       "id": "testimonial-1",
@@ -718,7 +797,6 @@
       "rating": 5
     }
   ],
-
   "trustBadges": [
     {
       "id": "open-source",
@@ -745,7 +823,6 @@
       "icon": "FaLock"
     }
   ],
-
   "founder": {
     "name": "[PLACEHOLDER_NAME]",
     "title": "Founder & CEO",
@@ -754,7 +831,6 @@
     "linkedin": "[PLACEHOLDER_LINKEDIN]",
     "twitter": "[PLACEHOLDER_TWITTER]"
   },
-
   "legal": {
     "riskWarnings": [
       "Cryptocurrency investments are highly volatile and risky",
@@ -770,7 +846,6 @@
       "kyc": "KYC/AML procedures may be required based on purchase method and jurisdiction."
     }
   },
-
   "faq": {
     "categories": {
       "general": {

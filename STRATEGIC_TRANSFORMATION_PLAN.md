@@ -76,13 +76,13 @@ This plan transforms pricko.com from a basic token landing page into a comprehen
   - GitHub stars (XXX placeholder)
   - Security audits (X completed, X in progress)
 - [ ] New `products.ts` with all 8 products:
-  - GeckoAdvisor (LIVE)
-  - GeckoShare (LIVE)
-  - GeckoGuard (90% complete, in store review)
-  - GeckoLock (65% complete)
-  - GeckoView (45% complete)
-  - GeckoWatch (55% complete)
-  - GeckoShell (30% complete)
+  - Gecko Advisor (LIVE)
+  - Gecko Share (LIVE)
+  - Gecko Guard (90% complete, in store review)
+  - Gecko Lock (65% complete)
+  - Gecko View (45% complete)
+  - Gecko Watch (55% complete)
+  - Gecko Shell (30% complete)
   - Gecko VPN (20% complete)
 - [ ] New `tokenomics.ts` with:
   - Token distribution (Development 30%, Airdrop 20%, Liquidity 25%, Staking 15%, Team 10%)
@@ -172,15 +172,15 @@ METRICS.geckoShell.waitlist = 1800
 Create new section: "This Isn't Vapor. It's a Working Ecosystem."
 
 **Live Products:**
-- GeckoAdvisor - Status: LIVE, users, scans completed, [Try It Free] CTA
-- GeckoShare - Status: LIVE, files shared, active users, [Share a File] CTA
+- Gecko Advisor - Status: LIVE, users, scans completed, [Try It Free] CTA
+- Gecko Share - Status: LIVE, files shared, active users, [Share a File] CTA
 
 **Products Launching Soon:**
-- GeckoGuard - 90% complete, beta Q3 2025, [Join Beta Waitlist]
-- GeckoLock - 65% complete, beta Q4 2025, [Early Access]
-- GeckoView - 45% complete, features list, [Learn More]
-- GeckoWatch - 55% complete, features list, [Get Notified]
-- GeckoShell - 30% complete, iOS & Android, coming soon
+- Gecko Guard - 90% complete, beta Q3 2025, [Join Beta Waitlist]
+- Gecko Lock - 65% complete, beta Q4 2025, [Early Access]
+- Gecko View - 45% complete, features list, [Learn More]
+- Gecko Watch - 55% complete, features list, [Get Notified]
+- Gecko Shell - 30% complete, iOS & Android, coming soon
 - Gecko VPN - 20% complete, no-logs VPN, coming 2026
 
 **Development Metrics (Live Updates):**
@@ -412,8 +412,8 @@ Create "Our Commitments to Token Holders" section:
 Create detailed timeline section:
 
 **Now - Q2 2025: Pre-Launch**
-- GeckoAdvisor/Share live
-- GeckoGuard beta testing
+- Gecko Advisor/Share live
+- Gecko Guard beta testing
 - Whitepaper publication
 - Marketing campaign begins
 
@@ -434,7 +434,7 @@ Create detailed timeline section:
 - Week 2: Liquidity incentives
 - Week 3: Trading competitions
 - Week 4: First weekly burn
-- Concurrent: GeckoGuard public launch
+- Concurrent: Gecko Guard public launch
 
 **Q1 2026+: Ecosystem Expansion**
 - First CEX listing
@@ -757,7 +757,7 @@ Create comprehensive FAQ with accordion UI:
 **Priority:** MEDIUM
 
 **Assets Needed:**
-- [ ] Product screenshots (GeckoAdvisor, GeckoShare)
+- [ ] Product screenshots (Gecko Advisor, Gecko Share)
 - [ ] Logo variations (if needed)
 - [ ] Infographic images (export from Figma/design tool)
 - [ ] OG images for social sharing

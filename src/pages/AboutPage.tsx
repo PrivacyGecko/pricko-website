@@ -358,19 +358,19 @@ const AboutPage: React.FC = () => {
                 <ul className="space-y-3 text-muted">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>GeckoShare: 2,100+ active users, fully operational</span>
+                    <span>Gecko Share: 2,100+ active users, fully operational</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>GeckoAdvisor: Live security audit tool with 4.8★ rating</span>
+                    <span>Gecko Advisor: Live security audit tool with 4.8★ rating</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>GeckoShell: 85% complete, 1,800+ on waitlist</span>
+                    <span>Gecko Shell: 85% complete, 1,800+ on waitlist</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>GeckoGuard: 90% complete, in extension store review</span>
+                    <span>Gecko Guard: 90% complete, in extension store review</span>
                   </li>
                 </ul>
               </div>

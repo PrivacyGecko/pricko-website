@@ -73,15 +73,15 @@ export const trackConversion = {
 
   /**
    * Track waitlist join
-   * @param product - Which product waitlist (e.g., "GeckoShell", "GeckoLock")
+   * @param product - Which product waitlist (e.g., "Gecko Shell", "Gecko Lock")
    */
   waitlistJoin: (product: string): void => {
     trackEvent('Waitlist Join', { product });
   },
 
   /**
-   * Track external tool clicks (GeckoAdvisor, GeckoShare, etc.)
-   * @param tool - Name of the tool (e.g., "GeckoAdvisor", "GeckoShare")
+   * Track external tool clicks (Gecko Advisor, Gecko Share, etc.)
+   * @param tool - Name of the tool (e.g., "Gecko Advisor", "Gecko Share")
    * @param location - Where the link was clicked (e.g., "Tools Page", "Hero")
    */
   externalToolClick: (tool: string, location: string = 'Unknown'): void => {
@@ -134,7 +134,7 @@ export const trackConversion = {
 
   /**
    * Track product page visits (for individual product pages)
-   * @param productName - Name of the product (e.g., "GeckoAdvisor", "GeckoShare")
+   * @param productName - Name of the product (e.g., "Gecko Advisor", "Gecko Share")
    */
   productPageView: (productName: string): void => {
     trackEvent('Product Page View', { product: productName });

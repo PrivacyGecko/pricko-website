@@ -40,8 +40,8 @@ const GeckoLockPage: React.FC = () => {
   
   const faqs = [
     {
-      question: "How is GeckoLock different from LastPass or 1Password?",
-      answer: "GeckoLock uses zero-knowledge encryption and blockchain sync. We literally cannot access your passwords - no backdoors, no master keys, no recovery by support. Your master password never leaves your device."
+      question: "How is Gecko Lock different from LastPass or 1Password?",
+      answer: "Gecko Lock uses zero-knowledge encryption and blockchain sync. We literally cannot access your passwords - no backdoors, no master keys, no recovery by support. Your master password never leaves your device."
     },
     {
       question: "What happens if I forget my master password?",
@@ -49,14 +49,14 @@ const GeckoLockPage: React.FC = () => {
     },
     {
       question: "Can I import passwords from other password managers?",
-      answer: "Yes. GeckoLock supports imports from LastPass, 1Password, Bitwarden, Dashlane, Chrome, Firefox, and Safari. CSV and encrypted exports supported for secure migration."
+      answer: "Yes. Gecko Lock supports imports from LastPass, 1Password, Bitwarden, Dashlane, Chrome, Firefox, and Safari. CSV and encrypted exports supported for secure migration."
     },
     {
-      question: "Is GeckoLock available on mobile?",
+      question: "Is Gecko Lock available on mobile?",
       answer: "Android and iOS apps coming Q3 2026. Browser extension (Chrome, Firefox, Edge, Brave) launching January 2026. Early beta testers can join our waitlist."
     },
     {
-      question: "How much does GeckoLock cost?",
+      question: "How much does Gecko Lock cost?",
       answer: "Free for up to 50 passwords with single device access. Unlimited passwords with cross-platform sync: $4.99/month or 100 $PRICKO tokens (one-time, lifetime access)."
     }
   ];
@@ -66,7 +66,7 @@ const GeckoLockPage: React.FC = () => {
       product={product}
       howItWorks={howItWorks}
       faqs={faqs}
-      pageTitle="GeckoLock - Encrypted Password Manager | Privacy Gecko"
+      pageTitle="Gecko Lock - Encrypted Password Manager | Privacy Gecko"
       pageDescription="Zero-knowledge password manager with blockchain sync. AES-256 encryption. Import from LastPass, 1Password, Bitwarden."
       canonicalUrl="/gecko-lock"
     />

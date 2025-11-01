@@ -40,23 +40,23 @@ const GeckoVPNPage: React.FC = () => {
   
   const faqs = [
     {
-      question: "How is GeckoVPN different from NordVPN or ExpressVPN?",
-      answer: "GeckoVPN accepts $PRICKO tokens for truly anonymous payment. No email, no personal info required when paying with crypto. Plus, we're 100% open source with independently verified no-logs policy."
+      question: "How is Gecko VPN different from NordVPN or ExpressVPN?",
+      answer: "Gecko VPN accepts $PRICKO tokens for truly anonymous payment. No email, no personal info required when paying with crypto. Plus, we're 100% open source with independently verified no-logs policy."
     },
     {
-      question: "What VPN protocol does GeckoVPN use?",
+      question: "What VPN protocol does Gecko VPN use?",
       answer: "WireGuard - the fastest and most secure modern VPN protocol. Up to 4x faster than OpenVPN with better battery life on mobile. OpenVPN and IKEv2 available as fallbacks for compatibility."
     },
     {
-      question: "Will GeckoVPN slow down my internet?",
+      question: "Will Gecko VPN slow down my internet?",
       answer: "Minimal impact. Most users see <10% speed reduction on nearby servers. WireGuard's efficiency means you can stream 4K, game, and torrent without noticeable lag."
     },
     {
-      question: "Can I use GeckoVPN for torrenting?",
+      question: "Can I use Gecko VPN for torrenting?",
       answer: "Yes. All servers support P2P traffic with no bandwidth limits. Dedicated torrenting servers in Netherlands, Switzerland, and Romania for optimal performance and legal protection."
     },
     {
-      question: "How much does GeckoVPN cost?",
+      question: "How much does Gecko VPN cost?",
       answer: "Free tier: 10GB/month with basic servers. Unlimited: $9.99/month or 200 $PRICKO tokens (one-time payment for lifetime access when paid with tokens)."
     }
   ];
@@ -66,7 +66,7 @@ const GeckoVPNPage: React.FC = () => {
       product={product}
       howItWorks={howItWorks}
       faqs={faqs}
-      pageTitle="GeckoVPN - Anonymous VPN Service | Privacy Gecko"
+      pageTitle="Gecko VPN - Anonymous VPN Service | Privacy Gecko"
       pageDescription="WireGuard VPN with no-logs policy and anonymous payment via $PRICKO tokens. 50+ servers in 25+ countries."
       canonicalUrl="/gecko-vpn"
     />

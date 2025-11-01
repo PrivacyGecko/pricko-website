@@ -163,7 +163,7 @@ Hero Section Disclaimer:
 
 ### 4.4 Data Consistency ✅
 - Hero: "2 live products" → ProofOfDevelopment: 2 LIVE cards ✅
-- Hero: "1,200+" → ProofOfDevelopment: "2,100+" (GeckoShare specific) ✅
+- Hero: "1,200+" → ProofOfDevelopment: "2,100+" (Gecko Share specific) ✅
 - No contradictions detected
 
 ---
@@ -191,18 +191,18 @@ CTA buttons: 48px height (>44px minimum)
 ## 6. DATA CONSISTENCY VERIFICATION ✅ PASS (90/100)
 
 ### 6.1 Product Status Accuracy ✅
-- GeckoAdvisor: `live` → URL exists ✅
-- GeckoShare: `live` → URL exists ✅
-- GeckoShell: `beta` → Consistent with 85% ✅
-- GeckoGuard: `in-development` → Consistent with 90% ✅
+- Gecko Advisor: `live` → URL exists ✅
+- Gecko Share: `live` → URL exists ✅
+- Gecko Shell: `beta` → Consistent with 85% ✅
+- Gecko Guard: `in-development` → Consistent with 90% ✅
 
 ### 6.2 Metrics Consistency ✅
 - Community total: 1,200+
-- GeckoShare users: 2,100+ (subset)
+- Gecko Share users: 2,100+ (subset)
 - No contradictions
 
 ### 6.3 Progress Percentages ⚠️
-**Current:** GeckoShell 85%, GeckoGuard 90%
+**Current:** Gecko Shell 85%, Gecko Guard 90%
 **Action:** Verify with dev team
 
 ---

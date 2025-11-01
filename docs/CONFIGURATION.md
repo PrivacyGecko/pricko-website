@@ -95,7 +95,7 @@ Each product in `ecosystem.products` contains:
 ```typescript
 {
   "id": "gecko-share",
-  "name": "GeckoShare",
+  "name": "Gecko Share",
   "subtitle": "Zero-Knowledge File Sharing",
   "category": "File Sharing",
   "status": "live",              // "live" | "beta" | "in-development" | "coming-soon"

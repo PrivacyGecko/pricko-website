@@ -32,7 +32,7 @@
 ### Ready for Next Session ⏳
 - Implement MascotImage across all pages (Header, Footer, Heroes)
 - Add event tracking to HomePage and Footer
-- Build first 2 product pages (GeckoAdvisor, GeckoShare)
+- Build first 2 product pages (Gecko Advisor, Gecko Share)
 - **Estimated Time:** 2-3 hours
 
 ---
@@ -93,7 +93,7 @@
 **Conversion Events Available:**
 - Newsletter signups
 - Waitlist joins
-- External tool clicks (GeckoAdvisor, GeckoShare)
+- External tool clicks (Gecko Advisor, Gecko Share)
 - "How to Buy" CTA clicks
 - Social link clicks
 - Wallet connections
@@ -110,7 +110,7 @@ import { trackConversion } from '../utils/analytics';
 trackConversion.newsletterSignup('Footer');
 
 // Track external tool click
-trackConversion.externalToolClick('GeckoAdvisor', 'HomePage');
+trackConversion.externalToolClick('Gecko Advisor', 'HomePage');
 
 // Track how to buy click
 trackConversion.howToBuyClick('Hero');
@@ -155,8 +155,8 @@ import MascotImage from '../components/ui/MascotImage';
 
 ### Priority 2: Live Product Pages (90 min)
 1. Build shared components (ProductPageHero, ProductFeatures, etc.) (45 min)
-2. Build GeckoAdvisorPage.tsx (25 min)
-3. Build GeckoSharePage.tsx (20 min)
+2. Build Gecko AdvisorPage.tsx (25 min)
+3. Build Gecko SharePage.tsx (20 min)
 
 ### Priority 3: Testing & Validation (15 min)
 1. Test all routes locally
@@ -377,7 +377,7 @@ git add -u  # Stage deleted files
 1. **Product Component Infrastructure** (Phase 2B - 4-5 hours)
    - 9 reusable components to create
    - ProductPageTemplate orchestrator
-   - Reference implementation (GeckoAdvisor page)
+   - Reference implementation (Gecko Advisor page)
 
 2. **Product Pages** (Phase 2C - 5-6 hours)
    - 8 individual product pages
@@ -422,7 +422,7 @@ IMPLEMENTATION_STATUS.md                     # +100 lines (this update)
 
 3. **Medium-term (4-5 hours):**
    - Phase 2B: Build product component infrastructure
-   - Create GeckoAdvisor reference page
+   - Create Gecko Advisor reference page
 
 4. **Long-term (5-6 hours):**
    - Phase 2C: Complete all 8 product pages

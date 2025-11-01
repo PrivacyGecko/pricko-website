@@ -34,9 +34,9 @@ test.describe('Navigation Dropdown - P2 Enhancement', () => {
       expect(count).toBe(9);
       
       // Check for specific products
-      await expect(page.locator('[role="menuitem"]:has-text("GeckoAdvisor")')).toBeVisible();
-      await expect(page.locator('[role="menuitem"]:has-text("GeckoShare")')).toBeVisible();
-      await expect(page.locator('[role="menuitem"]:has-text("GeckoShell")')).toBeVisible();
+      await expect(page.locator('[role="menuitem"]:has-text("Gecko Advisor")')).toBeVisible();
+      await expect(page.locator('[role="menuitem"]:has-text("Gecko Share")')).toBeVisible();
+      await expect(page.locator('[role="menuitem"]:has-text("Gecko Shell")')).toBeVisible();
       await expect(page.locator('[role="menuitem"]:has-text("View All Tools")')).toBeVisible();
     });
 
@@ -47,15 +47,15 @@ test.describe('Navigation Dropdown - P2 Enhancement', () => {
       await page.waitForSelector('[role="menu"]', { timeout: 5000 });
       
       // Check for live products (green dot)
-      const geckoAdvisorItem = page.locator('[role="menuitem"]:has-text("GeckoAdvisor")');
+      const geckoAdvisorItem = page.locator('[role="menuitem"]:has-text("Gecko Advisor")');
       await expect(geckoAdvisorItem).toContainText('🟢');
       
       // Check for beta products (yellow dot)
-      const geckoShellItem = page.locator('[role="menuitem"]:has-text("GeckoShell")');
+      const geckoShellItem = page.locator('[role="menuitem"]:has-text("Gecko Shell")');
       await expect(geckoShellItem).toContainText('🧪');
       
       // Check for in-development products (orange dot)
-      const geckoGuardItem = page.locator('[role="menuitem"]:has-text("GeckoGuard")');
+      const geckoGuardItem = page.locator('[role="menuitem"]:has-text("Gecko Guard")');
       await expect(geckoGuardItem).toContainText('⚡');
     });
 
@@ -108,8 +108,8 @@ test.describe('Navigation Dropdown - P2 Enhancement', () => {
       
       await page.waitForSelector('[role="menu"]', { timeout: 5000 });
       
-      // Click on GeckoAdvisor
-      const geckoAdvisorLink = page.locator('[role="menuitem"]:has-text("GeckoAdvisor")').first();
+      // Click on Gecko Advisor
+      const geckoAdvisorLink = page.locator('[role="menuitem"]:has-text("Gecko Advisor")').first();
       await geckoAdvisorLink.click();
       
       // Wait for navigation
@@ -172,7 +172,7 @@ test.describe('Navigation Dropdown - P2 Enhancement', () => {
       await page.waitForTimeout(500);
       
       // Check if accordion expanded
-      const geckoAdvisor = page.locator('a:has-text("GeckoAdvisor")');
+      const geckoAdvisor = page.locator('a:has-text("Gecko Advisor")');
       await expect(geckoAdvisor).toBeVisible();
     });
 
@@ -188,8 +188,8 @@ test.describe('Navigation Dropdown - P2 Enhancement', () => {
       await page.waitForTimeout(500);
       
       // Check for products
-      await expect(page.locator('text=GeckoAdvisor')).toBeVisible();
-      await expect(page.locator('text=GeckoShare')).toBeVisible();
+      await expect(page.locator('text=Gecko Advisor')).toBeVisible();
+      await expect(page.locator('text=Gecko Share')).toBeVisible();
       await expect(page.locator('text=View All Tools')).toBeVisible();
     });
   });

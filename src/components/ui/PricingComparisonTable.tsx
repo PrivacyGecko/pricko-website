@@ -25,9 +25,9 @@ const PricingComparisonTable: React.FC = () => {
       subtitle: 'Basic Privacy Protection',
       badge: null,
       features: [
-        { text: 'Basic device scan (GeckoAdvisor)', included: true },
-        { text: '1GB file sharing (GeckoShare)', included: true },
-        { text: 'Basic tracker blocking (GeckoGuard)', included: true },
+        { text: 'Basic device scan (Gecko Advisor)', included: true },
+        { text: '1GB file sharing (Gecko Share)', included: true },
+        { text: 'Basic tracker blocking (Gecko Guard)', included: true },
         { text: 'Limited ad blocking', included: true },
         { text: 'Privacy score tracking', included: true },
         { text: 'Persistent vault storage', included: false },

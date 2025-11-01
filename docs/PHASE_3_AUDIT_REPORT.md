@@ -177,7 +177,7 @@ Status:             WELL UNDER TARGET
     },
     {
       "@type": "SoftwareApplication",
-      "name": "GeckoShare",
+      "name": "Gecko Share",
       "aggregateRating": { "ratingValue": "4.8" }
     }
   ]
@@ -187,7 +187,7 @@ Status:             WELL UNDER TARGET
 **Quality:**
 - [x] Valid Schema.org markup
 - [x] Includes organization data
-- [x] Includes product data (GeckoShare)
+- [x] Includes product data (Gecko Share)
 - [x] Social links properly formatted
 - [x] Extensible for additional pages
 

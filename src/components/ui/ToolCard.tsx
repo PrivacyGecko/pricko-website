@@ -115,8 +115,8 @@ const ToolCard: React.FC<ToolCardProps> = ({
                   >
                     <div className="pt-2 space-y-2">
                       {features.map((feature, index) => {
-                        // Check if this is GeckoShare and if the feature is premium
-                        const isGeckoShare = title === "GeckoShare";
+                        // Check if this is Gecko Share and if the feature is premium
+                        const isGeckoShare = title === "Gecko Share";
                         const isPremiumFeature = isGeckoShare && (
                           feature.includes("Pro") ||
                           feature.includes("premium") ||
