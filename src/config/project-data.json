@@ -177,7 +177,7 @@
         "name": "Gecko Shell",
         "subtitle": "Cross-Platform Mobile Privacy Browser",
         "category": "Mobile Browser",
-        "status": "beta",
+        "status": "in-development",
         "launchDate": "April 2026",
         "progress": 35,
         "metrics": {

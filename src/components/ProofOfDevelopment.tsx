@@ -185,9 +185,9 @@ const ProofOfDevelopment: React.FC = () => {
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               <FaClock className="text-cyan-400" />
-              At 85-90% Completion - Launching Q1 2025
+              Near Completion - Launching Q4 2025
             </h3>
-            <p className="text-muted">Beta testing in progress with real users</p>
+            <p className="text-muted">Advanced development stage with active testing</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

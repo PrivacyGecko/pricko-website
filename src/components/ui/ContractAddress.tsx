@@ -14,9 +14,10 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
   const [copied, setCopied] = useState(false);
   
   // Pre-launch placeholder - will be updated when token launches
-  const contractAddress = "TBA - Coming Soon";
-  const isLaunched = false; // Set to true when token launches
-  const actualCA = ""; // Will contain actual contract address
+  // Automatically switches on November 1, 2025
+  const isLaunched = new Date() >= new Date('2025-11-01');
+  const actualCA = ""; // TODO: Add actual Solana contract address after pump.fun launch
+  const contractAddress = isLaunched ? actualCA : "TBA - Coming Soon";
   
   const handleCopy = async () => {
     if (!isLaunched) return;

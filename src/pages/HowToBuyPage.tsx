@@ -13,7 +13,8 @@ const HowToBuyPage: React.FC = () => {
 
   // Pre-launch: Show waitlist form
   // Post-launch: Show actual buying guide
-  const isPreLaunch = true; // Toggle this to false after token launch
+  // Automatically switches on November 1, 2025
+  const isPreLaunch = new Date() < new Date('2025-11-01');
 
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,7 +85,7 @@ const HowToBuyPage: React.FC = () => {
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             {isPreLaunch
-              ? "Join the waitlist to get notified when $PRICKO launches on pump.fun"
+              ? "Token launches November 2025. Join waitlist for early access and exclusive launch benefits."
               : "Follow these simple steps to acquire $PRICKO tokens and join the privacy revolution"
             }
           </p>
