@@ -5,6 +5,7 @@ import MascotImage from '../components/ui/MascotImage';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
 import SecurityBadge from '../components/ui/SecurityBadge';
 import { SIMPLIFIED_TOOLS, TOOLS_COUNT } from '../constants/toolsSimplified';
+import { METRICS } from '../constants/metrics';
 
 const ToolsPageSimplified: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ const ToolsPageSimplified: React.FC = () => {
               Privacy <span className="bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">Tools</span>
             </h1>
             <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
-              8 products. {TOOLS_COUNT.live} live. All open source.
+              8 products. {TOOLS_COUNT.live} live serving {METRICS.prickoshare.formatted} users. All open source. Token launches November 2025.
             </p>
 
             {/* Status Legend */}
@@ -135,7 +136,7 @@ const ToolsPageSimplified: React.FC = () => {
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
               </h2>
               <p className="text-xl text-muted mb-10 max-w-3xl mx-auto">
-                Join 2,100+ users protecting their privacy with Gecko Share and Gecko Advisor.
+                Join {METRICS.prickoshare.formatted} users protecting their privacy with Gecko Share and Gecko Advisor.
               </p>
 
               <motion.button

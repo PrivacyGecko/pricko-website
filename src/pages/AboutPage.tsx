@@ -299,9 +299,9 @@ const AboutPage: React.FC = () => {
             />
             <ProofMetric
               icon={FaUserFriends}
-              value={`${config.development.metrics.betaTesters.toLocaleString()}+`}
-              label="Beta Testers"
-              description="Active users testing and providing feedback on our tools"
+              value={`${METRICS.prickoshare.users.toLocaleString()}+`}
+              label="Active Users"
+              description="Real users protecting their privacy with our live tools"
               delay={0.2}
             />
             <ProofMetric
