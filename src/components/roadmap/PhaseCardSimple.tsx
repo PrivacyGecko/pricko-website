@@ -22,20 +22,23 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
     const configs = {
       completed: {
         icon: '✅',
-        badge: 'bg-gradient-to-r from-green-500 to-emerald-500 text-white',
-        border: 'border-green-500/30',
+        badgeClass: 'badge badge-live',
+        badgeText: 'Complete',
+        border: 'border-success/30',
         marker: null
       },
       current: {
         icon: '🔄',
-        badge: 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black',
-        border: 'border-yellow-500/50',
+        badgeClass: 'badge badge-warning',
+        badgeText: 'In Progress',
+        border: 'border-warning/50',
         marker: '← YOU ARE HERE'
       },
       upcoming: {
         icon: '⏳',
-        badge: 'bg-gradient-to-r from-blue-500 to-purple-500 text-white',
-        border: 'border-blue-500/30',
+        badgeClass: 'badge badge-coming-soon',
+        badgeText: 'Planned',
+        border: 'border-info/30',
         marker: null
       }
     };
@@ -46,12 +49,12 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
 
   return (
     <motion.div
-      className={`relative bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-2xl p-8 border ${config.border} backdrop-blur-sm`}
+      className={`card-interactive relative bg-gradient-to-br from-secondary/60 to-secondary/20 border ${config.border} backdrop-blur-sm`}
       initial={{ opacity: 0, x: -40 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.03, y: -4 }}
     >
       {/* Phase Header */}
       <div className="flex items-start justify-between mb-6">
@@ -63,8 +66,8 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
           <p className="text-accent font-medium">{quarter}</p>
         </div>
         
-        <span className={`px-4 py-2 rounded-full text-sm font-bold ${config.badge}`}>
-          {status === 'completed' ? 'Complete' : status === 'current' ? 'In Progress' : 'Planned'}
+        <span className={config.badgeClass}>
+          {config.badgeText}
         </span>
       </div>
 
@@ -92,8 +95,8 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
             transition={{ duration: 0.4, delay: delay + (index * 0.1) }}
             viewport={{ once: true }}
           >
-            <span className="text-accent mt-1">•</span>
-            <span>{achievement}</span>
+            <span className="text-accent mt-1 text-lg">•</span>
+            <span className="leading-relaxed">{achievement}</span>
           </motion.div>
         ))}
       </div>
