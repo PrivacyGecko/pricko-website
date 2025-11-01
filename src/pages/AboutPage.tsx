@@ -8,6 +8,7 @@ import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import SecurityBadge from '../components/ui/SecurityBadge';
+import { METRICS } from '../constants/metrics';
 import {
   FaCalendarAlt,
   FaUsers,
@@ -359,7 +360,7 @@ const AboutPage: React.FC = () => {
                 <ul className="space-y-3 text-muted">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>Gecko Share: 2,100+ active users, fully operational</span>
+                    <span>Gecko Share: {METRICS.prickoshare.formatted} active users, fully operational</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
@@ -717,7 +718,7 @@ const AboutPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaGithub />
-                  Contribute
+                  Contribute on GitHub
                 </motion.button>
               </a>
             </div>
@@ -790,7 +791,7 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true }}
             >
               <FaBook />
-              Learn More
+              Explore Our Tools
             </motion.button>
           </div>
         </motion.section>

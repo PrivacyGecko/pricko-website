@@ -11,6 +11,7 @@ import SocialProof from '../components/SocialProof';
 import TrustBadge from '../components/ui/TrustBadge';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
+import { METRICS, TOOLS_COUNT } from '../constants/metrics';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -100,7 +101,7 @@ const HomePage: React.FC = () => {
         "alternateName": "PRICKO",
         "url": "https://pricko.com",
         "logo": "https://pricko.com/logo.png",
-        "description": "Privacy-first tools powered by PRICKO utility token. 2 live products serving 2,100+ users. Real code, real traction, real results.",
+        "description": `Privacy-first tools powered by PRICKO utility token. ${TOOLS_COUNT.live} live products serving ${METRICS.prickoshare.formatted} users. Real code, real traction, real results.`,
         "sameAs": [
           "https://twitter.com/PrivacyGecko",
           "https://github.com/privacygecko",
@@ -133,7 +134,7 @@ const HomePage: React.FC = () => {
     <>
       <SEO
         title="PRICKO | Privacy Tools Powered by Utility Token - Real Products, Real Utility"
-        description="PRICKO is a utility token powering 8 privacy tools. 2 live products serving 2,100+ users. Not vaporware - real tools, real results. Join the privacy revolution."
+        description={`PRICKO is a utility token powering 8 privacy tools. ${TOOLS_COUNT.live} live products serving ${METRICS.prickoshare.formatted} users. Not vaporware - real tools, real results. Join the privacy revolution.`}
         keywords="privacy token, utility token, privacy tools, blockchain privacy, solana token, Gecko Share, Gecko Advisor, zero-knowledge encryption, privacy browser"
         canonicalUrl="/"
         structuredData={homepageStructuredData}
@@ -706,7 +707,7 @@ const HomePage: React.FC = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Learn More <FaArrowRight className="inline ml-2" />
+                  Discover Our Mission <FaArrowRight className="inline ml-2" />
                 </motion.button>
               </Link>
               <Link to="/contact">

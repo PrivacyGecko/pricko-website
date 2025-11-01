@@ -29,7 +29,7 @@ const ToolsPageSimplified: React.FC = () => {
               Privacy <span className="bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">Tools</span>
             </h1>
             <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
-              8 products. 2 live. All open source.
+              8 products. {TOOLS_COUNT.live} live. All open source.
             </p>
 
             {/* Status Legend */}
