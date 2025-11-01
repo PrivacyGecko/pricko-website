@@ -8,6 +8,7 @@ import NewsletterForm from '../components/ui/NewsletterForm';
 import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import SocialProof from '../components/SocialProof';
+import TrustBadge from '../components/ui/TrustBadge';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import {
@@ -21,7 +22,9 @@ import {
   FaEye,
   FaLock,
   FaCheckCircle,
-  FaClock
+  FaClock,
+  FaGithub,
+  FaCode
 } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
@@ -206,7 +209,7 @@ const HomePage: React.FC = () => {
 
               {/* Stats Section - Proof-Focused with Animated Counters */}
               <motion.div
-                className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
+                className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -231,6 +234,33 @@ const HomePage: React.FC = () => {
                   icon={<FaClock className="mx-auto text-xl" />}
                   duration={1800}
                   delay={900}
+                />
+              </motion.div>
+
+              {/* Trust Badges Section */}
+              <motion.div
+                className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                <TrustBadge
+                  icon={FaShieldAlt}
+                  title="Fully Open Source"
+                  description="All code publicly available on GitHub. Community auditable."
+                  delay={0.1}
+                />
+                <TrustBadge
+                  icon={FaGithub}
+                  title="Active Development"
+                  description="Consistent commits and updates. Real progress, not vaporware."
+                  delay={0.2}
+                />
+                <TrustBadge
+                  icon={FaCheckCircle}
+                  title="Security Audited"
+                  description="Independent security audits completed. AES-256 encryption."
+                  delay={0.3}
                 />
               </motion.div>
             </motion.div>
@@ -338,7 +368,7 @@ const HomePage: React.FC = () => {
                 </p>
               </motion.div>
 
-              {/* Feature Highlights */}
+              {/* Feature Highlights with Enhanced Cards */}
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
                 initial={{ opacity: 0, y: 20 }}
@@ -346,27 +376,36 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-colors">
+                <motion.div
+                  className="card-interactive text-center"
+                  whileHover={{ y: -8 }}
+                >
                   <div className="text-3xl mb-3 text-accent">
                     <FaShieldAlt className="mx-auto" />
                   </div>
                   <h3 className="text-lg font-semibold text-accent mb-2">Privacy First</h3>
                   <p className="text-muted text-sm">Built with privacy at its core</p>
-                </div>
-                <div className="text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-colors">
-                  <div className="text-3xl mb-3 text-accent">
+                </motion.div>
+                <motion.div
+                  className="card-interactive text-center"
+                  whileHover={{ y: -8 }}
+                >
+                  <div className="text-3xl mb-3 bg-gradient-cyan bg-clip-text text-transparent">
                     <FaBolt className="mx-auto" />
                   </div>
-                  <h3 className="text-lg font-semibold text-accent mb-2">Solana Powered</h3>
+                  <h3 className="text-lg font-semibold bg-gradient-cyan bg-clip-text text-transparent mb-2">Solana Powered</h3>
                   <p className="text-muted text-sm">Fast, efficient blockchain technology</p>
-                </div>
-                <div className="text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-colors">
-                  <div className="text-3xl mb-3 text-accent">
+                </motion.div>
+                <motion.div
+                  className="card-interactive text-center"
+                  whileHover={{ y: -8 }}
+                >
+                  <div className="text-3xl mb-3 bg-gradient-purple bg-clip-text text-transparent">
                     <FaBullseye className="mx-auto" />
                   </div>
-                  <h3 className="text-lg font-semibold text-accent mb-2">Purpose Driven</h3>
+                  <h3 className="text-lg font-semibold bg-gradient-purple bg-clip-text text-transparent mb-2">Purpose Driven</h3>
                   <p className="text-muted text-sm">More than just a meme coin</p>
-                </div>
+                </motion.div>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -605,7 +644,7 @@ const HomePage: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* Community Stats */}
+            {/* Community Stats with Enhanced Cards */}
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
               initial={{ opacity: 0, y: 20 }}
@@ -613,30 +652,42 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="text-center p-4 bg-secondary/30 rounded-xl border border-accent/10">
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ scale: 1.08 }}
+              >
                 <div className="text-2xl font-bold text-accent mb-1">
                   <FaUsers className="mx-auto" />
                 </div>
                 <div className="text-sm text-muted">Gecko Army</div>
-              </div>
-              <div className="text-center p-4 bg-secondary/30 rounded-xl border border-accent/10">
-                <div className="text-2xl font-bold text-accent mb-1">
+              </motion.div>
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ scale: 1.08 }}
+              >
+                <div className="text-2xl font-bold bg-gradient-cyan bg-clip-text text-transparent mb-1">
                   <FaShieldAlt className="mx-auto" />
                 </div>
                 <div className="text-sm text-muted">Privacy First</div>
-              </div>
-              <div className="text-center p-4 bg-secondary/30 rounded-xl border border-accent/10">
-                <div className="text-2xl font-bold text-accent mb-1">
+              </motion.div>
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ scale: 1.08 }}
+              >
+                <div className="text-2xl font-bold bg-gradient-purple bg-clip-text text-transparent mb-1">
                   <FaBolt className="mx-auto" />
                 </div>
                 <div className="text-sm text-muted">Lightning Fast</div>
-              </div>
-              <div className="text-center p-4 bg-secondary/30 rounded-xl border border-accent/10">
+              </motion.div>
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ scale: 1.08 }}
+              >
                 <div className="text-2xl font-bold text-accent mb-1">
                   <FaRocket className="mx-auto" />
                 </div>
                 <div className="text-sm text-muted">Long-term Vision</div>
-              </div>
+              </motion.div>
             </motion.div>
             
             <motion.div
