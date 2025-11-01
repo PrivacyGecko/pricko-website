@@ -117,7 +117,10 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               y={segment.labelPos.y}
               textAnchor="middle"
               dominantBaseline="middle"
-              className="text-sm font-bold fill-white pointer-events-none"
+              fontSize="14"
+              fontWeight="bold"
+              fill="white"
+              className="pointer-events-none"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: segment.index * 0.1 + 0.5 }}
@@ -135,27 +138,38 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
           transition={{ duration: 0.6, delay: 0.8 }}
           viewport={{ once: true }}
         >
+          {/* Total Supply Number - Reduced font size to fit within inner circle */}
           <text
             x={center}
-            y={center - 25}
+            y={center - 20}
             textAnchor="middle"
-            className="text-2xl font-bold fill-accent"
+            dominantBaseline="middle"
+            fontSize="18"
+            fontWeight="bold"
+            fill="#4ade80"
           >
             {totalSupply}
           </text>
+          {/* "TOTAL SUPPLY" label */}
           <text
             x={center}
-            y={center + 5}
+            y={center + 8}
             textAnchor="middle"
-            className="text-sm fill-muted uppercase tracking-wide"
+            dominantBaseline="middle"
+            fontSize="12"
+            fill="#a1a1aa"
+            style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}
           >
             Total Supply
           </text>
+          {/* "$PRICKO Tokens" subtitle */}
           <text
             x={center}
-            y={center + 25}
+            y={center + 26}
             textAnchor="middle"
-            className="text-xs fill-muted"
+            dominantBaseline="middle"
+            fontSize="11"
+            fill="#a1a1aa"
           >
             $PRICKO Tokens
           </text>
