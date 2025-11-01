@@ -84,7 +84,7 @@ const ProofOfDevelopment: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-accent mb-3 flex items-center justify-center gap-3">
+            <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
               <FaCheckCircle className="text-accent" />
               Already Live & Serving Users
             </h3>
@@ -95,12 +95,12 @@ const ProofOfDevelopment: React.FC = () => {
             {liveProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                className="card p-6 hover:border-accent/40 transition-all duration-300"
+                className="card-interactive"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -8 }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -183,8 +183,8 @@ const ProofOfDevelopment: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-accent mb-3 flex items-center justify-center gap-3">
-              <FaClock className="text-accent" />
+            <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <FaClock className="text-cyan-400" />
               At 85-90% Completion - Launching Q1 2025
             </h3>
             <p className="text-muted">Beta testing in progress with real users</p>
@@ -195,12 +195,12 @@ const ProofOfDevelopment: React.FC = () => {
             {betaProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                className="card p-6 hover:border-accent/40 transition-all duration-300"
+                className="card-interactive"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -8 }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -265,12 +265,12 @@ const ProofOfDevelopment: React.FC = () => {
             {inDevProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                className="card p-6 hover:border-accent/40 transition-all duration-300"
+                className="card-interactive"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: (betaProducts.length + index) * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -8 }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -332,7 +332,7 @@ const ProofOfDevelopment: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-accent mb-3">
+            <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
               We Don't Just Talk. Here's the Proof.
             </h3>
             <p className="text-muted">Real commitment, measurable progress</p>
