@@ -30,7 +30,7 @@ const ToolsPageSimplified: React.FC = () => {
               Privacy <span className="bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">Tools</span>
             </h1>
             <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
-              8 products. {TOOLS_COUNT.live} live serving {METRICS.prickoshare.formatted} users. All open source. Token launches November 2025.
+              8 products. {TOOLS_COUNT.live} live serving {METRICS.prickoshare.formatted} users. <span className="text-blue-400 font-semibold">AI-enhanced</span> where it matters. All open source. Token launches November 2025.
             </p>
 
             {/* Status Legend */}
@@ -62,6 +62,7 @@ const ToolsPageSimplified: React.FC = () => {
                 features={tool.topFeatures}
                 url={tool.url}
                 delay={index * 0.1}
+                hasAI={tool.hasAI}
               />
             ))}
           </div>

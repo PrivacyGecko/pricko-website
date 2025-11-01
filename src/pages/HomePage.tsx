@@ -25,7 +25,8 @@ import {
   FaCheckCircle,
   FaClock,
   FaGithub,
-  FaCode
+  FaCode,
+  FaBrain
 } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
@@ -162,9 +163,15 @@ const HomePage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-6">
-                  <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                  <span className="text-accent font-medium text-sm">Privacy Gecko Ecosystem</span>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+                  <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
+                    <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                    <span className="text-accent font-medium text-sm">Privacy Gecko Ecosystem</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                    <FaBrain className="text-blue-400 text-sm" />
+                    <span className="text-blue-400 font-medium text-sm">AI-Enhanced</span>
+                  </div>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
@@ -179,7 +186,7 @@ const HomePage: React.FC = () => {
 
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
                   <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.betaTesters.formatted} users.
-                  <span className="text-accent"> 2 more at 90%+ completion.</span> Real code. Real traction. Real results.
+                  <span className="text-accent"> AI-enhanced privacy tools with 2 more at 90%+ completion.</span> Real code. Real traction. Real results.
                 </p>
               </motion.div>
 
@@ -290,6 +297,87 @@ const HomePage: React.FC = () => {
                 >
                   <div className="w-72 h-72 border border-accent/10 rounded-full"></div>
                 </motion.div>
+
+                {/* Soft Pulsing Glow Behind Mascot */}
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  animate={{
+                    scale: [1, 1.15, 1],
+                    opacity: [0.3, 0.5, 0.3]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <div className="w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+                </motion.div>
+
+                {/* Orbiting Accent Dots */}
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                >
+                  <div className="relative w-72 h-72">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full shadow-lg shadow-accent/50"></div>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50"></div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                >
+                  <div className="relative w-64 h-64">
+                    <div className="absolute top-1/2 right-0 -translate-y-1/2 w-2.5 h-2.5 bg-accent/70 rounded-full shadow-lg shadow-accent/30"></div>
+                    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 bg-blue-300 rounded-full shadow-lg shadow-blue-300/30"></div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Sparkles */}
+                <motion.div
+                  className="absolute top-16 right-20 w-2 h-2 bg-accent rounded-full pointer-events-none"
+                  animate={{
+                    y: [-5, 5, -5],
+                    opacity: [0.5, 1, 0.5],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <motion.div
+                  className="absolute bottom-20 left-16 w-1.5 h-1.5 bg-blue-400 rounded-full pointer-events-none"
+                  animate={{
+                    y: [5, -5, 5],
+                    opacity: [0.6, 1, 0.6],
+                    scale: [1, 1.3, 1]
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5
+                  }}
+                />
+                <motion.div
+                  className="absolute top-1/3 right-12 w-1 h-1 bg-accent/80 rounded-full pointer-events-none"
+                  animate={{
+                    y: [-3, 3, -3],
+                    x: [-2, 2, -2],
+                    opacity: [0.4, 0.9, 0.4]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1
+                  }}
+                />
 
                 {/* MascotImage Component (centered with animations) */}
                 <motion.div
