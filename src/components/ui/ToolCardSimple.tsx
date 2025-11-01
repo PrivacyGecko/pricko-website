@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaBrain } from 'react-icons/fa';
 
 interface ToolCardSimpleProps {
   icon: string;
@@ -10,6 +10,7 @@ interface ToolCardSimpleProps {
   features: string[];
   url?: string;
   delay?: number;
+  hasAI?: boolean;
 }
 
 const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
@@ -19,7 +20,8 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   status,
   features,
   url,
-  delay = 0
+  delay = 0,
+  hasAI = false
 }) => {
   const getStatusBadge = () => {
     const badges = {
@@ -81,7 +83,15 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
 
       {/* Title & Status Badge */}
       <div className="text-center mb-4">
-        <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <h3 className="text-xl font-semibold text-white">{title}</h3>
+          {hasAI && (
+            <span className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-400 text-xs font-semibold px-2 py-1 rounded-full border border-blue-500/30">
+              <FaBrain className="text-xs" />
+              AI
+            </span>
+          )}
+        </div>
         <span className={badge.class}>
           {badge.label}
         </span>

@@ -13,6 +13,7 @@ export interface SimplifiedTool {
   icon: string;
   status: 'live' | 'beta' | 'in-development';
   url?: string;
+  hasAI?: boolean;
 }
 
 export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
@@ -27,7 +28,8 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
     ],
     icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAxNkMzMC44OTU0IDE2IDMwIDE2Ljg5NTQgMzAgMThWMzBDMzAgMzEuMTA0NiAzMC44OTU0IDMyIDMyIDMyQzMzLjEwNDYgMzIgMzQgMzEuMTA0NiAzNCAzMFYxOEMzNCAzNi44OTU0IDMzLjEwNDYgMTYgMzIgMTZaIiBmaWxsPSIjMUExQTFBIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzOCIgcj0iMyIgZmlsbD0iIzFBMUExQSIvPgogIDxwYXRoIGQ9Ik0zMiAxMEMyMC40MDIzIDEwIDExIDIwLjQwMjMgMTEgMzJDMTEgNDMuNTk3NyAyMC40MDIzIDU0IDMyIDU0QzQzLjU5NzcgNTQgNTQgNDMuNTk3NyA1NCAzMkM1NCAyMC40MDIzIDQzLjU5NzcgMTAgMzIgMTBaTTMyIDUwQzIyLjYxMTIgNTAgMTQgNDEuMzg4OCAxNCAzMkMxNCAyMi42MTEyIDIyLjYxMTIgMTQgMzIgMTRDNDEuMzg4OCAxNCA1MCAyMi42MTEyIDUwIDMyQzUwIDQxLjM4ODggNDEuMzg4OCA1MCAzMiA1MFoiIGZpbGw9IiMxQTFBMUEiLz4KPC9zdmc+',
     status: 'live',
-    url: 'https://geckoadvisor.com'
+    url: 'https://geckoadvisor.com',
+    hasAI: true
   },
   {
     id: 'gecko-share',
@@ -101,7 +103,8 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
       'Smart tagging'
     ],
     icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAyMEMyNC4yNjggMjAgMTggMjYuMjY4IDE4IDM0QzE4IDQxLjczMiAyNC4yNjggNDggMzIgNDhDMzkuNzMyIDQ4IDQ2IDQxLjczMiA0NiAzNEM0NiAyNi4yNjggMzkuNzMyIDIwIDMyIDIwWiIgZmlsbD0iIzFBMUExQSIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjYiIGZpbGw9IiM0YWRlODAiLz4KICA8cGF0aCBkPSJNMjAgMjRMMTQgMTgiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNDQgMjRMNTAgMTgiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+',
-    status: 'in-development'
+    status: 'in-development',
+    hasAI: true
   },
   {
     id: 'gecko-vpn',

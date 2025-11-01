@@ -58,7 +58,7 @@ const AboutPage: React.FC = () => {
             About <span className="gradient-text-animated">PRICKO</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
-            Building privacy tools that don't suck. Community-owned, meme-powered, actually useful.
+            Building <span className="text-blue-400 font-medium">AI-enhanced</span> privacy tools that don't suck. Community-owned, meme-powered, actually useful.
             Privacy protection without the corporate BS.
           </p>
         </motion.div>
