@@ -433,7 +433,7 @@ const HomePage: React.FC = () => {
                       <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] rounded-full font-medium">Coming</span>
                     </div>
                     <p className="text-xs text-gray-400 mb-2">
-                      GeckoCore launches with staking rewards & community governance
+                      <span className="font-semibold">GeckoCore</span> (our decentralized privacy protocol) launches with staking rewards & community governance
                     </p>
                     <button
                       onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -606,10 +606,10 @@ const HomePage: React.FC = () => {
             </h2>
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-              <span className="font-semibold text-white">$PRICKO holders get premium access to 4 live privacy tools today.</span> No
+              <span className="font-semibold text-white">$PRICKO holders</span> get premium access to 4 live privacy tools today. No
               waiting, no vaporware. Meanwhile, we're building <span className="text-cyan-400 font-bold">GeckoCore</span> — a
               decentralized privacy protocol launching Q1 2026 that will power our full ecosystem of 8 tools with
-              <span className="font-semibold text-white"> staking rewards</span> and community governance.
+              staking rewards and community governance.
             </p>
           </motion.div>
 
@@ -641,7 +641,7 @@ const HomePage: React.FC = () => {
               Explore the Ecosystem
               <FaArrowRight />
             </Link>
-            <Link to="/tokenomics#protocol" className="btn-secondary inline-flex items-center gap-2">
+            <Link to="/tokenomics#protocol" className="btn-tertiary inline-flex items-center gap-2">
               View Protocol Tokenomics
               <FaArrowRight />
             </Link>
