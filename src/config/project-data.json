@@ -63,8 +63,8 @@
   "ecosystem": {
     "totalProducts": 8,
     "liveProducts": 4,
-    "betaProducts": 1,
-    "inDevelopmentProducts": 3,
+    "betaProducts": 0,
+    "inDevelopmentProducts": 4,
     "products": {
       "geckoAdvisor": {
         "id": "gecko-advisor",
