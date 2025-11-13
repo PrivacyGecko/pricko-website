@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaEye, FaShieldAlt, FaUsers, FaServer, FaExternalLinkAlt } from 'react-icons/fa';
@@ -15,6 +15,21 @@ import { TokenDistribution } from '../types/config';
 
 const TokenomicsPage: React.FC = () => {
   const { config, getTokenDisclaimer } = useProjectConfig();
+
+  // Handle hash navigation for deep linking (mobile-friendly)
+  useEffect(() => {
+    if (window.location.hash === '#protocol') {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      setTimeout(() => {
+        const element = document.getElementById('protocol');
+        element?.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+      }, 100); // Delay ensures DOM is fully rendered
+    }
+  }, []);
 
   // Get token distribution data from config and transform to expected format
   const tokenomicsData = {
