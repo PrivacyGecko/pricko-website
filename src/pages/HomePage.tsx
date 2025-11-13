@@ -431,8 +431,8 @@ const HomePage: React.FC = () => {
                       <span className="text-xs font-medium text-gray-300">Q1 2026 Protocol</span>
                       <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] rounded-full font-medium">Coming</span>
                     </div>
-                    <p className="text-xs text-gray-400 mb-2">
-                      <span className="font-semibold">GeckoCore</span> (our decentralized privacy protocol) launches with staking rewards & community governance
+                    <p className="text-sm text-gray-300 mb-2 leading-relaxed">
+                      <span className="font-bold text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded">GeckoCore</span> (our decentralized privacy protocol) launches with staking rewards & community governance
                     </p>
                     <button
                       onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
