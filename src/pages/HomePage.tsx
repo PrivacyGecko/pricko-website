@@ -27,7 +27,8 @@ import {
   FaClock,
   FaGithub,
   FaCode,
-  FaBrain
+  FaBrain,
+  FaExternalLinkAlt
 } from 'react-icons/fa';
 import { FiArrowRight, FiCalendar } from 'react-icons/fi';
 
@@ -451,6 +452,131 @@ const HomePage: React.FC = () => {
 
       {/* Proof of Development Section */}
       <ProofOfDevelopment />
+
+      {/* Privacy Gecko Brand Section */}
+      <section className="section-padding bg-gradient-to-b from-secondary/30 to-transparent relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-accent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container-max relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-5xl mx-auto"
+          >
+            {/* Logo and Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-8 flex flex-col items-center"
+            >
+              <img
+                src="/icons/logo.png"
+                alt="Privacy Gecko Logo"
+                className="w-24 h-24 md:w-32 md:h-32 mb-6 drop-shadow-2xl"
+              />
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
+                <span className="text-accent text-sm font-semibold">Memes With a Mission</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Meet <span className="gradient-text">Privacy Gecko</span>
+              </h2>
+              <p className="text-lg md:text-xl text-accent font-semibold">Your Privacy Guardian</p>
+              <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-hover mx-auto mt-6"></div>
+            </motion.div>
+
+            {/* Brand Explanation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6 mb-12"
+            >
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                Privacy Gecko is the brand behind <span className="text-accent font-semibold">4 live privacy tools</span> serving
+                <span className="text-accent font-semibold"> 3,750+ users today</span>. We're on a mission to make privacy accessible,
+                fun, and effective for everyone.
+              </p>
+
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                <span className="text-accent font-semibold">$PRICKO token powers Privacy Gecko ecosystem</span> — giving holders
+                premium access to tools, staking rewards, and governance rights. No vaporware. No promises. Just working products you
+                can use right now at <a href="https://privacygecko.com" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">privacygecko.com</a>.
+              </p>
+            </motion.div>
+
+            {/* Key Points Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+            >
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ y: -8 }}
+              >
+                <div className="text-4xl mb-4">🔒</div>
+                <h3 className="text-lg font-semibold text-white mb-2">4 Live Products</h3>
+                <p className="text-muted text-sm">Gecko Advisor, Gecko Share, Gecko Guard, Gecko Lock — all available today</p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ y: -8 }}
+              >
+                <div className="text-4xl mb-4">⚡</div>
+                <h3 className="text-lg font-semibold text-white mb-2">Powered by $PRICKO</h3>
+                <p className="text-muted text-sm">Token holders get premium features, staking rewards, and governance rights</p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center"
+                whileHover={{ y: -8 }}
+              >
+                <div className="text-4xl mb-4">🌐</div>
+                <h3 className="text-lg font-semibold text-white mb-2">Open Source & Audited</h3>
+                <p className="text-muted text-sm">All code public on GitHub, independently security audited</p>
+              </motion.div>
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <a
+                href="https://privacygecko.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 text-lg px-8 py-4"
+              >
+                Visit Privacy Gecko Platform
+                <FaExternalLinkAlt className="text-sm" />
+              </a>
+              <a
+                href="/ecosystem"
+                className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4"
+              >
+                Learn About the Ecosystem
+                <FaArrowRight />
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Social Proof Section */}
       <SocialProof />
