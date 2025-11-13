@@ -548,9 +548,38 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Powers the Ecosystem Section */}
-      <section id="geckocore-section" className="section-padding bg-black/30">
-        <div className="container-max">
+      {/* Powers the Ecosystem Section - LAYER 2 ENHANCED */}
+      <section id="geckocore-section" className="relative section-padding bg-gradient-to-b from-black via-zinc-900 to-black overflow-hidden">
+        {/* Animated Background Blobs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.5, 0.3, 0.5]
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+        </div>
+
+        <div className="container-max relative z-10">
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -566,15 +595,19 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
+              <FiCalendar className="text-lg" />
               Q1 2026 Protocol Launch
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Powers the <span className="text-cyan-400">Ecosystem</span>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+              Powers the <span className="gradient-text-protocol">Ecosystem</span>
             </h2>
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Privacy Gecko is building more than meme magic. <span className="text-cyan-400 font-semibold">GeckoCore</span>, our decentralized privacy protocol, will power 8 privacy tools with community-owned infrastructure. $PRICKO holders gain access to premium features today and staking rewards when the protocol launches Q1 2026.
+              Privacy Gecko is building more than meme magic. <span className="text-cyan-400 font-bold">GeckoCore</span>,
+              our decentralized privacy protocol, will <span className="font-semibold text-white">power 8 privacy tools</span> with
+              community-owned infrastructure. <span className="font-semibold text-white">$PRICKO holders gain access to premium features today</span> and
+              <span className="font-semibold text-white"> staking rewards</span> when the protocol launches Q1 2026.
             </p>
           </motion.div>
 
@@ -594,9 +627,9 @@ const HomePage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* CTA Button */}
+          {/* Dual CTA Buttons */}
           <motion.div
-            className="text-center mt-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -604,6 +637,10 @@ const HomePage: React.FC = () => {
           >
             <Link to="/ecosystem" className="btn-primary inline-flex items-center gap-2">
               Explore the Ecosystem
+              <FaArrowRight />
+            </Link>
+            <Link to="/tokenomics#protocol" className="btn-secondary inline-flex items-center gap-2">
+              View Protocol Tokenomics
               <FaArrowRight />
             </Link>
           </motion.div>
