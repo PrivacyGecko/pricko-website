@@ -67,7 +67,8 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
       'Custom filter lists'
     ],
     icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxwYXRoIGQ9Ik0zMiAxMEwyMCAxNlYyOEMyMCA0MS4yNTQ2IDMyIDU0IDMyIDU0QzMyIDU0IDQ0IDQxLjI1NDYgNDQgMjhWMTZMMzIgMTBaIiBmaWxsPSIjMUExQTFBIi8+CiAgPHBhdGggZD0iTTI3IDMxTDMwIDM0TDM3IDI3IiBzdHJva2U9IiM0YWRlODAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==',
-    status: 'in-development'
+    status: 'live',
+    url: 'https://geckoguard.app'
   },
   {
     id: 'gecko-lock',
@@ -79,7 +80,8 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
       'Password generator'
     ],
     icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxyZWN0IHg9IjE4IiB5PSIzMCIgd2lkdGg9IjI4IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzFBMUExQSIvPgogIDxwYXRoIGQ9Ik0yMiAzMFYyM0MyMiAxOC41ODE3IDI1LjU4MTcgMTUgMzAgMTVDMzQuNDE4MyAxNSAzOCAxOC41ODE3IDM4IDIzVjMwIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI0MCIgcj0iMyIgZmlsbD0iIzRhZGU4MCIvPgogIDxwYXRoIGQ9Ik0zMiA0M1Y0NiIgc3Ryb2tlPSIjNGFkZTgwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=',
-    status: 'in-development'
+    status: 'live',
+    url: 'https://geckolock.com'
   },
   {
     id: 'gecko-watch',
