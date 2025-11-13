@@ -519,7 +519,7 @@ const TokenomicsPage: React.FC = () => {
         </motion.section>
 
         {/* Future Utility: GeckoCore Protocol Section */}
-        <section className="section-padding bg-black/30">
+        <section id="protocol" className="section-padding bg-black/30">
           <div className="container-max max-w-4xl">
             <motion.div
               className="text-center mb-8"
