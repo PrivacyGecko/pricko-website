@@ -10,7 +10,10 @@ import {
   FaCode,
   FaLock,
   FaExternalLinkAlt,
-  FaArrowRight
+  FaArrowRight,
+  FaSearch,
+  FaShareAlt,
+  FaKey
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -45,6 +48,17 @@ const ProofOfDevelopment: React.FC = () => {
     openSourceRepos,
     securityAudits
   } = config.development.metrics;
+
+  // Map product names to modern icons
+  const getProductIcon = (productName: string) => {
+    const iconMap: { [key: string]: JSX.Element } = {
+      'Gecko Advisor': <FaSearch className="text-accent" />,
+      'Gecko Share': <FaShareAlt className="text-accent" />,
+      'Gecko Guard': <FaShieldAlt className="text-accent" />,
+      'Gecko Lock': <FaKey className="text-accent" />
+    };
+    return iconMap[productName] || <FaCheckCircle className="text-accent" />;
+  };
 
   return (
     <section
@@ -105,7 +119,8 @@ const ProofOfDevelopment: React.FC = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h4 className="text-xl font-bold text-accent mb-1 flex items-center gap-2">
-                      {product.name} 🦎
+                      {getProductIcon(product.name)}
+                      {product.name}
                     </h4>
                     <p className="text-sm text-muted mb-3">{product.subtitle}</p>
                   </div>
