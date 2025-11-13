@@ -408,36 +408,38 @@ const HomePage: React.FC = () => {
 
               {/* NEW: Contract Address below mascot */}
               <motion.div
-                className="w-full max-w-md"
+                className="w-full max-w-md p-0.5 rounded-2xl bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <ContractAddress variant="hero" />
+                <div className="rounded-2xl bg-secondary">
+                  <ContractAddress variant="hero" />
+                </div>
               </motion.div>
 
               {/* NEW: GeckoCore Protocol Teaser */}
               <motion.div
-                className="w-full max-w-md p-4 card-interactive border-l-4 border-accent"
+                className="w-full max-w-md p-4 card-interactive border-l-2 border-accent/30"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <div className="flex items-start gap-3">
-                  <div className="text-2xl">🚀</div>
+                  <div className="text-xl">🚀</div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-sm font-semibold text-white">Q1 2026 Protocol</span>
-                      <span className="badge-info text-xs">Coming</span>
+                      <span className="text-xs font-medium text-gray-300">Q1 2026 Protocol</span>
+                      <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] rounded-full font-medium">Coming</span>
                     </div>
-                    <p className="text-xs text-muted mb-2">
+                    <p className="text-xs text-gray-400 mb-2">
                       GeckoCore launches with staking rewards & community governance
                     </p>
                     <button
                       onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
                       className="text-xs text-accent hover:text-accent-hover font-medium flex items-center gap-1 group"
                     >
-                      See Protocol Roadmap
+                      Learn More Below
                       <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -599,15 +601,15 @@ const HomePage: React.FC = () => {
               Q1 2026 Protocol Launch
             </motion.div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Powers the <span className="gradient-text-protocol">Ecosystem</span>
             </h2>
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Privacy Gecko is building more than meme magic. <span className="text-cyan-400 font-bold">GeckoCore</span>,
-              our decentralized privacy protocol, will <span className="font-semibold text-white">power 8 privacy tools</span> with
-              community-owned infrastructure. <span className="font-semibold text-white">$PRICKO holders gain access to premium features today</span> and
-              <span className="font-semibold text-white"> staking rewards</span> when the protocol launches Q1 2026.
+              <span className="font-semibold text-white">$PRICKO holders get premium access to 4 live privacy tools today.</span> No
+              waiting, no vaporware. Meanwhile, we're building <span className="text-cyan-400 font-bold">GeckoCore</span> — a
+              decentralized privacy protocol launching Q1 2026 that will power our full ecosystem of 8 tools with
+              <span className="font-semibold text-white"> staking rewards</span> and community governance.
             </p>
           </motion.div>
 
