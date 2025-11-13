@@ -231,20 +231,9 @@ const Footer: React.FC = () => {
                 transition={{ delay: 0.6 }}
               >
                 <div className="flex items-center space-x-2">
-                  <span className="text-lg">📱</span>
-                  <span className="text-muted">Gecko Shell</span>
-                  <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Beta</span>
-                </div>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <div className="flex items-center space-x-2">
                   <span className="text-lg">🛡️</span>
                   <span className="text-muted">Gecko Guard</span>
-                  <span className="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full">In Dev</span>
+                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
               </motion.li>
               <motion.li
@@ -253,9 +242,9 @@ const Footer: React.FC = () => {
                 transition={{ delay: 0.7 }}
               >
                 <div className="flex items-center space-x-2">
-                  <span className="text-lg">💻</span>
-                  <span className="text-muted">Gecko Browser</span>
-                  <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full">Phase 3</span>
+                  <span className="text-lg">🔐</span>
+                  <span className="text-muted">Gecko Lock</span>
+                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
               </motion.li>
             </ul>
