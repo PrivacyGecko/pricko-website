@@ -78,21 +78,20 @@ const HomePage: React.FC = () => {
       features: ["AES-256 encryption", "Cross-platform sync", "Password generator", "Secure sharing", "Breach monitoring", "Zero-knowledge architecture"],
       url: "https://geckolock.com"
     },
-    // BETA PRODUCTS (1)
+    // IN DEVELOPMENT PRODUCTS (2 shown, 4 total)
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOVI3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
-      title: "Gecko Shell",
-      description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK.",
-      status: "beta" as const,
+      title: "GeckoShell",
+      description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK. 30% complete, launching Q3-Q4 2026.",
+      status: "in-development" as const,
       features: ["Cross-platform (iOS, Android)", "Plugin system architecture", "Solana wallet integration", "Privacy toolkit SDK"]
     },
-    // IN DEVELOPMENT (1)
     {
       icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Gecko Browser",
-      description: "Forked desktop browser based on Ungoogled Chromium with built-in crypto wallet and DeFi integration.",
+      title: "Gecko View",
+      description: "AI-powered content summarization with end-to-end encrypted bookmarks. 45% complete, launching Q2 2026.",
       status: "in-development" as const,
-      features: ["Built-in crypto wallet", "Plugin marketplace", "Privacy-first architecture", "Integrated DeFi tools"]
+      features: ["AI summaries with GPT-3.5 & GPT-4", "End-to-end encrypted bookmarks", "Browser extension integration", "Smart tagging & organization"]
     }
   ];
 
