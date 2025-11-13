@@ -29,6 +29,7 @@ import {
   FaCode,
   FaBrain
 } from 'react-icons/fa';
+import { FiArrowRight, FiCalendar } from 'react-icons/fi';
 
 const HomePage: React.FC = () => {
   const {
@@ -278,7 +279,7 @@ const HomePage: React.FC = () => {
 
             {/* Right Column: Enhanced Logo Display */}
             <motion.div
-              className="lg:w-1/2 flex justify-center items-center"
+              className="lg:w-1/2 flex flex-col items-center gap-8"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -404,6 +405,44 @@ const HomePage: React.FC = () => {
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
+
+              {/* NEW: Contract Address below mascot */}
+              <motion.div
+                className="w-full max-w-md"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <ContractAddress variant="hero" />
+              </motion.div>
+
+              {/* NEW: GeckoCore Protocol Teaser */}
+              <motion.div
+                className="w-full max-w-md p-4 card-interactive border-l-4 border-accent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <div className="flex items-start gap-3">
+                  <div className="text-2xl">🚀</div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-sm font-semibold text-white">Q1 2026 Protocol</span>
+                      <span className="badge-info text-xs">Coming</span>
+                    </div>
+                    <p className="text-xs text-muted mb-2">
+                      GeckoCore launches with staking rewards & community governance
+                    </p>
+                    <button
+                      onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="text-xs text-accent hover:text-accent-hover font-medium flex items-center gap-1 group"
+                    >
+                      See Protocol Roadmap
+                      <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -510,7 +549,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Powers the Ecosystem Section */}
-      <section className="section-padding bg-black/30">
+      <section id="geckocore-section" className="section-padding bg-black/30">
         <div className="container-max">
           <motion.div
             className="text-center mb-12"
@@ -567,21 +606,6 @@ const HomePage: React.FC = () => {
               Explore the Ecosystem
               <FaArrowRight />
             </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contract Address Section */}
-      <section className="section-padding bg-gradient-to-b from-secondary/30 to-transparent">
-        <div className="container-max">
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <ContractAddress variant="hero" />
           </motion.div>
         </div>
       </section>
