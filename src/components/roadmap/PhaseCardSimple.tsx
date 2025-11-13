@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 interface PhaseCardSimpleProps {
   quarter: string;
@@ -8,6 +10,8 @@ interface PhaseCardSimpleProps {
   achievements: string[];
   completionDate?: string;
   delay?: number;
+  learnMoreLink?: string;
+  learnMoreText?: string;
 }
 
 const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
@@ -16,7 +20,9 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
   status,
   achievements,
   completionDate,
-  delay = 0
+  delay = 0,
+  learnMoreLink,
+  learnMoreText = 'Learn More'
 }) => {
   const getStatusConfig = () => {
     const configs = {
@@ -100,6 +106,16 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
           </motion.div>
         ))}
       </div>
+
+      {/* Learn More Link */}
+      {learnMoreLink && (
+        <div className="mt-6">
+          <Link to={learnMoreLink} className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2 text-sm font-semibold transition-colors">
+            {learnMoreText}
+            <FaArrowRight size={14} />
+          </Link>
+        </div>
+      )}
 
       {/* Completion Date */}
       {completionDate && (

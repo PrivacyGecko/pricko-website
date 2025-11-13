@@ -48,6 +48,11 @@ export default {
         warning: '#fbbf24',            // Yellow - beta badges, important notices
         error: '#f87171',              // Red - errors, destructive actions
         info: '#60a5fa',               // Blue - informational, coming soon
+
+        // PHASE 1 ADDITION: PROTOCOL COLORS (GeckoCore Infrastructure Theme)
+        'protocol-primary': '#06b6d4',    // Cyan-500 for infrastructure
+        'protocol-secondary': '#8b5cf6',  // Purple-500 for governance
+        'protocol-accent': '#14b8a6',     // Teal-500 for highlights
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -89,6 +94,10 @@ export default {
         'gradient-warning': 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
         'gradient-error': 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)',
         'gradient-info': 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)',
+        // PHASE 1 ADDITION: PROTOCOL GRADIENTS
+        'gradient-protocol': 'linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%)',
+        'gradient-protocol-reverse': 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+        'gradient-teal': 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
       },
     },
   },
