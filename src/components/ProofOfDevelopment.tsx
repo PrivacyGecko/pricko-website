@@ -49,13 +49,13 @@ const ProofOfDevelopment: React.FC = () => {
     securityAudits
   } = config.development.metrics;
 
-  // Map product names to modern icons
+  // Map product names to modern colorful icons
   const getProductIcon = (productName: string) => {
     const iconMap: { [key: string]: JSX.Element } = {
-      'Gecko Advisor': <FaSearch className="text-accent" />,
-      'Gecko Share': <FaShareAlt className="text-accent" />,
-      'Gecko Guard': <FaShieldAlt className="text-accent" />,
-      'Gecko Lock': <FaKey className="text-accent" />
+      'Gecko Advisor': <FaSearch className="text-blue-400" />,
+      'Gecko Share': <FaShareAlt className="text-purple-400" />,
+      'Gecko Guard': <FaShieldAlt className="text-cyan-400" />,
+      'Gecko Lock': <FaKey className="text-yellow-400" />
     };
     return iconMap[productName] || <FaCheckCircle className="text-accent" />;
   };
