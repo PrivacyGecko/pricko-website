@@ -62,9 +62,9 @@
   },
   "ecosystem": {
     "totalProducts": 8,
-    "liveProducts": 2,
+    "liveProducts": 4,
     "betaProducts": 1,
-    "inDevelopmentProducts": 5,
+    "inDevelopmentProducts": 3,
     "products": {
       "geckoAdvisor": {
         "id": "gecko-advisor",
@@ -231,15 +231,15 @@
         "name": "Gecko Guard",
         "subtitle": "Tracker & Ad Blocker",
         "category": "Browser Extension",
-        "status": "in-development",
-        "launchDate": "February 2026",
-        "progress": 95,
+        "status": "live",
+        "launchDate": "November 2025",
+        "progress": 100,
         "metrics": {
-          "users": "Extension Store Review",
-          "rating": null,
-          "estimatedLaunch": "Q1 2025"
+          "users": "Live & Available",
+          "rating": "4.7",
+          "estimatedLaunch": null
         },
-        "description": "Manifest V3 privacy browser extension with anti-fingerprinting and multiple stealth modes. Real-time tracker blocking with privacy dashboard.",
+        "description": "Block trackers and ads automatically. Privacy protection that works in any browser.",
         "features": [
           "Real-time tracker blocking",
           "Privacy dashboard",
@@ -273,7 +273,7 @@
             ]
           }
         },
-        "url": null
+        "url": "https://geckoguard.app"
       },
       "geckoLock": {
         "id": "gecko-lock",
@@ -281,13 +281,13 @@
         "name": "Gecko Lock",
         "subtitle": "Zero-Knowledge Password Manager",
         "category": "Password Manager",
-        "status": "in-development",
-        "launchDate": "January 2026",
-        "progress": 70,
+        "status": "live",
+        "launchDate": "November 2025",
+        "progress": 100,
         "metrics": {
-          "users": "In Development",
-          "rating": null,
-          "estimatedLaunch": "Q2 2025"
+          "users": "Live & Available",
+          "rating": "4.6",
+          "estimatedLaunch": null
         },
         "description": "Zero-knowledge password manager with AES-256 encryption and cross-platform sync. Your master password never leaves your device.",
         "features": [
@@ -324,7 +324,7 @@
             ]
           }
         },
-        "url": null
+        "url": "https://geckolock.com"
       },
       "geckoWatch": {
         "id": "gecko-watch",
