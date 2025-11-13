@@ -84,6 +84,8 @@ const RoadmapPageSimplified: React.FC = () => {
                 achievements={phase.achievements}
                 completionDate={phase.completionDate}
                 delay={index * 0.15}
+                learnMoreLink={phase.learnMoreLink}
+                learnMoreText={phase.learnMoreText}
               />
             ))}
           </div>

@@ -12,6 +12,8 @@ export interface SimplifiedPhase {
   status: 'completed' | 'current' | 'upcoming';
   achievements: string[];
   completionDate: string;
+  learnMoreLink?: string;
+  learnMoreText?: string;
 }
 
 export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
@@ -42,14 +44,18 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
   {
     id: 'phase-3',
     quarter: 'Q1 2026',
-    title: 'Product Expansion',
+    title: 'Product Expansion & GeckoCore Protocol',
     status: 'upcoming',
     achievements: [
+      'GeckoCore protocol testnet launch - decentralized privacy infrastructure',
+      'Community node operators begin onboarding with token staking',
       'Gecko Guard (browser extension) - tracker blocker goes live',
       'Gecko Shell (mobile browser) - beta launch with Solana wallet',
-      '1,000 beta testers onboarded for AI features'
+      'GeckoDAO governance framework established for token holders'
     ],
-    completionDate: 'March 2026'
+    completionDate: 'March 2026',
+    learnMoreLink: '/ecosystem',
+    learnMoreText: 'Learn More About GeckoCore'
   },
   {
     id: 'phase-4',
@@ -59,7 +65,8 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
     achievements: [
       'Gecko Lock (password manager) - zero-knowledge launch',
       'Gecko Watch & Gecko View - AI-powered privacy tools',
-      'Cross-platform sync and mobile app releases'
+      'Cross-platform sync and mobile app releases',
+      'API access for third-party integrations with GeckoCore'
     ],
     completionDate: 'September 2026'
   },

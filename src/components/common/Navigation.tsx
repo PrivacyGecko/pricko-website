@@ -14,6 +14,7 @@ const navigationItems: NavigationItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   // Tools will be replaced with dropdown
+  { name: 'Ecosystem', href: '/ecosystem' },
   { name: 'Tokenomics', href: '/tokenomics' },
   { name: 'How to Buy', href: '/how-to-buy' },
   { name: 'Roadmap', href: '/roadmap' },

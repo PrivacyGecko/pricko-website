@@ -27,6 +27,9 @@ const GeckoWatchPage = lazy(() => import('./pages/products/GeckoWatchPage'));
 const GeckoViewPage = lazy(() => import('./pages/products/GeckoViewPage'));
 const GeckoVPNPage = lazy(() => import('./pages/products/GeckoVPNPage'));
 
+// Ecosystem page
+const EcosystemPage = lazy(() => import('./pages/EcosystemPage'));
+
 // Loading fallback component
 const LoadingFallback = () => (
   <div className="min-h-screen bg-primary flex items-center justify-center">
@@ -58,6 +61,7 @@ function App() {
               <Route path="/tokenomics" element={<TokenomicsPage />} />
               <Route path="/how-to-buy" element={<HowToBuyPage />} />
               <Route path="/roadmap" element={<RoadmapPage />} />
+              <Route path="/ecosystem" element={<EcosystemPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsOfServicePage />} />

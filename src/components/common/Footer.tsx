@@ -52,6 +52,7 @@ const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'About', href: '/about' },
     { name: 'Privacy Tools', href: '/tools' },
+    { name: 'Ecosystem', href: '/ecosystem' },
     { name: 'Tokenomics', href: '/tokenomics' },
     { name: 'Roadmap', href: '/roadmap' },
   ];

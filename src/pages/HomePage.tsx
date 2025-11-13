@@ -9,6 +9,7 @@ import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import SocialProof from '../components/SocialProof';
 import TrustBadge from '../components/ui/TrustBadge';
+import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -502,6 +503,68 @@ const HomePage: React.FC = () => {
                 </motion.div>
               </motion.div>
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Powers the Ecosystem Section */}
+      <section className="section-padding bg-black/30">
+        <div className="container-max">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            {/* Q1 2026 Badge */}
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-500/50 text-cyan-300 text-sm font-semibold mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Q1 2026 Protocol Launch
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Powers the <span className="text-cyan-400">Ecosystem</span>
+            </h2>
+
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+              Privacy Gecko is building more than meme magic. <span className="text-cyan-400 font-semibold">GeckoCore</span>, our decentralized privacy protocol, will power 8 privacy tools with community-owned infrastructure. $PRICKO holders gain access to premium features today and staking rewards when the protocol launches Q1 2026.
+            </p>
+          </motion.div>
+
+          {/* UtilityTimeline Component */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {/* Responsive: Vertical on mobile, Horizontal on desktop */}
+            <div className="hidden lg:block">
+              <UtilityTimeline orientation="horizontal" compact={true} />
+            </div>
+            <div className="block lg:hidden">
+              <UtilityTimeline orientation="vertical" compact={true} />
+            </div>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Link to="/ecosystem" className="btn-primary inline-flex items-center gap-2">
+              Explore the Ecosystem
+              <FaArrowRight />
+            </Link>
           </motion.div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaEye, FaShieldAlt } from 'react-icons/fa';
+import { FaRocket, FaEye, FaShieldAlt, FaUsers, FaServer, FaExternalLinkAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
 import UtilityTierCard from '../components/ui/UtilityTierCard';
 import TokenDistributionDonut from '../components/ui/TokenDistributionDonut';
@@ -517,6 +517,83 @@ const TokenomicsPage: React.FC = () => {
             </div>
           </div>
         </motion.section>
+
+        {/* Future Utility: GeckoCore Protocol Section */}
+        <section className="section-padding bg-black/30">
+          <div className="container-max max-w-4xl">
+            <motion.div
+              className="text-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Future Utility: <span className="text-protocol-primary">GeckoCore Protocol</span>
+              </h2>
+              <p className="text-xl text-gray-300 leading-relaxed">
+                Beyond today's live products, $PRICKO will power a decentralized privacy protocol launching Q1 2026. Token holders gain access to staking rewards, governance rights, and node operation incentives.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="card-protocol space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0">
+                  <FaRocket className="text-cyan-400 text-2xl mt-1" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-cyan-300 mb-2">Token Staking</h3>
+                  <p className="text-gray-300">
+                    Stake $PRICKO to earn rewards and participate in protocol governance. APY and staking mechanics will be announced as protocol development progresses.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0">
+                  <FaUsers className="text-purple-400 text-2xl mt-1" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-purple-300 mb-2">Governance (GeckoDAO)</h3>
+                  <p className="text-gray-300">
+                    Token holders vote on protocol upgrades, treasury allocation, and ecosystem development. One token, one vote—true community ownership.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0">
+                  <FaServer className="text-green-400 text-2xl mt-1" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-green-300 mb-2">Node Operation</h3>
+                  <p className="text-gray-300">
+                    Run privacy verification nodes and earn $PRICKO rewards. Node requirements and reward structures will be published in Q4 2025.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="text-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Link to="/ecosystem" className="btn-secondary inline-flex items-center gap-2">
+                Learn More About GeckoCore
+                <FaExternalLinkAlt size={16} />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Contract Address Section */}
         <motion.section

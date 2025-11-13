@@ -14,7 +14,7 @@ const TermsOfServicePage: React.FC = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">Terms of Service</span>
           </h1>
-          <p className="text-muted mb-8">Last Updated: October 13, 2025</p>
+          <p className="text-muted mb-8">Last Updated: November 13, 2025</p>
 
           {/* Content Sections */}
           <div className="space-y-8">
@@ -156,6 +156,33 @@ const TermsOfServicePage: React.FC = () => {
                   wallet to hold and use $PRICKO tokens. We are not responsible for wallet-related
                   issues or lost tokens due to user error.
                 </p>
+                <p className="leading-relaxed">
+                  <strong>5.4 GeckoCore Protocol Development Roadmap:</strong> References to future
+                  GeckoCore protocol infrastructure, staking rewards, node operations, governance features,
+                  and development timelines beyond Q4 2025 constitute forward-looking statements that are
+                  subject to substantial risks, uncertainties, and assumptions. These statements include,
+                  but are not limited to:
+                </p>
+                <ul className="list-disc list-inside ml-4 space-y-1 mt-2">
+                  <li>Q1 2026 testnet launch and subsequent mainnet deployment</li>
+                  <li>Node staking mechanisms and potential rewards</li>
+                  <li>Decentralized governance via GeckoDAO</li>
+                  <li>Protocol-level access control and verification systems</li>
+                  <li>Integration of $PRICKO tokens into future infrastructure</li>
+                </ul>
+                <div className="mt-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    <strong className="text-yellow-400">Important:</strong> Actual development timelines,
+                    features, and functionality may differ materially from current projections due to technical
+                    challenges, regulatory changes, market conditions, resource constraints, or strategic
+                    pivots. Past performance in delivering Privacy Gecko products (Gecko Advisor, Gecko Share,
+                    Gecko Guard, Gecko Lock) does not guarantee future success in building decentralized
+                    infrastructure. $PRICKO tokens provide utility for current products only. Future protocol
+                    utility is aspirational and not guaranteed. No investment returns, staking yields, or
+                    appreciation in value should be expected.
+                  </p>
+                </div>
+
               </div>
             </section>
 

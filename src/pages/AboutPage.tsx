@@ -29,7 +29,8 @@ import {
   FaCheckCircle,
   FaCode,
   FaUserFriends,
-  FaDollarSign
+  FaDollarSign,
+  FaArrowRight
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
@@ -258,6 +259,33 @@ const AboutPage: React.FC = () => {
               </p>
             </motion.div>
           </div>
+
+          {/* GeckoCore Protocol Mention */}
+          <motion.div
+            className="card-outlined border-cyan-500/30 mt-8 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                  <FaNetworkWired className="text-cyan-400 text-xl" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-cyan-300 mb-2">Beyond the Meme: GeckoCore Protocol</h3>
+                <p className="text-gray-300 leading-relaxed mb-3">
+                  Privacy Gecko is building for the long term. <strong>GeckoCore</strong>, our decentralized privacy protocol launching Q1 2026, transforms our suite of tools into community-owned infrastructure. Token holders will stake $PRICKO to run nodes, earn rewards, and govern the ecosystem through GeckoDAO.
+                </p>
+                <Link to="/ecosystem" className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2 text-sm font-semibold">
+                  Explore the Ecosystem
+                  <FaArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </motion.section>
 
         {/* Proof of Commitment Section - NEW */}
