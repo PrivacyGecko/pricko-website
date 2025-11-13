@@ -480,7 +480,7 @@ const HomePage: React.FC = () => {
               <img
                 src="/icons/logo.png"
                 alt="Privacy Gecko Logo"
-                className="w-24 h-24 md:w-32 md:h-32 mb-6 drop-shadow-2xl"
+                className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-6 drop-shadow-2xl"
               />
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
                 <span className="text-accent text-sm font-semibold">Memes With a Mission</span>
