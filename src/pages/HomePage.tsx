@@ -377,9 +377,6 @@ const HomePage: React.FC = () => {
       {/* Proof of Development Section */}
       <ProofOfDevelopment />
 
-      {/* Social Proof Section */}
-      <SocialProof />
-
       {/* TASK 3: From Product Token to Protocol Token - v1.3 Spec Lines 357-483 */}
       <section className="section-padding py-20 bg-secondary/80">
         <div className="container-max">
@@ -534,6 +531,9 @@ const HomePage: React.FC = () => {
 
         </div>
       </section>
+
+      {/* Social Proof Section */}
+      <SocialProof />
 
       {/* TASK 4: FAQ Section - v1.3 Spec Lines 631-713 */}
       <section className="section-padding py-20 bg-secondary/80">
