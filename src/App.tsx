@@ -15,6 +15,9 @@ const HowToBuyPage = lazy(() => import('./pages/HowToBuyPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
+const RiskDisclosurePage = lazy(() => import('./pages/legal/RiskDisclosurePage'));
+const ForwardLookingStatementsPage = lazy(() => import('./pages/legal/ForwardLookingStatementsPage'));
+const GeographicRestrictionsPage = lazy(() => import('./pages/legal/GeographicRestrictionsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Product pages
@@ -66,6 +69,9 @@ function App() {
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsOfServicePage />} />
               <Route path="/disclaimer" element={<DisclaimerPage />} />
+              <Route path="/risk-disclosure" element={<RiskDisclosurePage />} />
+              <Route path="/forward-looking-statements" element={<ForwardLookingStatementsPage />} />
+              <Route path="/geographic-restrictions" element={<GeographicRestrictionsPage />} />
               {/* Product Pages */}
               <Route path="/gecko-advisor" element={<GeckoAdvisorPage />} />
               <Route path="/gecko-share" element={<GeckoSharePage />} />
