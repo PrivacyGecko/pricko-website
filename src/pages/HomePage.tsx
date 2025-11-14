@@ -532,21 +532,6 @@ const HomePage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Forward-Looking Statement Disclaimer for TASK 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto mt-8"
-          >
-            <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
-              <p className="text-xs text-blue-200/80 text-center">
-                <strong className="text-blue-400">⚠️ Forward-Looking Statements:</strong> Protocol development phases and infrastructure scaling projections are subject to successful technical implementation, market adoption, and regulatory considerations. Actual timelines may differ. See our <a href="/forward-looking-statements" className="text-blue-400 hover:text-blue-300 underline">Forward-Looking Statements</a> page for details.
-              </p>
-            </div>
-          </motion.div>
-
         </div>
       </section>
 
