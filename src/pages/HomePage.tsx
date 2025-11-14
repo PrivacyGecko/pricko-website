@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ToolCard from '../components/ui/ToolCard';
 import ContractAddress from '../components/ui/ContractAddress';
 import AnimatedCounter from '../components/ui/AnimatedCounter';
 import NewsletterForm from '../components/ui/NewsletterForm';
@@ -30,67 +29,8 @@ import { FiArrowRight, FiAlertTriangle } from 'react-icons/fi';
 
 const HomePage: React.FC = () => {
   const {
-    getHomepageProducts,
-    getProductCounts,
-    getFormattedMetrics,
     tokenSymbol
   } = useProjectConfig();
-
-  const productCounts = getProductCounts();
-  const metrics = getFormattedMetrics();
-  const homepageProducts = getHomepageProducts(4);
-
-  // Tools ordered by status: Live → Beta → In Development (by completion %)
-  const tools = [
-    // LIVE PRODUCTS (4)
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIi8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "Gecko Advisor",
-      description: "Scan any website to uncover trackers, cookies, and hidden data collection. Open-source privacy analysis tool that grades websites A-F based on their privacy practices. 100% free with no account required.",
-      status: "live" as const,
-      features: ["Website tracker & cookie detection", "Privacy grade (A-F) with evidence", "Security headers & TLS scanning", "Third-party analysis", "5-10 second scan results", "100% free & no account required"],
-      url: "https://geckoadvisor.com"
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTEgMTVoMnYtNmgtMnY2em0wLThoMlY3aC0ydjJ6Ii8+CiAgPHBhdGggZD0iTTkgMTBoLTJsMy0zIDMgM2gtMlY5SDl2MXoiLz4KICA8cGF0aCBkPSJNMTUgMTJ2Mmgyek0xNSAxNGgtM3YyaDNWMTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4=",
-      title: "Gecko Share",
-      description: "Zero-knowledge, token-gated file-sharing SaaS with instant uploads and persistent vault storage.",
-      status: "live" as const,
-      features: ["Instant link → upload", "Persistent vault (Pro)", "Zero-knowledge encryption", "Wallet-connect premium", "Daily quotas system", "Background processing"],
-      url: "https://geckoshare.com"
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTIgMWw5IDNjMCAxIDAgNS0xIDlzLTQgNy05IDlsLTEtMWMtNS0yLTgtNS05LTlzLTEtOC0xLTlsMTAtM3oiLz4KICA8cGF0aCBkPSJtMTIgOCA0IDRIMTBsNC00eiIvPgogIDxyZWN0IHg9IjkiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIiByeD0iMSIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Gecko Guard",
-      description: "Block trackers and ads automatically. Privacy protection that works in any browser.",
-      status: "live" as const,
-      features: ["Real-time tracker blocking", "Anti-fingerprinting shield", "Custom filter lists", "Pro vs free tiers"],
-      url: "https://geckoguard.app"
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTggOGgtMVY2YzAtMi43Ni0yLjI0LTUtNS01UzIgMy4yNCAyIDZoMmMwLTEuNjYgMS4zNC0zIDMtM3MzIDEuMzQgMyAzdjJoLTFjLTEuMSAwLTIgLjktMiAydjEwYzAgMS4xLjkgMiAyIDJoMTBjMS4xIDAgMi0uOSAyLTJWMTBjMC0xLjEtLjktMi0yLTJ6bS01IDljLTEuMSAwLTItLjktMi0ycy45LTIgMi0yIDIgLjkgMiAyLS45IDItMiAyeiIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Gecko Lock",
-      description: "Password manager with zero-knowledge encryption. Your master password never leaves your device.",
-      status: "live" as const,
-      features: ["AES-256 encryption", "Cross-platform sync", "Password generator", "Secure sharing", "Breach monitoring", "Zero-knowledge architecture"],
-      url: "https://geckolock.com"
-    },
-    // IN DEVELOPMENT PRODUCTS (2 shown, 4 total)
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTcgMkg3Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDEwYzEuMSAwIDItLjkgMi0yVjRjMC0xLjEtLjktMi0yLTJ6bS0xIDJIM3YxNGg4VjR6Ii8+CiAgPHBhdGggZD0iTTkgMTloMnYtMkg5djJ6bTAtM2gydi0ySDl2MnptMC0zaDJ2LTJIOVI3eiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTkiIHI9IjEiLz4KPC9zdmc+Cjwvc3ZnPg==",
-      title: "GeckoShell",
-      description: "Cross-platform mobile privacy browser with Solana wallet integration and privacy toolkit SDK. 30% complete, launching Q3-Q4 2026.",
-      status: "in-development" as const,
-      features: ["Cross-platform (iOS, Android)", "Plugin system architecture", "Solana wallet integration", "Privacy toolkit SDK"]
-    },
-    {
-      icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjNGFkZTgwIiByeD0iMTIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMjAgNEg0Yy0xLjEgMC0yIC45LTIgMnYxMmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bS0xIDJoMXYxMEg0VjZoMTV6Ii8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMSIgcj0iMyIvPgogIDxwYXRoIGQ9Im0xNSA4IDIgMk05IDggNyAxMCIvPgo8L3N2Zz4KPC9zdmc+",
-      title: "Gecko View",
-      description: "AI-powered content summarization with end-to-end encrypted bookmarks. 45% complete, launching Q2 2026.",
-      status: "in-development" as const,
-      features: ["AI summaries with GPT-3.5 & GPT-4", "End-to-end encrypted bookmarks", "Browser extension integration", "Smart tagging & organization"]
-    }
-  ];
 
   // Structured data for homepage
   const homepageStructuredData = {
@@ -900,84 +840,6 @@ const HomePage: React.FC = () => {
             </div>
           </motion.div>
 
-        </div>
-      </section>
-
-      {/* Tools Section */}
-      <section className="relative section-padding bg-gradient-to-br from-secondary/80 via-secondary/50 to-secondary/30 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(74,222,128,0.1),transparent_50%)]"></div>
-        </div>
-        
-        <div className="container-max relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Tools That <span className="gradient-text">Ghost the Grid</span>
-              </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-accent to-accent-hover mx-auto mb-8"></div>
-              <p className="text-center text-muted mb-4 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
-                Privacy-first tools powered by <span className="text-accent font-semibold">$PRICKO</span> tokens.
-                Each tool is designed to protect your digital footprint while maintaining the fun,
-                irreverent spirit of the community.
-              </p>
-            </motion.div>
-          </motion.div>
-          
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {tools.map((tool, index) => (
-              <ToolCard
-                key={tool.title}
-                icon={tool.icon}
-                title={tool.title}
-                description={tool.description}
-                status={tool.status}
-                features={tool.features}
-                delay={index * 0.2}
-                url={tool.url}
-              />
-            ))}
-          </motion.div>
-
-          {/* Tools CTA */}
-          <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Link to="/tools">
-              <motion.button
-                className="btn-secondary px-10 py-4 text-lg font-semibold shadow-lg"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(74, 222, 128, 0.2)"
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Explore All Tools <FaArrowRight className="inline ml-2" />
-              </motion.button>
-            </Link>
-          </motion.div>
         </div>
       </section>
 
