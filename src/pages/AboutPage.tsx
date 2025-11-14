@@ -277,7 +277,7 @@ const AboutPage: React.FC = () => {
               <div>
                 <h3 className="text-xl font-bold text-cyan-300 mb-2">Beyond the Meme: GeckoCore Protocol</h3>
                 <p className="text-gray-300 leading-relaxed mb-3">
-                  Privacy Gecko is building for the long term. <strong>GeckoCore</strong>, our decentralized privacy protocol launching Q1 2026, transforms our suite of tools into community-owned infrastructure. Token holders will stake $PRICKO to run nodes, earn rewards, and govern the ecosystem through GeckoDAO.
+                  Privacy Gecko is building for the long term. <strong>GeckoCore</strong>, our decentralized privacy protocol with development beginning Q1 2026, transforms our suite of tools into community-owned infrastructure. Token holders will stake $PRICKO to run nodes, earn rewards, and govern the ecosystem through GeckoDAO.
                 </p>
                 <Link to="/ecosystem" className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2 text-sm font-semibold">
                   Explore the Ecosystem
@@ -407,10 +407,13 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="mt-8 pt-8 border-t border-accent/20">
-              <p className="text-center text-sm text-gray-300 leading-relaxed">
+              <p className="text-center text-sm text-gray-300 leading-relaxed mb-3">
                 <strong className="text-accent">Our Commitment:</strong> We're not a pump-and-dump project.
                 We're building a real ecosystem with measurable progress, transparent development, and genuine utility.
                 Every metric above is verifiable through our live products and public GitHub repositories.
+              </p>
+              <p className="text-center text-xs text-muted/60">
+                Last Updated: November 15, 2025
               </p>
             </div>
           </motion.div>
@@ -654,10 +657,10 @@ const AboutPage: React.FC = () => {
                 Passionate about making digital privacy accessible to everyone.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Twitter">
                   <FaTwitter />
                 </a>
-                <a href="https://github.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://github.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors" aria-label="GitHub">
                   <FaGithub />
                 </a>
               </div>
@@ -680,10 +683,10 @@ const AboutPage: React.FC = () => {
                 Former security researcher with expertise in cryptographic protocols.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Twitter">
                   <FaTwitter />
                 </a>
-                <a href="https://github.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://github.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors" aria-label="GitHub">
                   <FaGithub />
                 </a>
               </div>
@@ -706,10 +709,10 @@ const AboutPage: React.FC = () => {
                 Background in human-computer interaction and behavioral psychology.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Twitter">
                   <FaTwitter />
                 </a>
-                <a href="https://dribbble.com/designgecko" className="text-accent hover:text-accent-hover transition-colors">
+                <a href="https://dribbble.com/designgecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Portfolio">
                   <FaGlobe />
                 </a>
               </div>
@@ -797,30 +800,34 @@ const AboutPage: React.FC = () => {
             a future where privacy is a fundamental right, not a premium feature.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              className="btn-primary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <FaRocket />
-              Join Waitlist
-            </motion.button>
-            <motion.button
-              className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <FaBook />
-              Explore Our Tools
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                className="btn-primary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <FaRocket />
+                Join Waitlist
+              </motion.button>
+            </Link>
+            <Link to="/ecosystem">
+              <motion.button
+                className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <FaBook />
+                Explore Our Ecosystem
+              </motion.button>
+            </Link>
           </div>
         </motion.section>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import PhaseCardSimple from '../components/roadmap/PhaseCardSimple';
@@ -27,8 +28,11 @@ const RoadmapPageSimplified: React.FC = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-professional">
               Our <span className="gradient-text-animated">Journey</span>
             </h1>
-            <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-muted max-w-3xl mx-auto mb-2">
               From launch to full privacy ecosystem. Real progress, realistic timelines.
+            </p>
+            <p className="text-sm text-muted/60 mb-8">
+              Last Updated: November 15, 2025
             </p>
 
             {/* Overall Progress */}
@@ -104,17 +108,19 @@ const RoadmapPageSimplified: React.FC = () => {
                   2027 & Beyond: The <span className="gradient-text-animated">Privacy Revolution</span>
                 </h2>
                 <p className="text-xl text-muted mb-10 max-w-4xl mx-auto">
-                  Building a comprehensive privacy ecosystem with DAO governance, multi-chain expansion, 
+                  Building a comprehensive privacy ecosystem with DAO governance, multi-chain expansion,
                   and community-driven development.
                 </p>
-                
-                <motion.button
-                  className="btn-primary px-10 py-4 text-lg font-semibold"
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Join the Revolution
-                </motion.button>
+
+                <Link to="/contact">
+                  <motion.button
+                    className="btn-primary px-10 py-4 text-lg font-semibold"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Join the Revolution
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.section>
