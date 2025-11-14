@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaChartLine, FaUsers, FaCheckCircle, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaRocket, FaChartLine, FaUsers, FaCheckCircle, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { TokenFlowDiagram } from '../components/ui/TokenFlowDiagram';
 import { ProtocolArchitectureDiagram } from '../components/ui/ProtocolArchitectureDiagram';
@@ -45,7 +45,7 @@ const EcosystemPage: FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Q1 2026 Protocol Launch
+                Q1 2026 Development Begins
               </motion.div>
 
               {/* Title */}
@@ -143,7 +143,7 @@ const EcosystemPage: FC = () => {
 
                 <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
                   <p>
-                    GeckoCore is the privacy protocol launching Q1 2026 that transforms Privacy Gecko from a suite of tools into a decentralized network. Instead of centralized servers, privacy verification happens across a distributed node network—owned and operated by the community.
+                    GeckoCore is the privacy protocol with development beginning Q1 2026, with testnet launch expected in that quarter. It transforms Privacy Gecko from a suite of tools into a decentralized network. Instead of centralized servers, privacy verification happens across a distributed node network—owned and operated by the community.
                   </p>
 
                   <p>
@@ -155,7 +155,15 @@ const EcosystemPage: FC = () => {
                   </p>
 
                   <p className="text-accent font-semibold">
-                    $PRICKO token is required for access to premium features and node operation.
+                    $PRICKO token is required for access to premium features and node operation.{' '}
+                    <a
+                      href="https://github.com/privacy-gecko"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 underline inline-flex items-center gap-1 ml-2"
+                    >
+                      View on GitHub →
+                    </a>
                   </p>
                 </div>
               </motion.div>
@@ -174,6 +182,17 @@ const EcosystemPage: FC = () => {
                 </div>
               </motion.div>
             </div>
+
+            {/* Forward-Looking Disclaimer - Moved from Section 8 */}
+            <motion.div
+              className="max-w-4xl mx-auto mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <ProtocolDisclaimer variant="warning" compact={true} />
+            </motion.div>
           </div>
         </section>
 
@@ -362,6 +381,27 @@ const EcosystemPage: FC = () => {
                 showConnections={true}
               />
             </motion.div>
+
+            {/* Developer Resources Link */}
+            <motion.div
+              className="text-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-gray-400">
+                <strong className="text-white">For Developers:</strong>{' '}
+                <a
+                  href="https://github.com/privacy-gecko"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 underline"
+                >
+                  Explore Technical Documentation & API Reference
+                </a>
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -453,24 +493,15 @@ const EcosystemPage: FC = () => {
                   Buy $PRICKO
                   <FaExternalLinkAlt size={18} />
                 </a>
-                <a
-                  href="https://www.privacygecko.com/roadmap#geckocore"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/roadmap"
                   className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4"
                 >
-                  Read Whitepaper
-                  <FaExternalLinkAlt size={18} />
-                </a>
+                  View Full Roadmap
+                  <FaArrowRight size={18} />
+                </Link>
               </div>
             </motion.div>
-          </div>
-        </section>
-
-        {/* Section 8: Legal Disclaimers */}
-        <section className="section-padding bg-black/30">
-          <div className="container-max max-w-4xl">
-            <ProtocolDisclaimer variant="warning" compact={false} />
           </div>
         </section>
       </main>
