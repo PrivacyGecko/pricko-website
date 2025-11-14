@@ -253,7 +253,7 @@ const HomePage: React.FC = () => {
                   Buy $PRICKO <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                 </motion.a>
                 <motion.a
-                  href="https://privacygecko.com/geckocore"
+                  href="https://privacygecko.com/whitepaper"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-10 py-5"
