@@ -172,9 +172,9 @@ const HomePage: React.FC = () => {
                     <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                     <span className="text-accent font-medium text-sm">Privacy Gecko Ecosystem</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
-                    <FaBrain className="text-blue-400 text-sm" />
-                    <span className="text-blue-400 font-medium text-sm">AI-Enhanced</span>
+                  <div className="inline-flex items-center gap-2 bg-purple-500/10 px-4 py-2 rounded-full border border-purple-500/20">
+                    <FaRocket className="text-purple-400 text-sm" />
+                    <span className="text-purple-400 font-medium text-sm">GeckoCore Protocol</span>
                   </div>
                 </div>
 
@@ -190,7 +190,7 @@ const HomePage: React.FC = () => {
 
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
                   <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.betaTesters.formatted} users.
-                  <span className="text-accent"> AI-enhanced privacy tools with 2 more at 90%+ completion.</span> Real code. Real traction. Real results.
+                  <span className="text-purple-400"> GeckoCore Protocol launching Q1 2026 with staking rewards & governance.</span> Real code. Real traction. Real results.
                 </p>
               </motion.div>
 
@@ -525,7 +525,9 @@ const HomePage: React.FC = () => {
                 className="card-interactive text-center"
                 whileHover={{ y: -8 }}
               >
-                <div className="text-4xl mb-4">🔒</div>
+                <div className="text-5xl mb-4 flex justify-center">
+                  <FaShieldAlt className="text-cyan-400" />
+                </div>
                 <h3 className="text-lg font-semibold text-white mb-2">4 Live Products</h3>
                 <p className="text-muted text-sm">Gecko Advisor, Gecko Share, Gecko Guard, Gecko Lock — all available today</p>
               </motion.div>
@@ -534,7 +536,9 @@ const HomePage: React.FC = () => {
                 className="card-interactive text-center"
                 whileHover={{ y: -8 }}
               >
-                <div className="text-4xl mb-4">⚡</div>
+                <div className="text-5xl mb-4 flex justify-center">
+                  <FaBolt className="text-yellow-400" />
+                </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Powered by $PRICKO</h3>
                 <p className="text-muted text-sm">Token holders get premium features, staking rewards, and governance rights</p>
               </motion.div>
@@ -543,7 +547,9 @@ const HomePage: React.FC = () => {
                 className="card-interactive text-center"
                 whileHover={{ y: -8 }}
               >
-                <div className="text-4xl mb-4">🌐</div>
+                <div className="text-5xl mb-4 flex justify-center">
+                  <FaGithub className="text-purple-400" />
+                </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Open Source & Audited</h3>
                 <p className="text-muted text-sm">All code public on GitHub, independently security audited</p>
               </motion.div>
