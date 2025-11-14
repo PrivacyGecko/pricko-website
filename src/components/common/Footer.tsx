@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useProjectConfig } from '../../hooks/useProjectConfig';
 import MascotImage from '../ui/MascotImage';
-import { SEC_REGISTRATION_DISCLAIMER } from '../../constants/legal';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -303,13 +302,6 @@ const Footer: React.FC = () => {
           <div className="bg-secondary/40 border border-accent/20 rounded-lg p-6 max-w-4xl mx-auto">
             <p className="text-xs md:text-sm text-muted leading-relaxed text-center">
               <span className="text-accent font-semibold">⚠️ Legal Disclaimer:</span> {footerDisclaimer}
-            </p>
-          </div>
-
-          {/* CRITICAL: SEC Registration Disclaimer - Required */}
-          <div className="bg-yellow-500/5 border border-yellow-500/20 rounded-lg p-4 max-w-4xl mx-auto">
-            <p className="text-xs md:text-sm text-yellow-200/90 leading-relaxed text-center">
-              <span className="text-yellow-400 font-semibold">📋 SEC Disclosure:</span> {SEC_REGISTRATION_DISCLAIMER}
             </p>
           </div>
         </motion.div>

@@ -189,7 +189,7 @@ const HomePage: React.FC = () => {
                 </h2>
 
                 <p className="text-lg md:text-xl text-muted max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
-                  {tokenSymbol} is the utility token for Privacy Gecko's ecosystem of 8 products
+                  {tokenSymbol} is the utility token for Privacy Gecko's ecosystem products
                   <strong className="text-cyan-400"> and the future GeckoCore infrastructure protocol</strong>.
                   <br /><br />
                   As the network grows, {tokenSymbol} becomes the currency for privacy verification
