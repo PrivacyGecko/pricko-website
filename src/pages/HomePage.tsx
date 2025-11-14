@@ -172,9 +172,9 @@ const HomePage: React.FC = () => {
                     <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                     <span className="text-accent font-medium text-sm">Privacy Gecko Ecosystem</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 bg-purple-500/10 px-4 py-2 rounded-full border border-purple-500/20">
-                    <FaRocket className="text-purple-400 text-sm" />
-                    <span className="text-purple-400 font-medium text-sm">GeckoCore Protocol</span>
+                  <div className="inline-flex items-center gap-2 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/20">
+                    <FaRocket className="text-cyan-400 text-sm" />
+                    <span className="text-cyan-400 font-medium text-sm">GeckoCore Protocol</span>
                   </div>
                 </div>
 
@@ -190,7 +190,7 @@ const HomePage: React.FC = () => {
 
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
                   <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.betaTesters.formatted} users.
-                  <span className="text-purple-400"> GeckoCore Protocol launching Q1 2026 with staking rewards & governance.</span> Real code. Real traction. Real results.
+                  <span className="text-cyan-400"> GeckoCore Protocol launching Q1 2026 with staking rewards & governance.</span> Real code. Real traction. Real results.
                 </p>
               </motion.div>
 
@@ -548,7 +548,7 @@ const HomePage: React.FC = () => {
                 whileHover={{ y: -8 }}
               >
                 <div className="text-5xl mb-4 flex justify-center">
-                  <FaGithub className="text-purple-400" />
+                  <FaGithub className="text-accent" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Open Source & Audited</h3>
                 <p className="text-muted text-sm">All code public on GitHub, independently security audited</p>
