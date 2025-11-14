@@ -17,18 +17,25 @@ const TrustBadge: React.FC<TrustBadgeProps> = ({
 }) => {
   return (
     <motion.div
-      className="flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-all duration-300"
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      className="relative flex flex-col items-center text-center p-6 bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-2xl border border-accent/20 hover:border-accent/50 transition-all duration-300 overflow-hidden group"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ y: -8, scale: 1.02 }}
     >
-      <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4">
-        <Icon className="text-accent text-3xl" />
+      {/* Background gradient glow effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+      {/* Icon with enhanced styling */}
+      <div className="relative w-20 h-20 bg-gradient-to-br from-accent/20 to-accent/10 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+        <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+        <Icon className="relative text-accent text-4xl drop-shadow-lg" />
       </div>
-      <h3 className="text-lg font-semibold text-accent mb-2">{title}</h3>
-      <p className="text-muted text-sm leading-relaxed">{description}</p>
+
+      {/* Content */}
+      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">{title}</h3>
+      <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
     </motion.div>
   );
 };
