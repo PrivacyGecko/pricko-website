@@ -13,6 +13,7 @@ import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
+import { HERO_RISK_WARNING } from '../constants/legal';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -30,7 +31,7 @@ import {
   FaBrain,
   FaExternalLinkAlt
 } from 'react-icons/fa';
-import { FiArrowRight, FiCalendar } from 'react-icons/fi';
+import { FiArrowRight, FiCalendar, FiAlertTriangle } from 'react-icons/fi';
 
 const HomePage: React.FC = () => {
   const {
@@ -178,44 +179,105 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
                   <span className="gradient-text text-shadow">
-                    Privacy Tools Powered by {tokenSymbol} Token.
+                    {tokenSymbol}
                   </span>
                 </h1>
 
-                <p className="text-2xl md:text-3xl font-bold text-accent mb-3">
-                  <span className="gradient-text">Zero Vaporware. All Utility.</span>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-semibold mb-6">
+                  Powering Privacy Infrastructure on Solana
+                </h2>
+
+                <p className="text-lg md:text-xl text-muted max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+                  {tokenSymbol} is the utility token for Privacy Gecko's ecosystem of 8 products
+                  <strong className="text-white"> and the future GeckoCore infrastructure protocol</strong>.
+                  <br /><br />
+                  As the network grows, {tokenSymbol} becomes the currency for privacy verification
+                  across Solana — powering proof queries, node operations, and protocol governance.
                 </p>
 
-                <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
-                  <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.betaTesters.formatted} users.
-                  <span className="text-cyan-400"> GeckoCore Protocol development begins Q1 2026.</span> Real code. Real traction. Real results.
-                </p>
+                {/* CRITICAL: Risk Warning Box - Required for Legal Compliance */}
+                <motion.div
+                  className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 max-w-2xl mx-auto lg:mx-0 mb-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <div className="flex items-start gap-3">
+                    <FiAlertTriangle className="text-yellow-500 text-xl mt-0.5 flex-shrink-0" />
+                    <div className="text-left text-sm text-yellow-100">
+                      <strong className="block mb-1">{HERO_RISK_WARNING.title}</strong>
+                      {HERO_RISK_WARNING.content}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* TASK 1: Three Hero Value Proposition Cards - v1.3 Spec Lines 103-129 */}
+                <motion.div
+                  className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto lg:mx-0 mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <motion.div
+                    className="card-interactive bg-secondary border border-accent/30 p-6 text-center"
+                    whileHover={{ y: -4 }}
+                  >
+                    <div className="text-4xl mb-3">✅</div>
+                    <h3 className="text-xl font-bold text-white mb-2">Proven Utility</h3>
+                    <p className="text-sm text-muted">
+                      8 real products (4 live today) with token-gated features
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    className="card-interactive bg-secondary border border-accent/30 p-6 text-center"
+                    whileHover={{ y: -4 }}
+                  >
+                    <div className="text-4xl mb-3">🏗️</div>
+                    <h3 className="text-xl font-bold text-white mb-2">Infrastructure Play</h3>
+                    <p className="text-sm text-muted">
+                      GeckoCore protocol launching 2026, opening to external builders
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    className="card-interactive bg-secondary border border-accent/30 p-6 text-center"
+                    whileHover={{ y: -4 }}
+                  >
+                    <div className="text-4xl mb-3">📈</div>
+                    <h3 className="text-xl font-bold text-white mb-2">Network Effects</h3>
+                    <p className="text-sm text-muted">
+                      More integrations = More demand = Compounding value
+                    </p>
+                  </motion.div>
+                </motion.div>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <Link to="/tools">
-                  <motion.button
-                    className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-8 py-4 shadow-lg"
-                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Explore Live Products <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-                  </motion.button>
-                </Link>
                 <motion.a
-                  href="#proof-of-development"
-                  className="btn-secondary text-lg px-8 py-4"
+                  href="/how-to-buy"
+                  className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-10 py-5 shadow-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Buy $PRICKO <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                </motion.a>
+                <motion.a
+                  href="https://privacygecko.com/geckocore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-10 py-5"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  See Proof of Development
+                  Read Whitepaper <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                 </motion.a>
               </motion.div>
 
@@ -678,6 +740,674 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* TASK 2: Utility Today vs Roadmap Utility - v1.3 Spec Lines 161-316 */}
+      <section className="section-padding py-20 bg-secondary">
+        <div className="container-max">
+
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              More Than a Meme — <span className="gradient-text">Infrastructure Token</span>
+            </h2>
+            <p className="text-xl text-muted max-w-3xl mx-auto">
+              $PRICKO starts with product utility today and scales to infrastructure
+              utility as GeckoCore launches.
+            </p>
+          </motion.div>
+
+          {/* Two-Column: Utility Today vs Roadmap Utility */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+
+            {/* Current Utility (TODAY) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-secondary/80 rounded-xl border-2 border-accent/50 p-8"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <span className="text-2xl text-black">✓</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Utility Today
+                </h3>
+              </div>
+
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent text-xl mt-1">→</span>
+                  <div>
+                    <div className="font-semibold text-white">Product Access</div>
+                    <div className="text-sm text-muted">
+                      Premium features across 8 Privacy Gecko products
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent text-xl mt-1">→</span>
+                  <div>
+                    <div className="font-semibold text-white">AI Query Credits</div>
+                    <div className="text-sm text-muted">
+                      Unlimited AI-powered privacy analysis (Q1-Q2 2026)
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent text-xl mt-1">→</span>
+                  <div>
+                    <div className="font-semibold text-white">Early Access</div>
+                    <div className="text-sm text-muted">
+                      First access to new products and features as they launch
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <div className="mt-6 pt-6 border-t border-border">
+                <p className="text-sm text-muted">
+                  <strong className="text-white">Proof of Delivery:</strong>
+                  {' '}4 products live today, 4 more launching 2026
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Future Utility (ROADMAP) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-secondary/80 rounded-xl border-2 border-border p-8"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-zinc-700 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl text-gray-400">🚀</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  Roadmap Utility
+                </h3>
+              </div>
+
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-gray-500 text-xl mt-1">○</span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="font-semibold text-white">Protocol Access</div>
+                      <span className="text-xs bg-zinc-700 text-gray-400 px-2 py-1 rounded">
+                        Q2 2026
+                      </span>
+                    </div>
+                    <div className="text-sm text-muted">
+                      Developers pay $PRICKO for GeckoCore API usage when SDK launches
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gray-500 text-xl mt-1">○</span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="font-semibold text-white">Node Participation</div>
+                      <span className="text-xs bg-zinc-700 text-gray-400 px-2 py-1 rounded">
+                        Q3-Q4 2026
+                      </span>
+                    </div>
+                    <div className="text-sm text-muted">
+                      Participate in proof validation network when testnet launches
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gray-500 text-xl mt-1">○</span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="font-semibold text-white">External Integrations</div>
+                      <span className="text-xs bg-zinc-700 text-gray-400 px-2 py-1 rounded">
+                        2026+
+                      </span>
+                    </div>
+                    <div className="text-sm text-muted">
+                      Every dApp, wallet, or protocol using GeckoCore drives $PRICKO demand
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-gray-500 text-xl mt-1">○</span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="font-semibold text-white">GeckoDAO Governance</div>
+                      <span className="text-xs bg-zinc-700 text-gray-400 px-2 py-1 rounded">
+                        2027+
+                      </span>
+                    </div>
+                    <div className="text-sm text-muted">
+                      Vote on protocol upgrades and future product direction
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <div className="mt-6 pt-6 border-t border-border">
+                <p className="text-sm text-muted">
+                  <strong className="text-white">Subject to:</strong>
+                  {' '}Successful protocol development and network launch
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* The Vision Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-accent/10 to-accent/5 border-2 border-accent/30 rounded-xl p-10 text-center"
+          >
+            <h3 className="text-3xl font-bold text-white mb-4">
+              The Infrastructure Play
+            </h3>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6">
+              Privacy Gecko's 8 products prove the utility model works. But the real
+              vision: <strong className="text-white">GeckoCore becomes open infrastructure</strong> where
+              any Solana dApp can integrate privacy verification.
+            </p>
+            <p className="text-lg text-muted max-w-3xl mx-auto">
+              Following the Solana infrastructure playbook proven by Pyth and Jito —
+              building foundational privacy verification that applications can integrate.
+            </p>
+          </motion.div>
+
+          {/* Forward-Looking Statement Disclaimer for TASK 2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto mt-8"
+          >
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
+              <p className="text-xs text-blue-200/80 text-center">
+                <strong className="text-blue-400">⚠️ Forward-Looking Statements:</strong> Roadmap utility features and timelines are estimates subject to change based on development progress, market conditions, and technical feasibility. See our <a href="/forward-looking-statements" className="text-blue-400 hover:text-blue-300 underline">Forward-Looking Statements</a> page for details.
+              </p>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* TASK 3: From Product Token to Protocol Token - v1.3 Spec Lines 357-483 */}
+      <section className="section-padding py-20 bg-secondary/80">
+        <div className="container-max">
+
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              From Product Token to <span className="gradient-text">Protocol Token</span>
+            </h2>
+            <p className="text-xl text-muted max-w-3xl mx-auto">
+              The value evolution as we complete Phase 1 and launch GeckoCore infrastructure
+            </p>
+          </motion.div>
+
+          {/* Three Phases of Value */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+
+            {/* Phase 1: Product Utility */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-accent/50 p-8"
+            >
+              <div className="text-5xl mb-4">🎯</div>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Phase 1 (NOW)
+              </h3>
+              <h4 className="text-lg font-semibold text-accent mb-4">
+                Product Utility
+              </h4>
+              <p className="text-gray-300 text-sm mb-4">
+                Token value = Access to 8 Privacy Gecko products with premium features
+                and AI capabilities.
+              </p>
+              <div className="text-sm text-muted">
+                <strong className="text-white">Current:</strong> 4 products live,
+                4 launching 2026
+              </div>
+            </motion.div>
+
+            {/* Phase 2: Developer Ecosystem */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-8"
+            >
+              <div className="text-5xl mb-4">🏗️</div>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Phase 2 (2026)
+              </h3>
+              <h4 className="text-lg font-semibold text-gray-400 mb-4">
+                Developer Ecosystem
+              </h4>
+              <p className="text-gray-300 text-sm mb-4">
+                Token value = Product utility + Protocol access for external developers
+                building on GeckoCore.
+              </p>
+              <div className="text-sm text-muted">
+                <strong className="text-white">Timeline:</strong> SDK Q2 2026,
+                Testnet Q3-Q4 2026
+              </div>
+            </motion.div>
+
+            {/* Phase 3: Network Effects */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-8"
+            >
+              <div className="text-5xl mb-4">🌐</div>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Phase 3 (2027+)
+              </h3>
+              <h4 className="text-lg font-semibold text-gray-400 mb-4">
+                Network Effects
+              </h4>
+              <p className="text-gray-300 text-sm mb-4">
+                Token value = Product + Protocol + Network effects from every external
+                dApp, wallet, and service using GeckoCore.
+              </p>
+              <div className="text-sm text-muted">
+                <strong className="text-white">Vision:</strong> Privacy infrastructure
+                for all of Solana
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* Comparison Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-secondary rounded-xl border border-border p-8"
+          >
+            <h3 className="text-2xl font-bold text-white text-center mb-8">
+              Why Infrastructure Tokens Scale
+            </h3>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="pb-4 text-muted font-semibold">Token Type</th>
+                    <th className="pb-4 text-muted font-semibold">Demand Driver</th>
+                    <th className="pb-4 text-muted font-semibold">Growth Limit</th>
+                    <th className="pb-4 text-muted font-semibold">Examples</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-300">
+                  <tr className="border-b border-zinc-800">
+                    <td className="py-4">
+                      <strong className="text-white">Product Token</strong>
+                    </td>
+                    <td className="py-4">Users of specific products</td>
+                    <td className="py-4 text-yellow-400">Limited to product TAM</td>
+                    <td className="py-4 text-sm">Most utility tokens</td>
+                  </tr>
+                  <tr className="border-b border-zinc-800">
+                    <td className="py-4">
+                      <strong className="text-accent">Protocol Token</strong>
+                    </td>
+                    <td className="py-4">Anyone building on infrastructure</td>
+                    <td className="py-4 text-accent">Scales with ecosystem</td>
+                    <td className="py-4 text-sm">LINK, PYTH, JTO</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4">
+                      <strong className="text-accent">$PRICKO</strong>
+                    </td>
+                    <td className="py-4">Products now, Protocol future</td>
+                    <td className="py-4 text-accent">Both models combined</td>
+                    <td className="py-4 text-sm">Privacy Gecko + GeckoCore</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+
+          {/* Forward-Looking Statement Disclaimer for TASK 3 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto mt-8"
+          >
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
+              <p className="text-xs text-blue-200/80 text-center">
+                <strong className="text-blue-400">⚠️ Forward-Looking Statements:</strong> Protocol development phases and infrastructure scaling projections are subject to successful technical implementation, market adoption, and regulatory considerations. Actual timelines may differ. See our <a href="/forward-looking-statements" className="text-blue-400 hover:text-blue-300 underline">Forward-Looking Statements</a> page for details.
+              </p>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* TASK 4: FAQ Section - v1.3 Spec Lines 631-713 */}
+      <section className="section-padding py-20 bg-secondary/80">
+        <div className="container-max">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <span className="gradient-text">Frequently Asked Questions</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-hover mx-auto"></div>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+
+            {/* Q1: What utility does $PRICKO have RIGHT NOW? */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">
+                What utility does $PRICKO have RIGHT NOW?
+              </h3>
+              <p className="text-gray-300">
+                <strong className="text-white">Day one:</strong> Premium access to Privacy
+                Gecko products (4 live now, 4 launching 2026), AI query credits (launching Q1-Q2 2026),
+                and early access to new features.
+              </p>
+            </motion.div>
+
+            {/* Q2: When does GeckoCore protocol launch? */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">
+                When does GeckoCore protocol launch?
+              </h3>
+              <p className="text-gray-300">
+                <strong className="text-white">Developer Preview:</strong> Q2 2026 (hosted API)<br />
+                <strong className="text-white">Testnet:</strong> Q3-Q4 2026<br />
+                <strong className="text-white">Mainnet:</strong> 2027+
+              </p>
+            </motion.div>
+
+            {/* Q3: Why invest in $PRICKO if protocol is 2+ years away? */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">
+                Why invest in $PRICKO if protocol is 2+ years away?
+              </h3>
+              <p className="text-gray-300 mb-3">
+                <strong className="text-white">Three reasons:</strong>
+              </p>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
+                <li>Immediate utility from 8 products (4 live today)</li>
+                <li>Get in early before protocol value accrues (infrastructure tokens 10-100x when they prove network effects)</li>
+                <li>Privacy Gecko team is actually shipping products, not just promises (proof of execution)</li>
+              </ul>
+            </motion.div>
+
+            {/* Q4: How is this different from other privacy tokens? */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">
+                How is this different from other privacy tokens?
+              </h3>
+              <p className="text-gray-300">
+                Most privacy tokens are either: (1) Privacy coins (Monero, Zcash) for transactions,
+                or (2) Single-product tokens (VPN, browser, etc.).
+                <br /><br />
+                <strong className="text-white">$PRICKO is unique:</strong> Product utility TODAY
+                (8 tools) + Protocol infrastructure TOMORROW (GeckoCore opens to all Solana dApps).
+                We're following Pyth and Jito's playbook — building Solana infrastructure, not just apps.
+              </p>
+            </motion.div>
+
+            {/* Q5: Can developers build on GeckoCore now? */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">
+                Can developers build on GeckoCore now?
+              </h3>
+              <p className="text-gray-300">
+                <strong className="text-white">Not yet.</strong> The developer SDK launches Q2 2026.
+                Right now we're completing Phase 1 (8 products) to prove the infrastructure works.
+                GeckoCore whitepaper is available now to share our technical vision.
+              </p>
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* TASK 8: Roadmap Timeline Section - v1.3 Spec Lines 494-627 */}
+      <section className="section-padding py-20 bg-secondary">
+        <div className="container-max">
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white text-center mb-12"
+          >
+            The <span className="gradient-text">$PRICKO Roadmap</span>
+          </motion.h2>
+
+          {/* Timeline */}
+          <div className="space-y-8 max-w-5xl mx-auto">
+
+            {/* NOW - Nov-Dec 2025 */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row gap-6"
+            >
+              <div className="flex-shrink-0 md:w-40 text-left md:text-right">
+                <span className="inline-block bg-accent text-black font-bold px-4 py-2 rounded-lg">
+                  NOW
+                </span>
+              </div>
+              <div className="flex-1 bg-secondary/80 rounded-xl border border-accent/50 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  ✓ Token Launch & Product Utility
+                </h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-accent">✓</span>
+                    <span>$PRICKO launches on Solana</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-accent">✓</span>
+                    <span>4 products live with token-gated features</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-accent">✓</span>
+                    <span>GeckoCore whitepaper published</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Q1-Q2 2026 */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row gap-6"
+            >
+              <div className="flex-shrink-0 md:w-40 text-left md:text-right">
+                <span className="inline-block bg-zinc-700 text-white font-bold px-4 py-2 rounded-lg">
+                  Q1-Q2 2026
+                </span>
+              </div>
+              <div className="flex-1 bg-secondary/80 rounded-xl border border-border p-6">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Phase 1 Complete + Protocol Preview
+                </h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>All 8 products operational</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>AI features go live (Q1-Q2)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>GeckoCore Developer Preview (hosted API)</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Q3-Q4 2026 */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row gap-6"
+            >
+              <div className="flex-shrink-0 md:w-40 text-left md:text-right">
+                <span className="inline-block bg-zinc-700 text-white font-bold px-4 py-2 rounded-lg">
+                  Q3-Q4 2026
+                </span>
+              </div>
+              <div className="flex-1 bg-secondary/80 rounded-xl border border-border p-6">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Protocol Launch Begins
+                </h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>GeckoCore testnet launches</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>Node operator program begins</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>$PRICKO becomes protocol access token</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* 2027+ */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row gap-6"
+            >
+              <div className="flex-shrink-0 md:w-40 text-left md:text-right">
+                <span className="inline-block bg-zinc-700 text-white font-bold px-4 py-2 rounded-lg">
+                  2027+
+                </span>
+              </div>
+              <div className="flex-1 bg-secondary/80 rounded-xl border border-border p-6">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Full Infrastructure Network
+                </h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>Mainnet launch & full decentralization</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>External dApp integrations driving demand</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500">○</span>
+                    <span>GeckoDAO governance operational</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* Forward-Looking Statement Disclaimer for Roadmap */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto mt-8"
+          >
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
+              <p className="text-xs text-blue-200/80 text-center">
+                <strong className="text-blue-400">⚠️ Forward-Looking Statements:</strong> All timelines and features described above are estimates subject to change. Actual results may differ materially from projections. See our <a href="/forward-looking-statements" className="text-blue-400 hover:text-blue-300 underline">Forward-Looking Statements</a> page for details.
+              </p>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
