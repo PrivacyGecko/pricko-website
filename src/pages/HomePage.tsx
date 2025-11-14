@@ -13,7 +13,6 @@ import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
-import { HERO_RISK_WARNING } from '../constants/legal';
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -196,22 +195,6 @@ const HomePage: React.FC = () => {
                   As the network grows, {tokenSymbol} becomes the currency for privacy verification
                   across Solana — powering proof queries, node operations, and protocol governance.
                 </p>
-
-                {/* CRITICAL: Risk Warning Box - Required for Legal Compliance */}
-                <motion.div
-                  className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 max-w-2xl mx-auto lg:mx-0 mb-6"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  <div className="flex items-start gap-3">
-                    <FiAlertTriangle className="text-yellow-500 text-xl mt-0.5 flex-shrink-0" />
-                    <div className="text-left text-sm text-yellow-100">
-                      <strong className="block mb-1">{HERO_RISK_WARNING.title}</strong>
-                      {HERO_RISK_WARNING.content}
-                    </div>
-                  </div>
-                </motion.div>
 
                 {/* TASK 1: Three Hero Value Proposition Cards - v1.3 Spec Lines 103-129 */}
                 <motion.div
