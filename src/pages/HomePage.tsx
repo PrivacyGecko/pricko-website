@@ -190,7 +190,7 @@ const HomePage: React.FC = () => {
 
                 <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
                   <span className="text-white font-semibold">While others talk, we ship.</span> {productCounts.live} live products serving {metrics.betaTesters.formatted} users.
-                  <span className="text-cyan-400"> GeckoCore Protocol launching Q1 2026 with staking rewards & governance.</span> Real code. Real traction. Real results.
+                  <span className="text-cyan-400"> GeckoCore Protocol development begins Q1 2026.</span> Real code. Real traction. Real results.
                 </p>
               </motion.div>
 
@@ -729,7 +729,7 @@ const HomePage: React.FC = () => {
               viewport={{ once: true }}
             >
               <FiCalendar className="text-lg" />
-              Q1 2026 Protocol Launch
+              Q1 2026 Development Kickoff
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -738,8 +738,8 @@ const HomePage: React.FC = () => {
 
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
               <span className="font-semibold text-white">$PRICKO holders</span> get premium access to 4 live privacy tools today. No
-              waiting, no vaporware. Meanwhile, we're building <span className="text-cyan-400 font-bold">GeckoCore</span> — a
-              decentralized privacy protocol launching Q1 2026 that will power our full ecosystem of 8 tools with
+              waiting, no vaporware. Meanwhile, we're planning <span className="text-cyan-400 font-bold">GeckoCore</span> — a
+              decentralized privacy protocol with development starting Q1 2026 that will power our full ecosystem of 8 tools with
               staking rewards and community governance.
             </p>
           </motion.div>
