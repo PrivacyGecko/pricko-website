@@ -263,63 +263,6 @@ const HomePage: React.FC = () => {
                   Read Whitepaper <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                 </motion.a>
               </motion.div>
-
-              {/* Stats Section - Proof-Focused with Animated Counters */}
-              <motion.div
-                className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 mb-12"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <AnimatedCounter
-                  value={productCounts.live}
-                  label="LIVE Products Now"
-                  icon={<FaCheckCircle className="mx-auto text-xl" />}
-                  duration={1500}
-                  delay={500}
-                />
-                <AnimatedCounter
-                  value={metrics.betaTesters.formatted}
-                  label="Active Users"
-                  icon={<FaUsers className="mx-auto text-xl" />}
-                  duration={2000}
-                  delay={700}
-                />
-                <AnimatedCounter
-                  value="90%+"
-                  label="Near Launch"
-                  icon={<FaClock className="mx-auto text-xl" />}
-                  duration={1800}
-                  delay={900}
-                />
-              </motion.div>
-
-              {/* Trust Badges Section */}
-              <motion.div
-                className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <TrustBadge
-                  icon={FaShieldAlt}
-                  title="Fully Open Source"
-                  description="All code publicly available on GitHub. Community auditable."
-                  delay={0.1}
-                />
-                <TrustBadge
-                  icon={FaGithub}
-                  title="Active Development"
-                  description="Consistent commits and updates. Real progress, not vaporware."
-                  delay={0.2}
-                />
-                <TrustBadge
-                  icon={FaCheckCircle}
-                  title="Security Audited"
-                  description="Independent security audits completed. AES-256 encryption."
-                  delay={0.3}
-                />
-              </motion.div>
             </motion.div>
 
             {/* Right Column: Enhanced Logo Display */}
