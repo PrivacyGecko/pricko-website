@@ -382,9 +382,9 @@ const EcosystemPage: FC = () => {
               />
             </motion.div>
 
-            {/* Developer Resources Link */}
+            {/* Developer Resources Links */}
             <motion.div
-              className="text-center mt-8"
+              className="text-center mt-8 space-y-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -399,6 +399,16 @@ const EcosystemPage: FC = () => {
                   className="text-cyan-400 hover:text-cyan-300 underline"
                 >
                   Explore Technical Documentation & API Reference
+                </a>
+              </p>
+              <p className="text-gray-400">
+                <a
+                  href="https://www.privacygecko.com/whitepaper"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 hover:text-purple-300 underline inline-flex items-center gap-2 font-semibold"
+                >
+                  Read Full GeckoCore Whitepaper (Technical Specifications) →
                 </a>
               </p>
             </motion.div>
@@ -485,10 +495,19 @@ const EcosystemPage: FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://pump.fun"
+                  href="https://www.privacygecko.com/whitepaper"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary inline-flex items-center gap-2 text-lg px-8 py-4"
+                >
+                  Read Technical Whitepaper
+                  <FaExternalLinkAlt size={18} />
+                </a>
+                <a
+                  href="https://pump.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4"
                 >
                   Buy $PRICKO
                   <FaExternalLinkAlt size={18} />
@@ -497,7 +516,7 @@ const EcosystemPage: FC = () => {
                   to="/roadmap"
                   className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4"
                 >
-                  View Full Roadmap
+                  View Roadmap
                   <FaArrowRight size={18} />
                 </Link>
               </div>

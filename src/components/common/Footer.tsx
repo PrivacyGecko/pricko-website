@@ -55,6 +55,7 @@ const Footer: React.FC = () => {
     { name: 'Ecosystem', href: '/ecosystem' },
     { name: 'Tokenomics', href: '/tokenomics' },
     { name: 'Roadmap', href: '/roadmap' },
+    { name: 'Whitepaper', href: 'https://www.privacygecko.com/whitepaper', external: true },
   ];
 
   const legalLinks = [
@@ -186,12 +187,23 @@ const Footer: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                 >
-                  <Link
-                    to={link.href}
-                    className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </motion.li>
               ))}
             </ul>
