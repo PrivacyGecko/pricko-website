@@ -36,20 +36,19 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
     window.open(`https://solscan.io/token/${actualCA}`, '_blank');
   };
 
-  // Pump.fun Capsule Icon (SVG)
+  // Pump.fun Logo Icon (Based on actual logo - rounded pill/capsule shape)
   const PumpFunIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
-      <rect x="6" y="4" width="12" height="16" rx="6" fill="currentColor" opacity="0.2"/>
-      <rect x="6" y="4" width="12" height="8" rx="6" fill="currentColor"/>
+    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.9 184.2C-2 162.1-3.4 124.7 18.8 100.8L94.8 18.9C117 -5 154.3-6.4 178.2 15.8C202.1 37.9 203.5 75.3 181.3 99.2L105.3 181.1C83.1 205 45.8 206.4 21.9 184.2Z" fill="currentColor"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M18.8 100.8C-3.4 124.7-2 162.1 21.9 184.2C45.8 206.4 83.1 205 105.3 181.1L145.8 137.5L59.3 57.2L18.8 100.8Z" fill="currentColor" opacity="0.6"/>
     </svg>
   );
 
-  // DEXScreener Eagle Icon (SVG)
+  // DEXScreener Logo Icon (Simplified chart/analytics icon)
   const DEXScreenerIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
-      <path d="M12 2L4 8V12C4 16 6 19 12 22C18 19 20 16 20 12V8L12 2Z" fill="currentColor" opacity="0.2"/>
-      <path d="M12 2L4 8V12C4 14 5 16 12 18C19 16 20 14 20 12V8L12 2Z" fill="currentColor"/>
-      <path d="M12 8L9 11H11V14H13V11H15L12 8Z" fill="white" opacity="0.9"/>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 20L9 14L13 18L21 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M21 10V14M21 10H17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 
@@ -125,23 +124,25 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 href="https://pump.fun"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent text-sm font-bold rounded-lg transition-all duration-200 border border-accent/30 hover:border-accent/60 flex items-center gap-2"
-                whileHover={{ scale: 1.05, y: -2 }}
+                className="p-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 border border-accent/30 hover:border-accent/60 flex items-center justify-center"
+                whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="View on Pump.fun"
+                title="Pump.fun"
               >
                 <PumpFunIcon />
-                Pump.fun
               </motion.a>
               <motion.a
                 href="https://dexscreener.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 text-sm font-bold rounded-lg transition-all duration-200 border border-blue-500/30 hover:border-blue-500/60 flex items-center gap-2"
-                whileHover={{ scale: 1.05, y: -2 }}
+                className="p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 border border-blue-500/30 hover:border-blue-500/60 flex items-center justify-center"
+                whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="View on DEXScreener"
+                title="DEXScreener"
               >
                 <DEXScreenerIcon />
-                DEXScreener
               </motion.a>
             </div>
           </div>
