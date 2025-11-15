@@ -186,7 +186,7 @@ const HomePage: React.FC = () => {
                       </div>
                       <div className="pt-2 border-t border-zinc-700">
                         <p className="text-xs text-muted leading-relaxed">
-                          Ecosystem play = <strong className="text-accent">unlimited scale</strong>
+                          Any developer can <strong className="text-accent">build on GeckoCore</strong>
                         </p>
                       </div>
                     </div>
@@ -235,7 +235,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-purple-400">8</span>
+                        <span className="text-2xl font-bold text-purple-400">✓</span>
                         <span className="text-sm text-gray-300">live tools today</span>
                       </div>
                       <div className="flex items-baseline gap-2">
@@ -278,16 +278,20 @@ const HomePage: React.FC = () => {
                 </motion.a>
               </motion.div>
 
-              {/* Urgency Banner - Strengthened */}
+              {/* Urgency Banner - Enhanced CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="bg-accent/10 border border-accent/30 rounded-xl p-4 text-center max-w-2xl mx-auto lg:mx-0"
+                className="bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 border-2 border-accent/40 rounded-xl p-6 text-center max-w-2xl mx-auto lg:mx-0 shadow-lg shadow-accent/20"
               >
-                <span className="text-accent font-bold text-sm md:text-base">⚡ Pre-Protocol Launch Window</span>
-                <p className="text-xs md:text-sm text-gray-300 mt-1">
-                  GeckoCore protocol launches Q2 2026. Early holders capture protocol fees as the ecosystem expands from 8 tools to unlimited dApp integrations.
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-2xl">⚡</span>
+                  <span className="text-accent font-bold text-base md:text-lg">Pre-Protocol Launch Window</span>
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <p className="text-sm md:text-base text-white font-medium leading-relaxed">
+                  GeckoCore protocol launches Q2 2026. Early holders capture protocol fees as the ecosystem expands from current tools to <strong className="text-accent">unlimited dApp integrations</strong>.
                 </p>
               </motion.div>
             </motion.div>
