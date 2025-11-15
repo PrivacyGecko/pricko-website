@@ -72,8 +72,8 @@ pricko-website/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd pricko-website
+   git clone https://github.com/PrivacyGecko/Pricko-Website.git
+   cd Pricko-Website
    ```
 
 2. **Install dependencies**
@@ -226,7 +226,7 @@ PRICKO is more than just a meme coin—it's a movement for digital privacy. Born
 - **Twitter**: [@PrivacyGecko](https://twitter.com/PrivacyGecko)
 - **Telegram**: [GeckoArmy](https://t.me/+mDFnSI8_A54wZDE1)
 - **Discord**: [Join Server](https://discord.gg/pricko)
-- **GitHub**: [PRICKO Project](https://github.com/pricko-project)
+- **GitHub**: [Privacy Gecko](https://github.com/PrivacyGecko)
 
 ---
 
