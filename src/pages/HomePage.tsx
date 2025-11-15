@@ -2,12 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
-import AnimatedCounter from '../components/ui/AnimatedCounter';
 import NewsletterForm from '../components/ui/NewsletterForm';
 import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import SocialProof from '../components/SocialProof';
-import TrustBadge from '../components/ui/TrustBadge';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -17,15 +15,9 @@ import {
   FaBolt,
   FaUsers,
   FaRocket,
-  FaInfinity,
-  FaEye,
-  FaLock,
-  FaCheckCircle,
-  FaClock,
-  FaCode,
-  FaBrain
+  FaCheckCircle
 } from 'react-icons/fa';
-import { FiArrowRight, FiAlertTriangle } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 
 const HomePage: React.FC = () => {
   const {
@@ -108,7 +100,7 @@ const HomePage: React.FC = () => {
                     <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                     <span className="text-accent font-medium text-sm">Privacy Gecko Ecosystem</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/20">
+                  <div className="inline-flex items-center gap-2 bg-cyan-500/10 px-4 py-2 rounded-full">
                     <FaRocket className="text-cyan-400 text-sm" />
                     <span className="text-cyan-400 font-medium text-sm">GeckoCore Protocol</span>
                   </div>
@@ -165,14 +157,14 @@ const HomePage: React.FC = () => {
                 >
                   {/* Card 1: GeckoCore Protocol (was Card 2) */}
                   <motion.div
-                    className="card-interactive bg-secondary border-l-4 border-cyan-400 p-6"
+                    className="card-interactive bg-secondary p-6"
                     whileHover={{ y: -4 }}
                   >
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="text-3xl flex-shrink-0">🏗️</div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-1">GeckoCore Protocol</h3>
-                        <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide">Q2 2026 Launch</div>
+                    <div className="text-center mb-3">
+                      <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide mb-2">Q2 2026 Launch</div>
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="text-3xl flex-shrink-0">🏗️</div>
+                        <h3 className="text-lg font-bold text-white">GeckoCore Protocol</h3>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -184,7 +176,7 @@ const HomePage: React.FC = () => {
                         <span className="text-2xl font-bold text-cyan-400">Q2</span>
                         <span className="text-sm text-gray-300">2026 launch</span>
                       </div>
-                      <div className="pt-2 border-t border-zinc-700">
+                      <div className="pt-2">
                         <p className="text-xs text-muted leading-relaxed">
                           Any developer can <strong className="text-accent">build on GeckoCore</strong>
                         </p>
@@ -194,14 +186,14 @@ const HomePage: React.FC = () => {
 
                   {/* Card 2: Proven Execution (was Card 3) */}
                   <motion.div
-                    className="card-interactive bg-secondary border-l-4 border-accent p-6"
+                    className="card-interactive bg-secondary p-6"
                     whileHover={{ y: -4 }}
                   >
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="text-3xl flex-shrink-0">📈</div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-1">Proven Execution</h3>
-                        <div className="text-xs text-accent font-semibold uppercase tracking-wide">Track Record</div>
+                    <div className="text-center mb-3">
+                      <div className="text-xs text-accent font-semibold uppercase tracking-wide mb-2">Track Record</div>
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="text-3xl flex-shrink-0">📈</div>
+                        <h3 className="text-lg font-bold text-white">Proven Execution</h3>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -213,7 +205,7 @@ const HomePage: React.FC = () => {
                         <span className="text-2xl font-bold text-accent">6</span>
                         <span className="text-sm text-gray-300">months timeline</span>
                       </div>
-                      <div className="pt-2 border-t border-zinc-700">
+                      <div className="pt-2">
                         <p className="text-xs text-muted leading-relaxed">
                           <strong className="text-accent">No vaporware.</strong> Realistic timelines
                         </p>
@@ -223,14 +215,14 @@ const HomePage: React.FC = () => {
 
                   {/* Card 3: Early Position (was Card 1, redesigned) */}
                   <motion.div
-                    className="card-interactive bg-secondary border-l-4 border-purple-400 p-6"
+                    className="card-interactive bg-secondary p-6"
                     whileHover={{ y: -4 }}
                   >
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="text-3xl flex-shrink-0">💎</div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-1">Early Position</h3>
-                        <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide">Pre-Launch</div>
+                    <div className="text-center mb-3">
+                      <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide mb-2">Pre-Launch</div>
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="text-3xl flex-shrink-0">💎</div>
+                        <h3 className="text-lg font-bold text-white">Early Position</h3>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -242,7 +234,7 @@ const HomePage: React.FC = () => {
                         <span className="text-2xl font-bold text-purple-400">∞</span>
                         <span className="text-sm text-gray-300">ecosystem tomorrow</span>
                       </div>
-                      <div className="pt-2 border-t border-zinc-700">
+                      <div className="pt-2">
                         <p className="text-xs text-muted leading-relaxed">
                           Get in <strong className="text-accent">before</strong> network effects
                         </p>
@@ -283,7 +275,7 @@ const HomePage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 border-2 border-accent/40 rounded-xl p-6 text-center max-w-2xl mx-auto lg:mx-0 shadow-lg shadow-accent/20"
+                className="bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-xl p-6 text-center max-w-2xl mx-auto lg:mx-0 shadow-lg shadow-accent/20"
               >
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <span className="text-2xl">⚡</span>
@@ -311,14 +303,14 @@ const HomePage: React.FC = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  <div className="w-80 h-80 border-2 border-accent/20 rounded-full"></div>
+                  <div className="w-80 h-80 rounded-full"></div>
                 </motion.div>
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
                   animate={{ rotate: -360 }}
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 >
-                  <div className="w-72 h-72 border border-accent/10 rounded-full"></div>
+                  <div className="w-72 h-72 rounded-full"></div>
                 </motion.div>
 
                 {/* Soft Pulsing Glow Behind Mascot */}
@@ -441,11 +433,11 @@ const HomePage: React.FC = () => {
 
               {/* NEW: GeckoCore Protocol Teaser */}
               <motion.div
-                className="w-full max-w-md p-4 card-interactive border-l-2 border-cyan-400/50"
+                className="w-full max-w-md p-4 card-interactive"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                whileHover={{ y: -2, borderColor: "rgba(34, 211, 238, 0.7)" }}
+                whileHover={{ y: -2 }}
               >
                 <div className="flex items-start gap-3">
                   <div className="text-2xl">🚀</div>

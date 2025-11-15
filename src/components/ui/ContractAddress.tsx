@@ -61,11 +61,10 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
   if (variant === 'hero') {
     return (
       <motion.div
-        className={`bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-6 backdrop-blur-sm ${className}`}
+        className={`bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 rounded-2xl p-6 backdrop-blur-sm ${className}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        whileHover={{ borderColor: "rgba(74, 222, 128, 0.4)" }}
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -78,7 +77,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
             </div>
           </div>
           {!isLaunched && (
-            <span className="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs rounded-full border border-orange-500/30">
+            <span className="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs rounded-full">
               Pre-Launch
             </span>
           )}
@@ -120,7 +119,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
         )}
 
         {/* Exchange Badges - Integrated */}
-        <div className="mt-4 pt-4 border-t border-accent/10">
+        <div className="mt-4 pt-4">
           <div className="flex flex-col items-center gap-3">
             <span className="text-sm text-gray-300 font-medium flex items-center gap-2">
               <span className="text-accent">🔗</span> Track on:
@@ -130,7 +129,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 href="https://pump.fun"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 border border-accent/30 hover:border-accent/60 flex items-center justify-center"
+                className="p-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 flex items-center justify-center"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="View on Pump.fun"
@@ -142,7 +141,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 href="https://dexscreener.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 border border-blue-500/30 hover:border-blue-500/60 flex items-center justify-center"
+                className="p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 flex items-center justify-center"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="View on DEXScreener"

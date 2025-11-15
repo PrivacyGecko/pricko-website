@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaChartLine, FaUsers, FaCheckCircle, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { TokenFlowDiagram } from '../components/ui/TokenFlowDiagram';
 import { ProtocolArchitectureDiagram } from '../components/ui/ProtocolArchitectureDiagram';
@@ -9,7 +9,7 @@ import ProtocolDisclaimer from '../components/ui/ProtocolDisclaimer';
 import SecurityBadge from '../components/ui/SecurityBadge';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
 import SEO from '../components/common/SEO';
-import { METRICS, TOOLS_COUNT } from '../constants/metrics';
+import { TOOLS_COUNT } from '../constants/metrics';
 import { SIMPLIFIED_TOOLS } from '../constants/toolsSimplified';
 
 const EcosystemPage: FC = () => {

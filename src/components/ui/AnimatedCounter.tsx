@@ -73,7 +73,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     }
 
     // Handle formatted numbers with suffixes (e.g., "2,100+", "1.5K+")
-    const matches = val.match(/^([^\d]*)?([\d,\.]+)([^\d]*)?$/);
+    const matches = val.match(/^([^\d]*)?([\d,.]+)([^\d]*)?$/);
     if (matches) {
       const [, prefix = '', numStr, suffix = ''] = matches;
       const num = parseFloat(numStr.replace(/,/g, ''));
@@ -81,7 +81,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     }
 
     // Fallback: try to extract any number
-    const numMatch = val.match(/[\d\.]+/);
+    const numMatch = val.match(/[\d.]+/);
     if (numMatch) {
       return { number: parseFloat(numMatch[0]), prefix: '', suffix: val.replace(numMatch[0], '') };
     }
