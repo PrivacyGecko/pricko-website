@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt, FaRocket, FaChartLine } from 'react-icons/fa';
 
 interface ContractAddressProps {
   className?: string;
@@ -112,7 +112,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🚀 Pump.fun
+                <FaRocket className="text-base" />
+                Pump.fun
               </motion.a>
               <motion.a
                 href="https://dexscreener.com"
@@ -122,7 +123,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                📊 DEXScreener
+                <FaChartLine className="text-base" />
+                DEXScreener
               </motion.a>
             </div>
           </div>
