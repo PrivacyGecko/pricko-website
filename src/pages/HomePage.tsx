@@ -121,11 +121,12 @@ const HomePage: React.FC = () => {
                 </h1>
 
                 <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-semibold mb-4">
-                  The Privacy Infrastructure Token with Proven Utility
+                  Solana's Privacy Infrastructure Protocol
                 </h2>
 
                 <p className="text-base md:text-lg text-muted max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
-                  4 live products TODAY. Protocol launch 2026. Get in before network effects kick in.
+                  Live products today. Unlimited ecosystem tomorrow.<br />
+                  Protocol launch Q2 2026 — get in before network effects.
                 </p>
 
                 {/* Social Proof Badges */}
@@ -149,50 +150,20 @@ const HomePage: React.FC = () => {
                   </div>
                 </motion.div>
 
-                <p className="text-sm md:text-base text-muted max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
-                  {tokenSymbol} is the utility token for Privacy Gecko's ecosystem products
-                  <strong className="text-cyan-400"> and the future GeckoCore infrastructure protocol</strong>.
-                  As the network grows, {tokenSymbol} becomes the currency for <strong className="text-cyan-400">privacy verification
-                  across Solana</strong> — powering proof queries, node operations, and protocol governance.
+                <p className="text-sm md:text-base text-gray-300 max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+                  {tokenSymbol} powers privacy verification across <strong className="text-white">Solana</strong>—from{' '}
+                  <strong className="text-white">8 tools today</strong> to{' '}
+                  <strong className="text-cyan-400">unlimited dApp integrations</strong> via GeckoCore protocol.
                 </p>
 
-                {/* TASK 1: Three Hero Value Proposition Cards - Redesigned for Scannability */}
+                {/* TASK 1: Three Hero Value Proposition Cards - REORDERED: Protocol → Execution → Position */}
                 <motion.div
                   className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto lg:mx-0 mb-8"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  {/* Card 1: Immediate Utility */}
-                  <motion.div
-                    className="card-interactive bg-secondary border-l-4 border-accent p-6"
-                    whileHover={{ y: -4 }}
-                  >
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="text-3xl flex-shrink-0">✅</div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-1">Immediate Utility</h3>
-                        <div className="text-xs text-accent font-semibold uppercase tracking-wide">Available Now</div>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-cyan-400">8</span>
-                        <span className="text-sm text-gray-300">privacy tools</span>
-                      </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-accent">4</span>
-                        <span className="text-sm text-gray-300">live today</span>
-                      </div>
-                      <div className="pt-2 border-t border-zinc-700">
-                        <p className="text-xs text-muted leading-relaxed">
-                          Token-gated features = <strong className="text-accent">instant value capture</strong>
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Card 2: Early Infrastructure Play */}
+                  {/* Card 1: GeckoCore Protocol (was Card 2) */}
                   <motion.div
                     className="card-interactive bg-secondary border-l-4 border-cyan-400 p-6"
                     whileHover={{ y: -4 }}
@@ -200,54 +171,80 @@ const HomePage: React.FC = () => {
                     <div className="flex items-start gap-3 mb-3">
                       <div className="text-3xl flex-shrink-0">🏗️</div>
                       <div>
-                        <h3 className="text-lg font-bold text-white mb-1">Infrastructure Play</h3>
-                        <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide">2026 Launch</div>
+                        <h3 className="text-lg font-bold text-white mb-1">GeckoCore Protocol</h3>
+                        <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide">Q2 2026 Launch</div>
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-bold text-cyan-400">GeckoCore Protocol</span>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-cyan-400">∞</span>
+                        <span className="text-sm text-gray-300">dApp integrations</span>
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-gray-300">
-                        <span>→</span>
-                        <span>External dApp integrations</span>
-                      </div>
-                      <div className="flex items-center gap-1 text-xs text-gray-300">
-                        <span>→</span>
-                        <span className="font-bold text-accent">Protocol fee demand</span>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-cyan-400">Q2</span>
+                        <span className="text-sm text-gray-300">2026 launch</span>
                       </div>
                       <div className="pt-2 border-t border-zinc-700">
-                        <p className="text-xs text-muted">
-                          Get in <strong className="text-white">before</strong> network effects
+                        <p className="text-xs text-muted leading-relaxed">
+                          Ecosystem play = <strong className="text-accent">unlimited scale</strong>
                         </p>
                       </div>
                     </div>
                   </motion.div>
 
-                  {/* Card 3: Proven Execution */}
+                  {/* Card 2: Proven Execution (was Card 3) */}
                   <motion.div
-                    className="card-interactive bg-secondary border-l-4 border-purple-400 p-6"
+                    className="card-interactive bg-secondary border-l-4 border-accent p-6"
                     whileHover={{ y: -4 }}
                   >
                     <div className="flex items-start gap-3 mb-3">
                       <div className="text-3xl flex-shrink-0">📈</div>
                       <div>
                         <h3 className="text-lg font-bold text-white mb-1">Proven Execution</h3>
-                        <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide">Track Record</div>
+                        <div className="text-xs text-accent font-semibold uppercase tracking-wide">Track Record</div>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-purple-400">4</span>
+                        <span className="text-2xl font-bold text-accent">4</span>
                         <span className="text-sm text-gray-300">products shipped</span>
                       </div>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-purple-400">6</span>
+                        <span className="text-2xl font-bold text-accent">6</span>
                         <span className="text-sm text-gray-300">months timeline</span>
                       </div>
                       <div className="pt-2 border-t border-zinc-700">
                         <p className="text-xs text-muted leading-relaxed">
-                          <strong className="text-accent">No vaporware.</strong> Realistic timelines = credibility
+                          <strong className="text-accent">No vaporware.</strong> Realistic timelines
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Card 3: Early Position (was Card 1, redesigned) */}
+                  <motion.div
+                    className="card-interactive bg-secondary border-l-4 border-purple-400 p-6"
+                    whileHover={{ y: -4 }}
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="text-3xl flex-shrink-0">💎</div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white mb-1">Early Position</h3>
+                        <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide">Pre-Launch</div>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-purple-400">8</span>
+                        <span className="text-sm text-gray-300">live tools today</span>
+                      </div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-purple-400">∞</span>
+                        <span className="text-sm text-gray-300">ecosystem tomorrow</span>
+                      </div>
+                      <div className="pt-2 border-t border-zinc-700">
+                        <p className="text-xs text-muted leading-relaxed">
+                          Get in <strong className="text-accent">before</strong> network effects
                         </p>
                       </div>
                     </div>
@@ -281,16 +278,16 @@ const HomePage: React.FC = () => {
                 </motion.a>
               </motion.div>
 
-              {/* Urgency Banner */}
+              {/* Urgency Banner - Strengthened */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="bg-accent/10 border border-accent/30 rounded-xl p-4 text-center max-w-2xl mx-auto lg:mx-0"
               >
-                <span className="text-accent font-semibold text-sm md:text-base">⚡ Pre-Protocol Launch Opportunity</span>
+                <span className="text-accent font-bold text-sm md:text-base">⚡ Pre-Protocol Launch Window</span>
                 <p className="text-xs md:text-sm text-gray-300 mt-1">
-                  GeckoCore protocol launches Q2 2026. Early holders benefit from protocol fee accrual.
+                  GeckoCore protocol launches Q2 2026. Early holders capture protocol fees as the ecosystem expands from 8 tools to unlimited dApp integrations.
                 </p>
               </motion.div>
             </motion.div>
@@ -436,49 +433,29 @@ const HomePage: React.FC = () => {
                     <ContractAddress variant="hero" />
                   </div>
                 </div>
-
-                {/* Exchange Badges */}
-                <div className="flex items-center justify-center gap-4 mt-4">
-                  <span className="text-xs text-muted">Available on:</span>
-                  <a
-                    href="https://pump.fun"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1.5 bg-accent/10 hover:bg-accent/20 text-accent text-xs font-semibold rounded-lg transition-all duration-200 border border-accent/20 hover:border-accent/40"
-                  >
-                    Pump.fun
-                  </a>
-                  <a
-                    href="https://dexscreener.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-lg transition-all duration-200 border border-blue-500/20 hover:border-blue-500/40"
-                  >
-                    DEXScreener
-                  </a>
-                </div>
               </motion.div>
 
               {/* NEW: GeckoCore Protocol Teaser */}
               <motion.div
-                className="w-full max-w-md p-4 card-interactive border-l-2 border-accent/30"
+                className="w-full max-w-md p-4 card-interactive border-l-2 border-cyan-400/50"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
+                whileHover={{ y: -2, borderColor: "rgba(34, 211, 238, 0.7)" }}
               >
                 <div className="flex items-start gap-3">
-                  <div className="text-xl">🚀</div>
-                  <div>
+                  <div className="text-2xl">🚀</div>
+                  <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-medium text-gray-300">Q1 2026 Protocol</span>
-                      <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] rounded-full font-medium">Coming</span>
+                      <span className="text-sm font-semibold text-cyan-400">Q2 2026 Protocol</span>
+                      <span className="px-2 py-0.5 bg-cyan-500/10 text-cyan-400 text-[10px] rounded-full font-semibold uppercase tracking-wide">Coming</span>
                     </div>
                     <p className="text-sm text-gray-300 mb-2 leading-relaxed">
                       <span className="font-bold text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded">GeckoCore</span> (our decentralized privacy protocol) launches with staking rewards & community governance
                     </p>
                     <button
                       onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="text-xs text-accent hover:text-accent-hover font-medium flex items-center gap-1 group"
+                      className="text-xs text-accent hover:text-accent-hover font-semibold flex items-center gap-1 group"
                     >
                       Learn More Below
                       <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
