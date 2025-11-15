@@ -13,6 +13,9 @@ node_modules/.vite/
 .claude/
 CLAUDE.md
 
+# Git hooks (local development only)
+.githooks/
+
 # Testing
 test-results/
 playwright-report/
