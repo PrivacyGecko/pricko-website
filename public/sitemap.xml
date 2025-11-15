@@ -1,112 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
   <url>
     <loc>https://pricko.com/</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/about</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pricko.com/ecosystem</loc>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pricko.com/tools</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/tokenomics</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/how-to-buy</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/roadmap</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/contact</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Legal Pages -->
   <url>
     <loc>https://pricko.com/privacy</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/terms</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/disclaimer</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
-  <!-- Product Pages -->
+  <url>
+    <loc>https://pricko.com/risk-disclosure</loc>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://pricko.com/forward-looking-statements</loc>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://pricko.com/geographic-restrictions</loc>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Product Pages - Live Products (Higher Priority) -->
   <url>
     <loc>https://pricko.com/gecko-advisor</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/gecko-share</loc>
-    <lastmod>2025-11-01</lastmod>
+    <lastmod>2025-11-15</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://pricko.com/gecko-shell</loc>
-    <lastmod>2025-11-01</lastmod>
-    <priority>0.8</priority>
+    <loc>https://pricko.com/gecko-guard</loc>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://pricko.com/gecko-guard</loc>
-    <lastmod>2025-11-01</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://pricko.com/gecko-lock</loc>
-    <lastmod>2025-11-01</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
+
+  <!-- Product Pages - In Development (Lower Priority) -->
   <url>
     <loc>https://pricko.com/gecko-watch</loc>
-    <lastmod>2025-11-01</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/gecko-view</loc>
-    <lastmod>2025-11-01</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://pricko.com/gecko-shell</loc>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://pricko.com/gecko-vpn</loc>
-    <lastmod>2025-11-01</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2025-11-15</lastmod>
+    <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
