@@ -36,20 +36,26 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
     window.open(`https://solscan.io/token/${actualCA}`, '_blank');
   };
 
-  // Pump.fun Logo Icon (Based on actual logo - rounded pill/capsule shape)
+  // Pump.fun Official Logo (Using actual favicon)
   const PumpFunIcon = () => (
-    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.9 184.2C-2 162.1-3.4 124.7 18.8 100.8L94.8 18.9C117 -5 154.3-6.4 178.2 15.8C202.1 37.9 203.5 75.3 181.3 99.2L105.3 181.1C83.1 205 45.8 206.4 21.9 184.2Z" fill="currentColor"/>
-      <path fillRule="evenodd" clipRule="evenodd" d="M18.8 100.8C-3.4 124.7-2 162.1 21.9 184.2C45.8 206.4 83.1 205 105.3 181.1L145.8 137.5L59.3 57.2L18.8 100.8Z" fill="currentColor" opacity="0.6"/>
-    </svg>
+    <img
+      src="https://pump.fun/favicon.ico"
+      alt="Pump.fun"
+      width="32"
+      height="32"
+      className="inline-block"
+    />
   );
 
-  // DEXScreener Logo Icon (Simplified chart/analytics icon)
+  // DEXScreener Official Logo (Using actual favicon)
   const DEXScreenerIcon = () => (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 20L9 14L13 18L21 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M21 10V14M21 10H17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
+    <img
+      src="https://dexscreener.com/favicon.ico"
+      alt="DEXScreener"
+      width="32"
+      height="32"
+      className="inline-block"
+    />
   );
 
   if (variant === 'hero') {
