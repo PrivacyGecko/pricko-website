@@ -5,7 +5,6 @@ import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight } from 
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { TokenFlowDiagram } from '../components/ui/TokenFlowDiagram';
 import { ProtocolArchitectureDiagram } from '../components/ui/ProtocolArchitectureDiagram';
-import ProtocolDisclaimer from '../components/ui/ProtocolDisclaimer';
 import SecurityBadge from '../components/ui/SecurityBadge';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
 import SEO from '../components/common/SEO';
@@ -183,16 +182,6 @@ const EcosystemPage: FC = () => {
               </motion.div>
             </div>
 
-            {/* Forward-Looking Disclaimer - Moved from Section 8 */}
-            <motion.div
-              className="max-w-4xl mx-auto mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <ProtocolDisclaimer variant="warning" compact={true} />
-            </motion.div>
           </div>
         </section>
 
