@@ -7,6 +7,7 @@ import { TokenFlowDiagram } from '../components/ui/TokenFlowDiagram';
 import { ProtocolArchitectureDiagram } from '../components/ui/ProtocolArchitectureDiagram';
 import SecurityBadge from '../components/ui/SecurityBadge';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
+import GeckoCoreOGImage from '../components/ui/GeckoCoreOGImage';
 import SEO from '../components/common/SEO';
 import { TOOLS_COUNT } from '../constants/metrics';
 import { SIMPLIFIED_TOOLS } from '../constants/toolsSimplified';
@@ -167,18 +168,15 @@ const EcosystemPage: FC = () => {
                 </div>
               </motion.div>
 
-              {/* Visual Placeholder */}
+              {/* GeckoCore OG Image */}
               <motion.div
-                className="card-glass flex items-center justify-center h-64 lg:h-full"
+                className="h-64 lg:h-full"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🦎</div>
-                  <p className="text-gray-400">Decentralized Privacy Network</p>
-                </div>
+                <GeckoCoreOGImage />
               </motion.div>
             </div>
 
