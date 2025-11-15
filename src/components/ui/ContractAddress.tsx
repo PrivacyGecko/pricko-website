@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt, FaRocket, FaChartLine } from 'react-icons/fa';
+import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface ContractAddressProps {
   className?: string;
@@ -35,6 +35,23 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
     if (!isLaunched) return;
     window.open(`https://solscan.io/token/${actualCA}`, '_blank');
   };
+
+  // Pump.fun Capsule Icon (SVG)
+  const PumpFunIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
+      <rect x="6" y="4" width="12" height="16" rx="6" fill="currentColor" opacity="0.2"/>
+      <rect x="6" y="4" width="12" height="8" rx="6" fill="currentColor"/>
+    </svg>
+  );
+
+  // DEXScreener Eagle Icon (SVG)
+  const DEXScreenerIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
+      <path d="M12 2L4 8V12C4 16 6 19 12 22C18 19 20 16 20 12V8L12 2Z" fill="currentColor" opacity="0.2"/>
+      <path d="M12 2L4 8V12C4 14 5 16 12 18C19 16 20 14 20 12V8L12 2Z" fill="currentColor"/>
+      <path d="M12 8L9 11H11V14H13V11H15L12 8Z" fill="white" opacity="0.9"/>
+    </svg>
+  );
 
   if (variant === 'hero') {
     return (
@@ -112,7 +129,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FaRocket className="text-base" />
+                <PumpFunIcon />
                 Pump.fun
               </motion.a>
               <motion.a
@@ -123,7 +140,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FaChartLine className="text-base" />
+                <DEXScreenerIcon />
                 DEXScreener
               </motion.a>
             </div>
