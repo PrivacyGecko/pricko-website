@@ -30,7 +30,8 @@ import {
   FaCode,
   FaUserFriends,
   FaDollarSign,
-  FaArrowRight
+  FaArrowRight,
+  FaExternalLinkAlt
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
@@ -279,10 +280,21 @@ const AboutPage: React.FC = () => {
                 <p className="text-gray-300 leading-relaxed mb-3">
                   Privacy Gecko is building for the long term. <strong>GeckoCore</strong>, our decentralized privacy protocol with development beginning Q1 2026, transforms our suite of tools into community-owned infrastructure. Token holders will stake $PRICKO to run nodes, earn rewards, and govern the ecosystem through GeckoDAO.
                 </p>
-                <Link to="/ecosystem" className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2 text-sm font-semibold">
-                  Explore the Ecosystem
-                  <FaArrowRight size={14} />
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link to="/ecosystem" className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2 text-sm font-semibold">
+                    Explore the Ecosystem
+                    <FaArrowRight size={14} />
+                  </Link>
+                  <a
+                    href="https://www.privacygecko.com/whitepaper"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 inline-flex items-center gap-2 text-sm font-semibold"
+                  >
+                    Technical Whitepaper
+                    <FaExternalLinkAlt size={14} />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
