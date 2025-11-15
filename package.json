@@ -1,7 +1,28 @@
 {
   "name": "pricko-website",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Official website for PRICKO ($PRICKO) - A privacy-focused memecoin with real utility. Built with React, TypeScript, and Tailwind CSS.",
+  "keywords": [
+    "pricko",
+    "privacy-gecko",
+    "cryptocurrency",
+    "memecoin",
+    "solana",
+    "privacy-tools",
+    "web3",
+    "defi"
+  ],
+  "author": "Privacy Gecko <community@privacygecko.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PrivacyGecko/Pricko-Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PrivacyGecko/Pricko-Website/issues"
+  },
+  "homepage": "https://pricko.com",
+  "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite",
