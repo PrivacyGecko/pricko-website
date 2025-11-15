@@ -27,7 +27,7 @@ const EcosystemPage: FC = () => {
 
       <main id="main-content" className="min-h-screen bg-primary">
         {/* Section 1: Hero */}
-        <section className="relative section-padding overflow-hidden">
+        <section className="relative section-padding overflow-hidden pt-32 md:pt-40">
           {/* Gradient Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-cyan-500/10 to-purple-500/10 pointer-events-none" />
 
