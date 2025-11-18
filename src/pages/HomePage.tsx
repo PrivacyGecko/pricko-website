@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
 import PremiumFeatureCard from '../components/ui/PremiumFeatureCard';
+import MascotImage from '../components/ui/MascotImage';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
 import { AnimatedBackground } from '../components/ui/AnimatedBackground';
@@ -87,12 +88,12 @@ const HomePage: React.FC = () => {
 
         <div className="container-max section-padding relative z-10 text-center">
           <motion.div
-            className="mb-6"
+            className="mb-6 flex justify-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="text-8xl md:text-9xl mb-4">🦎</div>
+            <MascotImage size="xl" alt="Pricko Mascot - Privacy Gecko" />
           </motion.div>
 
           {/* Primary Brand Anchor */}
