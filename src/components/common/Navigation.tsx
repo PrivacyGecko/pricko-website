@@ -18,7 +18,7 @@ const navigationItems: NavigationItem[] = [
   { name: 'Tokenomics', href: '/tokenomics' },
   { name: 'How to Buy', href: '/how-to-buy' },
   { name: 'Roadmap', href: '/roadmap' },
-  { name: 'Contact', href: '/contact' },
+  // Contact merged into About page at /about#contact
 ];
 
 const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) => {
@@ -125,9 +125,9 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
         transition={{ delay: mobile ? navigationItems.length * 0.1 : navigationItems.length * 0.05 }}
         className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}
       >
-        <Link to="/contact">
+        <Link to="/how-to-buy">
           <button className="btn-primary text-sm px-4 py-2">
-            Join Waitlist
+            Buy $PRICKO
           </button>
         </Link>
       </motion.div>

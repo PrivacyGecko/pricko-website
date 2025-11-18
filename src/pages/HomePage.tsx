@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
 import PremiumFeatureCard from '../components/ui/PremiumFeatureCard';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
 import { AnimatedBackground } from '../components/ui/AnimatedBackground';
-import { FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaArrowRight, FaExternalLinkAlt, FaWallet, FaExchangeAlt, FaRocket, FaCheckCircle } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const {
@@ -256,6 +257,194 @@ const HomePage: React.FC = () => {
               delay={0.4}
             />
           </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section - Simple Timeline */}
+      <section className="relative section-padding py-20 bg-gradient-to-b from-black via-secondary/30 to-black overflow-hidden">
+        <div className="container-max relative z-10">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our <span className="gradient-text">Journey</span>
+            </h2>
+            <p className="text-lg text-muted">
+              Real progress, realistic timelines
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {/* Phase 1: Completed */}
+            <motion.div
+              className="card-interactive text-center border-accent/30"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-3xl mb-3">✅</div>
+              <div className="text-sm text-accent font-semibold mb-2">Q2-Q3 2025</div>
+              <h3 className="text-lg font-bold mb-2">Live Products</h3>
+              <p className="text-sm text-muted">Gecko Advisor & Share launched with 2,100+ users</p>
+            </motion.div>
+
+            {/* Phase 2: Current */}
+            <motion.div
+              className="card-interactive text-center border-yellow-500/50 bg-yellow-500/5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-3xl mb-3">🚀</div>
+              <div className="text-sm text-yellow-400 font-semibold mb-2">Q4 2025</div>
+              <h3 className="text-lg font-bold mb-2">Token Launch</h3>
+              <p className="text-sm text-muted">$PRICKO on Solana, smart contracts deployed</p>
+            </motion.div>
+
+            {/* Phase 3: Upcoming */}
+            <motion.div
+              className="card-interactive text-center border-cyan-500/30"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-3xl mb-3">🔮</div>
+              <div className="text-sm text-cyan-400 font-semibold mb-2">Q1 2026</div>
+              <h3 className="text-lg font-bold mb-2">GeckoCore Protocol</h3>
+              <p className="text-sm text-muted">Decentralized privacy infrastructure begins</p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="text-center mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/roadmap"
+              className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
+            >
+              View Full Roadmap <FaArrowRight size={12} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How to Buy Section - Simple Steps */}
+      <section className="relative section-padding py-20 bg-black overflow-hidden">
+        <div className="container-max relative z-10">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              How to Buy <span className="gradient-text">{tokenSymbol}</span>
+            </h2>
+            <p className="text-lg text-muted">
+              3 simple steps to join the privacy revolution
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-10">
+            {/* Step 1 */}
+            <motion.div
+              className="card-interactive text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                <FaWallet className="text-accent text-xl" />
+              </div>
+              <div className="text-sm text-accent font-semibold mb-2">Step 1</div>
+              <h3 className="text-lg font-bold mb-2">Get a Wallet</h3>
+              <p className="text-sm text-muted mb-4">Download Phantom, Solflare, or Backpack</p>
+              <a
+                href="https://phantom.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent text-sm hover:text-accent-hover inline-flex items-center gap-1"
+              >
+                Get Phantom <FaExternalLinkAlt size={10} />
+              </a>
+            </motion.div>
+
+            {/* Step 2 */}
+            <motion.div
+              className="card-interactive text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                <FaExchangeAlt className="text-accent text-xl" />
+              </div>
+              <div className="text-sm text-accent font-semibold mb-2">Step 2</div>
+              <h3 className="text-lg font-bold mb-2">Get SOL</h3>
+              <p className="text-sm text-muted mb-4">Buy SOL on Coinbase or Binance</p>
+              <a
+                href="https://www.coinbase.com/price/solana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent text-sm hover:text-accent-hover inline-flex items-center gap-1"
+              >
+                Buy SOL <FaExternalLinkAlt size={10} />
+              </a>
+            </motion.div>
+
+            {/* Step 3 */}
+            <motion.div
+              className="card-interactive text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                <FaRocket className="text-accent text-xl" />
+              </div>
+              <div className="text-sm text-accent font-semibold mb-2">Step 3</div>
+              <h3 className="text-lg font-bold mb-2">Swap for {tokenSymbol}</h3>
+              <p className="text-sm text-muted mb-4">Visit pump.fun and swap SOL for $PRICKO</p>
+              <a
+                href="https://pump.fun"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent text-sm hover:text-accent-hover inline-flex items-center gap-1"
+              >
+                Go to pump.fun <FaExternalLinkAlt size={10} />
+              </a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/how-to-buy"
+              className="btn-secondary inline-flex items-center gap-2"
+            >
+              Detailed Guide <FaArrowRight />
+            </Link>
+          </motion.div>
         </div>
       </section>
 

@@ -1,18 +1,11 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight, FaCheckCircle, FaClock, FaNetworkWired } from 'react-icons/fa';
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';
-import ToolCardSimple from '../components/ui/ToolCardSimple';
-import GeckoCoreOGImage from '../components/ui/GeckoCoreOGImage';
 import SEO from '../components/common/SEO';
-import { TOOLS_COUNT } from '../constants/metrics';
-import { SIMPLIFIED_TOOLS } from '../constants/toolsSimplified';
 
 const EcosystemPage: FC = () => {
-  // Filter live products (4 products)
-  const liveProducts = SIMPLIFIED_TOOLS.filter(tool => tool.status === 'live');
-
   return (
     <>
       <SEO
@@ -47,45 +40,23 @@ const EcosystemPage: FC = () => {
 
               {/* Title */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                The Privacy Ecosystem
+                Product Evolution
               </h1>
 
               {/* Subtitle */}
               <p className="text-xl md:text-2xl text-gray-300 mb-4">
-                How $PRICKO Powers Real Privacy Tools
+                From Live Tools to GeckoCore Protocol
               </p>
 
               {/* Description */}
               <p className="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
-                From working products today to decentralized infrastructure in 2026.
+                See how Privacy Gecko's ecosystem grows from 4 live products today to decentralized infrastructure in 2026.
               </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://pump.fun"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  Buy $PRICKO
-                  <FaExternalLinkAlt size={16} />
-                </a>
-                <a
-                  href="https://dexscreener.com/solana"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary inline-flex items-center gap-2"
-                >
-                  View on DEXScreener
-                  <FaExternalLinkAlt size={16} />
-                </a>
-              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Section 2: Live Products Proof */}
+        {/* Section 2: Current Products (Live) */}
         <section className="section-padding bg-black/30">
           <div className="container-max">
             <motion.div
@@ -95,57 +66,268 @@ const EcosystemPage: FC = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
+              <div className="inline-flex items-center gap-2 mb-4">
+                <FaCheckCircle className="text-accent text-xl" />
+                <span className="text-accent font-semibold">LIVE TODAY</span>
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                {TOOLS_COUNT.live} Products. <span className="text-accent">Live Today.</span>
+                Current Products
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Proof before promises. We ship first, hype second.
+                4 privacy tools already serving real users
               </p>
             </motion.div>
 
-            {/* Product Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {liveProducts.map((product, index) => (
-                <ToolCardSimple
-                  key={product.id}
-                  icon={product.icon}
-                  title={product.name}
-                  description={product.oneLiner}
-                  status={product.status}
-                  features={product.topFeatures}
-                  url={product.url}
-                  delay={index * 0.1}
-                  hasAI={product.hasAI}
-                />
-              ))}
+            {/* Current Products Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <motion.div
+                className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">🔍</div>
+                <h3 className="text-lg font-bold mb-2">Gecko Advisor</h3>
+                <p className="text-sm text-muted">AI-powered privacy scanner</p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">📁</div>
+                <h3 className="text-lg font-bold mb-2">Gecko Share</h3>
+                <p className="text-sm text-muted">Encrypted file sharing</p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">🛡️</div>
+                <h3 className="text-lg font-bold mb-2">Gecko Guard</h3>
+                <p className="text-sm text-muted">Browser tracker blocker</p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">🔐</div>
+                <h3 className="text-lg font-bold mb-2">Gecko Lock</h3>
+                <p className="text-sm text-muted">Password manager</p>
+              </motion.div>
             </div>
+
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <a
+                href="https://privacygecko.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
+              >
+                Try Live Products <FaExternalLinkAlt size={12} />
+              </a>
+            </motion.div>
           </div>
         </section>
 
-        {/* Section 3: What is GeckoCore? - Condensed */}
+        {/* Section 3: Future Products (In Development) */}
         <section className="section-padding">
-          <div className="container-max text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              What is <span className="text-protocol-primary">GeckoCore</span>?
-            </h2>
-            <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
-              GeckoCore is the decentralized privacy protocol launching Q1 2026.
-              It transforms Privacy Gecko tools into community-owned infrastructure.
-              More tools = more $PRICKO demand.
-            </p>
-
-            {/* GeckoCore OG Image */}
+          <div className="container-max">
             <motion.div
-              className="max-w-2xl mx-auto mb-8"
+              className="text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <GeckoCoreOGImage />
+              <div className="inline-flex items-center gap-2 mb-4">
+                <FaClock className="text-yellow-400 text-xl" />
+                <span className="text-yellow-400 font-semibold">IN DEVELOPMENT</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Future Products
+              </h2>
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                4 more tools launching throughout 2026
+              </p>
             </motion.div>
 
-            <div className="flex justify-center gap-4">
+            {/* Future Products Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <motion.div
+                className="card-interactive text-center border-yellow-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">📱</div>
+                <h3 className="text-lg font-bold mb-2">Gecko Shell</h3>
+                <p className="text-sm text-muted mb-2">Mobile privacy browser</p>
+                <span className="text-xs text-yellow-400">Q1 2026</span>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center border-yellow-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">👁️</div>
+                <h3 className="text-lg font-bold mb-2">Gecko View</h3>
+                <p className="text-sm text-muted mb-2">AI privacy monitor</p>
+                <span className="text-xs text-yellow-400">Q2 2026</span>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center border-yellow-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">⌚</div>
+                <h3 className="text-lg font-bold mb-2">Gecko Watch</h3>
+                <p className="text-sm text-muted mb-2">Data breach alerts</p>
+                <span className="text-xs text-yellow-400">Q2 2026</span>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center border-yellow-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">🌐</div>
+                <h3 className="text-lg font-bold mb-2">Gecko VPN</h3>
+                <p className="text-sm text-muted mb-2">Privacy-first VPN</p>
+                <span className="text-xs text-yellow-400">Q4 2026</span>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Link
+                to="/roadmap"
+                className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
+              >
+                View Development Timeline <FaArrowRight size={12} />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 4: GeckoCore Protocol - The Expansion */}
+        <section className="section-padding bg-gradient-to-b from-black via-cyan-500/5 to-black">
+          <div className="container-max">
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 mb-4">
+                <FaNetworkWired className="text-cyan-400 text-xl" />
+                <span className="text-cyan-400 font-semibold">Q1 2026 LAUNCH</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                GeckoCore <span className="text-cyan-400">Protocol</span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                The decentralized infrastructure connecting all Privacy Gecko tools
+              </p>
+            </motion.div>
+
+            {/* Protocol Features */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <motion.div
+                className="card-interactive text-center border-cyan-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-cyan-500/10 rounded-full flex items-center justify-center">
+                    <span className="text-3xl">🔗</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-cyan-400">Node Staking</h3>
+                <p className="text-gray-300">
+                  Stake $PRICKO to run protocol nodes and earn rewards
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center border-purple-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center">
+                    <span className="text-3xl">🗳️</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-purple-400">GeckoDAO</h3>
+                <p className="text-gray-300">
+                  Community governance over protocol development
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="card-interactive text-center border-green-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center">
+                    <span className="text-3xl">🔒</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-accent">Privacy Layer</h3>
+                <p className="text-gray-300">
+                  Decentralized privacy infrastructure for all tools
+                </p>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               <a
                 href="https://www.privacygecko.com/whitepaper"
                 target="_blank"
@@ -154,11 +336,11 @@ const EcosystemPage: FC = () => {
               >
                 Technical Whitepaper <FaExternalLinkAlt size={12} />
               </a>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Section 4: The Ecosystem Timeline */}
+        {/* Section 5: Timeline Visualization */}
         <section className="section-padding bg-black/30">
           <div className="container-max max-w-6xl">
             <motion.div
@@ -169,10 +351,10 @@ const EcosystemPage: FC = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                From 4 to 8: <span className="text-protocol-secondary">The Roadmap</span>
+                The <span className="gradient-text">Timeline</span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Our journey from live products to decentralized protocol
+                From 4 products to full ecosystem
               </p>
             </motion.div>
 
@@ -185,24 +367,10 @@ const EcosystemPage: FC = () => {
             >
               <UtilityTimeline orientation="vertical" compact={false} />
             </motion.div>
-
-            {/* CTA */}
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Link to="/roadmap" className="btn-secondary inline-flex items-center gap-2">
-                View Full Roadmap
-                <FaExternalLinkAlt size={16} />
-              </Link>
-            </motion.div>
           </div>
         </section>
 
-        {/* Section 5: Value Propositions + CTA */}
+        {/* Section 6: Why This Matters + CTA */}
         <section className="section-padding">
           <div className="container-max">
             <motion.div
@@ -245,9 +413,9 @@ const EcosystemPage: FC = () => {
                 <div className="flex justify-center mb-4">
                   <FaChartLine className="text-cyan-400 text-5xl" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-cyan-400">Future Value</h3>
+                <h3 className="text-2xl font-bold mb-3 text-cyan-400">Growing Demand</h3>
                 <p className="text-gray-300">
-                  Protocol infrastructure adds more utility in 2026. Staking, nodes, governance.
+                  More tools = more $PRICKO utility. Protocol adds staking, nodes, and governance.
                 </p>
               </motion.div>
 
@@ -263,12 +431,12 @@ const EcosystemPage: FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-purple-400">Community-Owned</h3>
                 <p className="text-gray-300">
-                  Governance through GeckoDAO. Your tokens, your voice. No VCs, no centralized control.
+                  GeckoDAO puts governance in your hands. No VCs, no centralized control.
                 </p>
               </motion.div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA */}
             <motion.div
               className="text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -276,25 +444,21 @@ const EcosystemPage: FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                Join the Privacy Revolution
-              </h3>
-
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <a
-                  href="https://www.privacygecko.com/whitepaper"
+                  href="https://pump.fun"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary inline-flex items-center gap-2 text-lg px-8 py-4"
                 >
-                  Read Technical Whitepaper
+                  Buy $PRICKO
                   <FaExternalLinkAlt size={18} />
                 </a>
                 <Link
-                  to="/roadmap"
+                  to="/tokenomics"
                   className="btn-secondary inline-flex items-center gap-2 text-lg px-8 py-4"
                 >
-                  View Roadmap
+                  View Tokenomics
                   <FaArrowRight size={18} />
                 </Link>
               </div>
@@ -307,7 +471,7 @@ const EcosystemPage: FC = () => {
                   rel="noopener noreferrer"
                   className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
                 >
-                  Full Ecosystem Details at PrivacyGecko.com <FaExternalLinkAlt size={12} />
+                  Full Details at PrivacyGecko.com <FaExternalLinkAlt size={12} />
                 </a>
               </p>
             </motion.div>

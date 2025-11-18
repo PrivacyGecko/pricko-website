@@ -293,7 +293,7 @@ const Footer: React.FC = () => {
                 transition={{ delay: 0.9 }}
               >
                 <Link
-                  to="/contact"
+                  to="/about#contact"
                   className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                 >
                   Contact Support

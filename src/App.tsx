@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/common/Layout';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
@@ -7,7 +7,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 // Lazy load all page components for code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
+// ContactPage removed - merged into AboutPage at #contact
 const ToolsPage = lazy(() => import('./pages/ToolsPageSimplified'));
 const RoadmapPage = lazy(() => import('./pages/RoadmapPageSimplified'));
 const TokenomicsPage = lazy(() => import('./pages/TokenomicsPage'));
@@ -65,7 +65,7 @@ function App() {
               <Route path="/how-to-buy" element={<HowToBuyPage />} />
               <Route path="/roadmap" element={<RoadmapPage />} />
               <Route path="/ecosystem" element={<EcosystemPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact" element={<Navigate to="/about#contact" replace />} />
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsOfServicePage />} />
               <Route path="/disclaimer" element={<DisclaimerPage />} />

@@ -23,7 +23,11 @@ import {
   FaDollarSign,
   FaArrowRight,
   FaExternalLinkAlt,
-  FaGithub
+  FaGithub,
+  FaEnvelope,
+  FaTwitter,
+  FaTelegram,
+  FaDiscord
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
@@ -451,6 +455,132 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
+        {/* Contact Section */}
+        <motion.section
+          id="contact"
+          className="mb-20 glass-morphism rounded-3xl p-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-3xl flex items-center justify-center">
+              <FaEnvelope className="w-10 h-10 text-accent" />
+            </div>
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Get in <span className="gradient-text">Touch</span>
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              Email us directly or join our community channels
+            </p>
+          </motion.div>
+
+          {/* Direct Email Contacts */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <motion.a
+              href="mailto:community@pricko.com"
+              className="card-interactive group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-start gap-4">
+                <span className="text-2xl">👥</span>
+                <div>
+                  <h3 className="text-lg font-semibold mb-1 group-hover:text-accent transition-colors">Community</h3>
+                  <div className="text-accent font-mono mb-2">community@pricko.com</div>
+                  <p className="text-sm text-muted">General inquiries & partnerships</p>
+                </div>
+              </div>
+            </motion.a>
+
+            <motion.a
+              href="mailto:support@pricko.com"
+              className="card-interactive group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-start gap-4">
+                <span className="text-2xl">🛠️</span>
+                <div>
+                  <h3 className="text-lg font-semibold mb-1 group-hover:text-accent transition-colors">Support</h3>
+                  <div className="text-accent font-mono mb-2">support@pricko.com</div>
+                  <p className="text-sm text-muted">Technical help & issues</p>
+                </div>
+              </div>
+            </motion.a>
+          </div>
+
+          {/* Social Links */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <motion.a
+              href="https://twitter.com/PrivacyGecko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-interactive text-center group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <FaTwitter className="w-8 h-8 mx-auto mb-2 text-accent group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium">Twitter</span>
+            </motion.a>
+
+            <motion.a
+              href="https://t.me/+mDFnSI8_A54wZDE1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-interactive text-center group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <FaTelegram className="w-8 h-8 mx-auto mb-2 text-accent group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium">Telegram</span>
+            </motion.a>
+
+            <motion.a
+              href="https://discord.gg/pricko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-interactive text-center group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <FaDiscord className="w-8 h-8 mx-auto mb-2 text-accent group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium">Discord</span>
+            </motion.a>
+
+            <motion.a
+              href="https://github.com/privacygecko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-interactive text-center group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <FaGithub className="w-8 h-8 mx-auto mb-2 text-accent group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium">GitHub</span>
+            </motion.a>
+          </div>
+        </motion.section>
+
         {/* Call to Action */}
         <motion.section
           className="text-center glass-morphism rounded-3xl p-12"
@@ -479,7 +609,7 @@ const AboutPage: React.FC = () => {
             a future where privacy is a fundamental right, not a premium feature.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
+            <Link to="/how-to-buy">
               <motion.button
                 className="btn-primary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -490,7 +620,7 @@ const AboutPage: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <FaRocket />
-                Join Waitlist
+                Buy $PRICKO
               </motion.button>
             </Link>
             <Link to="/ecosystem">
@@ -504,7 +634,7 @@ const AboutPage: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <FaBook />
-                Explore Our Ecosystem
+                Explore Ecosystem
               </motion.button>
             </Link>
           </div>
