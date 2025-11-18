@@ -85,14 +85,14 @@ const HomePage: React.FC = () => {
           <AnimatedBackground />
         </div>
 
-        <div className="container-max section-padding relative z-10 text-center pt-20">
+        <div className="container-max section-padding relative z-10 text-center pt-32 md:pt-28">
           <motion.div
             className="mb-8 flex justify-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="transform scale-125 md:scale-150">
+            <div className="transform scale-110 md:scale-125">
               <MascotImage size="xl" alt="Pricko Mascot - Privacy Gecko" />
             </div>
           </motion.div>
