@@ -33,9 +33,11 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   };
 
   // Build dropdown items from products
+  // When a product has a URL (live), link directly to the external product website
+  // Otherwise, link to the internal product showcase page
   const toolsDropdownItems: DropdownItem[] = getAllProducts().map(product => ({
     label: product.name,
-    href: `/${product.id}`,
+    href: product.url || `/${product.id}`,
     status: product.status as 'live' | 'beta' | 'in-development',
     external: !!product.url
   }));
