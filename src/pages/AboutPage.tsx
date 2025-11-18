@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import ProofMetric from '../components/ui/ProofMetric';
-import FAQSection from '../components/FAQSection';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
@@ -16,22 +15,15 @@ import {
   FaShieldAlt,
   FaNetworkWired,
   FaHandsHelping,
-  FaEye,
-  FaLightbulb,
-  FaUserShield,
-  FaGlobe,
-  FaSeedling,
-  FaHeart,
   FaRocket,
   FaBook,
-  FaTwitter,
-  FaGithub,
   FaCheckCircle,
   FaCode,
   FaUserFriends,
   FaDollarSign,
   FaArrowRight,
-  FaExternalLinkAlt
+  FaExternalLinkAlt,
+  FaGithub
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
@@ -112,77 +104,6 @@ const AboutPage: React.FC = () => {
               <div className="text-4xl font-bold text-accent mb-2">{productCounts.total}+</div>
               <div className="text-lg font-semibold mb-2">Privacy Tools</div>
               <div className="text-muted">In development pipeline</div>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Story Section */}
-        <motion.section
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <motion.h2
-                className="text-4xl font-bold mb-8 text-professional"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                Our <span className="gradient-text">Origin Story</span>
-              </motion.h2>
-              <div className="space-y-6 text-muted leading-relaxed text-lg">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  Your data is being sold. Every search, every message, every click. We got tired of watching
-                  people hand over their privacy to corporations who profit from it. So we built something better:
-                  privacy tools that work, backed by a community that owns them.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  We started PRICKO because we were sick of the hypocrisy. Companies claiming to care about your
-                  privacy while mining your data for billions. VPNs that log everything. "Secure" apps with
-                  backdoors. Enough is enough.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  Built on Solana for speed, powered by $PRICKO for access, governed by the community.
-                  This isn't just another crypto project—it's your digital privacy toolkit with actual utility.
-                  No VC overlords, no corporate puppeteers. Just real tools for real people who give a damn about privacy.
-                </motion.p>
-              </div>
-            </div>
-            <motion.div
-              className="order-1 lg:order-2 flex justify-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl"></div>
-                <img
-                  src="/logo.png"
-                  alt="Pricko Gecko Mascot"
-                  className="relative w-80 h-80 object-contain glow-pulse"
-                />
-              </div>
             </motion.div>
           </div>
         </motion.section>
@@ -300,7 +221,7 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </motion.section>
 
-        {/* Proof of Commitment Section - NEW */}
+        {/* Proof of Commitment Section */}
         <motion.section
           className="mb-20"
           initial={{ opacity: 0, y: 30 }}
@@ -404,7 +325,7 @@ const AboutPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>Gecko Advisor: Live security audit tool with 4.8★ rating</span>
+                    <span>Gecko Advisor: Live security audit tool with 4.8 rating</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
@@ -429,9 +350,38 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
           </motion.div>
+
+          {/* Strategic Links to PrivacyGecko.com */}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-muted mb-4">Want the full story?</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="https://www.privacygecko.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
+              >
+                Meet the Team <FaExternalLinkAlt size={12} />
+              </a>
+              <a
+                href="https://www.privacygecko.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
+              >
+                Read Full Story <FaExternalLinkAlt size={12} />
+              </a>
+            </div>
+          </motion.div>
         </motion.section>
 
-        {/* Trust & Security Section - NEW */}
+        {/* Trust & Security Section */}
         <motion.section
           className="mb-20"
           initial={{ opacity: 0, y: 30 }}
@@ -488,286 +438,6 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* Core Values Section */}
-        <motion.section
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            className="text-4xl font-bold mb-12 text-center text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Core <span className="gradient-text">Values</span>
-          </motion.h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <motion.div
-                className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <FaEye className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-accent">Transparency & Trust</h3>
-                    <p className="text-muted leading-relaxed">
-                      Open-source development, clear communication, and honest roadmaps that build
-                      lasting trust with our community and stakeholders.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <FaLightbulb className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-accent">Innovation & Excellence</h3>
-                    <p className="text-muted leading-relaxed">
-                      Continuously pushing the boundaries of privacy technology while maintaining
-                      the highest standards of security and performance.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <FaUserShield className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-accent">User Empowerment</h3>
-                    <p className="text-muted leading-relaxed">
-                      Putting users in control of their digital lives through intuitive tools
-                      and educational resources that promote digital literacy.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-            <div className="space-y-8">
-              <motion.div
-                className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <FaGlobe className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-accent">Global Accessibility</h3>
-                    <p className="text-muted leading-relaxed">
-                      Making privacy tools accessible to everyone, regardless of technical expertise,
-                      geographic location, or economic status.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <FaSeedling className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-accent">Sustainable Growth</h3>
-                    <p className="text-muted leading-relaxed">
-                      Building for the long term with sustainable tokenomics, responsible development,
-                      and environmental consciousness in all our operations.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <FaHeart className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-accent">Community First</h3>
-                    <p className="text-muted leading-relaxed">
-                      Every decision prioritizes community benefit over short-term gains, fostering
-                      a collaborative ecosystem built on mutual respect and shared values.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Team Section */}
-        <motion.section
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            className="text-4xl font-bold mb-12 text-center text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Meet the <span className="gradient-text">Core Team</span>
-          </motion.h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              className="card-interactive text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
-                🦎
-              </div>
-              <h3 className="text-xl font-semibold text-accent mb-2">GeckoMaster</h3>
-              <p className="text-sm text-accent/80 mb-4">Co-Founder</p>
-              <p className="text-muted leading-relaxed mb-4">
-                Privacy advocate with 8+ years in blockchain. Previously built privacy tools used by 100K+ users. 
-                Passionate about making digital privacy accessible to everyone.
-              </p>
-              <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Twitter">
-                  <FaTwitter />
-                </a>
-                <a href="https://github.com/geckomaster" className="text-accent hover:text-accent-hover transition-colors" aria-label="GitHub">
-                  <FaGithub />
-                </a>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              className="card-interactive text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
-                ⚡
-              </div>
-              <h3 className="text-xl font-semibold text-accent mb-2">@0xAnonA</h3>
-              <p className="text-sm text-accent/80 mb-4">Co-Founder</p>
-              <p className="text-muted leading-relaxed mb-4">
-                Full-stack engineer specializing in Solana and privacy-preserving technologies. 
-                Former security researcher with expertise in cryptographic protocols.
-              </p>
-              <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Twitter">
-                  <FaTwitter />
-                </a>
-                <a href="https://github.com/cryptosafe" className="text-accent hover:text-accent-hover transition-colors" aria-label="GitHub">
-                  <FaGithub />
-                </a>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              className="card-interactive text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
-                🎨
-              </div>
-              <h3 className="text-xl font-semibold text-accent mb-2">DesignGecko</h3>
-              <p className="text-sm text-accent/80 mb-4">Creative Director</p>
-              <p className="text-muted leading-relaxed mb-4">
-                UX/UI designer with a passion for making complex privacy tools intuitive and enjoyable. 
-                Background in human-computer interaction and behavioral psychology.
-              </p>
-              <div className="flex justify-center space-x-3">
-                <a href="https://twitter.com/PrivacyGecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Twitter">
-                  <FaTwitter />
-                </a>
-                <a href="https://dribbble.com/designgecko" className="text-accent hover:text-accent-hover transition-colors" aria-label="Portfolio">
-                  <FaGlobe />
-                </a>
-              </div>
-            </motion.div>
-          </div>
-          
-          <motion.div
-            className="text-center mt-12 glass-morphism rounded-2xl p-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-semibold text-accent mb-4">Join Our Team</h3>
-            <p className="text-muted mb-6 max-w-2xl mx-auto">
-              We're always looking for passionate privacy advocates, talented developers, and creative minds 
-              to join the privacy revolution. Check out our open positions or reach out with your ideas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <motion.button
-                  className="btn-primary px-6 py-3 inline-flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaUsers />
-                  Join Team
-                </motion.button>
-              </Link>
-              <a href="https://github.com/pricko-project" target="_blank" rel="noopener noreferrer">
-                <motion.button
-                  className="btn-secondary px-6 py-3 inline-flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaGithub />
-                  Contribute on GitHub
-                </motion.button>
-              </a>
-            </div>
-          </motion.div>
-        </motion.section>
-
         {/* Contract Address Section */}
         <motion.section
           className="mb-20"
@@ -780,9 +450,6 @@ const AboutPage: React.FC = () => {
             <ContractAddress />
           </div>
         </motion.section>
-
-        {/* FAQ Section */}
-        <FAQSection className="bg-transparent" />
 
         {/* Call to Action */}
         <motion.section

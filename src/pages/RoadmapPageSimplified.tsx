@@ -5,6 +5,7 @@ import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import PhaseCardSimple from '../components/roadmap/PhaseCardSimple';
 import { SIMPLIFIED_ROADMAP, ROADMAP_META } from '../constants/roadmapSimplified';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const RoadmapPageSimplified: React.FC = () => {
   return (
@@ -70,8 +71,8 @@ const RoadmapPageSimplified: React.FC = () => {
               <div>
                 <h3 className="text-lg font-bold mb-2 text-yellow-400">Important: Timelines Are Estimates</h3>
                 <p className="text-sm text-gray-300 leading-relaxed">
-                  Dates may shift due to technical challenges, security audits, or market conditions. 
-                  We prioritize quality over speed and will communicate any changes transparently.
+                  Dates may shift due to technical challenges, security audits, or market conditions.
+                  We prioritize quality over speed.
                 </p>
               </div>
             </div>
@@ -93,6 +94,24 @@ const RoadmapPageSimplified: React.FC = () => {
               />
             ))}
           </div>
+
+          {/* Link to full roadmap */}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://www.privacygecko.com/roadmap"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent-hover inline-flex items-center gap-2"
+            >
+              Full Roadmap with Milestones <FaExternalLinkAlt size={12} />
+            </a>
+          </motion.div>
 
           {/* Future Vision CTA */}
           <motion.section
