@@ -183,14 +183,14 @@ const HowToBuyPage: React.FC = () => {
                     80% of supply goes to liquidity pool for immediate trading on pump.fun.
                   </p>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="card-interactive text-center"
                   whileHover={{ y: -4 }}
                 >
                   <div className="text-4xl mb-4">🔐</div>
-                  <h3 className="text-xl font-semibold mb-3 text-accent">Utility Access</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-accent">Ecosystem Access</h3>
                   <p className="text-muted leading-relaxed">
-                    Start using tokens immediately for premium features in privacy tools.
+                    Support the ecosystem and gain early access to new tools and features.
                   </p>
                 </motion.div>
               </div>

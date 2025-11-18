@@ -33,15 +33,15 @@ const GeckoVPNPage: React.FC = () => {
     },
     {
       step: 4,
-      title: "Pay with $PRICKO",
-      description: "Completely anonymous VPN when you pay with $PRICKO tokens. No email, no personal info, no payment traces. True privacy from signup to browsing."
+      title: "Complete Anonymity",
+      description: "No email, no personal info required. True privacy from signup to browsing. All features are FREE during Phase 1."
     }
   ];
   
   const faqs = [
     {
       question: "How is Gecko VPN different from NordVPN or ExpressVPN?",
-      answer: "Gecko VPN accepts $PRICKO tokens for truly anonymous payment. No email, no personal info required when paying with crypto. Plus, we're 100% open source with independently verified no-logs policy."
+      answer: "Gecko VPN is 100% open source with an independently verified no-logs policy. No email or personal info required - true anonymous privacy. Plus, all features are FREE during Phase 1."
     },
     {
       question: "What VPN protocol does Gecko VPN use?",
@@ -57,7 +57,7 @@ const GeckoVPNPage: React.FC = () => {
     },
     {
       question: "How much does Gecko VPN cost?",
-      answer: "Free tier: 10GB/month with basic servers. Unlimited: $9.99/month or 200 $PRICKO tokens (one-time payment for lifetime access when paid with tokens)."
+      answer: "All features are FREE during Phase 1! Unlimited bandwidth, all servers, and full functionality at no cost. After launch, $PRICKO token holders will receive exclusive benefits."
     }
   ];
   

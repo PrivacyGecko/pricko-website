@@ -45,13 +45,13 @@
       }
     },
     "utility": {
-      "description": "PRICKO token provides access to premium features across the Privacy Gecko ecosystem",
+      "description": "PRICKO token supports the Privacy Gecko ecosystem and provides governance rights",
       "benefits": [
-        "Access to premium tiers in Gecko Share, Gecko View, and other tools",
         "Governance rights for ecosystem development decisions",
-        "Discounted pricing on all Privacy Gecko services",
         "Priority access to beta features and new product launches",
-        "Staking rewards for long-term holders"
+        "Staking rewards for long-term holders (Q1 2026)",
+        "Support ecosystem development and expansion",
+        "All tools FREE during Phase 1 - no tokens required"
       ]
     },
     "disclaimers": {
@@ -904,12 +904,12 @@
           {
             "id": "what-can-i-do",
             "question": "What can I do with PRICKO tokens?",
-            "answer": "PRICKO tokens unlock premium features across all Privacy Gecko tools. Instead of paying monthly subscriptions, you can hold tokens to access Pro features. You also get governance rights to vote on ecosystem priorities, discounts on services, and priority access to new product launches."
+            "answer": "During Phase 1, all tools are FREE - no tokens required! PRICKO tokens support ecosystem development and provide governance rights to vote on priorities, priority access to new product launches, and staking rewards (Q1 2026). After Phase 1, token holders will gain exclusive benefits."
           },
           {
             "id": "token-vs-subscription",
-            "question": "How does token access compare to subscriptions?",
-            "answer": "Token holders enjoy lifetime access to premium features as long as they hold the required amount. Subscriptions cost $9.99/month per product, while holding 10,000 PRICKO tokens grants the same access without recurring payments. For multiple products, token holdings scale better than subscription bundles."
+            "question": "Do I need tokens to use the tools?",
+            "answer": "No! During Phase 1 (pre-token launch), all Privacy Gecko tools are completely FREE with all features unlocked. After Phase 1, token holders will receive exclusive benefits and priority access, but basic functionality will always remain free."
           },
           {
             "id": "governance",
@@ -918,8 +918,8 @@
           },
           {
             "id": "token-requirements",
-            "question": "How many tokens do I need to hold for premium access?",
-            "answer": "Requirements vary by product and tier. For example: Single Product Pro access requires ~10,000 PRICKO, 3-Product Bundle requires ~25,000 PRICKO, and All 8 Products requires ~50,000 PRICKO. These thresholds may be adjusted based on token value and community feedback."
+            "question": "What benefits do token holders get?",
+            "answer": "Token holders receive governance rights to vote on ecosystem decisions, priority access to new features and beta products, staking rewards (launching Q1 2026), and exclusive community perks. During Phase 1, all tools are free for everyone regardless of token holdings."
           }
         ]
       },
@@ -939,7 +939,7 @@
           {
             "id": "products-work-without-tokens",
             "question": "Do the products work without holding tokens?",
-            "answer": "Yes! All products have free tiers that work without any token holdings. Tokens unlock premium features and remove limitations, but basic functionality is always available to everyone."
+            "answer": "Absolutely! During Phase 1, ALL features are FREE for everyone - no tokens required. After Phase 1, token holders will gain exclusive benefits, but core functionality will always remain free for all users."
           },
           {
             "id": "open-source",

@@ -33,8 +33,8 @@ const GeckoSharePage: React.FC = () => {
     },
     {
       step: 4,
-      title: "Track & Manage (Pro)",
-      description: "Pro users get persistent vault storage, download tracking, and file management dashboard. Upgrade with $PRICKO tokens."
+      title: "Track & Manage",
+      description: "Access persistent vault storage, download tracking, and file management dashboard. All features are FREE during Phase 1."
     }
   ];
   
@@ -45,15 +45,15 @@ const GeckoSharePage: React.FC = () => {
     },
     {
       question: "What are the file size limits?",
-      answer: "Free users: 5GB per file, 24-hour retention. Pro users (with $PRICKO tokens): Unlimited file sizes, persistent vault storage, and priority upload speeds."
+      answer: "During Phase 1, all users get: 5GB per file, persistent vault storage, and priority upload speeds. All features are FREE."
     },
     {
-      question: "Are my files really deleted after 24 hours?",
-      answer: "Yes. Free tier files are automatically deleted after 24 hours with no backup copies. Pro users can choose retention periods or keep files indefinitely in their encrypted vault."
+      question: "How long are files stored?",
+      answer: "During Phase 1, all files are stored in your persistent encrypted vault with no automatic deletion. You control your data retention."
     },
     {
       question: "Can I use Gecko Share without an account?",
-      answer: "Absolutely! Free tier requires zero signup. Just visit, upload, and share. For Pro features (persistent storage, management dashboard), connect your Solana wallet with $PRICKO tokens."
+      answer: "Absolutely! No signup required. Just visit, upload, and share. All features including persistent storage and management dashboard are FREE during Phase 1."
     },
     {
       question: "How is Gecko Share different from Dropbox or Google Drive?",
@@ -61,7 +61,7 @@ const GeckoSharePage: React.FC = () => {
     },
     {
       question: "What happens if I lose my upload link?",
-      answer: "Free tier: Links are one-time generated. If lost, the file is inaccessible (by design for security). Pro tier: All uploads are saved to your vault dashboard for easy retrieval."
+      answer: "All uploads are saved to your vault dashboard for easy retrieval. You can access your files anytime through the management interface."
     }
   ];
   
