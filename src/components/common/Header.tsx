@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
 import MascotImage from '../ui/MascotImage';
-// import ContractAddress from '../ui/ContractAddress';
+import ContractAddress from '../ui/ContractAddress';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,16 +24,30 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-primary/95 backdrop-blur-custom border-b border-border shadow-lg'
-          : 'bg-primary/80 backdrop-blur-custom border-b border-border/50'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+    <div className="fixed top-0 left-0 right-0 z-50">
+      {/* Contract Address Banner */}
+      <motion.div
+        className="bg-gradient-to-r from-secondary via-accent/5 to-secondary border-b border-accent/20 py-2"
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: 'auto', opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+      >
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <ContractAddress variant="banner" />
+        </div>
+      </motion.div>
+
+      {/* Main Header */}
+      <motion.header
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? 'bg-primary/95 backdrop-blur-custom border-b border-border shadow-lg'
+            : 'bg-primary/80 backdrop-blur-custom border-b border-border/50'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
       <div className="container-max">
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
           {/* Enhanced Logo Section with MascotImage */}
@@ -122,23 +136,8 @@ const Header: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
-      
-      {/* Contract Address Banner - Only show when token launches */}
-      {/* Uncomment this section when token launches:
-      <motion.div
-        className="bg-gradient-to-r from-accent/10 to-accent/5 border-b border-accent/20 py-2"
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: 'auto', opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center">
-            <ContractAddress variant="minimal" />
-          </div>
-        </div>
-      </motion.div>
-      */}
     </motion.header>
+    </div>
   );
 };
 

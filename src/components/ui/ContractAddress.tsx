@@ -4,7 +4,7 @@ import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface ContractAddressProps {
   className?: string;
-  variant?: 'hero' | 'card' | 'minimal';
+  variant?: 'hero' | 'card' | 'minimal' | 'banner';
 }
 
 const ContractAddress: React.FC<ContractAddressProps> = ({ 
@@ -153,6 +153,39 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
           </div>
         </div>
       </motion.div>
+    );
+  }
+
+  if (variant === 'banner') {
+    // Truncate address for mobile display
+    const truncatedAddress = isLaunched && actualCA
+      ? `${actualCA.slice(0, 6)}...${actualCA.slice(-4)}`
+      : "TBA";
+
+    return (
+      <div className={`flex items-center justify-center gap-2 sm:gap-3 ${className}`}>
+        <span className="text-muted text-xs sm:text-sm font-medium">CA:</span>
+        <code className="text-accent font-mono text-xs sm:text-sm">
+          <span className="sm:hidden">{truncatedAddress}</span>
+          <span className="hidden sm:inline">{isLaunched ? actualCA : "TBA - Coming Soon"}</span>
+        </code>
+        {isLaunched && (
+          <motion.button
+            onClick={handleCopy}
+            className="p-1 text-accent hover:text-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-primary rounded"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={copied ? "Contract address copied" : "Copy contract address"}
+          >
+            {copied ? <FaCheck className="text-xs" /> : <FaCopy className="text-xs" />}
+          </motion.button>
+        )}
+        {!isLaunched && (
+          <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] rounded-full hidden sm:inline-block">
+            Pre-Launch
+          </span>
+        )}
+      </div>
     );
   }
 

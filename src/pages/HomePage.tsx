@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
 import PremiumFeatureCard from '../components/ui/PremiumFeatureCard';
 import MascotImage from '../components/ui/MascotImage';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
 import { AnimatedBackground } from '../components/ui/AnimatedBackground';
-import { FaArrowRight, FaExternalLinkAlt, FaWallet, FaExchangeAlt, FaRocket, FaCheckCircle } from 'react-icons/fa';
+import { FaArrowRight, FaExternalLinkAlt, FaWallet, FaExchangeAlt, FaRocket } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const {
@@ -192,14 +191,56 @@ const HomePage: React.FC = () => {
             </motion.a>
           </motion.div>
 
-          {/* Contract Address */}
+          {/* Track on Exchange Links */}
           <motion.div
-            className="max-w-2xl mx-auto"
+            className="max-w-md mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <ContractAddress variant="hero" />
+            <div className="flex flex-col items-center gap-3">
+              <span className="text-sm text-gray-300 font-medium flex items-center gap-2">
+                <span className="text-accent">Track on:</span>
+              </span>
+              <div className="flex items-center gap-3">
+                <motion.a
+                  href="https://pump.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="View on Pump.fun"
+                  title="Pump.fun"
+                >
+                  <img
+                    src="https://pump.fun/favicon.ico"
+                    alt="Pump.fun"
+                    width="32"
+                    height="32"
+                    className="inline-block"
+                  />
+                </motion.a>
+                <motion.a
+                  href="https://dexscreener.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="View on DEXScreener"
+                  title="DEXScreener"
+                >
+                  <img
+                    src="https://dexscreener.com/favicon.ico"
+                    alt="DEXScreener"
+                    width="32"
+                    height="32"
+                    className="inline-block"
+                  />
+                </motion.a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
