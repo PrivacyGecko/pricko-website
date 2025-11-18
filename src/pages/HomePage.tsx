@@ -465,8 +465,17 @@ const HomePage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               What is <span className="gradient-text">GeckoCore Protocol</span>?
             </h2>
+            <p className="text-sm uppercase tracking-wider mb-4">
+              <span className="text-cyan-400 font-semibold">Privacy</span>
+              {" • "}
+              <span className="text-purple-400 font-semibold">Security</span>
+              {" • "}
+              <span className="text-accent font-semibold">Trust</span>
+            </p>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-              GeckoCore is the unified privacy infrastructure connecting all Privacy Gecko tools. 
+              GeckoCore is the unified <span className="text-cyan-400">privacy</span> infrastructure
+              with built-in <span className="text-purple-400">security</span>,
+              connecting all Privacy Gecko tools through a foundation of <span className="text-accent">trust</span>.
               Protocol launches Q2 2026. More tools in the ecosystem means more {tokenSymbol} demand.
             </p>
             <a
