@@ -157,33 +157,43 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
   }
 
   if (variant === 'banner') {
+    // Check if we have an actual CA to display
+    const hasCA = actualCA && actualCA.length > 0;
+
     // Truncate address for mobile display
-    const truncatedAddress = isLaunched && actualCA
+    const truncatedAddress = hasCA
       ? `${actualCA.slice(0, 6)}...${actualCA.slice(-4)}`
-      : "TBA";
+      : "";
 
     return (
       <div className={`flex items-center justify-center gap-2 sm:gap-3 ${className}`}>
-        <span className="text-muted text-xs sm:text-sm font-medium">CA:</span>
-        <code className="text-accent font-mono text-xs sm:text-sm">
-          <span className="sm:hidden">{truncatedAddress}</span>
-          <span className="hidden sm:inline">{isLaunched ? actualCA : "TBA - Coming Soon"}</span>
-        </code>
-        {isLaunched && (
-          <motion.button
-            onClick={handleCopy}
-            className="p-1 text-accent hover:text-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-primary rounded"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label={copied ? "Contract address copied" : "Copy contract address"}
-          >
-            {copied ? <FaCheck className="text-xs" /> : <FaCopy className="text-xs" />}
-          </motion.button>
-        )}
-        {!isLaunched && (
-          <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] rounded-full hidden sm:inline-block">
-            Pre-Launch
-          </span>
+        {hasCA ? (
+          <>
+            <span className="text-muted text-xs sm:text-sm font-medium">CA:</span>
+            <code className="text-accent font-mono text-xs sm:text-sm">
+              <span className="sm:hidden">{truncatedAddress}</span>
+              <span className="hidden sm:inline">{actualCA}</span>
+            </code>
+            <motion.button
+              onClick={handleCopy}
+              className="p-1 text-accent hover:text-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-primary rounded"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={copied ? "Contract address copied" : "Copy contract address"}
+            >
+              {copied ? <FaCheck className="text-xs" /> : <FaCopy className="text-xs" />}
+            </motion.button>
+          </>
+        ) : (
+          <>
+            <span className="text-orange-400 text-xs sm:text-sm">🔒</span>
+            <span className="text-gray-300 text-xs sm:text-sm font-medium">
+              CA will be revealed at launch
+            </span>
+            <span className="px-2 py-0.5 bg-accent/20 text-accent text-[10px] rounded-full hidden sm:inline-block">
+              Coming Soon
+            </span>
+          </>
         )}
       </div>
     );

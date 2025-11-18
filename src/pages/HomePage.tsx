@@ -81,18 +81,20 @@ const HomePage: React.FC = () => {
         </div>
         
         {/* Fallback AnimatedBackground (shows through overlay if needed) */}
-        <div className="absolute inset-0 z-[1] opacity-30">
+        <div className="absolute inset-0 z-[1] opacity-20">
           <AnimatedBackground />
         </div>
 
-        <div className="container-max section-padding relative z-10 text-center">
+        <div className="container-max section-padding relative z-10 text-center pt-20">
           <motion.div
-            className="mb-6 flex justify-center"
+            className="mb-8 flex justify-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <MascotImage size="xl" alt="Pricko Mascot - Privacy Gecko" />
+            <div className="transform scale-125 md:scale-150">
+              <MascotImage size="xl" alt="Pricko Mascot - Privacy Gecko" />
+            </div>
           </motion.div>
 
           {/* Primary Brand Anchor */}
@@ -102,7 +104,19 @@ const HomePage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-accent">{tokenSymbol}</span>
+            <motion.span
+              className="text-accent inline-block"
+              animate={{
+                textShadow: [
+                  "0 0 20px rgba(74, 222, 128, 0.3)",
+                  "0 0 40px rgba(74, 222, 128, 0.5)",
+                  "0 0 20px rgba(74, 222, 128, 0.3)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              {tokenSymbol}
+            </motion.span>
           </motion.h1>
 
           {/* GeckoCore Protocol - THE KEY MESSAGE */}
@@ -132,23 +146,38 @@ const HomePage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="text-center">
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">{TOOLS_COUNT.live}</div>
               <div className="text-sm md:text-base text-muted">Live Products</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+            >
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">{METRICS.prickoshare.formatted}</div>
               <div className="text-sm md:text-base text-muted">Active Users</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+            >
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">{METRICS.prickoGuard.formatted}</div>
               <div className="text-sm md:text-base text-muted">Beta Testers</div>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Proof Link - Subtle but clear */}
+          {/* Proof Link - More prominent */}
           <motion.div
-            className="mb-10"
+            className="mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -157,16 +186,16 @@ const HomePage: React.FC = () => {
               href="https://privacygecko.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted hover:text-accent transition-colors text-base"
+              className="inline-flex items-center gap-3 text-gray-300 hover:text-accent transition-colors text-lg md:text-xl font-medium"
             >
               Live Products on PrivacyGecko.com
-              <FaExternalLinkAlt className="text-xs" />
+              <FaExternalLinkAlt className="text-sm" />
             </a>
           </motion.div>
 
           {/* Primary CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 mb-10"
+            className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -176,6 +205,14 @@ const HomePage: React.FC = () => {
               className="btn-primary text-xl px-12 py-5 inline-flex items-center justify-center gap-3"
               whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(74, 222, 128, 0.4)" }}
               whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(74, 222, 128, 0.2)",
+                  "0 0 30px rgba(74, 222, 128, 0.3)",
+                  "0 0 20px rgba(74, 222, 128, 0.2)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               Buy {tokenSymbol} <FaArrowRight />
             </motion.a>
@@ -193,51 +230,51 @@ const HomePage: React.FC = () => {
 
           {/* Track on Exchange Links */}
           <motion.div
-            className="max-w-md mx-auto"
+            className="max-w-lg mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
           >
-            <div className="flex flex-col items-center gap-3">
-              <span className="text-sm text-gray-300 font-medium flex items-center gap-2">
+            <div className="flex flex-col items-center gap-4">
+              <span className="text-base text-gray-300 font-medium">
                 <span className="text-accent">Track on:</span>
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center gap-6">
                 <motion.a
                   href="https://pump.fun"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 flex items-center justify-center"
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="flex flex-col items-center gap-2 p-4 bg-accent/10 hover:bg-accent/20 rounded-xl transition-all duration-200"
+                  whileHover={{ scale: 1.1, y: -4 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="View on Pump.fun"
-                  title="Pump.fun"
                 >
                   <img
                     src="https://pump.fun/favicon.ico"
                     alt="Pump.fun"
-                    width="32"
-                    height="32"
+                    width="48"
+                    height="48"
                     className="inline-block"
                   />
+                  <span className="text-sm font-medium text-accent">Pump.fun</span>
                 </motion.a>
                 <motion.a
                   href="https://dexscreener.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 flex items-center justify-center"
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="flex flex-col items-center gap-2 p-4 bg-blue-500/10 hover:bg-blue-500/20 rounded-xl transition-all duration-200"
+                  whileHover={{ scale: 1.1, y: -4 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="View on DEXScreener"
-                  title="DEXScreener"
                 >
                   <img
                     src="https://dexscreener.com/favicon.ico"
                     alt="DEXScreener"
-                    width="32"
-                    height="32"
+                    width="48"
+                    height="48"
                     className="inline-block"
                   />
+                  <span className="text-sm font-medium text-blue-400">DEXScreener</span>
                 </motion.a>
               </div>
             </div>
