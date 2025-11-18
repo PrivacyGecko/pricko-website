@@ -26,15 +26,21 @@ const PremiumFeatureCard: React.FC<PremiumFeatureCardProps> = ({
   } : {};
 
   const statusColors = {
-    live: 'bg-gradient-to-r from-yellow-500 to-yellow-400',
-    beta: 'bg-gradient-to-r from-green-500 to-green-400',
-    'coming-soon': 'bg-gradient-to-r from-blue-500 to-blue-400'
+    live: 'bg-gradient-to-r from-green-500 to-green-400',
+    beta: 'bg-gradient-to-r from-cyan-500 to-cyan-400',
+    'coming-soon': 'bg-gradient-to-r from-purple-500 to-purple-400'
   };
 
   const statusLabels = {
     live: 'LIVE',
     beta: 'BETA',
     'coming-soon': 'COMING SOON'
+  };
+
+  const titleColors = {
+    live: 'text-accent',
+    beta: 'text-cyan-400',
+    'coming-soon': 'text-purple-400'
   };
 
   return (
@@ -48,8 +54,7 @@ const PremiumFeatureCard: React.FC<PremiumFeatureCardProps> = ({
       {...cardProps}
     >
       <motion.div
-        className="px-4 py-1.5 rounded-full text-xs font-bold text-black mb-6"
-        style={{ background: statusColors[status] }}
+        className={`px-4 py-1.5 rounded-full text-xs font-bold mb-6 text-white ${statusColors[status]}`}
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: delay + 0.1 }}
@@ -68,23 +73,19 @@ const PremiumFeatureCard: React.FC<PremiumFeatureCardProps> = ({
         {emoji}
       </motion.div>
 
-      <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: status === 'live' ? '#fbbf24' : '#4ade80' }}>
+      <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${titleColors[status]}`}>
         {title}
       </h3>
 
-      <p className="text-gray-400 leading-relaxed text-base md:text-lg">
+      <p className="text-gray-400 leading-relaxed text-base md:text-lg flex-grow">
         {description}
       </p>
 
-      {url && (
-        <motion.div
-          className="mt-6 text-accent opacity-0 group-hover:opacity-100 transition-opacity"
-          initial={{ x: -10 }}
-          whileHover={{ x: 0 }}
-        >
-          →
-        </motion.div>
-      )}
+      <motion.div
+        className={`mt-6 text-accent transition-opacity ${url ? 'opacity-0 group-hover:opacity-100' : 'opacity-0'}`}
+      >
+        →
+      </motion.div>
     </CardWrapper>
   );
 };

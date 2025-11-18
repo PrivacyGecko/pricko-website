@@ -41,8 +41,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
     <img
       src="https://pump.fun/favicon.ico"
       alt="Pump.fun"
-      width="32"
-      height="32"
+      width="20"
+      height="20"
       className="inline-block"
     />
   );
@@ -52,8 +52,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
     <img
       src="https://dexscreener.com/favicon.ico"
       alt="DEXScreener"
-      width="32"
-      height="32"
+      width="20"
+      height="20"
       className="inline-block"
     />
   );
@@ -120,36 +120,31 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
 
         {/* Exchange Badges - Integrated */}
         <div className="mt-4 pt-4">
-          <div className="flex flex-col items-center gap-3">
-            <span className="text-sm text-gray-300 font-medium flex items-center gap-2">
-              <span className="text-accent">🔗</span> Track on:
-            </span>
-            <div className="flex items-center gap-3">
-              <motion.a
-                href="https://pump.fun"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 flex items-center justify-center"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="View on Pump.fun"
-                title="Pump.fun"
-              >
-                <PumpFunIcon />
-              </motion.a>
-              <motion.a
-                href="https://dexscreener.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 flex items-center justify-center"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="View on DEXScreener"
-                title="DEXScreener"
-              >
-                <DEXScreenerIcon />
-              </motion.a>
-            </div>
+          <div className="flex items-center justify-center gap-3">
+            <motion.a
+              href="https://pump.fun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 flex items-center justify-center"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="View on Pump.fun"
+              title="Pump.fun"
+            >
+              <PumpFunIcon />
+            </motion.a>
+            <motion.a
+              href="https://dexscreener.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 flex items-center justify-center"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="View on DEXScreener"
+              title="DEXScreener"
+            >
+              <DEXScreenerIcon />
+            </motion.a>
           </div>
         </div>
       </motion.div>

@@ -56,8 +56,8 @@ const AboutPage: React.FC = () => {
             About <span className="gradient-text-animated">PRICKO</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
-            Building <span className="text-blue-400 font-medium">AI-enhanced</span> privacy tools that don't suck. Community-owned, meme-powered, actually useful.
-            Privacy protection without the corporate BS.
+            Building <span className="text-blue-400 font-medium">AI-enhanced</span> privacy tools that actually work. Community-owned, meme-powered, genuinely useful.
+            Privacy protection without the corporate overhead.
           </p>
         </motion.div>
 
@@ -144,7 +144,7 @@ const AboutPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-accent">Privacy First</h3>
               <p className="text-muted leading-relaxed">
-                Building cutting-edge privacy tools that protect user data without compromising
+                Building practical privacy tools that protect user data without compromising
                 on performance, usability, or user experience.
               </p>
             </motion.div>
@@ -329,28 +329,24 @@ const AboutPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>Gecko Advisor: Live security audit tool with 4.8 rating</span>
+                    <span>Gecko Advisor: Live AI-powered privacy policy scanner</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>Gecko Shell: 85% complete, 1,800+ on waitlist</span>
+                    <span>Gecko Guard: Live browser extension with {METRICS.prickoGuard.formatted} users</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    <span>Gecko Guard: 90% complete, in extension store review</span>
+                    <span>Gecko Lock: Live password manager with encrypted vault</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="mt-8 pt-8 border-t border-accent/20">
-              <p className="text-center text-sm text-gray-300 leading-relaxed mb-3">
-                <strong className="text-accent">Our Commitment:</strong> We're not a pump-and-dump project.
-                We're building a real ecosystem with measurable progress, transparent development, and genuine utility.
+              <p className="text-center text-sm text-gray-300 leading-relaxed">
+                <strong className="text-accent">Our Commitment:</strong> We're building a real ecosystem with measurable progress, transparent development, and genuine utility.
                 Every metric above is verifiable through our live products and public GitHub repositories.
-              </p>
-              <p className="text-center text-xs text-muted/60">
-                Last Updated: November 15, 2025
               </p>
             </div>
           </motion.div>

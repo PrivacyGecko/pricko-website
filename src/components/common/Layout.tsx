@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import CookieConsent from './CookieConsent';
+// import CookieConsent from './CookieConsent'; // Disabled
 import { PageProps } from '../../types';
 
 const Layout: React.FC<PageProps> = ({ children, className = '' }) => {
@@ -19,7 +19,7 @@ const Layout: React.FC<PageProps> = ({ children, className = '' }) => {
         {children}
       </main>
       <Footer />
-      <CookieConsent />
+      {/* <CookieConsent /> */}
     </div>
   );
 };

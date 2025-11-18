@@ -35,7 +35,7 @@ export const SIMPLIFIED_ROADMAP: SimplifiedPhase[] = [
     title: 'Token Launch & Smart Contracts',
     status: 'current',
     achievements: [
-      '$PRICKO token launches on Solana (November 18, 2025)',
+      '$PRICKO token launches on Solana',
       'Smart contract audit completed and deployed',
       'Staking & governance activation for community'
     ],

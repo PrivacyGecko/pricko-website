@@ -303,20 +303,19 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Legal Disclaimers */}
-        <motion.div
+        {/* Legal Disclaimers - Disabled */}
+        {/* <motion.div
           className="border-t border-border/50 pt-8 mt-12 space-y-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          {/* Primary Legal Disclaimer */}
           <div className="bg-secondary/40 border border-accent/20 rounded-lg p-6 max-w-4xl mx-auto">
             <p className="text-xs md:text-sm text-muted leading-relaxed text-center">
               <span className="text-accent font-semibold">⚠️ Legal Disclaimer:</span> {footerDisclaimer}
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Enhanced Bottom Section */}
         <motion.div

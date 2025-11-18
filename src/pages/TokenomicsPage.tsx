@@ -312,8 +312,8 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* Consolidated Risk Warning */}
-        <motion.section
+        {/* Consolidated Risk Warning - Disabled */}
+        {/* <motion.section
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -335,7 +335,7 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </motion.section> */}
       </div>
     </div>
     </>

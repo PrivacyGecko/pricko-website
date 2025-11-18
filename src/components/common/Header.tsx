@@ -51,24 +51,38 @@ const Header: React.FC = () => {
       <div className="container-max">
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
           {/* Enhanced Logo Section with MascotImage */}
-          <Link to="/" className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded-lg">
+          <Link to="/" className="flex items-center space-x-3 group focus:outline-none rounded-lg">
             <MascotImage
               size="xs"
               className="transition-transform duration-300 group-hover:scale-110"
               alt="Privacy Gecko Logo"
             />
             
-            {/* Enhanced Brand Text */}
+            {/* Enhanced Brand Text - Shows PRICKO = PRIvacy geCKO */}
             <div className="flex flex-col">
               <motion.h1
                 className="text-xl sm:text-2xl font-bold leading-tight"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="gradient-text tracking-wide">PRICKO</span>
+                {/* PRICKO - All green with pulsing glow like hero section */}
+                <motion.span
+                  className="text-accent tracking-wide inline-block"
+                  animate={{
+                    textShadow: [
+                      "0 0 10px rgba(74, 222, 128, 0.3)",
+                      "0 0 20px rgba(74, 222, 128, 0.5)",
+                      "0 0 10px rgba(74, 222, 128, 0.3)"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  PRICKO
+                </motion.span>
               </motion.h1>
-              <span className="text-xs text-muted font-medium tracking-wider hidden sm:block">
-                Privacy Gecko
+              {/* Subtitle - The Privacy Gecko Protocol */}
+              <span className="text-[10px] sm:text-xs font-bold tracking-wider hidden sm:block text-white">
+                The Privacy Gecko Protocol
               </span>
             </div>
           </Link>
@@ -81,7 +95,7 @@ const Header: React.FC = () => {
           {/* Enhanced Mobile Menu Button */}
           <motion.button
             onClick={toggleMenu}
-            className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             whileTap={{ scale: 0.95 }}
