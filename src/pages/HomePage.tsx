@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import SEO from '../components/common/SEO';
-import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import PremiumFeatureCard from '../components/ui/PremiumFeatureCard';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -242,32 +240,56 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Proof of Development Section */}
-      <ProofOfDevelopment />
-
-      {/* CTA Banner */}
-      <section className="relative section-padding py-20 bg-gradient-to-b from-black via-secondary/50 to-black overflow-hidden">
+      {/* GeckoCore Protocol Section - Simple & Focused */}
+      <section className="relative section-padding py-20 bg-gradient-to-b from-black via-secondary/30 to-black overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-max relative z-10">
           <motion.div
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Join the <span className="gradient-text">Privacy Revolution</span>?
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              What is <span className="gradient-text">GeckoCore Protocol</span>?
             </h2>
-            <p className="text-xl text-gray-300 mb-10">
-              Get {tokenSymbol} now and unlock access to {TOOLS_COUNT.total} privacy tools
+            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+              GeckoCore is the unified privacy infrastructure connecting all Privacy Gecko tools. 
+              Protocol launches Q2 2026. More tools in the ecosystem means more {tokenSymbol} demand.
             </p>
+            <a
+              href="https://privacygecko.com/protocol"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors text-lg font-medium"
+            >
+              Technical Details on PrivacyGecko.com
+              <FaExternalLinkAlt className="text-sm" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Final CTA - Minimal & Direct */}
+      <section className="relative section-padding py-16 bg-black overflow-hidden">
+        <div className="container-max relative z-10">
+          <motion.div
+            className="text-center max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Join?
+            </h2>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -275,7 +297,7 @@ const HomePage: React.FC = () => {
             >
               <motion.a
                 href="/how-to-buy"
-                className="btn-primary px-12 py-5 text-lg font-semibold inline-flex items-center justify-center gap-3"
+                className="btn-primary px-10 py-4 text-lg font-semibold inline-flex items-center justify-center gap-3"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)"
@@ -284,15 +306,16 @@ const HomePage: React.FC = () => {
               >
                 Buy {tokenSymbol} <FaArrowRight />
               </motion.a>
-              <Link to="/tools">
-                <motion.button
-                  className="btn-secondary px-12 py-5 text-lg font-semibold"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Explore Tools
-                </motion.button>
-              </Link>
+              <motion.a
+                href="https://privacygecko.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary px-10 py-4 text-lg font-semibold inline-flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Explore Tools <FaExternalLinkAlt className="text-sm" />
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>
