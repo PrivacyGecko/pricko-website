@@ -97,32 +97,32 @@ const HomePage: React.FC = () => {
 
           {/* Primary Brand Anchor */}
           <motion.h1
-            className="text-6xl md:text-8xl lg:text-9xl font-black mb-4 gradient-text"
+            className="text-6xl md:text-8xl lg:text-9xl font-black mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {tokenSymbol}
+            <span className="text-accent">{tokenSymbol}</span>
           </motion.h1>
 
           {/* GeckoCore Protocol - THE KEY MESSAGE */}
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl text-accent font-bold mb-4"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            GeckoCore Protocol
+            <span className="text-purple-400">Gecko</span><span className="text-cyan-400">Core</span> <span className="text-accent">Protocol</span>
           </motion.h2>
 
           {/* Subtitle - Privacy Infrastructure positioning */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-10"
+            className="text-lg md:text-xl lg:text-2xl mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Privacy Infrastructure on Solana
+            <span className="text-cyan-400">Privacy</span> <span className="text-purple-400">Infrastructure</span> <span className="text-gray-300">on</span> <span className="text-accent">Solana</span>
           </motion.p>
 
           {/* Social Proof Stats */}
