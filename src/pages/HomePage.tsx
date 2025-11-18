@@ -63,7 +63,26 @@ const HomePage: React.FC = () => {
       <div className="min-h-screen">
       {/* Hero Section - GeckoCore Protocol Focused */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <AnimatedBackground />
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover"
+            poster="/video-poster.jpg"
+          >
+            <source src="/background.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        
+        {/* Fallback AnimatedBackground (shows through overlay if needed) */}
+        <div className="absolute inset-0 z-[1] opacity-30">
+          <AnimatedBackground />
+        </div>
 
         <div className="container-max section-padding relative z-10 text-center">
           <motion.div

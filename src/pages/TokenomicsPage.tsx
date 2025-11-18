@@ -73,11 +73,11 @@ const TokenomicsPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-8 text-center">Token Distribution</h2>
           <div className="grid grid-cols-2 gap-4 text-center mb-8 max-w-2xl mx-auto">
-            <div className="card p-6">
+            <div className="card-interactive p-6">
               <div className="text-4xl font-bold text-accent">80%</div>
               <div className="text-muted">Community & Market</div>
             </div>
-            <div className="card p-6">
+            <div className="card-interactive p-6">
               <div className="text-4xl font-bold text-accent">20%</div>
               <div className="text-muted">Team (Vested)</div>
             </div>
@@ -108,28 +108,28 @@ const TokenomicsPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* FREE Tier */}
-            <div className="card p-6 text-center">
+            <div className="card-interactive p-6 text-center">
               <div className="text-2xl mb-2">🆓</div>
               <h3 className="text-xl font-bold mb-2">FREE</h3>
               <p className="text-sm text-muted">Basic tool access, limited features</p>
             </div>
 
             {/* HOLDER Tier */}
-            <div className="card p-6 text-center border-accent/50">
+            <div className="card-interactive p-6 text-center border-accent/50">
               <div className="text-2xl mb-2">💎</div>
               <h3 className="text-xl font-bold text-accent mb-2">HOLDER</h3>
               <p className="text-sm text-muted">Premium features, unlimited access</p>
             </div>
 
             {/* STAKER Tier */}
-            <div className="card p-6 text-center">
+            <div className="card-interactive p-6 text-center">
               <div className="text-2xl mb-2">🔒</div>
               <h3 className="text-xl font-bold mb-2">STAKER</h3>
               <p className="text-sm text-muted">Rewards + early access (Q2 2026)</p>
             </div>
 
             {/* VOTER Tier */}
-            <div className="card p-6 text-center">
+            <div className="card-interactive p-6 text-center">
               <div className="text-2xl mb-2">🗳️</div>
               <h3 className="text-xl font-bold mb-2">VOTER</h3>
               <p className="text-sm text-muted">Governance rights (Q2 2026)</p>
