@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
@@ -13,6 +13,15 @@ const HomePage: React.FC = () => {
   const {
     tokenSymbol
   } = useProjectConfig();
+
+  // Video ref for slow motion playback
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // Slow motion
+    }
+  }, []);
 
   const homepageStructuredData = {
     "@context": "https://schema.org",
@@ -67,6 +76,7 @@ const HomePage: React.FC = () => {
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
@@ -77,7 +87,7 @@ const HomePage: React.FC = () => {
             <source src="/latest_bg.mp4" type="video/mp4" />
           </video>
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         
         {/* Fallback AnimatedBackground (shows through overlay if needed) */}
