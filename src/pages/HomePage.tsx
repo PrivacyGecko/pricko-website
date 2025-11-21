@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
             className="absolute w-full h-full object-cover"
             poster="/video-poster.jpg"
           >
-            <source src="/latest_bg.mp4" type="video/mp4" />
+            <source src="/green_loop.mp4" type="video/mp4" />
           </video>
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/50" />
