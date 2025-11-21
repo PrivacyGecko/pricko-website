@@ -27,7 +27,7 @@ const Header: React.FC = () => {
     <div className="fixed top-0 left-0 right-0 z-50">
       {/* Contract Address Banner */}
       <motion.div
-        className="bg-gradient-to-r from-secondary via-accent/5 to-secondary border-b border-accent/20 py-2"
+        className="bg-black/60 backdrop-blur-md border-b border-accent/30 py-2"
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: 'auto', opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.3 }}
@@ -41,8 +41,8 @@ const Header: React.FC = () => {
       <motion.header
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-primary/95 backdrop-blur-custom border-b border-border shadow-lg'
-            : 'bg-primary/80 backdrop-blur-custom border-b border-border/50'
+            ? 'bg-black/70 backdrop-blur-lg border-b border-accent/20 shadow-lg'
+            : 'bg-black/50 backdrop-blur-md border-b border-accent/10'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -70,9 +70,9 @@ const Header: React.FC = () => {
                   className="text-accent tracking-wide inline-block"
                   animate={{
                     textShadow: [
-                      "0 0 10px rgba(74, 222, 128, 0.3)",
-                      "0 0 20px rgba(74, 222, 128, 0.5)",
-                      "0 0 10px rgba(74, 222, 128, 0.3)"
+                      "0 0 10px rgba(45, 212, 191, 0.3)",
+                      "0 0 20px rgba(45, 212, 191, 0.5)",
+                      "0 0 10px rgba(45, 212, 191, 0.3)"
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

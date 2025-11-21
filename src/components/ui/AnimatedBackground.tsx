@@ -10,7 +10,7 @@ export const AnimatedBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(74, 222, 128, 0.15), transparent)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(45, 212, 191, 0.15), transparent)',
         }}
         animate={{
           scale: [1, 1.1, 1],

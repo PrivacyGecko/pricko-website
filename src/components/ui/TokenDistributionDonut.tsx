@@ -108,7 +108,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               onMouseEnter={() => setHoveredSegment(segment.index)}
               onMouseLeave={() => setHoveredSegment(null)}
               className="cursor-pointer transition-all duration-300"
-              style={{ filter: hoveredSegment === segment.index ? 'drop-shadow(0 0 12px rgba(74, 222, 128, 0.6))' : 'none' }}
+              style={{ filter: hoveredSegment === segment.index ? 'drop-shadow(0 0 12px rgba(45, 212, 191, 0.6))' : 'none' }}
             />
 
             {/* Percentage labels outside segments */}

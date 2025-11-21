@@ -81,13 +81,13 @@ const HomePage: React.FC = () => {
             loop
             muted
             playsInline
-            className="absolute w-full h-full object-cover"
+            className="absolute w-full h-full object-cover" style={{ filter: 'hue-rotate(10deg)' }}
             poster="/video-poster.jpg"
           >
             <source src="/green_bg.mp4" type="video/mp4" />
           </video>
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
         
         {/* Fallback AnimatedBackground (shows through overlay if needed) */}
@@ -118,9 +118,9 @@ const HomePage: React.FC = () => {
               className="text-accent inline-block"
               animate={{
                 textShadow: [
-                  "0 0 20px rgba(74, 222, 128, 0.3)",
-                  "0 0 40px rgba(74, 222, 128, 0.5)",
-                  "0 0 20px rgba(74, 222, 128, 0.3)"
+                  "0 0 20px rgba(45, 212, 191, 0.3)",
+                  "0 0 40px rgba(45, 212, 191, 0.5)",
+                  "0 0 20px rgba(45, 212, 191, 0.3)"
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -180,13 +180,13 @@ const HomePage: React.FC = () => {
             <motion.a
               href="/how-to-buy"
               className="btn-primary text-xl px-12 py-5 inline-flex items-center justify-center gap-3"
-              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(74, 222, 128, 0.4)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(45, 212, 191, 0.4)" }}
               whileTap={{ scale: 0.95 }}
               animate={{
                 boxShadow: [
-                  "0 0 20px rgba(74, 222, 128, 0.2)",
-                  "0 0 30px rgba(74, 222, 128, 0.3)",
-                  "0 0 20px rgba(74, 222, 128, 0.2)"
+                  "0 0 20px rgba(45, 212, 191, 0.2)",
+                  "0 0 30px rgba(45, 212, 191, 0.3)",
+                  "0 0 20px rgba(45, 212, 191, 0.2)"
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -564,7 +564,7 @@ const HomePage: React.FC = () => {
                 className="btn-primary px-10 py-4 text-lg font-semibold inline-flex items-center justify-center gap-3"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)"
+                  boxShadow: "0 20px 40px rgba(45, 212, 191, 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
               >

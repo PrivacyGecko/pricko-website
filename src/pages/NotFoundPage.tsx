@@ -92,7 +92,7 @@ const NotFoundPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            whileHover={{ borderColor: "rgba(74, 222, 128, 0.4)" }}
+            whileHover={{ borderColor: "rgba(45, 212, 191, 0.4)" }}
           >
             <p className="text-accent text-lg md:text-xl text-center leading-relaxed">
               <span className="font-semibold">Good news:</span> This 404 page respects your privacy more than most websites respect their existing pages.
@@ -110,7 +110,7 @@ const NotFoundPage: React.FC = () => {
             <motion.button
               onClick={() => navigate('/')}
               className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-8 py-4 shadow-lg"
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(45, 212, 191, 0.3)" }}
               whileTap={{ scale: 0.95 }}
               aria-label="Go to homepage"
             >
@@ -151,7 +151,7 @@ const NotFoundPage: React.FC = () => {
                     <Link to={page.path}>
                       <motion.div
                         className="card text-center h-full hover:bg-secondary/80 cursor-pointer group"
-                        whileHover={{ y: -5, borderColor: "rgba(74, 222, 128, 0.5)" }}
+                        whileHover={{ y: -5, borderColor: "rgba(45, 212, 191, 0.5)" }}
                         whileTap={{ scale: 0.98 }}
                         role="button"
                         aria-label={`Navigate to ${page.label}`}
@@ -188,7 +188,7 @@ const NotFoundPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            whileHover={{ borderColor: "rgba(74, 222, 128, 0.4)" }}
+            whileHover={{ borderColor: "rgba(45, 212, 191, 0.4)" }}
           >
             <div className="flex justify-center mb-4">
               <motion.div

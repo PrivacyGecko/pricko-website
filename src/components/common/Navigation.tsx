@@ -119,25 +119,39 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
         />
       </motion.div>
 
-      {/* GitHub Link */}
+      {/* GitHub Link - Highlighted with Teal Accent */}
       <motion.div
         initial={mobile ? { x: -20, opacity: 0 } : { y: -10, opacity: 0 }}
         animate={mobile ? { x: 0, opacity: 1 } : { y: 0, opacity: 1 }}
         transition={{ delay: mobile ? (mainNavItems.length + 1) * 0.1 : (mainNavItems.length + 1) * 0.05 }}
       >
-        <a
+        <motion.a
           href="https://github.com/PrivacyGecko"
           target="_blank"
           rel="noopener noreferrer"
           className={`${mobile
-            ? "flex items-center gap-2 py-3 px-4 text-lg font-medium transition-colors hover:text-accent"
-            : "flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-all duration-200 hover:text-accent"
-          }`}
+            ? "flex items-center gap-2 py-3 px-4 text-lg font-medium transition-colors bg-accent/10 rounded-lg border border-accent/30"
+            : "flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-all duration-200 bg-accent/10 rounded-lg border border-accent/30 hover:bg-accent/20"
+          } text-accent`}
           onClick={onItemClick}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          animate={{
+            boxShadow: [
+              "0 0 10px rgba(45, 212, 191, 0.2)",
+              "0 0 20px rgba(45, 212, 191, 0.4)",
+              "0 0 10px rgba(45, 212, 191, 0.2)"
+            ]
+          }}
+          transition={{ 
+            boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            scale: { duration: 0.2 },
+            y: { duration: 0.2 }
+          }}
         >
           <FaGithub className={mobile ? "text-xl" : "text-base"} />
           <span>GitHub</span>
-        </a>
+        </motion.a>
       </motion.div>
 
       {/* CTA Button */}

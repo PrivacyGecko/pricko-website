@@ -119,9 +119,9 @@ const MascotImage: React.FC<MascotImageProps> = ({
         y: [0, -8, 0],
         opacity: 1,
         boxShadow: [
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(74, 222, 128, 0.2)",
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 35px rgba(74, 222, 128, 0.4)",
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(74, 222, 128, 0.2)"
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(45, 212, 191, 0.2)",
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 35px rgba(45, 212, 191, 0.4)",
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(45, 212, 191, 0.2)"
         ]
       } : { scale: 1, opacity: 1 }}
       whileHover={animate ? {

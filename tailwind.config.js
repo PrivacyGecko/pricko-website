@@ -10,8 +10,8 @@ export default {
         // PRIMARY BRAND COLORS (Keep Privacy Gecko Identity)
         primary: '#000000',          // Black background
         secondary: '#18181b',        // Zinc-900 for cards
-        accent: '#4ade80',           // Privacy Green (Primary - use liberally)
-        'accent-hover': '#22c55e',   // Green hover state
+        accent: '#2dd4bf',           // Privacy Green (Primary - use liberally)
+        'accent-hover': '#14b8a6',   // Green hover state
         muted: '#d4d4d8',            // Zinc-300 for WCAG AA compliance (4.5:1 contrast ratio)
         border: '#27272a',           // Zinc-800 for borders
 
