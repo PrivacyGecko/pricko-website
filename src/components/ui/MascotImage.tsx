@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 
 interface MascotImageProps {
   /**
@@ -16,11 +15,6 @@ interface MascotImageProps {
    * Additional CSS classes
    */
   className?: string;
-  
-  /**
-   * Whether to animate on hover
-   */
-  animate?: boolean;
   
   /**
    * Alt text for accessibility
@@ -42,7 +36,6 @@ interface MascotImageProps {
 const MascotImage: React.FC<MascotImageProps> = ({
   size = 'md',
   className = '',
-  animate = true,
   alt = 'Privacy Gecko Mascot'
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -95,58 +88,29 @@ const MascotImage: React.FC<MascotImageProps> = ({
     return null;
   }
 
-  // Only apply heavy animations (float, breathe, glow) to XL size (homepage)
-  const isHeroMascot = size === 'xl';
-
   return (
-    <motion.div
+    <div
       className={`
         ${currentSize.container}
         ${currentSize.padding}
-        bg-white
-        rounded-full
-        shadow-xl
         flex
         items-center
         justify-center
         relative
         overflow-visible
+        transition-all
+        duration-300
+        hover:scale-105
         ${className}
       `}
-      initial={animate ? { scale: 0.9, opacity: 0 } : undefined}
-      animate={animate && isHeroMascot ? {
-        scale: [1, 1.02, 1],
-        y: [0, -8, 0],
-        opacity: 1,
-        boxShadow: [
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(45, 212, 191, 0.2)",
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 35px rgba(45, 212, 191, 0.4)",
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(45, 212, 191, 0.2)"
-        ]
-      } : { scale: 1, opacity: 1 }}
-      whileHover={animate ? {
-        scale: isHeroMascot ? 1.08 : 1.05,
-        rotate: isHeroMascot ? [0, -3, 3, -3, 0] : 0,
-        transition: {
-          rotate: {
-            duration: 0.4,
-            ease: "easeInOut"
-          },
-          scale: {
-            duration: 0.2
-          }
-        }
-      } : undefined}
-      transition={animate && isHeroMascot ? {
-        scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-        y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-        boxShadow: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-        opacity: { duration: 0.3 }
-      } : { duration: 0.3 }}
+      style={{
+        filter: 'drop-shadow(0 0 20px rgba(74, 222, 128, 0.9)) drop-shadow(0 0 40px rgba(74, 222, 128, 0.6)) drop-shadow(0 0 60px rgba(74, 222, 128, 0.4))'
+      }}
     >
+
       {/* Loading state */}
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/90 rounded-full">
+        <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
@@ -166,17 +130,7 @@ const MascotImage: React.FC<MascotImageProps> = ({
         onError={handleError}
         loading="lazy"
       />
-
-      {/* Enhanced glow effect on hover - only for hero mascot */}
-      {animate && isHeroMascot && (
-        <motion.div
-          className="absolute inset-0 rounded-full bg-accent/15"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileHover={{ opacity: 1, scale: 1.05 }}
-          transition={{ duration: 0.2 }}
-        />
-      )}
-    </motion.div>
+    </div>
   );
 };
 
