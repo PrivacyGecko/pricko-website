@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface ContractAddressProps {
@@ -60,12 +59,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
 
   if (variant === 'hero') {
     return (
-      <motion.div
-        className={`bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 rounded-2xl p-6 backdrop-blur-sm ${className}`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className={`bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 rounded-2xl p-6 backdrop-blur-sm ${className}`}>
+
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
@@ -89,25 +84,21 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
           </code>
           {isLaunched && (
             <div className="flex gap-2">
-              <motion.button
+              <button
                 onClick={handleCopy}
                 className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 disabled={copied}
                 aria-label={copied ? "Contract address copied to clipboard" : "Copy contract address to clipboard"}
               >
                 {copied ? <FaCheck /> : <FaCopy />}
-              </motion.button>
-              <motion.button
+              </button>
+              <button
                 onClick={handleViewOnExplorer}
                 className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 aria-label="View contract address on Solscan explorer"
               >
                 <FaExternalLinkAlt />
-              </motion.button>
+              </button>
             </div>
           )}
         </div>
@@ -121,33 +112,29 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
         {/* Exchange Badges - Integrated */}
         <div className="mt-4 pt-4">
           <div className="flex items-center justify-center gap-3">
-            <motion.a
+            <a
               href="https://pump.fun"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg transition-all duration-200 flex items-center justify-center"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
               aria-label="View on Pump.fun"
               title="Pump.fun"
             >
               <PumpFunIcon />
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="https://dexscreener.com"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-all duration-200 flex items-center justify-center"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
               aria-label="View on DEXScreener"
               title="DEXScreener"
             >
               <DEXScreenerIcon />
-            </motion.a>
+            </a>
           </div>
         </div>
-      </motion.div>
+      </div>
     );
   }
 
@@ -169,15 +156,13 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
               <span className="sm:hidden">{truncatedAddress}</span>
               <span className="hidden sm:inline">{actualCA}</span>
             </code>
-            <motion.button
+            <button
               onClick={handleCopy}
               className="p-1 text-accent hover:text-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-primary rounded"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
               aria-label={copied ? "Contract address copied" : "Copy contract address"}
             >
               {copied ? <FaCheck className="text-xs" /> : <FaCopy className="text-xs" />}
-            </motion.button>
+            </button>
           </>
         ) : (
           <>
@@ -202,15 +187,13 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
           {isLaunched ? actualCA : "TBA"}
         </code>
         {isLaunched && (
-          <motion.button
+          <button
             onClick={handleCopy}
             className="text-accent hover:text-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             aria-label={copied ? "Contract address copied" : "Copy contract address"}
           >
             {copied ? <FaCheck className="text-sm" /> : <FaCopy className="text-sm" />}
-          </motion.button>
+          </button>
         )}
       </div>
     );
@@ -218,13 +201,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
 
   // Default 'card' variant
   return (
-    <motion.div
-      className={`card ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
+    <div className={`card ${className}`}>
+
       <div className="flex items-center gap-4 mb-4">
         <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
           <FaEye className="text-accent text-xl" />
@@ -247,26 +225,22 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
           </code>
           {isLaunched && (
             <div className="flex gap-2">
-              <motion.button
+              <button
                 onClick={handleCopy}
                 className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 aria-label={copied ? "Contract address copied to clipboard" : "Copy contract address to clipboard"}
                 title={copied ? "Copied!" : "Copy address"}
               >
                 {copied ? <FaCheck /> : <FaCopy />}
-              </motion.button>
-              <motion.button
+              </button>
+              <button
                 onClick={handleViewOnExplorer}
                 className="p-2 hover:bg-accent/10 rounded-lg transition-colors text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 aria-label="View contract address on Solscan explorer"
                 title="View on Solscan"
               >
                 <FaExternalLinkAlt />
-              </motion.button>
+              </button>
             </div>
           )}
         </div>
@@ -288,7 +262,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
           </p>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

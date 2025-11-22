@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 import { FaUsers, FaCoins, FaServer, FaShieldAlt, IconType } from 'react-icons/fa';
 
 // ============================================================================
@@ -161,10 +160,6 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
         viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
         className="w-full h-auto"
         preserveAspectRatio="xMidYMid meet"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
       >
         {/* Define gradients and filters */}
         <defs>
@@ -201,21 +196,13 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
             return (
               <g key={pathId}>
                 {/* Connection path */}
-                <motion.path
+                <path
                   d={pathD}
                   stroke="#27272a"
                   strokeWidth="3"
                   strokeDasharray="10 5"
                   fill="none"
-                  opacity={0.6}
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  transition={{
-                    duration: disableAnimations ? 0 : 1.5,
-                    delay: disableAnimations ? 0 : index * 0.2,
-                    ease: "easeInOut"
-                  }}
-                  viewport={{ once: true }}
+                  opacity={0.6
                 />
 
                 {/* Animated flow dot */}
@@ -224,32 +211,16 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                     r="6"
                     fill={fromNode.color}
                     filter="url(#glow-users)"
-                    animate={{
-                      offsetDistance: ['0%', '100%']
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "linear",
-                      delay: index * 1
-                    }}
-                    style={{
-                      offsetPath: `path('${pathD}')`,
+                    style={{}}
+}}                      offsetPath: `path('${pathD}')`,
                       offsetRotate: '0deg'
-                    }}
+                    
                   />
                 )}
 
                 {/* Connection label */}
                 {showLabels && (
                   <motion.text
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: disableAnimations ? 0 : 1 + index * 0.2
-                    }}
-                    viewport={{ once: true }}
                   >
                     <textPath
                       href={`#${pathId}`}
@@ -271,21 +242,14 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
 
         {/* Central label */}
         <motion.g
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.6,
-            delay: disableAnimations ? 0 : 1.5
-          }}
-          viewport={{ once: true }}
         >
           <text
             x={viewBoxWidth / 2}
             y={viewBoxHeight / 2}
             textAnchor="middle"
             className="text-xl font-bold fill-accent"
-            style={{ fontSize: '24px' }}
-          >
+            style={{ fontSize: '24px'}}
+}}          >
             $PRICKO
           </text>
           <text
@@ -293,8 +257,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
             y={viewBoxHeight / 2 + 30}
             textAnchor="middle"
             className="text-sm fill-zinc-400"
-            style={{ fontSize: '14px' }}
-          >
+            style={{ fontSize: '14px'}}
+}}          >
             Powers the Ecosystem
           </text>
         </motion.g>
@@ -310,18 +274,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
               key={node.id}
               role="group"
               aria-label={`${node.label}: ${node.description}`}
-              tabIndex={0}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.6,
-                delay: disableAnimations ? 0 : index * 0.2
-              }}
-              whileHover={{
-                scale: 1.1,
-                transition: { duration: 0.2 }
-              }}
-              viewport={{ once: true }}
+              tabIndex={0
+              
               className="focus:outline-none"
             >
               {/* Pulsing glow effect */}
@@ -332,17 +286,7 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                   r={nodeRadius + 10}
                   fill={node.color}
                   opacity={0.2}
-                  filter={`url(#glow-${node.id})`}
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.2, 0.4, 0.2]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.5
-                  }}
+                  filter={`url(#glow-${node.id})`
                 />
               )}
 
@@ -380,8 +324,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                 <div className="flex items-center justify-center w-full h-full">
                   <Icon
                     className="w-8 h-8"
-                    style={{ color: node.color }}
-                    aria-hidden="true"
+                    style={{ color: node.color}}
+}}                    aria-hidden="true"
                   />
                 </div>
               </foreignObject>
@@ -392,8 +336,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                 y={y + 15}
                 textAnchor="middle"
                 className="text-sm font-bold fill-white"
-                style={{ fontSize: '14px' }}
-              >
+                style={{ fontSize: '14px'}}
+}}              >
                 {node.label}
               </text>
 
@@ -404,8 +348,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                   y={y + 32}
                   textAnchor="middle"
                   className="text-xs fill-zinc-400"
-                  style={{ fontSize: '11px' }}
-                >
+                  style={{ fontSize: '11px'}}
+}}                >
                   {node.description}
                 </text>
               )}

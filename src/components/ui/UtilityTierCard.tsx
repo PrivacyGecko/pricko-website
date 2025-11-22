@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface UtilityTierCardProps {
   tier: number;
@@ -9,7 +8,6 @@ interface UtilityTierCardProps {
   features: string[];
   badge: string;
   color: 'zinc' | 'accent' | 'accent-hover' | 'yellow';
-  delay?: number;
 }
 
 const UtilityTierCard: React.FC<UtilityTierCardProps> = ({
@@ -37,13 +35,8 @@ const UtilityTierCard: React.FC<UtilityTierCardProps> = ({
   };
 
   return (
-    <motion.div
+    <div
       className={`relative border-2 ${colorClasses[color]} rounded-2xl p-6 hover:shadow-lg transition-all duration-300`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
     >
       {/* Tier Badge */}
       <div className="absolute -top-4 left-6">
@@ -73,7 +66,7 @@ const UtilityTierCard: React.FC<UtilityTierCardProps> = ({
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

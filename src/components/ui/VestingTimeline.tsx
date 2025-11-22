@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface VestingPeriod {
   category: string;
@@ -11,17 +10,12 @@ interface VestingPeriod {
 
 interface VestingTimelineProps {
   periods: VestingPeriod[];
-  delay?: number;
 }
 
 const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 }) => {
   return (
-    <motion.div
+    <div
       className="bg-secondary/30 rounded-2xl p-6 md:p-8"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
     >
       <h3 className="text-2xl font-bold mb-6 text-center">Vesting Schedule</h3>
       
@@ -33,13 +27,9 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
           
           <div className="grid grid-cols-2 gap-8">
             {periods.map((period, index) => (
-              <motion.div
+              <div
                 key={period.category}
                 className="relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: delay + (index * 0.1) }}
-                viewport={{ once: true }}
               >
                 {/* Timeline Dot */}
                 <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent border-4 border-bg-main z-10"></div>
@@ -64,7 +54,7 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
                   
                   <p className="text-xs text-muted mt-2 leading-relaxed">{period.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -73,13 +63,9 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
       {/* Mobile: Vertical Timeline */}
       <div className="md:hidden space-y-4">
         {periods.map((period, index) => (
-          <motion.div
+          <div
             key={period.category}
             className="relative pl-8"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: delay + (index * 0.1) }}
-            viewport={{ once: true }}
           >
             {/* Vertical Line */}
             {index !== periods.length - 1 && (
@@ -107,10 +93,10 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
               
               <p className="text-xs text-muted mt-2 leading-relaxed">{period.description}</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,0 +1,401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-primary text-white font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-hover text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-secondary {
+    @apply border border-accent text-accent hover:bg-accent hover:text-white py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  /* NEW: Button Variants (Professional Design System) */
+  .btn-tertiary {
+    @apply bg-secondary border border-border text-white hover:bg-accent/10 py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-error hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-info {
+    @apply bg-gradient-info hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-info focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-link {
+    @apply text-accent hover:text-accent-hover underline py-2 px-0 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded;
+  }
+
+  .card {
+    @apply bg-secondary border border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+  }
+
+  /* NEW: Card Variants (Professional Design System) */
+  .card-elevated {
+    @apply bg-secondary border border-border rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:translate-y-[-4px];
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-elevated:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-interactive {
+    @apply bg-secondary border border-border rounded-lg p-6 cursor-pointer hover:border-accent/50 hover:scale-105 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-interactive:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-glass {
+    @apply glass-morphism rounded-lg p-6 border border-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:border-accent/50;
+  }
+
+  .card-outlined {
+    @apply bg-transparent border-2 border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+  }
+
+  .card-premium {
+    @apply bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-royal/30 rounded-lg p-6 hover:border-purple-royal/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-purple-royal;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* NEW: Badge Variants (Professional Design System) */
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-live {
+    @apply bg-success/20 text-success border border-success/50;
+  }
+
+  .badge-beta {
+    @apply bg-warning/20 text-warning border border-warning/50;
+  }
+
+  .badge-in-dev {
+    @apply bg-orange-500/20 text-orange-300 border border-orange-500/50;
+  }
+
+  .badge-coming-soon {
+    @apply bg-info/20 text-info border border-info/50;
+  }
+
+  .badge-premium {
+    @apply bg-gradient-purple bg-clip-text text-transparent border border-purple-royal/50;
+  }
+
+  .badge-success {
+    @apply bg-success/20 text-success border border-success/50;
+  }
+
+  .badge-warning {
+    @apply bg-warning/20 text-warning border border-warning/50;
+  }
+
+  .badge-error {
+    @apply bg-error/20 text-error border border-error/50;
+  }
+
+  .badge-info {
+    @apply bg-info/20 text-info border border-info/50;
+  }
+
+  .badge-subtle {
+    @apply bg-secondary/50 text-muted border border-border/50;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent;
+  }
+
+  .gradient-text1 {
+    color: orange;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .backdrop-blur-custom {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Accessibility: Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Accessibility: Show element on focus for keyboard navigation */
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-hover;
+}
+
+/* Loading animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(64, 142, 198, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(64, 142, 198, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Professional Header & Footer Enhancements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s infinite;
+}
+
+/* Enhanced gradient text with animation */
+.gradient-text-animated {
+  background: linear-gradient(45deg, #4ade80, #22c55e, #16a34a, #4ade80);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Professional glass morphism effect */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced button hover effects */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Professional shadow effects */
+.shadow-professional {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-professional-lg {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Enhanced focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-primary;
+}
+
+/* Professional typography */
+.text-professional {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ============================================
+   PHASE 1 ADDITION: GECKOCORE PROTOCOL THEME
+   ============================================ */
+
+/* Protocol Badge - For GeckoCore infrastructure messaging */
+.badge-protocol {
+  @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs 
+         font-semibold bg-gradient-to-r from-cyan-500/20 to-purple-500/20 
+         text-cyan-400 border border-cyan-500/30 
+         hover:border-cyan-500/50 transition-all duration-300;
+}
+
+/* Protocol Card Variant - For GeckoCore sections */
+.card-protocol {
+  @apply bg-gradient-to-br from-cyan-900/10 to-purple-900/10 
+         border border-cyan-500/30 backdrop-blur-lg rounded-lg p-6 
+         hover:border-cyan-500/50 transition-all duration-300 
+         focus-visible:outline-2 focus-visible:outline-cyan-500;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+.card-protocol:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 30px rgba(6, 182, 212, 0.15);
+}
+
+/* Protocol Gradient Text - Cyan to Purple */
+.gradient-text-protocol {
+  @apply bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text 
+         text-transparent font-bold;
+}
+
+/* Protocol Button Variant - For GeckoCore CTAs */
+.btn-protocol {
+  @apply bg-gradient-protocol hover:shadow-lg text-white font-semibold 
+         py-3 px-6 rounded-lg transition-all duration-200 
+         transform hover:scale-105 focus:outline-none focus:ring-2 
+         focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-primary;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.btn-protocol:hover {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+}
+
+/* Protocol Timeline Connector (for UtilityTimeline component) */
+.protocol-timeline-line {
+  @apply absolute top-1/2 left-0 right-0 h-0.5 
+         bg-gradient-to-r from-cyan-500/50 to-purple-500/50;
+}
+
+/* Protocol Glow Effect */
+@keyframes protocol-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(139, 92, 246, 0.3);
+  }
+}
+
+.protocol-glow-pulse {
+  animation: protocol-glow-pulse 3s ease-in-out infinite;
+}

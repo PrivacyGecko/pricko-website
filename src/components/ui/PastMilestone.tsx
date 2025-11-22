@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 /**
  * PastMilestone Component
@@ -17,18 +16,12 @@ interface PastMilestoneProps {
   title: string;
   description: string;
   date: string;
-  delay?: number;
 }
 
 const PastMilestone: React.FC<PastMilestoneProps> = ({ title, description, date, delay = 0 }) => {
   return (
-    <motion.div
+    <div
       className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm shadow-professional"
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.02, y: -3 }}
     >
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0">
@@ -46,7 +39,7 @@ const PastMilestone: React.FC<PastMilestoneProps> = ({ title, description, date,
           <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

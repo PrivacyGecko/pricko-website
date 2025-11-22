@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface CookieConsentProps {
   onAccept?: () => void;
@@ -85,32 +84,25 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onAccept, onReject }) => 
     }));
   };
 
-  return (
-    <AnimatePresence>
-      {showBanner && (
-        <>
-          {/* Backdrop for preferences modal */}
-          {showPreferences && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 z-[999] backdrop-blur-sm"
-              onClick={() => setShowPreferences(false)}
-            />
-          )}
+  if (!showBanner) return null;
 
-          {/* Cookie Consent Banner */}
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-[1000] p-4 md:p-6"
-            role="dialog"
-            aria-label="Cookie Consent Banner"
-            aria-describedby="cookie-consent-description"
-          >
+  return (
+    <>
+      {/* Backdrop for preferences modal */}
+      {showPreferences && (
+        <div
+          className="fixed inset-0 bg-black/60 z-[999] backdrop-blur-sm transition-opacity duration-200"
+          onClick={() => setShowPreferences(false)}
+        />
+      )}
+
+      {/* Cookie Consent Banner */}
+      <div
+        className="fixed bottom-0 left-0 right-0 z-[1000] p-4 md:p-6 animate-slide-up"
+        role="dialog"
+        aria-label="Cookie Consent Banner"
+        aria-describedby="cookie-consent-description"
+      >
             <div className="container-max max-w-5xl">
               <div className="bg-secondary/95 backdrop-blur-xl border border-accent/30 rounded-2xl shadow-2xl p-6 md:p-8">
                 <div className="flex flex-col space-y-4">
@@ -143,54 +135,43 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onAccept, onReject }) => 
 
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <motion.button
+                    <button
                       onClick={handleAcceptAll}
-                      className="btn-primary flex-1 sm:flex-none px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="btn-primary flex-1 sm:flex-none px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary hover:scale-105"
                       aria-label="Accept all cookies"
                     >
                       Accept All
-                    </motion.button>
+                    </button>
 
-                    <motion.button
+                    <button
                       onClick={handleRejectAll}
-                      className="flex-1 sm:flex-none px-6 py-3 bg-border/50 hover:bg-border text-white rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-secondary"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 sm:flex-none px-6 py-3 bg-border/50 hover:bg-border text-white rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-secondary hover:scale-105"
                       aria-label="Reject non-essential cookies"
                     >
                       Reject All
-                    </motion.button>
+                    </button>
 
-                    <motion.button
+                    <button
                       onClick={() => setShowPreferences(true)}
-                      className="flex-1 sm:flex-none px-6 py-3 border-2 border-accent/50 hover:border-accent text-white rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 sm:flex-none px-6 py-3 border-2 border-accent/50 hover:border-accent text-white rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary hover:scale-105"
                       aria-label="Manage cookie preferences"
                     >
                       Manage Preferences
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Preferences Modal */}
-          <AnimatePresence>
-            {showPreferences && (
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="preferences-title"
-              >
+      {/* Preferences Modal */}
+      {showPreferences && (
+        <div
+          className="fixed inset-0 z-[1000] flex items-center justify-center p-4 animate-fade-in"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="preferences-title"
+        >
                 <div className="bg-secondary border border-accent/30 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
                   {/* Modal Header */}
                   <div className="sticky top-0 bg-secondary border-b border-border p-6 flex items-center justify-between">
@@ -287,32 +268,25 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onAccept, onReject }) => 
 
                   {/* Modal Footer */}
                   <div className="sticky bottom-0 bg-secondary border-t border-border p-6 flex flex-col sm:flex-row gap-3">
-                    <motion.button
+                    <button
                       onClick={handleSavePreferences}
-                      className="btn-primary flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="btn-primary flex-1 px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary hover:scale-105"
                       aria-label="Save cookie preferences"
                     >
                       Save Preferences
-                    </motion.button>
-                    <motion.button
+                    </button>
+                    <button
                       onClick={() => setShowPreferences(false)}
-                      className="flex-1 sm:flex-none px-6 py-3 bg-border/50 hover:bg-border text-white rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-secondary"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 sm:flex-none px-6 py-3 bg-border/50 hover:bg-border text-white rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-secondary hover:scale-105"
                       aria-label="Cancel"
                     >
                       Cancel
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </>
+              </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

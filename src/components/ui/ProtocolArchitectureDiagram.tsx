@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 import { IconType } from 'react-icons';
 import { FaShieldAlt, FaPlug, FaServer, FaArrowDown } from 'react-icons/fa';
 
@@ -134,21 +133,13 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
             return (
               <div key={layer.id} className="relative">
                 {/* Layer Card */}
-                <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: shouldReduceMotion ? 0 : index * 0.3
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={interactive ? { scale: 1.02, y: -4 } : undefined}
+                <article : undefined}
                   className={`card-protocol ${interactive ? 'cursor-pointer' : ''}`}
-                  style={{
-                    background: `linear-gradient(135deg, ${layer.gradient[0]}15 0%, ${layer.gradient[1]}10 100%)`,
+                  style={{}}
+}}                    background: `linear-gradient(135deg, ${layer.gradient[0]}15 0%, ${layer.gradient[1]}10 100%)`,
                     borderColor: `${layer.color}50`,
                     boxShadow: `0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 0 20px ${layer.color}20`
-                  }}
+                  
                   tabIndex={interactive ? 0 : undefined}
                   role="region"
                   aria-labelledby={`layer-${layer.id}`}
@@ -158,15 +149,15 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
                     {/* Icon with Glow */}
                     <div
                       className="relative flex items-center justify-center w-14 h-14 rounded-lg"
-                      style={{
-                        backgroundColor: `${layer.color}20`,
+                      style={{}}
+}}                        backgroundColor: `${layer.color}20`,
                         boxShadow: `0 0 20px ${layer.color}30`
-                      }}
+                      
                     >
                       <Icon
                         className="text-2xl"
-                        style={{ color: layer.color }}
-                        aria-hidden="true"
+                        style={{ color: layer.color}}
+}}                        aria-hidden="true"
                       />
                     </div>
 
@@ -185,92 +176,68 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
                   {/* Components Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-6">
                     {layer.components.map((component, idx) => (
-                      <motion.div
+                      <div
                         key={idx}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: shouldReduceMotion ? 0 : index * 0.3 + idx * 0.05
-                        }}
-                        viewport={{ once: true }}
                         className="flex items-center gap-2 px-3 py-2 rounded-md"
-                        style={{
-                          backgroundColor: `${layer.color}10`,
+                        style={{}}
+}}                          backgroundColor: `${layer.color}10`,
                           borderLeft: `2px solid ${layer.color}`
-                        }}
+                        
                       >
                         <span
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: layer.color }}
-                          aria-hidden="true"
+                          style={{ backgroundColor: layer.color}}
+}}                          aria-hidden="true"
                         />
                         <span className="text-xs md:text-sm text-white/80">{component}</span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
 
                   {/* Pulsing Glow Effect (if interactive) */}
                   {interactive && !shouldReduceMotion && (
-                    <motion.div
+                    <div
                       className="absolute inset-0 rounded-lg opacity-0 pointer-events-none"
-                      whileHover={{ opacity: 0.3 }}
-                      transition={{ duration: 0.3 }}
-                      style={{
-                        background: `radial-gradient(circle at center, ${layer.color}40 0%, transparent 70%)`,
+                      style={{}}
+}}                        background: `radial-gradient(circle at center, ${layer.color}40 0%, transparent 70%)`,
                         filter: 'blur(20px)'
-                      }}
+                      
                     />
                   )}
-                </motion.article>
+                </article>
 
                 {/* Connection Arrow (Vertical Layout Only) */}
                 {showConnections && nextLayer && !isHorizontal && (
-                  <motion.div
+                  <div
                     className="flex flex-col items-center my-6 lg:my-8"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: shouldReduceMotion ? 0 : index * 0.3 + 0.4
-                    }}
-                    viewport={{ once: true }}
                     role="img"
                     aria-label={`${connection?.label || 'flows'} to ${nextLayer.title}`}
                   >
                     {/* Arrow Icon */}
-                    <motion.div
-                      animate={
-                        shouldReduceMotion
-                          ? {}
+                    <div
                           : {
                               y: [0, 8, 0],
                               opacity: [0.5, 1, 0.5]
                             }
-                      }
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: 'easeInOut'
-                      }}
+                      
                       className="flex flex-col items-center gap-2"
                     >
                       <FaArrowDown
                         className="text-3xl"
-                        style={{ color: layer.color }}
-                        aria-hidden="true"
+                        style={{ color: layer.color}}
+}}                        aria-hidden="true"
                       />
-                    </motion.div>
+                    </div>
 
                     {/* Connection Label */}
                     {connection && (
                       <span
                         className="mt-2 px-3 py-1 rounded-full text-xs font-semibold"
-                        style={{
-                          background: `linear-gradient(135deg, ${layer.color}20, ${nextLayer.color}20)`,
+                        style={{}}
+}}                          background: `linear-gradient(135deg, ${layer.color}20, ${nextLayer.color}20)`,
                           border: `1px solid ${layer.color}30`,
                           color: layer.color
-                        }}
+                        
                       >
                         {connection.label}
                       </span>
@@ -278,79 +245,54 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
 
                     {/* Animated Traveling Dot */}
                     {!shouldReduceMotion && (
-                      <motion.div
+                      <div
                         className="w-2 h-2 rounded-full mt-2"
-                        style={{
-                          backgroundColor: layer.color,
+                        style={{}}
+}}                          backgroundColor: layer.color,
                           boxShadow: `0 0 10px ${layer.color}`
-                        }}
-                        animate={{
-                          y: [0, 40, 0],
-                          opacity: [0, 1, 0]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: 'linear',
-                          delay: index * 0.5
-                        }}
+                        
                       />
                     )}
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* Horizontal Connection Arrow (Desktop Only) */}
                 {showConnections && nextLayer && isHorizontal && (
-                  <motion.div
+                  <div
                     className="hidden lg:flex absolute top-1/2 -right-4 transform translate-x-full -translate-y-1/2 z-10 flex-col items-center"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: shouldReduceMotion ? 0 : index * 0.3 + 0.4
-                    }}
-                    viewport={{ once: true }}
                     role="img"
                     aria-label={`${connection?.label || 'flows'} to ${nextLayer.title}`}
                   >
                     {/* Horizontal Arrow (Rotated 90 degrees) */}
-                    <motion.div
-                      animate={
-                        shouldReduceMotion
-                          ? {}
+                    <div
                           : {
                               x: [0, 8, 0],
                               opacity: [0.5, 1, 0.5]
                             }
-                      }
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: 'easeInOut'
-                      }}
+                      
                       className="transform rotate-[-90deg]"
                     >
                       <FaArrowDown
                         className="text-2xl"
-                        style={{ color: layer.color }}
-                        aria-hidden="true"
+                        style={{ color: layer.color}}
+}}                        aria-hidden="true"
                       />
-                    </motion.div>
+                    </div>
 
                     {/* Connection Label (Horizontal) */}
                     {connection && (
                       <span
                         className="mt-2 px-2 py-1 rounded-full text-xs font-semibold whitespace-nowrap"
-                        style={{
-                          background: `linear-gradient(135deg, ${layer.color}20, ${nextLayer.color}20)`,
+                        style={{}}
+}}                          background: `linear-gradient(135deg, ${layer.color}20, ${nextLayer.color}20)`,
                           border: `1px solid ${layer.color}30`,
                           color: layer.color
-                        }}
+                        
                       >
                         {connection.label}
                       </span>
                     )}
-                  </motion.div>
+                  </div>
                 )}
               </div>
             );

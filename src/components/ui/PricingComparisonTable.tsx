@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useProjectConfig } from '../../hooks/useProjectConfig';
 
 /**
@@ -89,23 +88,16 @@ const PricingComparisonTable: React.FC = () => {
   ];
 
   return (
-    <motion.section
+    <section
       className="mb-24"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
     >
       <div className="text-center mb-12">
-        <motion.div
+        <div
           className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-6"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <span className="text-accent">💰</span>
           <span className="text-sm font-medium text-accent">How {config.token.symbol} Unlocks Premium</span>
-        </motion.div>
+        </div>
 
         <h2 className="text-4xl font-bold mb-6 text-professional">
           Choose Your <span className="gradient-text-animated">Privacy Tier</span>
@@ -119,16 +111,11 @@ const PricingComparisonTable: React.FC = () => {
       {/* Desktop View: 3-column grid */}
       <div className="hidden lg:grid lg:grid-cols-3 gap-8">
         {pricingTiers.map((tier, index) => (
-          <motion.div
+          <div
             key={`${tier.name}-${index}`}
             className={`relative bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl p-8 border ${
               tier.highlight ? 'border-accent/50 shadow-professional-lg' : 'border-border/50'
             } backdrop-blur-sm hover:border-accent/30 transition-all duration-500`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02, y: -5 }}
           >
             {tier.badge && (
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -161,29 +148,23 @@ const PricingComparisonTable: React.FC = () => {
               ))}
             </div>
 
-            <motion.button
+            <button
               className={`w-full ${tier.ctaStyle} px-6 py-4 rounded-lg font-semibold shadow-professional transition-all duration-200`}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
             >
               {tier.cta}
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         ))}
       </div>
 
       {/* Mobile/Tablet View: Stacked cards */}
       <div className="lg:hidden space-y-8">
         {pricingTiers.map((tier, index) => (
-          <motion.div
+          <div
             key={`${tier.name}-${index}-mobile`}
             className={`relative bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl p-6 border ${
               tier.highlight ? 'border-accent/50 shadow-professional-lg' : 'border-border/50'
             } backdrop-blur-sm`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
           >
             {tier.badge && (
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -216,31 +197,26 @@ const PricingComparisonTable: React.FC = () => {
               ))}
             </div>
 
-            <motion.button
+            <button
               className={`w-full ${tier.ctaStyle} px-6 py-3 rounded-lg font-semibold shadow-professional transition-all duration-200 text-sm`}
-              whileTap={{ scale: 0.95 }}
             >
               {tier.cta}
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         ))}
       </div>
 
       {/* Pricing Disclaimer */}
-      <motion.div
+      <div
         className="mt-12 text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
       >
         <p className="text-sm text-muted max-w-4xl mx-auto">
           <strong className="text-accent">Token Requirement Example:</strong> Hold 10,000 {config.token.symbol} tokens for lifetime Pro access
           vs. $9.99/month subscription. Token requirements and pricing subject to change based on market conditions.
           Holding tokens does not guarantee profit. {config.token.symbol} is a utility token, not an investment.
         </p>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 

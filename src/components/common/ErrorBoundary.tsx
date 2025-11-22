@@ -1,5 +1,4 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import { FaExclamationTriangle, FaHome, FaRedo } from 'react-icons/fa';
 
 interface Props {
@@ -40,12 +39,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-primary flex items-center justify-center p-4">
-          <motion.div
-            className="max-w-2xl w-full glass-morphism rounded-3xl p-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="max-w-2xl w-full glass-morphism rounded-3xl p-12 text-center">
             <div className="w-24 h-24 mx-auto mb-6 bg-red-500/10 rounded-full flex items-center justify-center">
               <FaExclamationTriangle className="w-12 h-12 text-red-400" />
             </div>
@@ -68,27 +62,23 @@ class ErrorBoundary extends Component<Props, State> {
             )}
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              <button
                 onClick={this.handleReset}
-                className="btn-primary px-8 py-4 inline-flex items-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-primary px-8 py-4 inline-flex items-center gap-3 transition-transform hover:scale-105 active:scale-95"
               >
                 <FaRedo />
                 Try Again
-              </motion.button>
+              </button>
 
-              <motion.button
+              <button
                 onClick={this.handleGoHome}
-                className="btn-secondary px-8 py-4 inline-flex items-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-secondary px-8 py-4 inline-flex items-center gap-3 transition-transform hover:scale-105 active:scale-95"
               >
                 <FaHome />
                 Go Home
-              </motion.button>
+              </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       );
     }

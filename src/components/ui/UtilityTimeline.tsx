@@ -76,7 +76,7 @@ const STATUS_CONFIG = {
     badgeClass: 'badge-success',
     label: 'Completed',
     cardClass: 'card-interactive',
-    color: 'rgba(45, 212, 191, 0.5)' // Green
+    color: 'rgba(74, 222, 128, 0.5)' // Green
   },
   current: {
     badgeClass: 'badge-protocol',

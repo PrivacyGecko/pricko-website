@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft, FaExternalLinkAlt, FaEnvelope } from 'react-icons/fa';
 import type { Product } from '../../types/config';
@@ -33,13 +32,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({
   return (
     <section className={`section-padding bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 ${className}`}>
       <div className="container-max">
-        <motion.div
-          className="max-w-3xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <div className="max-w-3xl mx-auto text-center">
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Try <span className="gradient-text">{productName}</span>?
@@ -84,13 +77,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({
 
           {/* Newsletter Signup (for non-live products) */}
           {!isLive && (
-            <motion.div
-              className="mt-8 pt-8 border-t border-accent/20"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+            <div className="mt-8 pt-8 border-t border-accent/20">
               <div className="flex items-center justify-center gap-2 text-muted mb-4">
                 <FaEnvelope className="text-accent" />
                 <span className="text-sm">Get notified when {productName} launches</span>
@@ -98,22 +85,16 @@ const ProductCTA: React.FC<ProductCTAProps> = ({
               <Link to="/contact" className="text-accent hover:underline text-sm font-semibold">
                 Join the Waitlist →
               </Link>
-            </motion.div>
+            </div>
           )}
 
           {/* Gecko Badge */}
-          <motion.div
-            className="mt-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+          <div className="mt-8">
             <p className="text-muted text-sm">
               Part of the <span className="text-accent font-semibold">Privacy Gecko</span> ecosystem
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

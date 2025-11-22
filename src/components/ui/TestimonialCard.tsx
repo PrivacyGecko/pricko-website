@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
 
 export interface TestimonialProps {
@@ -8,7 +7,6 @@ export interface TestimonialProps {
   role: string;
   product?: string;
   rating?: number;
-  delay?: number;
 }
 
 const TestimonialCard: React.FC<TestimonialProps> = ({
@@ -20,13 +18,8 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
   delay = 0
 }) => {
   return (
-    <motion.div
+    <div
       className="card group hover:shadow-lg transition-all duration-300"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
     >
       {/* Quote Icon */}
       <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
@@ -61,7 +54,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,11 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
 interface ProtocolDisclaimerProps {
   variant?: 'warning' | 'info';
   compact?: boolean;
-  delay?: number;
   customText?: string;
 }
 
@@ -29,12 +27,8 @@ const ProtocolDisclaimer: React.FC<ProtocolDisclaimerProps> = ({
   const padding = compact ? 'p-4' : 'p-6';
 
   return (
-    <motion.div
-      className={'rounded-xl ' + containerClasses + ' ' + padding}
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
+    <div
+      className={'rounded-xl ' + containerClasses + ' ' + padding
     >
       <div className="flex items-start gap-3">
         <FaExclamationTriangle className={iconColor + ' flex-shrink-0 mt-0.5'} size={compact ? 16 : 20} />
@@ -47,7 +41,7 @@ const ProtocolDisclaimer: React.FC<ProtocolDisclaimerProps> = ({
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

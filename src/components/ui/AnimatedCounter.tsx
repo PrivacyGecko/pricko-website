@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 
 interface AnimatedCounterProps {
   /**
@@ -33,7 +32,6 @@ interface AnimatedCounterProps {
    * Delay before animation starts (in milliseconds)
    * @default 0
    */
-  delay?: number;
 }
 
 /**
@@ -134,44 +132,32 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const displayValue = `${prefix}${formatDisplayValue(count)}${suffix}`;
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={`text-center ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, delay: delay / 1000 }}
+      className={`text-center ${className}`}} : { opacity: 0, y: 20 
     >
       {icon && (
-        <motion.div
-          className="text-accent mb-2"
-          initial={{ scale: 0 }}
-          animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.4, delay: (delay + 200) / 1000, type: 'spring', stiffness: 200 }}
+        <div
+          className="text-accent mb-2"} : { scale: 0 
         >
           {icon}
-        </motion.div>
+        </div>
       )}
 
-      <motion.div
-        className="text-2xl font-bold text-accent mb-2"
-        initial={{ scale: 0.8 }}
-        animate={isInView ? { scale: 1 } : { scale: 0.8 }}
-        transition={{ duration: 0.4, delay: (delay + 100) / 1000 }}
+      <div
+        className="text-2xl font-bold text-accent mb-2"} : { scale: 0.8 
       >
         {displayValue}
-      </motion.div>
+      </div>
 
       {label && (
-        <motion.div
-          className="text-sm text-muted"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: (delay + 400) / 1000 }}
+        <div
+          className="text-sm text-muted"} : { opacity: 0 
         >
           {label}
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

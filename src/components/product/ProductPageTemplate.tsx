@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { FaCheckCircle, FaRocket } from 'react-icons/fa';
 import ProductHero from './ProductHero';
 import ProductFeatures from './ProductFeatures';
@@ -113,13 +112,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         {/* Phase 1 Free Access Section - Replaces Pricing */}
         <section className="section-padding bg-gradient-to-b from-black via-accent/5 to-black">
           <div className="container-max">
-            <motion.div
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 <span className="gradient-text">100% Free</span> During Phase 1
               </h2>
@@ -127,15 +120,9 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
               <p className="text-muted text-lg max-w-2xl mx-auto">
                 All features unlocked at no cost. Experience the full power of {product.name} before our token launch.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+            <div className="max-w-2xl mx-auto">
               <div className="card-glass p-8 border border-accent/30">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <FaRocket className="text-accent text-3xl" />
@@ -175,7 +162,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
                   </button>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 

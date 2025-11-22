@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 
 interface AllocationSegment {
   category: string;
@@ -95,24 +94,20 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
         {/* Donut segments */}
         {segments.map((segment) => (
           <g key={segment.category}>
-            <motion.path
+            <path
               d={segment.path}
               fill="none"
               stroke={hoveredSegment === segment.index ? segment.hoverColor : segment.color}
               strokeWidth={hoveredSegment === segment.index ? strokeWidth + 8 : strokeWidth}
               strokeLinecap="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: segment.index * 0.1, ease: 'easeOut' }}
-              viewport={{ once: true }}
               onMouseEnter={() => setHoveredSegment(segment.index)}
               onMouseLeave={() => setHoveredSegment(null)}
               className="cursor-pointer transition-all duration-300"
-              style={{ filter: hoveredSegment === segment.index ? 'drop-shadow(0 0 12px rgba(45, 212, 191, 0.6))' : 'none' }}
-            />
+              style={{ filter: hoveredSegment === segment.index ? 'drop-shadow(0 0 12px rgba(45, 212, 191, 0.6))' : 'none'}}
+}}            />
 
             {/* Percentage labels outside segments */}
-            <motion.text
+            <text
               x={segment.labelPos.x}
               y={segment.labelPos.y}
               textAnchor="middle"
@@ -121,23 +116,14 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               fontWeight="bold"
               fill={segment.color}
               className="pointer-events-none"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: segment.index * 0.1 + 0.5 }}
-              viewport={{ once: true }}
             >
               {segment.percentage}%
-            </motion.text>
+            </text>
           </g>
         ))}
 
         {/* Center content - Total Supply */}
-        <motion.g
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <g>
           {/* Total Supply Number - Reduced font size to fit within inner circle */}
           <text
             x={center}
@@ -158,8 +144,8 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
             dominantBaseline="middle"
             fontSize="12"
             fill="#a1a1aa"
-            style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}
-          >
+            style={{ textTransform: 'uppercase', letterSpacing: '0.05em'}}
+}}          >
             Total Supply
           </text>
           {/* "$PRICKO Tokens" subtitle */}
@@ -173,13 +159,13 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
           >
             $PRICKO Tokens
           </text>
-        </motion.g>
+        </g>
       </svg>
 
       {/* Interactive Legend with Tooltips */}
       <div className="mt-8 w-full max-w-2xl space-y-3">
         {segments.map((segment) => (
-          <motion.div
+          <div
             key={segment.category}
             className={`
               flex items-center justify-between p-4 rounded-lg border transition-all duration-300 cursor-pointer
@@ -188,21 +174,18 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
                 : 'border-border bg-secondary/30 hover:border-accent/50'
               }
             `}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: segment.index * 0.1 }}
-            viewport={{ once: true }}
             onMouseEnter={() => setHoveredSegment(segment.index)}
             onMouseLeave={() => setHoveredSegment(null)}
           >
+
             <div className="flex items-center gap-4 flex-1">
               {/* Color indicator */}
               <div
                 className="w-4 h-4 rounded-full flex-shrink-0 transition-all duration-300"
-                style={{
-                  backgroundColor: hoveredSegment === segment.index ? segment.hoverColor : segment.color,
+                style={{}}
+}}                  backgroundColor: hoveredSegment === segment.index ? segment.hoverColor : segment.color,
                   boxShadow: hoveredSegment === segment.index ? `0 0 12px ${segment.color}` : 'none',
-                }}
+                
               />
 
               {/* Category name */}
@@ -224,7 +207,7 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               <div className="text-2xl font-bold" style={{ color: segment.color }}>{segment.percentage}%</div>
               <div className="text-sm text-muted mt-1">{segment.amount}</div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ToolCardProps } from '../../types';
 import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import PremiumFeature from './PremiumFeature';
@@ -43,23 +42,14 @@ const ToolCard: React.FC<ToolCardProps> = ({
   };
 
   return (
-    <motion.div
+    <div
       className={`card group cursor-pointer ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{
-        scale: 1.02,
-        boxShadow: "0 10px 30px rgba(234, 88, 12, 0.2)"
-      }}
-      whileTap={{ scale: 0.98 }}
       onClick={handleClick}
     >
       <div className="flex flex-col items-center text-center space-y-4">
         {/* Icon */}
-        <motion.div
-          className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300"
-          whileHover={{ scale: 1.05, rotate: 2 }}
+        <div
+          className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300"}
         >
           <img
             src={icon}
@@ -68,9 +58,9 @@ const ToolCard: React.FC<ToolCardProps> = ({
             className="w-full h-full rounded-2xl shadow-lg group-hover:shadow-xl group-hover:shadow-accent/30 transition-all duration-300"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
-            }}
+            
           />
-        </motion.div>
+        </div>
 
         {/* Content */}
         <div className="space-y-3 w-full">
@@ -89,28 +79,21 @@ const ToolCard: React.FC<ToolCardProps> = ({
           {/* Features Section */}
           {features.length > 0 && (
             <div className="w-full">
-              <motion.button
+              <button
                 className="flex items-center justify-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm font-medium w-full py-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowFeatures(!showFeatures);
-                }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                
                 aria-label={showFeatures ? "Hide key features" : "Show key features"}
                 aria-expanded={showFeatures}
               >
                 Key Features
                 {showFeatures ? <FaChevronUp className="text-xs" /> : <FaChevronDown className="text-xs" />}
-              </motion.button>
+              </button>
               
-              <AnimatePresence>
-                {showFeatures && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+              {showFeatures && (
+                  <div
                     className="overflow-hidden"
                   >
                     <div className="pt-2 space-y-2">
@@ -124,11 +107,8 @@ const ToolCard: React.FC<ToolCardProps> = ({
                         );
 
                         return (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: index * 0.1 }}
+                          <div
+                            key={index
                           >
                             {isGeckoShare ? (
                               <PremiumFeature 
@@ -142,29 +122,26 @@ const ToolCard: React.FC<ToolCardProps> = ({
                                 <span>{feature}</span>
                               </div>
                             )}
-                          </motion.div>
+                          </div>
                         );
                       })}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              
             </div>
           )}
         </div>
 
         {/* Hover Effect */}
-        <motion.div
+        <div
           className="w-full h-1 bg-gradient-to-r from-accent to-accent-light rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          initial={{ scaleX: 0 }}
-          whileHover={{ scaleX: 1 }}
-          transition={{ duration: 0.3 }}
         />
       </div>
 
       {/* Background Glow Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-    </motion.div>
+    </div>
   );
 };
 

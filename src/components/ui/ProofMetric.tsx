@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { IconType } from 'react-icons';
 
 interface ProofMetricProps {
@@ -7,25 +6,17 @@ interface ProofMetricProps {
   value: string;
   label: string;
   description: string;
-  delay?: number;
 }
 
 const ProofMetric: React.FC<ProofMetricProps> = ({
   icon: Icon,
   value,
   label,
-  description,
-  delay = 0
+  description
 }) => {
   return (
-    <motion.div
-      className="bg-secondary/30 border border-accent/20 rounded-xl p-6 hover:border-accent/40 transition-all duration-300 hover:shadow-lg"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-    >
+    <div className="bg-secondary/30 border border-accent/20 rounded-xl p-6 hover:border-accent/40 transition-all duration-300 hover:shadow-lg">
+
       <div className="flex flex-col items-center text-center">
         {/* Icon */}
         <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
@@ -47,7 +38,7 @@ const ProofMetric: React.FC<ProofMetricProps> = ({
           {description}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,15 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const DisclaimerPage: React.FC = () => {
   return (
     <div className="min-h-screen section-padding pt-32">
       <div className="container-max max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           {/* Header */}
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">Disclaimer</span>
@@ -328,7 +323,7 @@ const DisclaimerPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

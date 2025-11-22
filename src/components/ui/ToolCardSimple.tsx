@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaCheck, FaBrain } from 'react-icons/fa';
 
 interface ToolCardSimpleProps {
@@ -9,7 +8,6 @@ interface ToolCardSimpleProps {
   status: 'live' | 'beta' | 'in-development';
   features: string[];
   url?: string;
-  delay?: number;
   hasAI?: boolean;
 }
 
@@ -20,7 +18,6 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   status,
   features,
   url,
-  delay = 0,
   hasAI = false
 }) => {
   const getStatusBadge = () => {
@@ -63,14 +60,7 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   };
 
   return (
-    <motion.div
-      className="card-interactive flex flex-col h-full"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.03, y: -4 }}
-    >
+    <div className="card-interactive flex flex-col h-full hover:scale-105 transition-all duration-300">
       {/* Icon */}
       <div className="flex justify-center mb-4">
         <img
@@ -111,16 +101,14 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
       </div>
 
       {/* Single CTA Button */}
-      <motion.button
+      <button
         className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${cta.class} disabled:opacity-50 disabled:cursor-not-allowed`}
-        whileHover={status !== 'in-development' ? { scale: 1.05, y: -2 } : {}}
-        whileTap={status !== 'in-development' ? { scale: 0.95 } : {}}
         onClick={handleClick}
         disabled={status === 'in-development'}
       >
         {cta.text}
-      </motion.button>
-    </motion.div>
+      </button>
+    </div>
   );
 };
 

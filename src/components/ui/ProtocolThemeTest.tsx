@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 /**
  * PHASE 1 TEST COMPONENT - Protocol Theme Verification
@@ -10,10 +9,7 @@ const ProtocolThemeTest: React.FC = () => {
   return (
     <div className="min-h-screen section-padding pt-32 bg-primary">
       <div className="container-max">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
         >
           <h1 className="text-4xl font-bold mb-4">
             <span className="gradient-text-protocol">GeckoCore Protocol Theme Test</span>
@@ -118,7 +114,7 @@ const ProtocolThemeTest: React.FC = () => {
               </div>
             </div>
           </section>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

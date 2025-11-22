@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface AllocationItem {
   category: string;
@@ -12,37 +11,28 @@ interface AllocationItem {
 
 interface DistributionBreakdownProps {
   allocations: AllocationItem[];
-  delay?: number;
 }
 
 const DistributionBreakdown: React.FC<DistributionBreakdownProps> = ({ allocations, delay = 0 }) => {
   return (
-    <motion.section
+    <section
       className="mb-16"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
     >
       <h3 className="text-2xl font-bold mb-6 text-center">Detailed Distribution</h3>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
         {allocations.map((allocation, index) => (
-          <motion.div
+          <div
             key={allocation.category}
             className="card hover:border-accent/40 transition-all duration-300"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: delay + (index * 0.05) }}
-            viewport={{ once: true }}
           >
             {/* Header with Category and Percentage */}
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <div
                   className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: allocation.color }}
-                ></div>
+                  style={{ backgroundColor: allocation.color}}
+}}                ></div>
                 <h4 className="text-lg font-bold text-white">{allocation.category}</h4>
               </div>
               <span className="text-2xl font-bold" style={{ color: allocation.color }}>{allocation.percentage}%</span>
@@ -78,10 +68,10 @@ const DistributionBreakdown: React.FC<DistributionBreakdownProps> = ({ allocatio
                 </div>
               </div>
             )}
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

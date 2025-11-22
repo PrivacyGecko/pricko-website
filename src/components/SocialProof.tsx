@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import TestimonialCard from './ui/TestimonialCard';
 import TrustBadge from './ui/TrustBadge';
 import { useProjectConfig } from '../hooks/useProjectConfig';
@@ -30,18 +29,10 @@ const SocialProof: React.FC = () => {
     <section className="section-padding bg-gradient-to-b from-secondary/40 to-transparent">
       <div className="container-max">
         {/* Testimonials Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+          <div
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Trusted by <span className="gradient-text">Privacy Advocates</span>
@@ -51,8 +42,8 @@ const SocialProof: React.FC = () => {
               Real feedback from users who trust PRICKO for their digital privacy.
               Join thousands who have already made the switch.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Testimonial Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
@@ -70,11 +61,7 @@ const SocialProof: React.FC = () => {
         </div>
 
         {/* Trust Badges Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-12"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
@@ -83,7 +70,7 @@ const SocialProof: React.FC = () => {
           <p className="text-muted text-lg max-w-2xl mx-auto mb-12">
             Our commitment to privacy isn't just talk. Here's the proof.
           </p>
-        </motion.div>
+        </div>
 
         {/* Trust Badge Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

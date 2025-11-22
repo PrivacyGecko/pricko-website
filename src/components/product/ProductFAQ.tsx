@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
 
 export interface FAQ {
@@ -33,13 +32,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ faqs, className = '' }) => {
     <section className={`section-padding bg-secondary/20 ${className}`}>
       <div className="container-max">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
@@ -47,18 +40,14 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ faqs, className = '' }) => {
           <p className="text-muted text-lg max-w-2xl mx-auto">
             Got questions? We've got answers.
           </p>
-        </motion.div>
+        </div>
 
         {/* FAQ Accordion */}
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div
+            <div
               key={index}
               className="card overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
             >
               {/* Question Button */}
               <button
@@ -66,22 +55,15 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ faqs, className = '' }) => {
                 onClick={() => toggleQuestion(index)}
               >
                 <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
-                <motion.div
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                <div
                 >
                   <FaChevronDown className="text-accent text-xl flex-shrink-0" />
-                </motion.div>
+                </div>
               </button>
 
               {/* Answer Collapse */}
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+              {openIndex === index && (
+                  <div
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-6 pt-0">
@@ -89,10 +71,10 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ faqs, className = '' }) => {
                         <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
-            </motion.div>
+              
+            </div>
           ))}
         </div>
       </div>

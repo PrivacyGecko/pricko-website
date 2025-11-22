@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import {
   FaCheckCircle,
@@ -72,12 +71,8 @@ const ProofOfDevelopment: React.FC = () => {
 
       <div className="container-max relative z-10">
         {/* Section Header */}
-        <motion.div
+        <div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">This Isn't Vapor. It's a Working Ecosystem.</span>
@@ -87,15 +82,11 @@ const ProofOfDevelopment: React.FC = () => {
             We put our money where our mouth is. Real products. Real users. Real progress.
             Every claim backed by verifiable data.
           </p>
-        </motion.div>
+        </div>
 
         {/* BLOCK 1: Live Products Showcase */}
-        <motion.div
+        <div
           className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
@@ -107,14 +98,9 @@ const ProofOfDevelopment: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {liveProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={product.id}
                 className="card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -184,18 +170,14 @@ const ProofOfDevelopment: React.FC = () => {
                     Try {product.name} <FaExternalLinkAlt />
                   </a>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* BLOCK 2: Launching Soon Showcase */}
-        <motion.div
+        <div
           className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
@@ -208,14 +190,9 @@ const ProofOfDevelopment: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Beta Products */}
             {betaProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={product.id}
                 className="card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -236,12 +213,8 @@ const ProofOfDevelopment: React.FC = () => {
                     <span className="text-sm font-bold text-accent">{product.progress}%</span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className="bg-gradient-to-r from-accent to-accent-hover h-full rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${product.progress}%` }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      viewport={{ once: true }}
+                    <div
+                      className="bg-gradient-to-r from-accent to-accent-hover h-full rounded-full"}%` 
                     />
                   </div>
                 </div>
@@ -273,19 +246,14 @@ const ProofOfDevelopment: React.FC = () => {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
 
             {/* In-Development Products (Top 2 by completion %) */}
             {inDevProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={product.id}
                 className="card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: (betaProducts.length + index) * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -306,12 +274,8 @@ const ProofOfDevelopment: React.FC = () => {
                     <span className="text-sm font-bold text-accent">{product.progress}%</span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className="bg-gradient-to-r from-yellow-500 to-yellow-400 h-full rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${product.progress}%` }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      viewport={{ once: true }}
+                    <div
+                      className="bg-gradient-to-r from-yellow-500 to-yellow-400 h-full rounded-full"}%` 
                     />
                   </div>
                 </div>
@@ -333,18 +297,14 @@ const ProofOfDevelopment: React.FC = () => {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* BLOCK 3: Development Metrics Dashboard */}
-        <motion.div
+        <div
           className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
@@ -355,13 +315,8 @@ const ProofOfDevelopment: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Beta Testers */}
-            <motion.div
+            <div
               className="card p-6 text-center hover:border-accent/40 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
             >
               <div className="text-4xl mb-3 text-accent">
                 <FaUsers className="mx-auto" />
@@ -370,16 +325,11 @@ const ProofOfDevelopment: React.FC = () => {
                 {betaTesters.toLocaleString()}+
               </div>
               <div className="text-sm text-muted">Total Beta Testers</div>
-            </motion.div>
+            </div>
 
             {/* Open Source Repos */}
-            <motion.div
+            <div
               className="card p-6 text-center hover:border-accent/40 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
             >
               <div className="text-4xl mb-3 text-accent">
                 <FaGithub className="mx-auto" />
@@ -388,16 +338,11 @@ const ProofOfDevelopment: React.FC = () => {
                 {openSourceRepos}
               </div>
               <div className="text-sm text-muted">Open Source Repos</div>
-            </motion.div>
+            </div>
 
             {/* Security Audits */}
-            <motion.div
+            <div
               className="card p-6 text-center hover:border-accent/40 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
             >
               <div className="text-4xl mb-3 text-accent">
                 <FaShieldAlt className="mx-auto" />
@@ -406,17 +351,13 @@ const ProofOfDevelopment: React.FC = () => {
                 {securityAudits}
               </div>
               <div className="text-sm text-muted">Security Audits Completed</div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* BLOCK 4: GitHub & Open Source */}
-        <motion.div
+        <div
           className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="bg-secondary/50 border border-accent/20 rounded-2xl p-8 text-center">
             <FaGithub className="text-5xl text-accent mx-auto mb-4" />
@@ -436,15 +377,11 @@ const ProofOfDevelopment: React.FC = () => {
               View on GitHub <FaExternalLinkAlt />
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* BLOCK 5: Security & Trust */}
-        <motion.div
+        <div
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold text-accent mb-3">
@@ -520,15 +457,11 @@ const ProofOfDevelopment: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Section Footer CTA */}
-        <motion.div
+        <div
           className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-accent mb-4">
@@ -539,26 +472,22 @@ const ProofOfDevelopment: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/tools">
-                <motion.button
+                <button
                   className="btn-primary inline-flex items-center gap-2 px-8 py-3 text-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   Explore All 8 Tools <FaArrowRight />
-                </motion.button>
+                </button>
               </Link>
               <Link to="/roadmap">
-                <motion.button
+                <button
                   className="btn-secondary px-8 py-3 text-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   Read the Roadmap
-                </motion.button>
+                </button>
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

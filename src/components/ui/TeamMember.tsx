@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 
 export interface TeamMemberProps {
@@ -10,7 +9,6 @@ export interface TeamMemberProps {
   linkedin?: string;
   twitter?: string;
   github?: string;
-  delay?: number;
 }
 
 const TeamMember: React.FC<TeamMemberProps> = ({
@@ -24,13 +22,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({
   delay = 0
 }) => {
   return (
-    <motion.div
+    <div
       className="card group hover:shadow-lg transition-all duration-300"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
     >
       {/* Avatar */}
       <div className="flex justify-center mb-6">
@@ -92,7 +85,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

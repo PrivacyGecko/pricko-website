@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { IconType } from 'react-icons';
 import {
   FaShieldAlt,
@@ -12,14 +11,12 @@ export interface SecurityBadgeProps {
   variant: 'audit' | 'encryption' | 'open-source' | 'verified';
   title: string;
   description: string;
-  delay?: number;
 }
 
 const SecurityBadge: React.FC<SecurityBadgeProps> = ({
   variant,
   title,
-  description,
-  delay = 0
+  description
 }) => {
   const variantConfig: Record<string, {
     icon: IconType;
@@ -52,14 +49,7 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
   const Icon = config.icon;
 
   return (
-    <motion.div
-      className={`flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-all duration-300`}
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-    >
+    <div className="flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-all duration-300">
       <div className={`w-16 h-16 bg-gradient-to-br ${config.bgGradient} rounded-2xl flex items-center justify-center mb-4`}>
         <Icon className="text-white text-3xl" />
       </div>
@@ -67,7 +57,7 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
         {title}
       </h3>
       <p className="text-muted text-sm leading-relaxed">{description}</p>
-    </motion.div>
+    </div>
   );
 };
 

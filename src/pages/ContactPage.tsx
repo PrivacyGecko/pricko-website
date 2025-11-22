@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import {
   FaEnvelope,
@@ -212,64 +211,36 @@ const ContactPage: React.FC = () => {
       <div className="min-h-screen bg-primary text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            className="inline-block mb-6"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+        <div className="text-center mb-20">
+          <div className="inline-block mb-6">
             <div className="w-24 h-24 mx-auto mb-6 bg-accent/10 rounded-3xl flex items-center justify-center float-animation">
               <FaEnvelope className="w-12 h-12 text-accent" />
             </div>
-          </motion.div>
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
             Connect with <span className="gradient-text-animated">PRICKO</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
             Email us directly or join our community channels. We respond within 24 hours.
           </p>
-        </motion.div>
+        </div>
 
         {/* Direct Email Contact */}
-        <motion.section
-          className="mb-20 glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+        <section className="mb-20 glass-morphism rounded-3xl p-12">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Email Us <span className="gradient-text">Directly</span>
             </h2>
             <p className="text-muted text-lg max-w-3xl mx-auto">
               Click any email below to contact us directly.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {teamContacts.map((contact, index) => (
-              <motion.a
+            {teamContacts.map((contact) => (
+              <a
                 key={contact.role}
                 href={`mailto:${contact.email}`}
                 className="card group hover:shadow-professional cursor-pointer hover:scale-105 transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -289,47 +260,29 @@ const ContactPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Social Media & Community */}
-        <motion.section
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+        <section className="mb-20">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Join Our <span className="gradient-text">Community</span>
             </h2>
             <p className="text-muted text-lg max-w-3xl mx-auto">
               Connect with us on your favorite platform.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {socialLinks.map((social, index) => (
-              <motion.a
+            {socialLinks.map((social) => (
+              <a
                 key={social.name}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card group cursor-pointer text-center hover:shadow-professional-lg"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
+                className="card group cursor-pointer text-center hover:shadow-professional-lg hover:scale-105 transition-all duration-300"
               >
                 <div className="flex flex-col items-center">
                   <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
@@ -344,18 +297,12 @@ const ContactPage: React.FC = () => {
                     {social.description}
                   </p>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </div>
 
           {/* Links to PrivacyGecko.com */}
-          <motion.div
-            className="text-center mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mt-8">
             <a
               href="https://www.privacygecko.com/about"
               target="_blank"
@@ -372,41 +319,23 @@ const ContactPage: React.FC = () => {
             >
               FAQs <FaExternalLinkAlt size={12} />
             </a>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* Contact Form */}
-        <motion.section
-          className="mb-20 glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+        <section className="mb-20 glass-morphism rounded-3xl p-12">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Or Use Our <span className="gradient-text">Contact Form</span>
             </h2>
             <p className="text-muted text-lg max-w-3xl mx-auto">
               We'll get back to you within 24 hours.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <div className="space-y-4">
-                <motion.div
-                  className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                >
+                <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <FaClock className="text-accent text-xl" />
                   </div>
@@ -414,14 +343,8 @@ const ContactPage: React.FC = () => {
                     <div className="font-semibold">Quick Response</div>
                     <div className="text-muted text-sm">12-24 hours</div>
                   </div>
-                </motion.div>
-                <motion.div
-                  className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
+                </div>
+                <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <FaLock className="text-accent text-xl" />
                   </div>
@@ -429,14 +352,8 @@ const ContactPage: React.FC = () => {
                     <div className="font-semibold">Privacy Focused</div>
                     <div className="text-muted text-sm">Encrypted & never shared</div>
                   </div>
-                </motion.div>
-                <motion.div
-                  className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
+                </div>
+                <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <FaGlobe className="text-accent text-xl" />
                   </div>
@@ -444,38 +361,25 @@ const ContactPage: React.FC = () => {
                     <div className="font-semibold">Global Support</div>
                     <div className="text-muted text-sm">24/7 worldwide</div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
-            <motion.form
+            <form
               onSubmit={handleSubmit}
               className="space-y-6"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
               aria-busy={submitStatus === 'loading'}
             >
               {/* Status Message */}
               <div ref={statusMessageRef} aria-live="polite" aria-atomic="true">
                 {submitStatus === 'loading' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center gap-3 text-accent"
-                  >
+                  <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center gap-3 text-accent">
                     <FaSpinner className="animate-spin text-xl" />
                     <span className="font-medium">Sending your message...</span>
-                  </motion.div>
+                  </div>
                 )}
 
                 {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-green-500/10 border border-green-500/30 rounded-xl p-4"
-                    role="alert"
-                  >
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4" role="alert">
                     <div className="flex items-start gap-3">
                       <FaCheckCircle className="text-green-400 text-xl mt-0.5 flex-shrink-0" />
                       <div>
@@ -485,16 +389,11 @@ const ContactPage: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-red-500/10 border border-red-500/30 rounded-xl p-4"
-                    role="alert"
-                  >
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4" role="alert">
                     <div className="flex items-start gap-3">
                       <FaTimesCircle className="text-red-400 text-xl mt-0.5 flex-shrink-0" />
                       <div>
@@ -514,7 +413,7 @@ const ContactPage: React.FC = () => {
                         </button>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </div>
 
@@ -638,19 +537,17 @@ const ContactPage: React.FC = () => {
               <input
                 type="text"
                 name="_gotcha"
-                style={{ display: 'none' }}
-                tabIndex={-1}
+                style={{ display: 'none'}}
+}}                tabIndex={-1}
                 autoComplete="off"
               />
 
-              <motion.button
+              <button
                 type="submit"
                 disabled={submitStatus === 'loading'}
-                className={`w-full btn-primary py-4 text-lg font-semibold shadow-professional inline-flex items-center justify-center gap-3 ${
+                className={`w-full btn-primary py-4 text-lg font-semibold shadow-professional inline-flex items-center justify-center gap-3 transition-colors ${
                   submitStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
-                whileHover={submitStatus !== 'loading' ? { scale: 1.02, y: -2 } : {}}
-                whileTap={submitStatus !== 'loading' ? { scale: 0.98 } : {}}
               >
                 {submitStatus === 'loading' ? (
                   <>
@@ -663,10 +560,10 @@ const ContactPage: React.FC = () => {
                     Send Message
                   </>
                 )}
-              </motion.button>
-            </motion.form>
+              </button>
+            </form>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
     </>

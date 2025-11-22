@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaEye, FaShieldAlt, FaUsers, FaServer, FaExternalLinkAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
@@ -21,12 +20,7 @@ const TokenomicsPage: React.FC = () => {
       <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-12">
           <MascotImage size="lg" className="mb-6 mx-auto" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">$PRICKO</span> Tokenomics
@@ -34,16 +28,10 @@ const TokenomicsPage: React.FC = () => {
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy tools.
           </p>
-        </motion.div>
+        </div>
 
         {/* Token Overview */}
-        <motion.section
-          className="mb-16 bg-secondary/30 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <section className="mb-16 bg-secondary/30 rounded-2xl p-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Total Supply</h3>
@@ -61,16 +49,10 @@ const TokenomicsPage: React.FC = () => {
               <p className="text-muted mt-2">Privacy Tools Access</p>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Simple Distribution */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center">Token Distribution</h2>
           <div className="grid grid-cols-2 gap-4 text-center mb-8 max-w-2xl mx-auto">
             <div className="card-interactive p-6">
@@ -92,16 +74,10 @@ const TokenomicsPage: React.FC = () => {
               Full Distribution Details in Whitepaper <FaExternalLinkAlt size={12} />
             </a>
           </div>
-        </motion.section>
+        </section>
 
         {/* What Your $PRICKO Gets You */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <section className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             What Your $PRICKO Gets You
           </h2>
@@ -146,16 +122,10 @@ const TokenomicsPage: React.FC = () => {
               Full Tokenomics in Whitepaper <FaExternalLinkAlt size={12} />
             </a>
           </div>
-        </motion.section>
+        </section>
 
         {/* Token Launch Information */}
-        <motion.section
-          className="mb-16 bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <section className="mb-16 bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-2xl p-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               <span className="gradient-text">Fair Launch via pump.fun</span>
@@ -183,33 +153,21 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Future Utility: GeckoCore Protocol Section */}
         <section id="protocol" className="section-padding bg-black/30 rounded-2xl mb-16">
           <div className="container-max max-w-4xl">
-            <motion.div
-              className="text-center mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Future Utility: <span className="text-protocol-primary">GeckoCore Protocol</span>
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Beyond today's live products, $PRICKO will power a decentralized privacy protocol launching Q1 2026.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="card-protocol space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            <div className="card-protocol space-y-4">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0">
                   <FaRocket className="text-cyan-400 text-2xl mt-1" />
@@ -245,44 +203,26 @@ const TokenomicsPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="text-center mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
+            <div className="text-center mt-8">
               <Link to="/ecosystem" className="btn-secondary inline-flex items-center gap-2">
                 Learn More About GeckoCore
                 <FaExternalLinkAlt size={16} />
               </Link>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Contract Address Section */}
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <section className="mb-16">
           <div className="max-w-2xl mx-auto">
             <ContractAddress />
           </div>
-        </motion.section>
+        </section>
 
         {/* Call to Action */}
-        <motion.section
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <section className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-6">Ready to Join the Privacy Revolution?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
             $PRICKO will launch with a fair distribution model. Join our community to stay
@@ -290,36 +230,22 @@ const TokenomicsPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <motion.button
-                className="btn-primary px-8 py-3 text-lg inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <button className="btn-primary px-8 py-3 text-lg inline-flex items-center gap-2 transition-colors">
                 <FaRocket />
                 Join Community
-              </motion.button>
+              </button>
             </Link>
             <Link to="/roadmap">
-              <motion.button
-                className="btn-secondary px-8 py-3 text-lg inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <button className="btn-secondary px-8 py-3 text-lg inline-flex items-center gap-2 transition-colors">
                 <FaEye />
                 View Roadmap
-              </motion.button>
+              </button>
             </Link>
           </div>
-        </motion.section>
+        </section>
 
         {/* Consolidated Risk Warning - Disabled */}
-        {/* <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        {/* <section className="mb-16">
           <div className="max-w-3xl mx-auto bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-6">
             <div className="flex items-start gap-4">
               <div className="text-2xl flex-shrink-0">⚠️</div>
@@ -335,7 +261,7 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section> */}
+        </section> */}
       </div>
     </div>
     </>

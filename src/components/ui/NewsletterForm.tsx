@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FaEnvelope, FaCheckCircle, FaExclamationCircle, FaSpinner } from 'react-icons/fa';
 
 interface NewsletterFormProps {
@@ -129,14 +128,11 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
   return (
     <div className={`${className}`}>
       {showDescription && !isMinimal && (
-        <motion.p
+        <p
           className="text-muted mb-4 text-sm md:text-base"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
         >
           Get notified about token launch, exclusive updates, and early access to new privacy tools.
-        </motion.p>
+        </p>
       )}
 
       <form onSubmit={handleSubmit} className="w-full">
@@ -150,7 +146,7 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
               onChange={(e) => {
                 setEmail(e.target.value);
                 if (status === 'error') setStatus('idle');
-              }}
+              
               placeholder={placeholder}
               disabled={status === 'loading' || status === 'success'}
               className={`w-full pl-12 pr-4 py-3 ${
@@ -168,14 +164,12 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
           </div>
 
           {/* Submit Button */}
-          <motion.button
+          <button
             type="submit"
             disabled={status === 'loading' || status === 'success'}
             className={`btn-primary ${
               isHero ? 'px-8 py-4 text-lg' : 'px-6 py-3'
-            } inline-flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed`}
-            whileHover={status === 'idle' || status === 'error' ? { scale: 1.02 } : {}}
-            whileTap={status === 'idle' || status === 'error' ? { scale: 0.98 } : {}}
+            } inline-flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed`} : {}} : {
           >
             {status === 'loading' && (
               <FaSpinner className="animate-spin" />
@@ -184,49 +178,37 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
               <FaCheckCircle />
             )}
             {buttonText}
-          </motion.button>
+          </button>
         </div>
 
         {/* Status Messages */}
-        <AnimatePresence mode="wait">
-          {status === 'error' && errorMessage && (
-            <motion.div
+        {status === 'error' && errorMessage && (
+            <div
               id="error-message"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
               className="mt-3 flex items-center gap-2 text-red-400 text-sm"
             >
               <FaExclamationCircle />
               <span>{errorMessage}</span>
-            </motion.div>
+            </div>
           )}
 
           {status === 'success' && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+            <div
               className="mt-3 flex items-center gap-2 text-green-400 text-sm"
             >
               <FaCheckCircle />
               <span>Success! You're on the whitelist. Check your email for confirmation.</span>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
+        
       </form>
 
       {!isMinimal && (
-        <motion.p
+        <p
           className="text-xs text-zinc-500 mt-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
         >
           We respect your privacy. Unsubscribe at any time. No spam, ever.
-        </motion.p>
+        </p>
       )}
     </div>
   );

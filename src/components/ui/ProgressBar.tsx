@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 export interface ProgressBarProps {
   value: number; // 0-100
@@ -7,8 +6,6 @@ export interface ProgressBarProps {
   showPercentage?: boolean;
   height?: 'sm' | 'md' | 'lg';
   color?: 'accent' | 'success' | 'warning' | 'info' | 'error' | 'cyan' | 'purple';
-  animated?: boolean;
-  delay?: number;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -16,9 +13,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   label,
   showPercentage = true,
   height = 'md',
-  color = 'accent',
-  animated = true,
-  delay = 0
+  color = 'accent'
 }) => {
   // Clamp value between 0 and 100
   const clampedValue = Math.min(Math.max(value, 0), 100);
@@ -73,12 +68,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const heightClass = heightMap[height] || heightMap.md;
 
   return (
-    <motion.div
-      initial={{ opacity: animated ? 0 : 1 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-    >
+    <div>
       {/* Label and Percentage Row */}
       {(label || showPercentage) && (
         <div className="flex items-center justify-between mb-2">
@@ -95,15 +85,12 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
       {/* Progress Bar Container */}
       <div className={`w-full ${colors.bg} rounded-full overflow-hidden`}>
-        <motion.div
-          className={`${colors.bar} ${heightClass} rounded-full`}
-          initial={{ width: 0 }}
-          whileInView={{ width: `${clampedValue}%` }}
-          transition={{ duration: animated ? 1.2 : 0, delay: animated ? 0.3 : 0 }}
-          viewport={{ once: true }}
+        <div
+          className={`${colors.bar} ${heightClass} rounded-full transition-all duration-1000`}
+          style={{ width: `${clampedValue}%`}}
         />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

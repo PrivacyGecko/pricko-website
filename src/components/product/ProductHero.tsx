@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft, FaExternalLinkAlt } from 'react-icons/fa';
 import MascotImage from '../ui/MascotImage';
@@ -66,12 +65,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
 
       <div className="container-max relative z-10">
         {/* Breadcrumb */}
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
+        <div className="mb-8">
           <div className="flex items-center gap-2 text-sm text-muted">
             <Link to="/" className="hover:text-accent transition-colors">Home</Link>
             <span>/</span>
@@ -79,24 +73,14 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
             <span>/</span>
             <span className="text-accent">{product.name}</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Hero Content */}
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Column: Text Content */}
-          <motion.div
-            className="lg:w-3/5 text-center lg:text-left"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="lg:w-3/5 text-center lg:text-left">
             {/* Status Badge */}
-            <motion.div
-              className="inline-flex items-center gap-2 mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
+            <div className="inline-flex items-center gap-2 mb-6">
               <span className={`px-4 py-2 rounded-full text-xs font-bold ${status.bg} ${status.border} ${status.text} border-2 flex items-center gap-2`}>
                 <span>{status.icon}</span>
                 {status.label}
@@ -104,45 +88,25 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
                   <span className="ml-2">({product.progress}% Complete)</span>
                 )}
               </span>
-            </motion.div>
+            </div>
 
             {/* Product Name */}
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
               <span className="gradient-text text-shadow">{product.name}</span>
-            </motion.h1>
+            </h1>
 
             {/* Subtitle */}
-            <motion.p
-              className="text-xl md:text-2xl text-muted mb-6 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            <p className="text-xl md:text-2xl text-muted mb-6 leading-relaxed">
               {product.subtitle}
-            </motion.p>
+            </p>
 
             {/* Description */}
-            <motion.p
-              className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
               {product.description}
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               {product.url ? (
                 <a
                   href={product.url}
@@ -168,30 +132,20 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
                 <FaArrowLeft />
                 All Tools
               </Link>
-            </motion.div>
+            </div>
 
             {/* Launch Date (if applicable) */}
             {product.status !== 'live' && product.launchDate && (
-              <motion.p
-                className="mt-6 text-sm text-muted"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
+              <p className="mt-6 text-sm text-muted">
                 Estimated Launch: <span className="text-accent font-semibold">{product.launchDate}</span>
-              </motion.p>
+              </p>
             )}
-          </motion.div>
+          </div>
 
           {/* Right Column: Mascot */}
-          <motion.div
-            className="lg:w-2/5 flex justify-center items-center"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div className="lg:w-2/5 flex justify-center items-center">
             <MascotImage size="xl" />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

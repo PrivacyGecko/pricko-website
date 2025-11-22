@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import type { FAQQuestion } from '../../types/config';
 
@@ -80,12 +79,8 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
           const isOpen = openQuestions.has(question.id);
 
           return (
-            <motion.div
+            <div
               key={question.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true }}
               className="bg-zinc-800 border border-zinc-700 rounded-lg overflow-hidden hover:border-accent/30 transition-colors"
             >
               {/* Question Button */}
@@ -99,27 +94,19 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
                   {question.question}
                 </span>
 
-                <motion.div
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                <div
                   className="flex-shrink-0 text-accent"
                 >
                   {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-                </motion.div>
+                </div>
               </button>
 
               {/* Answer Panel */}
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    id={`faq-answer-${question.id}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{
-                      height: { duration: 0.3, ease: 'easeInOut' },
+              {isOpen && (
+                  <div
+                    id={`faq-answer-${question.id}`,
                       opacity: { duration: 0.2, ease: 'easeInOut' }
-                    }}
+                    
                     className="overflow-hidden"
                   >
                     <div className="px-6 py-4 border-t border-zinc-700">
@@ -127,10 +114,10 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
                         {question.answer}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
-            </motion.div>
+              
+            </div>
           );
         })}
       </div>
@@ -142,7 +129,6 @@ interface FAQItemProps {
   question: FAQQuestion;
   isOpen: boolean;
   onToggle: () => void;
-  delay?: number;
 }
 
 /**
@@ -155,11 +141,7 @@ export const FAQItem: React.FC<FAQItemProps> = ({
   delay = 0
 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay }}
-      viewport={{ once: true }}
+    <div
       className="bg-zinc-800 border border-zinc-700 rounded-lg overflow-hidden hover:border-accent/30 transition-colors"
     >
       {/* Question Button */}
@@ -173,27 +155,19 @@ export const FAQItem: React.FC<FAQItemProps> = ({
           {question.question}
         </span>
 
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        <div
           className="flex-shrink-0 text-accent"
         >
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-        </motion.div>
+        </div>
       </button>
 
       {/* Answer Panel */}
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            id={`faq-answer-${question.id}`}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              height: { duration: 0.3, ease: 'easeInOut' },
+      {isOpen && (
+          <div
+            id={`faq-answer-${question.id}`,
               opacity: { duration: 0.2, ease: 'easeInOut' }
-            }}
+            
             className="overflow-hidden"
           >
             <div className="px-6 py-4 border-t border-zinc-700">
@@ -201,10 +175,10 @@ export const FAQItem: React.FC<FAQItemProps> = ({
                 {question.answer}
               </p>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.div>
+      
+    </div>
   );
 };
 

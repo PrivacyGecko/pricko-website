@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FaSearch, FaQuestionCircle } from 'react-icons/fa';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import FAQAccordion from './ui/FAQAccordion';
@@ -69,12 +68,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
     <section className={`py-20 ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
-        <motion.div
+        <div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="inline-flex items-center gap-3 bg-accent/10 px-4 py-2 rounded-full mb-6">
             <FaQuestionCircle className="text-accent" />
@@ -88,16 +83,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
           <p className="text-muted text-lg max-w-3xl mx-auto">
             Find answers to common questions about PRICKO, our privacy tools, and the Privacy Gecko ecosystem.
           </p>
-        </motion.div>
+        </div>
 
         {/* Search Bar */}
         {enableSearch && (
-          <motion.div
+          <div
             className="mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
           >
             <div className="relative max-w-2xl mx-auto">
               <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted" />
@@ -112,26 +103,19 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
 
             {/* Search Results Counter */}
             {isSearching && (
-              <motion.p
+              <p
                 className="text-center text-muted mt-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
               >
                 {searchResults.length} {searchResults.length === 1 ? 'result' : 'results'} found
-              </motion.p>
+              </p>
             )}
-          </motion.div>
+          </div>
         )}
 
         {/* Category Tabs */}
         {!isSearching && (
-          <motion.div
+          <div
             className="mb-8 flex flex-wrap justify-center gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
           >
             {displayCategories.map(([key, category]) => (
               <button
@@ -146,15 +130,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
                 {category.title}
               </button>
             ))}
-          </motion.div>
+          </div>
         )}
 
         {/* FAQ Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
+        <div
         >
           {isSearching ? (
             // Search Results
@@ -185,15 +165,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
               allowMultiple={false}
             />
           )}
-        </motion.div>
+        </div>
 
         {/* Contact CTA */}
-        <motion.div
+        <div
           className="mt-16 text-center bg-zinc-800 border border-zinc-700 rounded-xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold mb-3">Still Have Questions?</h3>
           <p className="text-muted mb-6">
@@ -212,7 +188,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
               Join Discord
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
