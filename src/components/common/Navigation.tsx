@@ -81,8 +81,8 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   ];
 
   const linkClass = mobile
-    ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent "
-    : "px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-accent relative ";
+    ? "block py-3 px-4 text-lg font-semibold transition-colors hover:text-accent "
+    : "px-4 py-2 text-sm font-semibold transition-all duration-200 hover:text-accent relative ";
 
   const activeLinkClass = mobile
     ? "text-accent border-l-2 border-accent bg-accent/10"

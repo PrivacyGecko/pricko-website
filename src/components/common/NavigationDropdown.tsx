@@ -111,7 +111,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
         <button
           ref={buttonRef}
           onClick={toggleDropdown}
-          className="w-full flex items-center justify-between py-3 px-4 text-lg font-medium transition-colors hover:text-accent focus:outline-none focus:text-accent rounded"
+          className="w-full flex items-center justify-between py-3 px-4 text-lg font-semibold transition-colors hover:text-accent focus:outline-none focus:text-accent rounded"
           aria-expanded={isOpen}
           aria-haspopup="true"
         >
@@ -187,7 +187,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
       <button
         ref={buttonRef}
         onClick={toggleDropdown}
-        className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-accent relative focus:outline-none focus:text-accent rounded"
+        className="flex items-center gap-1 px-4 py-2 text-sm font-semibold transition-all duration-200 hover:text-accent relative focus:outline-none focus:text-accent rounded"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
