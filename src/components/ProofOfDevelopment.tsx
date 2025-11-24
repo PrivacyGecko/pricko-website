@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { useProjectConfig } from '../hooks/useProjectConfig';
+import { observeScrollAnimations } from '../hooks/useScrollAnimation';
 import {
   FaCheckCircle,
   FaClock,
@@ -17,19 +17,6 @@ import {
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-/**
- * Proof of Development Section Component
- *
- * Showcases working products, real investment, and verifiable metrics
- * to eliminate "vaporware" concerns.
- *
- * Legal Notes:
- * - Uses "Development Budget" instead of "Investment" (securities language avoided)
- * - All metrics pulled from project-data.json for single source of truth
- * - Progress percentages include "estimated" qualifier
- * - No profit promises or investment solicitation
- */
-
 const ProofOfDevelopment: React.FC = () => {
   const {
     getLiveProducts,
@@ -40,16 +27,14 @@ const ProofOfDevelopment: React.FC = () => {
 
   const liveProducts = getLiveProducts();
   const betaProducts = getBetaProducts();
-  const inDevProducts = getInDevelopmentProducts().slice(0, 2); // Top 2 by completion %
+  const inDevProducts = getInDevelopmentProducts().slice(0, 2);
 
-  // Development metrics from config
   const {
     betaTesters,
     openSourceRepos,
     securityAudits
   } = config.development.metrics;
 
-  // Map product names to modern colorful icons
   const getProductIcon = (productName: string) => {
     const iconMap: { [key: string]: JSX.Element } = {
       'Gecko Advisor': <FaSearch className="text-blue-400" />,
@@ -60,25 +45,21 @@ const ProofOfDevelopment: React.FC = () => {
     return iconMap[productName] || <FaCheckCircle className="text-accent" />;
   };
 
+  useEffect(() => {
+    return observeScrollAnimations('.animate-on-scroll');
+  }, []);
+
   return (
     <section
       id="proof-of-development"
       className="relative section-padding bg-gradient-to-b from-transparent via-secondary/40 to-transparent overflow-hidden"
     >
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(74,222,128,0.1),transparent_50%)]"></div>
       </div>
 
       <div className="container-max relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16 animate-on-scroll fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">This Isn't Vapor. It's a Working Ecosystem.</span>
           </h2>
@@ -87,16 +68,9 @@ const ProofOfDevelopment: React.FC = () => {
             We put our money where our mouth is. Real products. Real users. Real progress.
             Every claim backed by verifiable data.
           </p>
-        </motion.div>
+        </div>
 
-        {/* BLOCK 1: Live Products Showcase */}
-        <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
               <FaCheckCircle className="text-accent" />
@@ -107,14 +81,10 @@ const ProofOfDevelopment: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {liveProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={product.id}
-                className="card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
+                className="card-interactive hover-lift"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -131,7 +101,6 @@ const ProofOfDevelopment: React.FC = () => {
 
                 <p className="text-muted mb-4 leading-relaxed">{product.description}</p>
 
-                {/* Metrics */}
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm">
                     <FaCheckCircle className="text-accent flex-shrink-0" />
@@ -184,19 +153,12 @@ const ProofOfDevelopment: React.FC = () => {
                     Try {product.name} <FaExternalLinkAlt />
                   </a>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* BLOCK 2: Launching Soon Showcase */}
-        <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               <FaClock className="text-cyan-400" />
@@ -206,16 +168,11 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Beta Products */}
             {betaProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={product.id}
-                className="card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
+                className="card-interactive hover-lift"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -229,24 +186,19 @@ const ProofOfDevelopment: React.FC = () => {
 
                 <p className="text-muted mb-4 leading-relaxed">{product.description}</p>
 
-                {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm text-muted">Development Progress</span>
                     <span className="text-sm font-bold text-accent">{product.progress}%</span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className="bg-gradient-to-r from-accent to-accent-hover h-full rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${product.progress}%` }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      viewport={{ once: true }}
+                    <div
+                      className="bg-gradient-to-r from-accent to-accent-hover h-full rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: `${product.progress}%` }}
                     />
                   </div>
                 </div>
 
-                {/* Proof Points */}
                 <div className="space-y-2 mb-4">
                   {product.metrics.betaTesters && (
                     <div className="flex items-center gap-2 text-sm">
@@ -273,19 +225,14 @@ const ProofOfDevelopment: React.FC = () => {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
 
-            {/* In-Development Products (Top 2 by completion %) */}
             {inDevProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={product.id}
-                className="card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: (betaProducts.length + index) * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
+                className="card-interactive hover-lift"
+                style={{ animationDelay: `${(betaProducts.length + index) * 0.1}s` }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -299,24 +246,19 @@ const ProofOfDevelopment: React.FC = () => {
 
                 <p className="text-muted mb-4 leading-relaxed">{product.description}</p>
 
-                {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm text-muted">Development Progress</span>
                     <span className="text-sm font-bold text-accent">{product.progress}%</span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className="bg-gradient-to-r from-yellow-500 to-yellow-400 h-full rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${product.progress}%` }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      viewport={{ once: true }}
+                    <div
+                      className="bg-gradient-to-r from-yellow-500 to-yellow-400 h-full rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: `${product.progress}%` }}
                     />
                   </div>
                 </div>
 
-                {/* Proof Points */}
                 <div className="space-y-2 mb-4">
                   {product.metrics.users && (
                     <div className="flex items-center gap-2 text-sm">
@@ -333,19 +275,12 @@ const ProofOfDevelopment: React.FC = () => {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* BLOCK 3: Development Metrics Dashboard */}
-        <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
               We Don't Just Talk. Here's the Proof.
@@ -354,15 +289,7 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Beta Testers */}
-            <motion.div
-              className="card p-6 text-center hover:border-accent/40 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="card p-6 text-center hover:border-accent/40 transition-all duration-300 hover-scale">
               <div className="text-4xl mb-3 text-accent">
                 <FaUsers className="mx-auto" />
               </div>
@@ -370,17 +297,9 @@ const ProofOfDevelopment: React.FC = () => {
                 {betaTesters.toLocaleString()}+
               </div>
               <div className="text-sm text-muted">Total Beta Testers</div>
-            </motion.div>
+            </div>
 
-            {/* Open Source Repos */}
-            <motion.div
-              className="card p-6 text-center hover:border-accent/40 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="card p-6 text-center hover:border-accent/40 transition-all duration-300 hover-scale">
               <div className="text-4xl mb-3 text-accent">
                 <FaGithub className="mx-auto" />
               </div>
@@ -388,17 +307,9 @@ const ProofOfDevelopment: React.FC = () => {
                 {openSourceRepos}
               </div>
               <div className="text-sm text-muted">Open Source Repos</div>
-            </motion.div>
+            </div>
 
-            {/* Security Audits */}
-            <motion.div
-              className="card p-6 text-center hover:border-accent/40 transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="card p-6 text-center hover:border-accent/40 transition-all duration-300 hover-scale">
               <div className="text-4xl mb-3 text-accent">
                 <FaShieldAlt className="mx-auto" />
               </div>
@@ -406,18 +317,11 @@ const ProofOfDevelopment: React.FC = () => {
                 {securityAudits}
               </div>
               <div className="text-sm text-muted">Security Audits Completed</div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* BLOCK 4: GitHub & Open Source */}
-        <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
           <div className="bg-secondary/50 border border-accent/20 rounded-2xl p-8 text-center">
             <FaGithub className="text-5xl text-accent mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-accent mb-3">
@@ -436,16 +340,9 @@ const ProofOfDevelopment: React.FC = () => {
               View on GitHub <FaExternalLinkAlt />
             </a>
           </div>
-        </motion.div>
+        </div>
 
-        {/* BLOCK 5: Security & Trust */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold text-accent mb-3">
               Verified & Audited
@@ -454,7 +351,6 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Security Audits */}
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-4">
                 <FaShieldAlt className="text-2xl text-accent" />
@@ -476,7 +372,6 @@ const ProofOfDevelopment: React.FC = () => {
               </div>
             </div>
 
-            {/* Encryption Standards */}
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-4">
                 <FaLock className="text-2xl text-accent" />
@@ -498,7 +393,6 @@ const ProofOfDevelopment: React.FC = () => {
               </div>
             </div>
 
-            {/* Open Source */}
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-4">
                 <FaCode className="text-2xl text-accent" />
@@ -520,16 +414,9 @@ const ProofOfDevelopment: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Section Footer CTA */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
           <div className="bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-accent mb-4">
               Ready to Experience Real Privacy Tools?
@@ -539,26 +426,18 @@ const ProofOfDevelopment: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/tools">
-                <motion.button
-                  className="btn-primary inline-flex items-center gap-2 px-8 py-3 text-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="btn-primary inline-flex items-center gap-2 px-8 py-3 text-lg hover-lift">
                   Explore All 8 Tools <FaArrowRight />
-                </motion.button>
+                </button>
               </Link>
               <Link to="/roadmap">
-                <motion.button
-                  className="btn-secondary px-8 py-3 text-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="btn-secondary px-8 py-3 text-lg hover-lift">
                   Read the Roadmap
-                </motion.button>
+                </button>
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
