@@ -5,7 +5,6 @@ node_modules/
 assets/
 playwright-tests/
 .playwright-mcp/
-docs/
 node_modules/.bin/
 node_modules/.vite/
 
