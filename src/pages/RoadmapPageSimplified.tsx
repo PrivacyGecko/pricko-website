@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
@@ -18,12 +17,7 @@ const RoadmapPageSimplified: React.FC = () => {
       <div className="min-h-screen bg-bg-main text-white pt-24">
         <div className="container-max section-padding">
           {/* Hero Section */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="text-center mb-16">
             <MascotImage size="lg" className="mb-6 mx-auto" />
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-professional">
               Our <span className="gradient-text-animated">Journey</span>
@@ -36,46 +30,33 @@ const RoadmapPageSimplified: React.FC = () => {
             </p>
 
             {/* Overall Progress */}
-            <motion.div
-              className="max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            <div className="max-w-2xl mx-auto">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm font-medium text-accent">Overall Progress</span>
                 <span className="text-sm font-bold text-white">{ROADMAP_META.overallProgress}%</span>
               </div>
               <div className="w-full bg-secondary/50 rounded-full h-3 overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-accent to-accent-hover rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${ROADMAP_META.overallProgress}%` }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
+                <div
+                  className="h-full bg-gradient-to-r from-accent to-accent-hover rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: `${ROADMAP_META.overallProgress}%` }}
                 />
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Single Consolidated Disclaimer */}
-          <motion.div
-            className="mb-12 bg-gradient-to-br from-yellow-500/10 to-orange-500/5 border border-yellow-500/30 rounded-2xl p-6 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="mb-12 bg-gradient-to-br from-yellow-500/10 to-orange-500/5 border border-yellow-500/30 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-start gap-4">
               <span className="text-2xl">⚠️</span>
               <div>
                 <h3 className="text-lg font-bold mb-2 text-yellow-400">Important: Timelines Are Estimates</h3>
                 <p className="text-sm text-gray-300 leading-relaxed">
-                  Dates may shift due to technical challenges, security audits, or market conditions. 
+                  Dates may shift due to technical challenges, security audits, or market conditions.
                   We prioritize quality over speed and will communicate any changes transparently.
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Linear Timeline - Vertical Flow */}
           <div className="space-y-8">
@@ -95,13 +76,7 @@ const RoadmapPageSimplified: React.FC = () => {
           </div>
 
           {/* Future Vision CTA */}
-          <motion.section
-            className="mt-24 relative overflow-hidden"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <section className="mt-24 relative overflow-hidden">
             <div className="bg-gradient-to-br from-secondary/40 to-secondary/10 rounded-3xl p-12 border border-border/50 backdrop-blur-sm">
               <div className="text-center">
                 <h2 className="text-4xl font-bold mb-6 text-professional">
@@ -113,17 +88,13 @@ const RoadmapPageSimplified: React.FC = () => {
                 </p>
 
                 <Link to="/contact">
-                  <motion.button
-                    className="btn-primary px-10 py-4 text-lg font-semibold"
-                    whileHover={{ scale: 1.05, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
+                  <button className="btn-primary px-10 py-4 text-lg font-semibold hover:scale-105 transition-transform">
                     Join the Revolution
-                  </motion.button>
+                  </button>
                 </Link>
               </div>
             </div>
-          </motion.section>
+          </section>
         </div>
       </div>
     </>

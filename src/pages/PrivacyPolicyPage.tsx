@@ -1,15 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 
 const PrivacyPolicyPage: React.FC = () => {
   return (
     <div className="min-h-screen section-padding pt-32">
       <div className="container-max max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           {/* Header */}
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">Privacy Policy</span>
@@ -402,11 +398,11 @@ const PrivacyPolicyPage: React.FC = () => {
               <div className="bg-secondary/50 border border-accent/20 rounded-lg p-6">
                 <p className="text-white"><strong>Email (Privacy):</strong> privacy@pricko.com</p>
                 <p className="text-white mt-2"><strong>Email (General):</strong> community@pricko.com</p>
-                <p className="text-white mt-2"><strong>Physical Address:</strong><br/>
-                  PRICKO Project<br/>
-                  c/o Offshore Incorporations Centre<br/>
-                  PO Box 957, Offshore Incorporations Centre<br/>
-                  Road Town, Tortola VG1110<br/>
+                <p className="text-white mt-2"><strong>Physical Address:</strong><br />
+                  PRICKO Project<br />
+                  c/o Offshore Incorporations Centre<br />
+                  PO Box 957, Offshore Incorporations Centre<br />
+                  Road Town, Tortola VG1110<br />
                   British Virgin Islands
                 </p>
                 <p className="text-muted text-sm mt-4">
@@ -415,7 +411,7 @@ const PrivacyPolicyPage: React.FC = () => {
               </div>
             </section>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
