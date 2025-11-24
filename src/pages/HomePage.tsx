@@ -134,85 +134,115 @@ const HomePage: React.FC = () => {
                   <strong className="text-cyan-400">unlimited dApp integrations</strong> via GeckoCore protocol.
                 </p>
 
-                {/* TASK 1: Three Hero Value Proposition Cards - REORDERED: Protocol → Execution → Position */}
-                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto lg:mx-0 mb-8">
-                  {/* Card 1: GeckoCore Protocol (was Card 2) */}
-                  <div className="card-interactive bg-secondary p-6 hover:-translate-y-1 transition-transform duration-200">
-                    <div className="text-center mb-3">
-                      <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide mb-2">Q2 2026 Launch</div>
-                      <div className="flex items-center justify-center gap-2">
-                        <div className="text-3xl flex-shrink-0">🏗️</div>
-                        <h3 className="text-lg font-bold text-white">GeckoCore Protocol</h3>
+                {/* TASK 1: Three Hero Value Proposition Cards - Vertical Stack Layout */}
+                <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto lg:mx-0 mb-8">
+                  {/* Card 1: GeckoCore Protocol */}
+                  <motion.div 
+                    className="card-interactive bg-secondary p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="text-4xl flex-shrink-0">🏗️</div>
+                      <div className="flex-1">
+                        <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide mb-2">
+                          Q2 2026 Launch
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          GeckoCore Protocol
+                        </h3>
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-cyan-400">∞</span>
+                    <div className="space-y-3 pl-16">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-bold text-cyan-400">∞</span>
                         <span className="text-sm text-gray-300">dApp integrations</span>
                       </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-cyan-400">Q2</span>
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-bold text-cyan-400">Q2</span>
                         <span className="text-sm text-gray-300">2026 launch</span>
                       </div>
-                      <div className="pt-2">
-                        <p className="text-xs text-muted leading-relaxed">
+                      <div className="pt-2 border-t border-zinc-800 mt-3">
+                        <p className="text-sm text-muted leading-relaxed">
                           Any developer can <strong className="text-accent">build on GeckoCore</strong>
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  {/* Card 2: Proven Execution (was Card 3) */}
-                  <div className="card-interactive bg-secondary p-6 hover:-translate-y-1 transition-transform duration-200">
-                    <div className="text-center mb-3">
-                      <div className="text-xs text-accent font-semibold uppercase tracking-wide mb-2">Track Record</div>
-                      <div className="flex items-center justify-center gap-2">
-                        <div className="text-3xl flex-shrink-0">📈</div>
-                        <h3 className="text-lg font-bold text-white">Proven Execution</h3>
+                  {/* Card 2: Proven Execution */}
+                  <motion.div 
+                    className="card-interactive bg-secondary p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="text-4xl flex-shrink-0">📈</div>
+                      <div className="flex-1">
+                        <div className="text-xs text-accent font-semibold uppercase tracking-wide mb-2">
+                          Track Record
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          Proven Execution
+                        </h3>
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-accent">4</span>
+                    <div className="space-y-3 pl-16">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-bold text-accent">4</span>
                         <span className="text-sm text-gray-300">products shipped</span>
                       </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-accent">6</span>
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-bold text-accent">6</span>
                         <span className="text-sm text-gray-300">months timeline</span>
                       </div>
-                      <div className="pt-2">
-                        <p className="text-xs text-muted leading-relaxed">
+                      <div className="pt-2 border-t border-zinc-800 mt-3">
+                        <p className="text-sm text-muted leading-relaxed">
                           <strong className="text-accent">No vaporware.</strong> Realistic timelines
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  {/* Card 3: Early Position (was Card 1, redesigned) */}
-                  <div className="card-interactive bg-secondary p-6 hover:-translate-y-1 transition-transform duration-200">
-                    <div className="text-center mb-3">
-                      <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide mb-2">Pre-Launch</div>
-                      <div className="flex items-center justify-center gap-2">
-                        <div className="text-3xl flex-shrink-0">💎</div>
-                        <h3 className="text-lg font-bold text-white">Early Position</h3>
+                  {/* Card 3: Early Position */}
+                  <motion.div 
+                    className="card-interactive bg-secondary p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="text-4xl flex-shrink-0">💎</div>
+                      <div className="flex-1">
+                        <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide mb-2">
+                          Pre-Launch
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          Early Position
+                        </h3>
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-purple-400">✓</span>
+                    <div className="space-y-3 pl-16">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-bold text-purple-400">✓</span>
                         <span className="text-sm text-gray-300">live tools today</span>
                       </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-purple-400">∞</span>
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-bold text-purple-400">∞</span>
                         <span className="text-sm text-gray-300">ecosystem tomorrow</span>
                       </div>
-                      <div className="pt-2">
-                        <p className="text-xs text-muted leading-relaxed">
+                      <div className="pt-2 border-t border-zinc-800 mt-3">
+                        <p className="text-sm text-muted leading-relaxed">
                           Get in <strong className="text-accent">before</strong> network effects
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
