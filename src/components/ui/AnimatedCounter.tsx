@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 interface AnimatedCounterProps {
   value: string | number;
   duration?: number;
@@ -20,10 +18,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
 }) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const parseValue = (val: string | number): { number: number; prefix: string; suffix: string } => {
+  const [isVisible, setIsVisible] = useState(false);  const parseValue = (val: string | number): { number: number; prefix: string; suffix: string } => {
     if (typeof val === 'number') {
       return { number: val, prefix: '', suffix: '' };
     }
@@ -110,9 +105,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const displayValue = prefix + formatDisplayValue(count) + suffix;
 
   return (
-    <div
-      ref={ref}
-      className={'text-center ' + className}
+    <div className={'text-center ' + className}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',

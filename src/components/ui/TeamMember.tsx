@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 export interface TeamMemberProps {
   name: string;
   role: string;
@@ -23,14 +21,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({
   github,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  return (
-    <div
-      ref={ref}
-      className="animate-on-scroll opacity-0 translate-y-5 card group hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-      style={{ animationDelay: `${delay}s` }}
+  const ref = useRef<HTMLDivElement>(null);  return (
+    <div className="card group hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
     >
       {/* Avatar */}
       <div className="flex justify-center mb-6">

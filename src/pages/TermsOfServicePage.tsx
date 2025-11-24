@@ -165,19 +165,6 @@ const TermsOfServicePage: React.FC = () => {
                   <li>Protocol-level access control and verification systems</li>
                   <li>Integration of $PRICKO tokens into future infrastructure</li>
                 </ul>
-                <div className="mt-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    <strong className="text-yellow-400">Important:</strong> Actual development timelines,
-                    features, and functionality may differ materially from current projections due to technical
-                    challenges, regulatory changes, market conditions, resource constraints, or strategic
-                    pivots. Past performance in delivering Privacy Gecko products (Gecko Advisor, Gecko Share,
-                    Gecko Guard, Gecko Lock) does not guarantee future success in building decentralized
-                    infrastructure. $PRICKO tokens provide utility for current products only. Future protocol
-                    utility is aspirational and not guaranteed. No investment returns, staking yields, or
-                    appreciation in value should be expected.
-                  </p>
-                </div>
-
               </div>
             </section>
 

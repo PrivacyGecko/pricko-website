@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-import { observeScrollAnimations } from '../../hooks/useScrollAnimation';
-
 interface ProductFeaturesProps {
   features: string[];
   className?: string;
@@ -9,13 +7,13 @@ interface ProductFeaturesProps {
 
 const ProductFeatures: React.FC<ProductFeaturesProps> = ({ features, className = '' }) => {
   useEffect(() => {
-    return observeScrollAnimations('.animate-on-scroll');
+    return observeScrollAnimations('. ');
   }, []);
 
   return (
     <section className={`section-padding bg-secondary/20 ${className}`}>
       <div className="container-max">
-        <div className="text-center mb-12 animate-on-scroll fade-up">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="gradient-text">Key Features</span>
           </h2>
@@ -26,7 +24,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ features, className =
           {features.map((feature, index) => (
             <div
               key={index}
-              className="card p-6 flex items-start gap-4 hover:border-accent/40 transition-colors animate-on-scroll fade-up"
+              className="card p-6 flex items-start gap-4 hover:border-accent/40 transition-colors"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex-shrink-0">

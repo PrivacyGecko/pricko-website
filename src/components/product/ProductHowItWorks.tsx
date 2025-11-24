@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { observeScrollAnimations } from '../../hooks/useScrollAnimation';
-
 export interface Step {
   step: number;
   title: string;
@@ -14,13 +12,13 @@ interface ProductHowItWorksProps {
 
 const ProductHowItWorks: React.FC<ProductHowItWorksProps> = ({ steps, className = '' }) => {
   useEffect(() => {
-    return observeScrollAnimations('.animate-on-scroll');
+    return observeScrollAnimations('. ');
   }, []);
 
   return (
     <section className={`section-padding ${className}`}>
       <div className="container-max">
-        <div className="text-center mb-16 animate-on-scroll fade-up">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             How It <span className="gradient-text">Works</span>
           </h2>
@@ -34,7 +32,7 @@ const ProductHowItWorks: React.FC<ProductHowItWorksProps> = ({ steps, className 
           {steps.map((stepItem, index) => (
             <div
               key={index}
-              className="flex gap-6 animate-on-scroll fade-left"
+              className="flex gap-6 fade-left"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="flex-shrink-0">

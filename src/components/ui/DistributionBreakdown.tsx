@@ -19,10 +19,7 @@ const DistributionBreakdown: React.FC<DistributionBreakdownProps> = ({ allocatio
   return (
     <motion.section
       className="mb-16"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
     >
       <h3 className="text-2xl font-bold mb-6 text-center">Detailed Distribution</h3>
       
@@ -31,10 +28,7 @@ const DistributionBreakdown: React.FC<DistributionBreakdownProps> = ({ allocatio
           <motion.div
             key={allocation.category}
             className="card hover:border-accent/40 transition-all duration-300"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: delay + (index * 0.05) }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
           >
             {/* Header with Category and Percentage */}
             <div className="flex items-center justify-between mb-3">

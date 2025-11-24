@@ -6,8 +6,6 @@ import {
   FaCode,
   FaCheckCircle
 } from 'react-icons/fa';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 export interface SecurityBadgeProps {
   variant: 'audit' | 'encryption' | 'open-source' | 'verified';
   title: string;
@@ -21,10 +19,7 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
   description,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref, { threshold: 0.1, triggerOnce: true });
-
-  const variantConfig: Record<string, {
+  const ref = useRef<HTMLDivElement>(null);  const variantConfig: Record<string, {
     icon: IconType;
     color: string;
     bgGradient: string;
@@ -55,9 +50,7 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
   const Icon = config.icon;
 
   return (
-    <div
-      ref={ref}
-      className="animate-on-scroll fade-scale flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 hover-scale transition-all duration-300"
+    <div className="fade-scale flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 hover-scale transition-all duration-300"
       style={{ animationDelay: `${delay}s` }}
     >
       <div className={`w-16 h-16 bg-gradient-to-br ${config.bgGradient} rounded-2xl flex items-center justify-center mb-4`}>

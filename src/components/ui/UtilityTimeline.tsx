@@ -131,13 +131,7 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
             return (
               <motion.article
                 key={phase.year}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.2
-                }}
-                viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
                 className={`relative ${
                   isHorizontal
                     ? ''
@@ -211,13 +205,7 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
             return (
               <motion.article
                 key={`mobile-${phase.year}`}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1
-                }}
-                viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
                 className="relative pl-8"
               >
                 {/* Mobile Timeline Spine */}
@@ -350,9 +338,7 @@ const TimelineNode: FC<TimelineNodeProps> = ({ phase, config, Icon }) => {
     <motion.div
       className="relative flex items-center justify-center"
       initial={{ scale: 0 }}
-      whileInView={{ scale: 1 }}
       transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
-      viewport={{ once: true }}
     >
       {/* Outer Glow Ring */}
       <div

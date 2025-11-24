@@ -1,5 +1,4 @@
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
@@ -44,22 +43,6 @@ const RoadmapPageSimplified: React.FC = () => {
                 <div
                   className="h-full bg-gradient-to-r from-accent to-accent-hover rounded-full"
                 />
-              </div>
-            </div>
-          </div>
-
-          {/* Single Consolidated Disclaimer */}
-          <div
-            className="mb-12 bg-gradient-to-br from-yellow-500/10 to-orange-500/5 border border-yellow-500/30 rounded-2xl p-6 backdrop-blur-sm"
-          >
-            <div className="flex items-start gap-4">
-              <span className="text-2xl">⚠️</span>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-yellow-400">Important: Timelines Are Estimates</h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  Dates may shift due to technical challenges, security audits, or market conditions. 
-                  We prioritize quality over speed and will communicate any changes transparently.
-                </p>
               </div>
             </div>
           </div>

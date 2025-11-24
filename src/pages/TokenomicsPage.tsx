@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaEye, FaShieldAlt, FaUsers, FaServer, FaExternalLinkAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
@@ -597,8 +596,8 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </section>
 
-        {/* CONSOLIDATED Risk Disclosures & Legal Notices - SINGLE COMPREHENSIVE SECTION */}
-        <section
+{/* CONSOLIDATED Risk Disclosures & Legal Notices - COMMENTED OUT */}
+        {/* <section
           className="mb-16"
         >
           <div className="max-w-4xl mx-auto bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
@@ -612,7 +611,6 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Important Notice */}
             <div className="mb-6 bg-yellow-500/10 border-2 border-yellow-500/50 rounded-xl p-6">
               <div className="flex items-start gap-4">
                 <div className="text-3xl flex-shrink-0">⚠️</div>
@@ -717,7 +715,7 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
     </>

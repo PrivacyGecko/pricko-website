@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
-import { observeScrollAnimations } from '../../hooks/useScrollAnimation';
-
 export interface FAQ {
   question: string;
   answer: string;
@@ -20,13 +18,13 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ faqs, className = '' }) => {
   };
 
   useEffect(() => {
-    return observeScrollAnimations('.animate-on-scroll');
+    return observeScrollAnimations('. ');
   }, []);
 
   return (
     <section className={`section-padding bg-secondary/20 ${className}`}>
       <div className="container-max">
-        <div className="text-center mb-12 animate-on-scroll fade-up">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
@@ -40,7 +38,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ faqs, className = '' }) => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="card overflow-hidden animate-on-scroll fade-up"
+              className="card overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <button

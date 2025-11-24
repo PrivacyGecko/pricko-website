@@ -1,7 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { FaCopy, FaCheck, FaEye, FaExternalLinkAlt } from 'react-icons/fa';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 interface ContractAddressProps {
   className?: string;
   variant?: 'hero' | 'card' | 'minimal';
@@ -12,10 +10,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
   variant = 'card' 
 }) => {
   const [copied, setCopied] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref, { threshold: 0.1, triggerOnce: true });
-  
-  const isLaunched = new Date() >= new Date('2025-11-01');
+  const ref = useRef<HTMLDivElement>(null);  const isLaunched = new Date() >= new Date('2025-11-01');
   const actualCA = "";
   const contractAddress = isLaunched ? actualCA : "TBA - Coming Soon";
   
@@ -58,9 +53,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
 
   if (variant === 'hero') {
     return (
-      <div
-        ref={ref}
-        className={`animate-on-scroll fade-up bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 rounded-2xl p-6 backdrop-blur-sm ${className}`}
+      <div className={` bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 rounded-2xl p-6 backdrop-blur-sm ${className}`}
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -146,27 +139,31 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
   if (variant === 'minimal') {
     return (
       <div className={`flex items-center gap-3 ${className}`}>
-        <span className="text-muted text-sm">CA:</span>
-        <code className="text-accent font-mono text-sm">
-          {isLaunched ? actualCA : "TBA"}
-        </code>
-        {isLaunched && (
-          <button
-            onClick={handleCopy}
-            className="text-accent hover:text-accent-hover transition-colors hover-scale focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
-            aria-label={copied ? "Contract address copied" : "Copy contract address"}
-          >
-            {copied ? <FaCheck className="text-sm" /> : <FaCopy className="text-sm" />}
-          </button>
+        {isLaunched ? (
+          <>
+            <span className="text-muted text-sm">CA:</span>
+            <code className="text-accent font-mono text-sm">
+              {actualCA}
+            </code>
+            <button
+              onClick={handleCopy}
+              className="text-accent hover:text-accent-hover transition-colors hover-scale focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+              aria-label={copied ? "Contract address copied" : "Copy contract address"}
+            >
+              {copied ? <FaCheck className="text-sm" /> : <FaCopy className="text-sm" />}
+            </button>
+          </>
+        ) : (
+          <span className="text-orange-400 text-sm font-medium">
+            No Token Launched. Coming Soon
+          </span>
         )}
       </div>
     );
   }
 
   return (
-    <div
-      ref={ref}
-      className={`animate-on-scroll fade-up card ${className}`}
+    <div className={` card ${className}`}
     >
       <div className="flex items-center gap-4 mb-4">
         <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">

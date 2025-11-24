@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import type { FAQQuestion } from '../../types/config';
 
 interface FAQAccordionProps {
@@ -73,14 +72,8 @@ export const FAQItem: React.FC<FAQItemProps> = ({
   onToggle,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  return (
-    <div
-      ref={ref}
-      className="animate-on-scroll opacity-0 translate-y-5 bg-zinc-800 border border-zinc-700 rounded-lg overflow-hidden hover:border-accent/30 transition-colors"
-      style={{ animationDelay: delay + 's' }}
+  const ref = useRef<HTMLDivElement>(null);  return (
+    <div className="bg-zinc-800 border border-zinc-700 rounded-lg overflow-hidden hover:border-accent/30 transition-colors"
     >
       <button
         onClick={onToggle}

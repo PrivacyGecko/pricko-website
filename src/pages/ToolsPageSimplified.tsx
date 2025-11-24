@@ -1,5 +1,4 @@
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import ToolCardSimple from '../components/ui/ToolCardSimple';

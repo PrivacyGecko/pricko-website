@@ -135,13 +135,7 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
               <div key={layer.id} className="relative">
                 {/* Layer Card */}
                 <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: shouldReduceMotion ? 0 : index * 0.3
-                  }}
-                  viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
                   whileHover={interactive ? { scale: 1.02, y: -4 } : undefined}
                   className={`card-protocol ${interactive ? 'cursor-pointer' : ''}`}
                   style={{
@@ -187,13 +181,7 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
                     {layer.components.map((component, idx) => (
                       <motion.div
                         key={idx}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: shouldReduceMotion ? 0 : index * 0.3 + idx * 0.05
-                        }}
-                        viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
                         className="flex items-center gap-2 px-3 py-2 rounded-md"
                         style={{
                           backgroundColor: `${layer.color}10`,
@@ -229,12 +217,8 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
                   <motion.div
                     className="flex flex-col items-center my-6 lg:my-8"
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: shouldReduceMotion ? 0 : index * 0.3 + 0.4
-                    }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6 }}
                     role="img"
                     aria-label={`${connection?.label || 'flows'} to ${nextLayer.title}`}
                   >
@@ -304,12 +288,8 @@ export const ProtocolArchitectureDiagram: FC<ProtocolArchitectureDiagramProps> =
                   <motion.div
                     className="hidden lg:flex absolute top-1/2 -right-4 transform translate-x-full -translate-y-1/2 z-10 flex-col items-center"
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: shouldReduceMotion ? 0 : index * 0.3 + 0.4
-                    }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6 }}
                     role="img"
                     aria-label={`${connection?.label || 'flows'} to ${nextLayer.title}`}
                   >

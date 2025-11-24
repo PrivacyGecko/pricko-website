@@ -72,7 +72,7 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
   return (
     <div className={className}>
       {showDescription && !isMinimal && (
-        <p className="text-muted mb-4 text-sm md:text-base animate-on-scroll fade-up visible">
+        <p className="text-muted mb-4 text-sm md:text-base visible">
           Get notified about token launch, exclusive updates, and early access to new privacy tools.
         </p>
       )}
@@ -112,14 +112,14 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
         </div>
 
         {status === 'error' && errorMessage && (
-          <div id="error-message" className="mt-3 flex items-center gap-2 text-red-400 text-sm animate-on-scroll fade-up visible">
+          <div id="error-message" className="mt-3 flex items-center gap-2 text-red-400 text-sm visible">
             <FaExclamationCircle />
             <span>{errorMessage}</span>
           </div>
         )}
 
         {status === 'success' && (
-          <div className="mt-3 flex items-center gap-2 text-green-400 text-sm animate-on-scroll fade-up visible">
+          <div className="mt-3 flex items-center gap-2 text-green-400 text-sm visible">
             <FaCheckCircle />
             <span>Success! You're on the whitelist. Check your email for confirmation.</span>
           </div>
@@ -127,7 +127,7 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({
       </form>
 
       {!isMinimal && (
-        <p className="text-xs text-zinc-500 mt-3 animate-on-scroll fade-in visible" style={{ animationDelay: '0.2s' }}>
+        <p className="text-xs text-zinc-500 mt-3 visible" style={{ animationDelay: '0.2s' }}>
           We respect your privacy. Unsubscribe at any time. No spam, ever.
         </p>
       )}

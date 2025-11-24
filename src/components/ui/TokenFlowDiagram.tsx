@@ -162,9 +162,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
         className="w-full h-auto"
         preserveAspectRatio="xMidYMid meet"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
       >
         {/* Define gradients and filters */}
         <defs>
@@ -209,13 +208,12 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                   fill="none"
                   opacity={0.6}
                   initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
+                  animate={{ pathLength: 1 }}
                   transition={{
                     duration: disableAnimations ? 0 : 1.5,
                     delay: disableAnimations ? 0 : index * 0.2,
                     ease: "easeInOut"
                   }}
-                  viewport={{ once: true }}
                 />
 
                 {/* Animated flow dot */}
@@ -244,12 +242,8 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
                 {showLabels && (
                   <motion.text
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: disableAnimations ? 0 : 1 + index * 0.2
-                    }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6 }}
                   >
                     <textPath
                       href={`#${pathId}`}
@@ -271,13 +265,9 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
 
         {/* Central label */}
         <motion.g
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.6,
-            delay: disableAnimations ? 0 : 1.5
-          }}
-          viewport={{ once: true }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
         >
           <text
             x={viewBoxWidth / 2}
@@ -311,17 +301,13 @@ export const TokenFlowDiagram: FC<TokenFlowDiagramProps> = ({
               role="group"
               aria-label={`${node.label}: ${node.description}`}
               tabIndex={0}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.6,
-                delay: disableAnimations ? 0 : index * 0.2
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
               whileHover={{
                 scale: 1.1,
                 transition: { duration: 0.2 }
               }}
-              viewport={{ once: true }}
               className="focus:outline-none"
             >
               {/* Pulsing glow effect */}

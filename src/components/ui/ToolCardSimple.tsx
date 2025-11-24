@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
 import { FaCheck, FaBrain } from 'react-icons/fa';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 interface ToolCardSimpleProps {
   icon: string;
   title: string;
@@ -23,10 +21,7 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   delay = 0,
   hasAI = false
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  const getStatusBadge = () => {
+  const ref = useRef<HTMLDivElement>(null);  const getStatusBadge = () => {
     const badges = {
       live: {
         class: "badge badge-live",
@@ -66,10 +61,7 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   };
 
   return (
-    <div
-      ref={ref}
-      className="animate-on-scroll opacity-0 translate-y-5 card-interactive flex flex-col h-full"
-      style={{ animationDelay: delay + 's' }}
+    <div className="card-interactive flex flex-col h-full"
     >
       <div className="flex justify-center mb-4">
         <img

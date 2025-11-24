@@ -50,7 +50,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl"></div>
 
       <div className="container-max relative z-10">
-        <div className="mb-8 animate-on-scroll fade-in">
+        <div className="mb-8">
           <div className="flex items-center gap-2 text-sm text-muted">
             <Link to="/" className="hover:text-accent transition-colors">Home</Link>
             <span>/</span>
@@ -61,8 +61,8 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="lg:w-3/5 text-center lg:text-left animate-on-scroll fade-left">
-            <div className="inline-flex items-center gap-2 mb-6 animate-on-scroll fade-scale" style={{ animationDelay: '0.1s' }}>
+          <div className="lg:w-3/5 text-center lg:text-left fade-left">
+            <div className="inline-flex items-center gap-2 mb-6 fade-scale" style={{ animationDelay: '0.1s' }}>
               <span className={`px-4 py-2 rounded-full text-xs font-bold ${status.bg} ${status.border} ${status.text} border-2 flex items-center gap-2`}>
                 <span>{status.icon}</span>
                 {status.label}
@@ -72,19 +72,19 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight" style={{ animationDelay: '0.2s' }}>
               <span className="gradient-text text-shadow">{product.name}</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted mb-6 leading-relaxed animate-on-scroll fade-up" style={{ animationDelay: '0.3s' }}>
+            <p className="text-xl md:text-2xl text-muted mb-6 leading-relaxed" style={{ animationDelay: '0.3s' }}>
               {product.subtitle}
             </p>
 
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 animate-on-scroll fade-up" style={{ animationDelay: '0.4s' }}>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0" style={{ animationDelay: '0.4s' }}>
               {product.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-on-scroll fade-up" style={{ animationDelay: '0.5s' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style={{ animationDelay: '0.5s' }}>
               {product.url ? (
                 <a
                   href={product.url}
@@ -113,13 +113,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
             </div>
 
             {product.status !== 'live' && product.launchDate && (
-              <p className="mt-6 text-sm text-muted animate-on-scroll fade-in" style={{ animationDelay: '0.6s' }}>
+              <p className="mt-6 text-sm text-muted" style={{ animationDelay: '0.6s' }}>
                 Estimated Launch: <span className="text-accent font-semibold">{product.launchDate}</span>
               </p>
             )}
           </div>
 
-          <div className="lg:w-2/5 flex justify-center items-center animate-on-scroll fade-scale" style={{ animationDelay: '0.3s' }}>
+          <div className="lg:w-2/5 flex justify-center items-center fade-scale" style={{ animationDelay: '0.3s' }}>
             <MascotImage size="xl" />
           </div>
         </div>

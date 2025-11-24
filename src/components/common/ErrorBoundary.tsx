@@ -39,7 +39,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-primary flex items-center justify-center p-4">
-          <div className="max-w-2xl w-full glass-morphism rounded-3xl p-12 text-center animate-on-scroll fade-up visible">
+          <div className="max-w-2xl w-full glass-morphism rounded-3xl p-12 text-center visible">
             <div className="w-24 h-24 mx-auto mb-6 bg-red-500/10 rounded-full flex items-center justify-center">
               <FaExclamationTriangle className="w-12 h-12 text-red-400" />
             </div>

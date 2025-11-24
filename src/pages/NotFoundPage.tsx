@@ -53,9 +53,9 @@ const NotFoundPage: React.FC = () => {
               >
                 404
               </h1>
-              {/* Gecko Emoji positioned at the "0" */}
+              {/* Alert Icon positioned at the "0" */}
               <div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl md:text-8xl"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 animate={{
                   rotate: [-5, 5, -5],
                   scale: [1, 1.1, 1]
@@ -66,7 +66,7 @@ const NotFoundPage: React.FC = () => {
                   ease: "easeInOut"
                 }}
               >
-                🦎
+                <FaExclamationTriangle className="text-accent text-6xl md:text-8xl" />
               </div>
             </div>
           </div>

@@ -1,6 +1,4 @@
 import React, { useRef } from 'react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 interface UtilityTierCardProps {
   tier: number;
   name: string;
@@ -22,10 +20,7 @@ const UtilityTierCard: React.FC<UtilityTierCardProps> = ({
   color,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  const colorClasses = {
+  const ref = useRef<HTMLDivElement>(null);  const colorClasses = {
     zinc: 'border-zinc-600 bg-zinc-800/30',
     accent: 'border-accent bg-accent/10',
     'accent-hover': 'border-accent-hover bg-accent-hover/10',
@@ -40,10 +35,7 @@ const UtilityTierCard: React.FC<UtilityTierCardProps> = ({
   };
 
   return (
-    <div
-      ref={ref}
-      className={'animate-on-scroll opacity-0 translate-y-5 relative border-2 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ' + colorClasses[color]}
-      style={{ animationDelay: delay + 's' }}
+    <div className={'relative border-2 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ' + colorClasses[color]}
     >
       <div className="absolute -top-4 left-6">
         <span className={'px-4 py-1 rounded-full text-sm font-bold ' + badgeColorClasses[color]}>

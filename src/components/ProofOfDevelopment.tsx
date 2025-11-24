@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-import { observeScrollAnimations } from '../hooks/useScrollAnimation';
 import {
   FaCheckCircle,
   FaClock,
@@ -45,10 +44,6 @@ const ProofOfDevelopment: React.FC = () => {
     return iconMap[productName] || <FaCheckCircle className="text-accent" />;
   };
 
-  useEffect(() => {
-    return observeScrollAnimations('.animate-on-scroll');
-  }, []);
-
   return (
     <section
       id="proof-of-development"
@@ -59,7 +54,7 @@ const ProofOfDevelopment: React.FC = () => {
       </div>
 
       <div className="container-max relative z-10">
-        <div className="text-center mb-16 animate-on-scroll fade-up">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">This Isn't Vapor. It's a Working Ecosystem.</span>
           </h2>
@@ -70,7 +65,7 @@ const ProofOfDevelopment: React.FC = () => {
           </p>
         </div>
 
-        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-20" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">
               <FaCheckCircle className="text-accent" />
@@ -158,7 +153,7 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-20" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               <FaClock className="text-cyan-400" />
@@ -280,7 +275,7 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-20" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
               We Don't Just Talk. Here's the Proof.
@@ -321,7 +316,7 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-20 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-20" style={{ animationDelay: '0.2s' }}>
           <div className="bg-secondary/50 border border-accent/20 rounded-2xl p-8 text-center">
             <FaGithub className="text-5xl text-accent mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-accent mb-3">
@@ -342,7 +337,7 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-16 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-16" style={{ animationDelay: '0.2s' }}>
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold text-accent mb-3">
               Verified & Audited
@@ -416,7 +411,7 @@ const ProofOfDevelopment: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-center animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="text-center" style={{ animationDelay: '0.2s' }}>
           <div className="bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-accent mb-4">
               Ready to Experience Real Privacy Tools?

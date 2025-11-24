@@ -401,10 +401,12 @@
 }
 
 /* ============================================
-   SCROLL ANIMATION CLASSES (Framer Motion Replacement)
+   SCROLL ANIMATION CLASSES - DISABLED
+   (Scroll animations removed per user request)
    ============================================ */
 
-/* Fade in from bottom */
+/* COMMENTED OUT - No longer using scroll-triggered animations
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -416,7 +418,6 @@
   }
 }
 
-/* Fade in from left */
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -428,7 +429,6 @@
   }
 }
 
-/* Fade in with scale */
 @keyframes fadeInScale {
   from {
     opacity: 0;
@@ -440,7 +440,6 @@
   }
 }
 
-/* Simple fade in */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -450,13 +449,11 @@
   }
 }
 
-/* Base class for scroll-triggered animations */
 .animate-on-scroll {
   opacity: 0;
   transition: none;
 }
 
-/* When element becomes visible */
 .animate-on-scroll.visible {
   animation-name: fadeInUp;
   animation-duration: 0.6s;
@@ -464,7 +461,6 @@
   animation-timing-function: ease-out;
 }
 
-/* Animation variants */
 .fade-up.visible {
   animation-name: fadeInUp;
 }
@@ -480,6 +476,8 @@
 .fade-in.visible {
   animation-name: fadeIn;
 }
+
+END OF COMMENTED OUT SCROLL ANIMATIONS */
 
 /* Hover effects for interactive elements */
 .hover-lift {

@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
 import { IconType } from 'react-icons';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 interface ProofMetricProps {
   icon: IconType;
   value: string;
@@ -17,13 +15,8 @@ const ProofMetric: React.FC<ProofMetricProps> = ({
   description,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref, { threshold: 0.1, triggerOnce: true });
-
-  return (
-    <div
-      ref={ref}
-      className="animate-on-scroll fade-up bg-secondary/30 border border-accent/20 rounded-xl p-6 hover:border-accent/40 hover-lift transition-all duration-300 hover:shadow-lg"
+  const ref = useRef<HTMLDivElement>(null);  return (
+    <div className="bg-secondary/30 border border-accent/20 rounded-xl p-6 hover:border-accent/40 hover-lift transition-all duration-300 hover:shadow-lg"
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="flex flex-col items-center text-center">

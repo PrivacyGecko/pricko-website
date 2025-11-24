@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaWallet, FaExchangeAlt, FaCheckCircle, FaTwitter } from 'react-icons/fa';
 import SEO from '../components/common/SEO';
@@ -458,24 +457,6 @@ const HowToBuyPage: React.FC = () => {
             </Link>
           </div>
         </section>
-
-        {/* Risk Disclaimer */}
-        <div
-          className="mt-16 bg-red-500/10 border border-red-500/30 rounded-2xl p-8"
-        >
-          <div className="flex items-start gap-4">
-            <div className="text-3xl">⚠️</div>
-            <div>
-              <h3 className="text-xl font-bold text-red-300 mb-3">Risk Disclaimer</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Cryptocurrency investments carry significant risk. The value of $PRICKO tokens may fluctuate dramatically.
-                Never invest more than you can afford to lose. This page provides educational information only and does
-                not constitute financial advice. Always conduct your own research (DYOR) before making any investment
-                decisions. Be aware of scams and only use official links from our verified social media accounts and website.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     </>

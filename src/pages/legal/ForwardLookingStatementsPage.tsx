@@ -1,15 +1,11 @@
 import React, { useRef } from 'react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/common/SEO';
 import { FiCalendar, FiAlertCircle, FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
 import { FORWARD_LOOKING_STATEMENT, ROADMAP_DISCLAIMER, PROTOCOL_TIMELINE_DISCLAIMER } from '../../constants/legal';
 
 const ForwardLookingStatementsPage: React.FC = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  useScrollAnimation(scrollRef);
-
-  const forwardLookingExamples = [
+  const scrollRef = useRef<HTMLDivElement>(null);  const forwardLookingExamples = [
     {
       statement: '"GeckoCore Protocol development begins Q1 2026"',
       type: 'Timeline Projection',
@@ -99,7 +95,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Definition Section */}
         <section className="section-padding py-8">
           <div className="container-max max-w-4xl">
-            <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" ref={scrollRef}>
+            <div className="opacity-0 translate-y-12 card-elevated" ref={scrollRef}>
               <h2 className="text-2xl font-bold text-white mb-4">What Are Forward-Looking Statements?</h2>
               <p className="text-muted leading-relaxed mb-6">
                 Forward-looking statements are any statements about future events, plans, expectations, or projections.
@@ -119,7 +115,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Examples Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-6xl">
-            <h2 className="animate-on-scroll opacity-0 translate-y-12 text-3xl md:text-4xl font-bold text-center mb-12" ref={scrollRef}>
+            <h2 className="opacity-0 translate-y-12 text-3xl md:text-4xl font-bold text-center mb-12" ref={scrollRef}>
               Examples of <span className="gradient-text">Forward-Looking Statements</span>
             </h2>
 
@@ -127,7 +123,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
               {forwardLookingExamples.map((example, index) => (
                 <div
                   key={index}
-                  className="animate-on-scroll opacity-0 translate-y-12 card-elevated"
+                  className="opacity-0 translate-y-12 card-elevated"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-3 mb-4">
@@ -157,7 +153,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Risk Factors Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-6xl">
-            <h2 className="animate-on-scroll opacity-0 translate-y-12 text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="opacity-0 translate-y-12 text-3xl md:text-4xl font-bold text-center mb-12">
               Risk Factors Affecting <span className="gradient-text">Projections</span>
             </h2>
 
@@ -165,7 +161,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
               {riskFactors.map((factor, index) => (
                 <div
                   key={index}
-                  className="animate-on-scroll opacity-0 translate-y-12 card-interactive"
+                  className="opacity-0 translate-y-12 card-interactive"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h3 className="text-lg font-bold text-white mb-2">{factor.title}</h3>
@@ -179,12 +175,12 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Specific Disclaimers Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl">
-            <h2 className="animate-on-scroll opacity-0 translate-y-12 text-3xl font-bold text-center mb-8">
+            <h2 className="opacity-0 translate-y-12 text-3xl font-bold text-center mb-8">
               Specific <span className="gradient-text">Disclaimers</span>
             </h2>
 
             <div className="space-y-6">
-              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.1s' }}>
+              <div className="opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.1s' }}>
                 <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <FiCalendar className="text-accent" />
                   Roadmap Timelines
@@ -194,7 +190,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.2s' }}>
+              <div className="opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.2s' }}>
                 <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <FiCheckCircle className="text-cyan-400" />
                   GeckoCore Protocol
@@ -204,7 +200,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.3s' }}>
+              <div className="opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.3s' }}>
                 <h3 className="text-xl font-bold text-white mb-3">No Obligation to Update</h3>
                 <p className="text-muted leading-relaxed">
                   We have <strong className="text-white">no obligation</strong> to update forward-looking statements
@@ -214,7 +210,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.4s' }}>
+              <div className="opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.4s' }}>
                 <h3 className="text-xl font-bold text-white mb-3">No Guarantees</h3>
                 <p className="text-muted leading-relaxed">
                   Forward-looking statements are <strong className="text-white">not guarantees</strong> of future
@@ -229,7 +225,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* How to Interpret Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-4xl">
-            <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated">
+            <div className="opacity-0 translate-y-12 card-elevated">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">
                 How to Interpret <span className="gradient-text">Our Roadmap</span>
               </h2>
@@ -295,7 +291,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Footer Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl text-center">
-            <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated">
+            <div className="opacity-0 translate-y-12 card-elevated">
               <h3 className="text-2xl font-bold text-white mb-4">Questions About Our Roadmap?</h3>
               <p className="text-muted mb-6">
                 If you have questions about forward-looking statements or roadmap timelines, please review
@@ -311,7 +307,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
               </div>
             </div>
 
-            <p className="animate-on-scroll opacity-0 text-sm text-muted mt-8" style={{ animationDelay: '0.3s' }}>
+            <p className="opacity-0 text-sm text-muted mt-8" style={{ animationDelay: '0.3s' }}>
               Last Updated: November 2025
             </p>
           </div>

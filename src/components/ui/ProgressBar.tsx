@@ -1,6 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 export interface ProgressBarProps {
   value: number; // 0-100
   label?: string;
@@ -19,12 +17,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   color = 'accent',
   animated = true,
   delay = 0
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-  useScrollAnimation(ref, { threshold: 0.1, triggerOnce: true });
-
-  // Clamp value between 0 and 100
+}) => {  const [width, setWidth] = useState(0);  // Clamp value between 0 and 100
   const clampedValue = Math.min(Math.max(value, 0), 100);
 
   // Animate width on mount if animated
@@ -89,9 +82,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const heightClass = heightMap[height] || heightMap.md;
 
   return (
-    <div
-      ref={ref}
-      className="animate-on-scroll fade-in"
+    <div className=""
       style={{ animationDelay: `${delay}s` }}
     >
       {/* Label and Percentage Row */}

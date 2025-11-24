@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
+import { FaShieldAlt } from 'react-icons/fa';
 
 interface GeckoCoreOGImageProps {
   className?: string;
@@ -110,7 +111,7 @@ const GeckoCoreOGImage: FC<GeckoCoreOGImageProps> = ({ className = '' }) => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border-2 border-cyan-400/30 flex items-center justify-center">
-            <span className="text-7xl">🦎</span>
+            <FaShieldAlt className="text-7xl text-cyan-400" />
           </div>
         </motion.div>
 

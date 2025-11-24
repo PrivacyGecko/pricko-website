@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
       />
       <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative section-padding pt-32 pb-20 overflow-hidden">
+      <section className="relative section-padding pt-32 pb-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10"></div>
         <div className="absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl"></div>
@@ -128,142 +128,22 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm md:text-base text-gray-300 max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-300 max-w-4xl mx-auto lg:mx-0 leading-relaxed">
                   {tokenSymbol} powers privacy verification across <strong className="text-white">Solana</strong>—from{' '}
-                  <strong className="text-white">8 tools today</strong> to{' '}
+                  <a
+                    href="https://privacygecko.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-accent-hover underline decoration-accent/50 hover:decoration-accent transition-colors duration-200 font-semibold"
+                  >
+                    8 tools today
+                  </a>{' '}to{' '}
                   <strong className="text-cyan-400">unlimited dApp integrations</strong> via GeckoCore protocol.
                 </p>
-
-                {/* TASK 1: Three Hero Value Proposition Cards - Vertical Stack Layout */}
-                <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto lg:mx-0 mb-8">
-                  {/* Card 1: GeckoCore Protocol */}
-                  <motion.div 
-                    className="card-interactive bg-secondary p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="text-4xl flex-shrink-0">🏗️</div>
-                      <div className="flex-1">
-                        <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide mb-2">
-                          Q2 2026 Launch
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-2">
-                          GeckoCore Protocol
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="space-y-3 pl-16">
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-3xl font-bold text-cyan-400">∞</span>
-                        <span className="text-sm text-gray-300">dApp integrations</span>
-                      </div>
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-3xl font-bold text-cyan-400">Q2</span>
-                        <span className="text-sm text-gray-300">2026 launch</span>
-                      </div>
-                      <div className="pt-2 border-t border-zinc-800 mt-3">
-                        <p className="text-sm text-muted leading-relaxed">
-                          Any developer can <strong className="text-accent">build on GeckoCore</strong>
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Card 2: Proven Execution */}
-                  <motion.div 
-                    className="card-interactive bg-secondary p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="text-4xl flex-shrink-0">📈</div>
-                      <div className="flex-1">
-                        <div className="text-xs text-accent font-semibold uppercase tracking-wide mb-2">
-                          Track Record
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-2">
-                          Proven Execution
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="space-y-3 pl-16">
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-3xl font-bold text-accent">4</span>
-                        <span className="text-sm text-gray-300">products shipped</span>
-                      </div>
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-3xl font-bold text-accent">6</span>
-                        <span className="text-sm text-gray-300">months timeline</span>
-                      </div>
-                      <div className="pt-2 border-t border-zinc-800 mt-3">
-                        <p className="text-sm text-muted leading-relaxed">
-                          <strong className="text-accent">No vaporware.</strong> Realistic timelines
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Card 3: Early Position */}
-                  <motion.div 
-                    className="card-interactive bg-secondary p-8 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="text-4xl flex-shrink-0">💎</div>
-                      <div className="flex-1">
-                        <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide mb-2">
-                          Pre-Launch
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-2">
-                          Early Position
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="space-y-3 pl-16">
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-3xl font-bold text-purple-400">✓</span>
-                        <span className="text-sm text-gray-300">live tools today</span>
-                      </div>
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-3xl font-bold text-purple-400">∞</span>
-                        <span className="text-sm text-gray-300">ecosystem tomorrow</span>
-                      </div>
-                      <div className="pt-2 border-t border-zinc-800 mt-3">
-                        <p className="text-sm text-muted leading-relaxed">
-                          Get in <strong className="text-accent">before</strong> network effects
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
-                <a
-                  href="/how-to-buy"
-                  className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-10 py-5 shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200"
-                >
-                  Buy $PRICKO <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href="https://privacygecko.com/whitepaper"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-10 py-5 hover:scale-105 active:scale-95 transition-transform duration-200"
-                >
-                  Read Whitepaper <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-                </a>
               </div>
 
               {/* Urgency Banner - Enhanced CTA */}
+              {/* COMMENTED OUT FOR VIEWING
               <div className="bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-xl p-6 text-center max-w-2xl mx-auto lg:mx-0 shadow-lg shadow-accent/20">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <span className="text-2xl">⚡</span>
@@ -274,31 +154,15 @@ const HomePage: React.FC = () => {
                   GeckoCore protocol launches Q2 2026. Early holders capture protocol fees as the ecosystem expands from current tools to <strong className="text-accent">unlimited dApp integrations</strong>.
                 </p>
               </div>
+              */}
             </div>
 
-            {/* Right Column: Enhanced Logo Display */}
-            <div className="lg:w-1/2 flex flex-col items-center gap-8">
-              {/* Fixed-size container to hold rings and mascot */}
-              <div className="relative w-96 h-96 flex items-center justify-center">
-                {/* Animated Background Rings - Centered */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="w-80 h-80 rounded-full"></div>
-                </motion.div>
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="w-72 h-72 rounded-full"></div>
-                </motion.div>
-
+            {/* Right Column: Mascot Display */}
+            <div className="lg:w-1/2 flex items-center justify-center">
+              <div className="relative">
                 {/* Soft Pulsing Glow Behind Mascot */}
                 <motion.div
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10"
                   animate={{
                     scale: [1, 1.15, 1],
                     opacity: [0.3, 0.5, 0.3]
@@ -312,129 +176,204 @@ const HomePage: React.FC = () => {
                   <div className="w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
                 </motion.div>
 
-                {/* Orbiting Accent Dots */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="relative w-72 h-72">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full shadow-lg shadow-accent/50"></div>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50"></div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="relative w-64 h-64">
-                    <div className="absolute top-1/2 right-0 -translate-y-1/2 w-2.5 h-2.5 bg-accent/70 rounded-full shadow-lg shadow-accent/30"></div>
-                    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 bg-blue-300 rounded-full shadow-lg shadow-blue-300/30"></div>
-                  </div>
-                </motion.div>
+                {/* Floating Particles Around Mascot */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  {[...Array(10)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 rounded-full bg-accent/30"
+                      style={{
+                        left: `${15 + i * 8}%`,
+                        top: `${10 + (i % 3) * 25}%`,
+                      }}
+                      animate={{
+                        y: [0, -40, 0],
+                        x: [0, (i % 2 === 0 ? 15 : -15), 0],
+                        opacity: [0.2, 0.7, 0.2],
+                        scale: [0.8, 1.2, 0.8],
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: i * 0.2,
+                      }}
+                    />
+                  ))}
+                </div>
 
-                {/* Floating Sparkles */}
+                {/* MascotImage Component */}
                 <motion.div
-                  className="absolute top-16 right-20 w-2 h-2 bg-accent rounded-full pointer-events-none"
-                  animate={{
-                    y: [-5, 5, -5],
-                    opacity: [0.5, 1, 0.5],
-                    scale: [1, 1.2, 1]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                <motion.div
-                  className="absolute bottom-20 left-16 w-1.5 h-1.5 bg-blue-400 rounded-full pointer-events-none"
-                  animate={{
-                    y: [5, -5, 5],
-                    opacity: [0.6, 1, 0.6],
-                    scale: [1, 1.3, 1]
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.5
-                  }}
-                />
-                <motion.div
-                  className="absolute top-1/3 right-12 w-1 h-1 bg-accent/80 rounded-full pointer-events-none"
-                  animate={{
-                    y: [-3, 3, -3],
-                    x: [-2, 2, -2],
-                    opacity: [0.4, 0.9, 0.4]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1
-                  }}
-                />
 
-                {/* MascotImage Component (centered with animations) */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center z-10"
-                  initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.8 }}
                 >
                   <MascotImage size="xl" />
                 </motion.div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  className="absolute top-8 right-8 w-8 h-8 bg-accent rounded-full opacity-60"
-                  animate={{ y: [-10, 10, -10] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                  className="absolute bottom-12 left-8 w-6 h-6 bg-accent/60 rounded-full"
-                  animate={{ y: [10, -10, 10] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </div>
-
-              {/* NEW: Contract Address below mascot */}
-              <div className="w-full max-w-md">
-                <div className="p-0.5 rounded-2xl bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20">
-                  <div className="rounded-2xl bg-secondary">
-                    <ContractAddress variant="hero" />
-                  </div>
-                </div>
-              </div>
-
-              {/* NEW: GeckoCore Protocol Teaser */}
-              <div className="w-full max-w-md p-4 card-interactive">
-                <div className="flex items-start gap-3">
-                  <div className="text-2xl">🚀</div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-sm font-semibold text-cyan-400">Q2 2026 Protocol</span>
-                      <span className="px-2 py-0.5 bg-cyan-500/10 text-cyan-400 text-[10px] rounded-full font-semibold uppercase tracking-wide">Coming</span>
-                    </div>
-                    <p className="text-sm text-gray-300 mb-2 leading-relaxed">
-                      <span className="font-bold text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded">GeckoCore</span> (our decentralized privacy protocol) launches with staking rewards & community governance
-                    </p>
-                    <button
-                      onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="text-xs text-accent hover:text-accent-hover font-semibold flex items-center gap-1 group"
-                    >
-                      Learn More Below
-                      <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+
+          {/* Three Value Proposition Cards - Full Width 3-Column Grid */}
+          <div className="mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1: Proven Execution (PRESENT) */}
+            <motion.div
+              className="card-interactive bg-secondary p-6 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-accent/20"
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="text-4xl flex-shrink-0">📈</div>
+                <div>
+                  <div className="text-xs text-accent font-semibold uppercase tracking-wide mb-1">
+                    Track Record
+                  </div>
+                  <h3 className="text-xl font-bold text-white">
+                    Proven Execution
+                  </h3>
+                </div>
+              </div>
+              <div className="space-y-3 mb-4">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl font-bold text-accent">4</span>
+                  <span className="text-sm text-gray-300">products shipped</span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl font-bold text-accent">6</span>
+                  <span className="text-sm text-gray-300">months timeline</span>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-zinc-800">
+                <p className="text-sm text-muted leading-relaxed">
+                  <strong className="text-accent">No vaporware.</strong> Realistic timelines
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 2: GeckoCore Protocol (FUTURE) */}
+            <motion.div
+              className="card-interactive bg-secondary p-6 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20"
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="text-4xl flex-shrink-0">🏗️</div>
+                <div>
+                  <div className="text-xs text-cyan-400 font-semibold uppercase tracking-wide mb-1">
+                    Q2 2026 Launch
+                  </div>
+                  <h3 className="text-xl font-bold text-white">
+                    GeckoCore Protocol
+                  </h3>
+                </div>
+              </div>
+              <div className="space-y-3 mb-4">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl font-bold text-cyan-400">∞</span>
+                  <span className="text-sm text-gray-300">dApp integrations</span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl font-bold text-cyan-400">Q2</span>
+                  <span className="text-sm text-gray-300">2026 launch</span>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-zinc-800">
+                <p className="text-sm text-muted leading-relaxed">
+                  Any developer can <strong className="text-accent">build on GeckoCore</strong>
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Early Position (VALUE PROPOSITION) */}
+            <motion.div
+              className="card-interactive bg-secondary p-6 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-purple-500/20"
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="text-4xl flex-shrink-0">💎</div>
+                <div>
+                  <div className="text-xs text-purple-400 font-semibold uppercase tracking-wide mb-1">
+                    Pre-Launch
+                  </div>
+                  <h3 className="text-xl font-bold text-white">
+                    Early Position
+                  </h3>
+                </div>
+              </div>
+              <div className="space-y-3 mb-4">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl font-bold text-purple-400">✓</span>
+                  <span className="text-sm text-gray-300">live tools today</span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl font-bold text-purple-400">∞</span>
+                  <span className="text-sm text-gray-300">ecosystem tomorrow</span>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-zinc-800">
+                <p className="text-sm text-muted leading-relaxed">
+                  Get in <strong className="text-accent">before</strong> network effects
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* CTA Buttons Below Cards */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <a
+              href="/how-to-buy"
+              className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-10 py-5 shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200"
+            >
+              Buy $PRICKO <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="https://privacygecko.com/whitepaper"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-10 py-5 hover:scale-105 active:scale-95 transition-transform duration-200"
+            >
+              Read Whitepaper <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+
+          {/* Contract Address - Single Line Minimal */}
+          <div className="mt-8 flex justify-center">
+            <ContractAddress variant="minimal" className="text-base" />
+          </div>
+          </div>
         </div>
       </section>
+
+      {/* Q2 2026 Protocol Teaser - COMMENTED OUT FOR VIEWING
+      <section className="py-12 bg-primary">
+        <div className="container-max">
+          <motion.div
+            className="max-w-2xl mx-auto"
+            transition={{ duration: 0.6 }}
+          >
+            <div className="p-6 card-interactive">
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">🚀</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg font-semibold text-cyan-400">Q2 2026 Protocol</span>
+                    <span className="px-2 py-0.5 bg-cyan-500/10 text-cyan-400 text-xs rounded-full font-semibold uppercase tracking-wide">Coming</span>
+                  </div>
+                  <p className="text-base text-gray-300 mb-3 leading-relaxed">
+                    <span className="font-bold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">GeckoCore</span> (our decentralized privacy protocol) launches with staking rewards & community governance
+                  </p>
+                  <button
+                    onClick={() => document.getElementById('geckocore-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="text-sm text-accent hover:text-accent-hover font-semibold flex items-center gap-1 group"
+                  >
+                    Learn More Below
+                    <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      */}
 
       {/* Proof of Development Section */}
       <ProofOfDevelopment />
@@ -445,10 +384,7 @@ const HomePage: React.FC = () => {
 
           {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -464,10 +400,7 @@ const HomePage: React.FC = () => {
 
             {/* Phase 1: Product Utility */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-accent/50 p-8"
             >
               <div className="text-5xl mb-4">🎯</div>
@@ -489,10 +422,7 @@ const HomePage: React.FC = () => {
 
             {/* Phase 2: Developer Ecosystem */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-8"
             >
               <div className="text-5xl mb-4">🏗️</div>
@@ -514,10 +444,7 @@ const HomePage: React.FC = () => {
 
             {/* Phase 3: Network Effects */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-8"
             >
               <div className="text-5xl mb-4">🌐</div>
@@ -541,10 +468,7 @@ const HomePage: React.FC = () => {
 
           {/* Comparison Table */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             className="bg-secondary rounded-xl border border-border p-8"
           >
             <h3 className="text-2xl font-bold text-white text-center mb-8">
@@ -602,10 +526,7 @@ const HomePage: React.FC = () => {
         <div className="container-max">
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -618,10 +539,7 @@ const HomePage: React.FC = () => {
 
             {/* Q1: What utility does $PRICKO have RIGHT NOW? */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
             >
               <h3 className="text-xl font-bold text-white mb-3">
@@ -636,10 +554,7 @@ const HomePage: React.FC = () => {
 
             {/* Q2: When does GeckoCore protocol launch? */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
             >
               <h3 className="text-xl font-bold text-white mb-3">
@@ -654,10 +569,7 @@ const HomePage: React.FC = () => {
 
             {/* Q3: Why invest in $PRICKO if protocol is 2+ years away? */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
             >
               <h3 className="text-xl font-bold text-white mb-3">
@@ -675,10 +587,7 @@ const HomePage: React.FC = () => {
 
             {/* Q4: How is this different from other privacy tokens? */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
             >
               <h3 className="text-xl font-bold text-white mb-3">
@@ -696,10 +605,7 @@ const HomePage: React.FC = () => {
 
             {/* Q5: Can developers build on GeckoCore now? */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="bg-secondary rounded-xl border border-border p-6 hover:border-accent/30 transition-colors"
             >
               <h3 className="text-xl font-bold text-white mb-3">
@@ -722,10 +628,7 @@ const HomePage: React.FC = () => {
         <div className="container-max">
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold text-white text-center mb-12"
           >
             The <span className="gradient-text">$PRICKO Roadmap</span>
@@ -736,10 +639,7 @@ const HomePage: React.FC = () => {
 
             {/* NOW - Nov-Dec 2025 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="flex flex-col md:flex-row gap-6"
             >
               <div className="flex-shrink-0 md:w-40 text-left md:text-right">
@@ -770,10 +670,7 @@ const HomePage: React.FC = () => {
 
             {/* Q1-Q2 2026 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="flex flex-col md:flex-row gap-6"
             >
               <div className="flex-shrink-0 md:w-40 text-left md:text-right">
@@ -804,10 +701,7 @@ const HomePage: React.FC = () => {
 
             {/* Q3-Q4 2026 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="flex flex-col md:flex-row gap-6"
             >
               <div className="flex-shrink-0 md:w-40 text-left md:text-right">
@@ -838,10 +732,7 @@ const HomePage: React.FC = () => {
 
             {/* 2027+ */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="flex flex-col md:flex-row gap-6"
             >
               <div className="flex-shrink-0 md:w-40 text-left md:text-right">
@@ -887,16 +778,10 @@ const HomePage: React.FC = () => {
         <div className="container-max relative z-10">
           <motion.div
             className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
               className="mb-12"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -914,10 +799,7 @@ const HomePage: React.FC = () => {
             {/* Community Stats with Enhanced Cards */}
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
               <motion.div
                 className="card-interactive text-center"
@@ -959,10 +841,7 @@ const HomePage: React.FC = () => {
             
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
               <Link to="/about">
                 <motion.button
@@ -990,14 +869,11 @@ const HomePage: React.FC = () => {
             {/* Call to Action Banner with Newsletter Signup */}
             <motion.div
               className="mt-16 bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-8 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               whileHover={{ borderColor: "rgba(74, 222, 128, 0.4)" }}
             >
               <h3 className="text-xl md:text-2xl font-bold text-accent mb-4">
-                Ready to Go Stealth? 🦎
+                Ready to Go Stealth?
               </h3>
               <p className="text-muted mb-6 max-w-2xl mx-auto">
                 Join the whitelist for early access to token launch, exclusive updates, and beta features.

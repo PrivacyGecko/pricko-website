@@ -1,5 +1,4 @@
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import ProofMetric from '../components/ui/ProofMetric';
@@ -520,8 +519,8 @@ const AboutPage: React.FC = () => {
             <div
               className="card-interactive text-center group"
             >
-              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
-                🦎
+              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <FaUserShield className="text-accent text-4xl" />
               </div>
               <h3 className="text-xl font-semibold text-accent mb-2">GeckoMaster</h3>
               <p className="text-sm text-accent/80 mb-4">Co-Founder</p>

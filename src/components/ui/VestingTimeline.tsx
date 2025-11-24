@@ -18,10 +18,7 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
   return (
     <motion.div
       className="bg-secondary/30 rounded-2xl p-6 md:p-8"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
     >
       <h3 className="text-2xl font-bold mb-6 text-center">Vesting Schedule</h3>
       
@@ -36,10 +33,7 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
               <motion.div
                 key={period.category}
                 className="relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: delay + (index * 0.1) }}
-                viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               >
                 {/* Timeline Dot */}
                 <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent border-4 border-bg-main z-10"></div>
@@ -76,10 +70,7 @@ const VestingTimeline: React.FC<VestingTimelineProps> = ({ periods, delay = 0 })
           <motion.div
             key={period.category}
             className="relative pl-8"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: delay + (index * 0.1) }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
           >
             {/* Vertical Line */}
             {index !== periods.length - 1 && (

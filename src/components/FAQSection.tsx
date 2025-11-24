@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaSearch, FaQuestionCircle } from 'react-icons/fa';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-import { observeScrollAnimations } from '../hooks/useScrollAnimation';
 import FAQAccordion from './ui/FAQAccordion';
 
 interface FAQSectionProps {
@@ -41,14 +40,10 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
   const isSearching = searchQuery.trim().length > 0;
   const currentCategory = allCategories[activeCategory as keyof typeof allCategories];
 
-  useEffect(() => {
-    return observeScrollAnimations('.animate-on-scroll');
-  }, []);
-
   return (
     <section className={`py-20 ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12 animate-on-scroll fade-up">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center gap-3 bg-accent/10 px-4 py-2 rounded-full mb-6">
             <FaQuestionCircle className="text-accent" />
             <span className="text-accent font-medium text-sm">Frequently Asked Questions</span>
@@ -64,7 +59,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
         </div>
 
         {enableSearch && (
-          <div className="mb-8 animate-on-scroll fade-up" style={{ animationDelay: '0.1s' }}>
+          <div className="mb-8" style={{ animationDelay: '0.1s' }}>
             <div className="relative max-w-2xl mx-auto">
               <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted" />
               <input
@@ -85,7 +80,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
         )}
 
         {!isSearching && (
-          <div className="mb-8 flex flex-wrap justify-center gap-3 animate-on-scroll fade-up" style={{ animationDelay: '0.2s' }}>
+          <div className="mb-8 flex flex-wrap justify-center gap-3" style={{ animationDelay: '0.2s' }}>
             {displayCategories.map(([key, category]) => (
               <button
                 key={key}
@@ -102,7 +97,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
           </div>
         )}
 
-        <div className="animate-on-scroll fade-up" style={{ animationDelay: '0.3s' }}>
+        <div className="" style={{ animationDelay: '0.3s' }}>
           {isSearching ? (
             <div>
               {searchResults.length > 0 ? (
@@ -132,7 +127,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
           )}
         </div>
 
-        <div className="mt-16 text-center bg-zinc-800 border border-zinc-700 rounded-xl p-8 animate-on-scroll fade-up" style={{ animationDelay: '0.4s' }}>
+        <div className="mt-16 text-center bg-zinc-800 border border-zinc-700 rounded-xl p-8" style={{ animationDelay: '0.4s' }}>
           <h3 className="text-2xl font-bold mb-3">Still Have Questions?</h3>
           <p className="text-muted mb-6">
             Can't find what you're looking for? Our community and support team are here to help.

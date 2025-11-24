@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 export interface TestimonialProps {
   quote: string;
   author: string;
@@ -19,14 +17,8 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
   rating = 5,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  return (
-    <div
-      ref={ref}
-      className="animate-on-scroll opacity-0 translate-y-5 card group hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-      style={{ animationDelay: `${delay}s` }}
+  const ref = useRef<HTMLDivElement>(null);  return (
+    <div className="card group hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
     >
       {/* Quote Icon */}
       <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';

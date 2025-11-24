@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
 import { IconType } from 'react-icons';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 export interface TrustBadgeProps {
   icon: IconType;
   title: string;
@@ -15,14 +13,8 @@ const TrustBadge: React.FC<TrustBadgeProps> = ({
   description,
   delay = 0
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  return (
-    <div
-      ref={ref}
-      className="animate-on-scroll opacity-0 translate-y-5 relative flex flex-col items-center text-center p-6 bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-2xl border border-accent/20 hover:border-accent/50 transition-all duration-300 overflow-hidden group cursor-pointer"
-      style={{ animationDelay: `${delay}s` }}
+  const ref = useRef<HTMLDivElement>(null);  return (
+    <div className="relative flex flex-col items-center text-center p-6 bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-2xl border border-accent/20 hover:border-accent/50 transition-all duration-300 overflow-hidden group cursor-pointer"
     >
       {/* Background gradient glow effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

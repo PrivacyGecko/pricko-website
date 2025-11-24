@@ -91,17 +91,14 @@ const PricingComparisonTable: React.FC = () => {
   return (
     <motion.section
       className="mb-24"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
     >
       <div className="text-center mb-12">
         <motion.div
           className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full mb-6"
-          initial={{ opacity: 0, scale: 0.8 }}
+          
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
         >
           <span className="text-accent">💰</span>
           <span className="text-sm font-medium text-accent">How {config.token.symbol} Unlocks Premium</span>
@@ -124,10 +121,7 @@ const PricingComparisonTable: React.FC = () => {
             className={`relative bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl p-8 border ${
               tier.highlight ? 'border-accent/50 shadow-professional-lg' : 'border-border/50'
             } backdrop-blur-sm hover:border-accent/30 transition-all duration-500`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02, y: -5 }}
           >
             {tier.badge && (
@@ -180,10 +174,7 @@ const PricingComparisonTable: React.FC = () => {
             className={`relative bg-gradient-to-br from-secondary/60 to-secondary/20 rounded-3xl p-6 border ${
               tier.highlight ? 'border-accent/50 shadow-professional-lg' : 'border-border/50'
             } backdrop-blur-sm`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
           >
             {tier.badge && (
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -230,9 +221,7 @@ const PricingComparisonTable: React.FC = () => {
       <motion.div
         className="mt-12 text-center"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
         <p className="text-sm text-muted max-w-4xl mx-auto">
           <strong className="text-accent">Token Requirement Example:</strong> Hold 10,000 {config.token.symbol} tokens for lifetime Pro access

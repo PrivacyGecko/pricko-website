@@ -1,6 +1,4 @@
 import React, { useRef } from 'react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-
 /**
  * PastMilestone Component
  *
@@ -21,13 +19,8 @@ interface PastMilestoneProps {
 }
 
 const PastMilestone: React.FC<PastMilestoneProps> = ({ title, description, date, delay = 0 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useScrollAnimation(ref);
-
-  return (
-    <div
-      ref={ref}
-      className="animate-on-scroll opacity-0 -translate-x-10 bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm shadow-professional hover:scale-102 hover:-translate-y-1 transition-all duration-300"
+  const ref = useRef<HTMLDivElement>(null);  return (
+    <div className="opacity-0 -translate-x-10 bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm shadow-professional hover:scale-102 hover:-translate-y-1 transition-all duration-300"
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="flex items-start gap-4">

@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TestimonialCard from './ui/TestimonialCard';
 import TrustBadge from './ui/TrustBadge';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-import { observeScrollAnimations } from '../hooks/useScrollAnimation';
 import {
   FaGithub,
   FaShieldAlt,
@@ -25,14 +24,10 @@ const SocialProof: React.FC = () => {
 
   const featuredTestimonials = testimonials.slice(0, 3);
 
-  useEffect(() => {
-    return observeScrollAnimations('.animate-on-scroll');
-  }, []);
-
   return (
     <section className="section-padding bg-gradient-to-b from-secondary/40 to-transparent">
       <div className="container-max">
-        <div className="text-center mb-16 animate-on-scroll fade-up">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Trusted by <span className="gradient-text">Privacy Advocates</span>
           </h2>
@@ -57,7 +52,7 @@ const SocialProof: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mb-12 animate-on-scroll fade-up" style={{ animationDelay: '0.3s' }}>
+        <div className="text-center mb-12" style={{ animationDelay: '0.3s' }}>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Built on <span className="gradient-text">Trust & Transparency</span>
           </h3>

@@ -102,9 +102,8 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               strokeWidth={hoveredSegment === segment.index ? strokeWidth + 8 : strokeWidth}
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: segment.index * 0.1, ease: 'easeOut' }}
-              viewport={{ once: true }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
               onMouseEnter={() => setHoveredSegment(segment.index)}
               onMouseLeave={() => setHoveredSegment(null)}
               className="cursor-pointer transition-all duration-300"
@@ -121,10 +120,9 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
               fontWeight="bold"
               fill={segment.color}
               className="pointer-events-none"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: segment.index * 0.1 + 0.5 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.8 }}
             >
               {segment.percentage}%
             </motion.text>
@@ -133,10 +131,9 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
 
         {/* Center content - Total Supply */}
         <motion.g
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
         >
           {/* Total Supply Number - Reduced font size to fit within inner circle */}
           <text
@@ -188,10 +185,9 @@ const TokenDistributionDonut: React.FC<TokenDistributionDonutProps> = ({ totalSu
                 : 'border-border bg-secondary/30 hover:border-accent/50'
               }
             `}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: segment.index * 0.1 }}
-            viewport={{ once: true }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 1 + segment.index * 0.1 }}
             onMouseEnter={() => setHoveredSegment(segment.index)}
             onMouseLeave={() => setHoveredSegment(null)}
           >
