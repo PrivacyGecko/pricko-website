@@ -1,11 +1,13 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/common/SEO';
 import { FiCalendar, FiAlertCircle, FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
 import { FORWARD_LOOKING_STATEMENT, ROADMAP_DISCLAIMER, PROTOCOL_TIMELINE_DISCLAIMER } from '../../constants/legal';
 
 const ForwardLookingStatementsPage: React.FC = () => {
+  const scrollRef = useScrollAnimation();
+
   const forwardLookingExamples = [
     {
       statement: '"GeckoCore Protocol development begins Q1 2026"',
@@ -76,12 +78,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
               <FiArrowLeft /> Back to Home
             </Link>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
-            >
+            <div className="page-enter text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-full px-6 py-3 mb-6">
                 <FiCalendar className="text-blue-400 text-2xl" />
                 <span className="text-blue-400 font-semibold">Roadmap Disclosure</span>
@@ -94,20 +91,14 @@ const ForwardLookingStatementsPage: React.FC = () => {
               <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
                 Understanding how to interpret roadmap projections, timeline estimates, and future plans disclosed on Pricko.com.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Definition Section */}
         <section className="section-padding py-8">
           <div className="container-max max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="card-elevated"
-            >
+            <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" ref={scrollRef}>
               <h2 className="text-2xl font-bold text-white mb-4">What Are Forward-Looking Statements?</h2>
               <p className="text-muted leading-relaxed mb-6">
                 Forward-looking statements are any statements about future events, plans, expectations, or projections.
@@ -120,32 +111,23 @@ const ForwardLookingStatementsPage: React.FC = () => {
                   <strong className="text-accent">Official Policy:</strong> {FORWARD_LOOKING_STATEMENT}
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Examples Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-6xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-center mb-12"
-            >
+            <h2 className="animate-on-scroll opacity-0 translate-y-12 text-3xl md:text-4xl font-bold text-center mb-12" ref={scrollRef}>
               Examples of <span className="gradient-text">Forward-Looking Statements</span>
-            </motion.h2>
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {forwardLookingExamples.map((example, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="card-elevated"
+                  className="animate-on-scroll opacity-0 translate-y-12 card-elevated"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-3 mb-4">
                     <FiAlertCircle className="text-yellow-400 text-xl mt-1 flex-shrink-0" />
@@ -165,7 +147,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
                       </p>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -174,29 +156,20 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Risk Factors Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-6xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-center mb-12"
-            >
+            <h2 className="animate-on-scroll opacity-0 translate-y-12 text-3xl md:text-4xl font-bold text-center mb-12">
               Risk Factors Affecting <span className="gradient-text">Projections</span>
-            </motion.h2>
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {riskFactors.map((factor, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="card-interactive"
+                  className="animate-on-scroll opacity-0 translate-y-12 card-interactive"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h3 className="text-lg font-bold text-white mb-2">{factor.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{factor.description}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -205,24 +178,12 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* Specific Disclaimers Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-center mb-8"
-            >
+            <h2 className="animate-on-scroll opacity-0 translate-y-12 text-3xl font-bold text-center mb-8">
               Specific <span className="gradient-text">Disclaimers</span>
-            </motion.h2>
+            </h2>
 
             <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="card-elevated"
-              >
+              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.1s' }}>
                 <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <FiCalendar className="text-accent" />
                   Roadmap Timelines
@@ -230,15 +191,9 @@ const ForwardLookingStatementsPage: React.FC = () => {
                 <p className="text-sm text-gray-300 leading-relaxed bg-secondary/50 border border-accent/20 rounded p-4">
                   {ROADMAP_DISCLAIMER}
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="card-elevated"
-              >
+              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.2s' }}>
                 <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   <FiCheckCircle className="text-cyan-400" />
                   GeckoCore Protocol
@@ -246,15 +201,9 @@ const ForwardLookingStatementsPage: React.FC = () => {
                 <p className="text-sm text-gray-300 leading-relaxed bg-secondary/50 border border-cyan-400/20 rounded p-4">
                   {PROTOCOL_TIMELINE_DISCLAIMER}
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="card-elevated"
-              >
+              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.3s' }}>
                 <h3 className="text-xl font-bold text-white mb-3">No Obligation to Update</h3>
                 <p className="text-muted leading-relaxed">
                   We have <strong className="text-white">no obligation</strong> to update forward-looking statements
@@ -262,22 +211,16 @@ const ForwardLookingStatementsPage: React.FC = () => {
                   cancelled without notice. Current roadmap reflects plans as of November 2025 and is subject to
                   change at any time.
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="card-elevated"
-              >
+              <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated" style={{ animationDelay: '0.4s' }}>
                 <h3 className="text-xl font-bold text-white mb-3">No Guarantees</h3>
                 <p className="text-muted leading-relaxed">
                   Forward-looking statements are <strong className="text-white">not guarantees</strong> of future
                   performance. Actual results may differ materially from projections due to risks, uncertainties,
                   and factors outside our control. Do not rely on forward-looking statements as promises or commitments.
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -285,13 +228,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
         {/* How to Interpret Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="card-elevated"
-            >
+            <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">
                 How to Interpret <span className="gradient-text">Our Roadmap</span>
               </h2>
@@ -350,20 +287,14 @@ const ForwardLookingStatementsPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Footer Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="card-elevated"
-            >
+            <div className="animate-on-scroll opacity-0 translate-y-12 card-elevated">
               <h3 className="text-2xl font-bold text-white mb-4">Questions About Our Roadmap?</h3>
               <p className="text-muted mb-6">
                 If you have questions about forward-looking statements or roadmap timelines, please review
@@ -377,17 +308,11 @@ const ForwardLookingStatementsPage: React.FC = () => {
                   Contact Support
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-sm text-muted mt-8"
-            >
+            <p className="animate-on-scroll opacity-0 text-sm text-muted mt-8" style={{ animationDelay: '0.3s' }}>
               Last Updated: November 2025
-            </motion.p>
+            </p>
           </div>
         </section>
       </div>

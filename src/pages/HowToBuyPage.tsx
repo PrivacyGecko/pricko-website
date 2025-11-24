@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaWallet, FaExchangeAlt, FaCheckCircle, FaTwitter } from 'react-icons/fa';
 import SEO from '../components/common/SEO';
@@ -8,6 +8,7 @@ import SecurityBadge from '../components/ui/SecurityBadge';
 import ProgressBar from '../components/ui/ProgressBar';
 
 const HowToBuyPage: React.FC = () => {
+  const scrollRef = useScrollAnimation();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -73,11 +74,8 @@ const HowToBuyPage: React.FC = () => {
       <div className="min-h-screen bg-bg-main text-white pt-24">
         <div className="container-max section-padding">
         {/* Hero Section */}
-        <motion.div
+        <div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
         >
           <div className="flex justify-center mb-6">
             <MascotImage size="md" />
@@ -91,16 +89,13 @@ const HowToBuyPage: React.FC = () => {
               : "Follow these simple steps to acquire $PRICKO tokens and join the privacy revolution"
             }
           </p>
-        </motion.div>
+        </div>
 
         {isPreLaunch ? (
           /* PRE-LAUNCH: Waitlist Form */
           <>
-            <motion.section
+            <section
               className="max-w-2xl mx-auto mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="card-glass bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20">
                 <div className="text-center mb-8">
@@ -130,11 +125,9 @@ const HowToBuyPage: React.FC = () => {
                     />
                   </div>
 
-                  <motion.button
+                  <button
                     type="submit"
                     className="w-full btn-primary py-4 text-lg font-semibold"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                     disabled={isSubmitted}
                   >
                     {isSubmitted ? (
@@ -144,65 +137,54 @@ const HowToBuyPage: React.FC = () => {
                     ) : (
                       'Join Launch Waitlist'
                     )}
-                  </motion.button>
+                  </button>
                 </form>
 
                 <p className="text-sm text-muted text-center mt-4">
                   We'll only email you about the token launch. No spam, ever.
                 </p>
               </div>
-            </motion.section>
+            </section>
 
             {/* What to Expect Section */}
-            <motion.section
+            <section
               className="mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold mb-8 text-center">What to Expect at Launch</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <motion.div 
+                <div 
                   className="card-interactive text-center"
-                  whileHover={{ y: -4 }}
                 >
                   <div className="text-4xl mb-4">⚖️</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Fair Launch</h3>
                   <p className="text-muted leading-relaxed">
                     No presales, no whitelists. Everyone gets the same opportunity to buy at launch.
                   </p>
-                </motion.div>
-                <motion.div 
+                </div>
+                <div 
                   className="card-interactive text-center"
-                  whileHover={{ y: -4 }}
                 >
                   <div className="text-4xl mb-4">🚀</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Instant Trading</h3>
                   <p className="text-muted leading-relaxed">
                     80% of supply goes to liquidity pool for immediate trading on pump.fun.
                   </p>
-                </motion.div>
-                <motion.div 
+                </div>
+                <div 
                   className="card-interactive text-center"
-                  whileHover={{ y: -4 }}
                 >
                   <div className="text-4xl mb-4">🔐</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Utility Access</h3>
                   <p className="text-muted leading-relaxed">
                     Start using tokens immediately for premium features in privacy tools.
                   </p>
-                </motion.div>
+                </div>
               </div>
-            </motion.section>
+            </section>
 
             {/* Prepare Now Section with SecurityBadge */}
-            <motion.section
+            <section
               className="mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold mb-4 text-center">Prepare Now</h2>
               <p className="text-center text-muted mb-8 max-w-2xl mx-auto">
@@ -321,15 +303,12 @@ const HowToBuyPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.section>
+            </section>
           </>
         ) : (
           /* POST-LAUNCH: Actual Buying Guide */
-          <motion.section
+          <section
             className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Step-by-Step Buying Guide</h2>
@@ -347,14 +326,9 @@ const HowToBuyPage: React.FC = () => {
 
               <div className="space-y-8">
                 {buyingSteps.map((step, index) => (
-                  <motion.div
+                  <div
                     key={step.number}
                     className="card-interactive hover:border-accent/50 transition-colors"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -4 }}
                   >
                     <div className="flex items-start gap-6">
                       <div className="flex-shrink-0">
@@ -389,26 +363,21 @@ const HowToBuyPage: React.FC = () => {
                         )}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.section>
+          </section>
         )}
 
         {/* Important Tips Section */}
-        <motion.section
+        <section
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-8 text-center">Important Tips</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div 
+            <div 
               className="card-interactive bg-blue-500/10 border border-blue-500/30"
-              whileHover={{ y: -4 }}
             >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">🔒</div>
@@ -419,11 +388,10 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div 
+            <div 
               className="card-interactive bg-yellow-500/10 border border-yellow-500/30"
-              whileHover={{ y: -4 }}
             >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">⚠️</div>
@@ -434,11 +402,10 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div 
+            <div 
               className="card-interactive bg-green-500/10 border border-green-500/30"
-              whileHover={{ y: -4 }}
             >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">💰</div>
@@ -449,11 +416,10 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div 
+            <div 
               className="card-interactive bg-purple-500/10 border border-purple-500/30"
-              whileHover={{ y: -4 }}
             >
               <div className="flex items-start gap-3">
                 <div className="text-2xl">📊</div>
@@ -464,17 +430,13 @@ const HowToBuyPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Learn More CTA */}
-        <motion.section
+        <section
           className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-6">Want to Learn More?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
@@ -482,33 +444,25 @@ const HowToBuyPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/tokenomics">
-              <motion.button
+              <button
                 className="btn-primary px-8 py-3 text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 View Tokenomics
-              </motion.button>
+              </button>
             </Link>
             <Link to="/tools">
-              <motion.button
+              <button
                 className="btn-secondary px-8 py-3 text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 Explore Privacy Tools
-              </motion.button>
+              </button>
             </Link>
           </div>
-        </motion.section>
+        </section>
 
         {/* Risk Disclaimer */}
-        <motion.div
+        <div
           className="mt-16 bg-red-500/10 border border-red-500/30 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-start gap-4">
             <div className="text-3xl">⚠️</div>
@@ -522,7 +476,7 @@ const HowToBuyPage: React.FC = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
     </>

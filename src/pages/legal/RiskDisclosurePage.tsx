@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/common/SEO';
 import {
@@ -15,6 +15,7 @@ import {
 import { INVESTMENT_RISK_DISCLAIMER } from '../../constants/legal';
 
 const RiskDisclosurePage: React.FC = () => {
+  const scrollRef = useScrollAnimation();
   const risks = [
     {
       icon: FiTrendingDown,
@@ -114,10 +115,7 @@ const RiskDisclosurePage: React.FC = () => {
               <FiArrowLeft /> Back to Home
             </Link>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+            <div
               className="text-center max-w-4xl mx-auto"
             >
               <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/30 rounded-full px-6 py-3 mb-6">
@@ -132,17 +130,14 @@ const RiskDisclosurePage: React.FC = () => {
               <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
                 Purchasing $PRICKO tokens involves substantial financial risk. Please read and understand all risks before acquiring tokens.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Critical Warning Box */}
         <section className="section-padding py-8">
           <div className="container-max">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <div
               className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 border-2 border-red-500/30 rounded-2xl p-8 max-w-4xl mx-auto"
             >
               <h2 className="text-2xl font-bold text-red-400 mb-4 text-center">
@@ -165,31 +160,23 @@ const RiskDisclosurePage: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Detailed Risk Sections */}
         <section className="section-padding py-12">
           <div className="container-max max-w-6xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            <h2
               className="text-3xl md:text-4xl font-bold text-center mb-12"
             >
               Detailed <span className="gradient-text">Risk Categories</span>
-            </motion.h2>
+            </h2>
 
             <div className="space-y-8">
               {risks.map((risk, index) => (
-                <motion.div
+                <div
                   key={risk.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
                   className="card-elevated"
                 >
                   <div className="flex items-start gap-4 mb-4">
@@ -210,7 +197,7 @@ const RiskDisclosurePage: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -219,11 +206,7 @@ const RiskDisclosurePage: React.FC = () => {
         {/* Additional Warnings Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            <div
               className="space-y-8"
             >
               <h2 className="text-3xl font-bold text-center mb-8">
@@ -270,18 +253,14 @@ const RiskDisclosurePage: React.FC = () => {
                   access to tokens.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Contact Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            <div
               className="card-elevated"
             >
               <h2 className="text-2xl font-bold text-white mb-4">Questions About Risks?</h2>
@@ -297,17 +276,13 @@ const RiskDisclosurePage: React.FC = () => {
                   Read Terms of Service
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+            <p
               className="text-sm text-muted mt-8"
             >
               Last Updated: November 2025
-            </motion.p>
+            </p>
           </div>
         </section>
       </div>

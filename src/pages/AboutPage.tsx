@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import ContractAddress from '../components/ui/ContractAddress';
 import ProofMetric from '../components/ui/ProofMetric';
@@ -35,6 +35,7 @@ import {
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
+  const scrollRef = useScrollAnimation();
   const { config, getProductCounts } = useProjectConfig();
   const productCounts = getProductCounts();
 
@@ -49,11 +50,8 @@ const AboutPage: React.FC = () => {
       <div className="min-h-screen bg-primary text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
-        <motion.div
+        <div
           className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
         >
           <MascotImage size="lg" className="mb-6 mx-auto" />
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
@@ -63,22 +61,14 @@ const AboutPage: React.FC = () => {
             Building <span className="text-blue-400 font-medium">AI-enhanced</span> privacy tools that don't suck. Community-owned, meme-powered, actually useful.
             Privacy protection without the corporate BS.
           </p>
-        </motion.div>
+        </div>
 
         {/* Company Overview */}
-        <motion.section
+        <section
           className="mb-20 glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+            <div
             >
               <div className="text-accent mb-3">
                 <FaCalendarAlt className="mx-auto text-3xl" />
@@ -86,12 +76,8 @@ const AboutPage: React.FC = () => {
               <div className="text-4xl font-bold text-accent mb-2">{config.project.foundedYear}</div>
               <div className="text-lg font-semibold mb-2">Founded</div>
               <div className="text-muted">Established with a vision for privacy</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+            </div>
+            <div
             >
               <div className="text-accent mb-3">
                 <FaUsers className="mx-auto text-3xl" />
@@ -99,12 +85,8 @@ const AboutPage: React.FC = () => {
               <div className="text-4xl font-bold text-accent mb-2">{config.community.total.toLocaleString()}+</div>
               <div className="text-lg font-semibold mb-2">Early Supporters</div>
               <div className="text-muted">Growing community</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+            </div>
+            <div
             >
               <div className="text-accent mb-3">
                 <FaTools className="mx-auto text-3xl" />
@@ -112,68 +94,44 @@ const AboutPage: React.FC = () => {
               <div className="text-4xl font-bold text-accent mb-2">{productCounts.total}+</div>
               <div className="text-lg font-semibold mb-2">Privacy Tools</div>
               <div className="text-muted">In development pipeline</div>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Story Section */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <motion.h2
+              <h2
                 className="text-4xl font-bold mb-8 text-professional"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
               >
                 Our <span className="gradient-text">Origin Story</span>
-              </motion.h2>
+              </h2>
               <div className="space-y-6 text-muted leading-relaxed text-lg">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
+                <p
                 >
                   Your data is being sold. Every search, every message, every click. We got tired of watching
                   people hand over their privacy to corporations who profit from it. So we built something better:
                   privacy tools that work, backed by a community that owns them.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
+                </p>
+                <p
                 >
                   We started PRICKO because we were sick of the hypocrisy. Companies claiming to care about your
                   privacy while mining your data for billions. VPNs that log everything. "Secure" apps with
                   backdoors. Enough is enough.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
+                </p>
+                <p
                 >
                   Built on Solana for speed, powered by $PRICKO for access, governed by the community.
                   This isn't just another crypto project—it's your digital privacy toolkit with actual utility.
                   No VC overlords, no corporate puppeteers. Just real tools for real people who give a damn about privacy.
-                </motion.p>
+                </p>
               </div>
             </div>
-            <motion.div
+            <div
               className="order-1 lg:order-2 flex justify-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl"></div>
@@ -183,34 +141,22 @@ const AboutPage: React.FC = () => {
                   className="relative w-80 h-80 object-contain glow-pulse"
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Mission Section */}
-        <motion.section
+        <section
           className="mb-20 glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-12 text-center text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Our <span className="gradient-text">Mission</span>
-          </motion.h2>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <motion.div
+            <div
               className="text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
             >
               <div className="relative mb-6">
                 <div className="w-20 h-20 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -222,13 +168,9 @@ const AboutPage: React.FC = () => {
                 Building cutting-edge privacy tools that protect user data without compromising
                 on performance, usability, or user experience.
               </p>
-            </motion.div>
-            <motion.div
+            </div>
+            <div
               className="text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
             >
               <div className="relative mb-6">
                 <div className="w-20 h-20 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -240,13 +182,9 @@ const AboutPage: React.FC = () => {
                 Creating a truly decentralized ecosystem where users maintain complete control
                 over their data, identity, and digital sovereignty.
               </p>
-            </motion.div>
-            <motion.div
+            </div>
+            <div
               className="text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
             >
               <div className="relative mb-6">
                 <div className="w-20 h-20 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -258,16 +196,12 @@ const AboutPage: React.FC = () => {
                 Empowering our community to shape the future of privacy through governance,
                 development contributions, and collaborative innovation.
               </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* GeckoCore Protocol Mention */}
-          <motion.div
+          <div
             className="card-outlined border-cyan-500/30 mt-8 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
@@ -297,36 +231,24 @@ const AboutPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* Proof of Commitment Section - NEW */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-12">
-            <motion.h2
+            <h2
               className="text-4xl font-bold mb-4 text-professional"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               <span className="gradient-text">Proof of Commitment</span>
-            </motion.h2>
-            <motion.p
+            </h2>
+            <p
               className="text-muted text-lg max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
             >
               We don't just talk. We build. Here's the evidence of our commitment to the Privacy Gecko ecosystem.
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -360,12 +282,8 @@ const AboutPage: React.FC = () => {
             />
           </div>
 
-          <motion.div
+          <div
             className="max-w-4xl mx-auto bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-2xl p-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
@@ -428,36 +346,24 @@ const AboutPage: React.FC = () => {
                 Last Updated: November 15, 2025
               </p>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* Trust & Security Section - NEW */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-12">
-            <motion.h2
+            <h2
               className="text-4xl font-bold mb-4 text-professional bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               Trust & Security
-            </motion.h2>
-            <motion.p
+            </h2>
+            <p
               className="text-muted text-lg max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
             >
               Built on proven security practices and transparent development standards.
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -486,33 +392,21 @@ const AboutPage: React.FC = () => {
               delay={0.4}
             />
           </div>
-        </motion.section>
+        </section>
 
         {/* Core Values Section */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-12 text-center text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Core <span className="gradient-text">Values</span>
-          </motion.h2>
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <motion.div
+              <div
                 className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -526,13 +420,9 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
+              </div>
+              <div
                 className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -546,13 +436,9 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
+              </div>
+              <div
                 className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -566,15 +452,11 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
             <div className="space-y-8">
-              <motion.div
+              <div
                 className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -588,13 +470,9 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
+              </div>
+              <div
                 className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -608,13 +486,9 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
+              </div>
+              <div
                 className="card-interactive group cursor-default"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -628,36 +502,24 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Team Section */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-12 text-center text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Meet the <span className="gradient-text">Core Team</span>
-          </motion.h2>
+          </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
+            <div
               className="card-interactive text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
             >
               <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
                 🦎
@@ -676,14 +538,10 @@ const AboutPage: React.FC = () => {
                   <FaGithub />
                 </a>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div
+            <div
               className="card-interactive text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
             >
               <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
                 ⚡
@@ -702,14 +560,10 @@ const AboutPage: React.FC = () => {
                   <FaGithub />
                 </a>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div
+            <div
               className="card-interactive text-center group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
             >
               <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl">
                 🎨
@@ -728,15 +582,11 @@ const AboutPage: React.FC = () => {
                   <FaGlobe />
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
           
-          <motion.div
+          <div
             className="text-center mt-12 glass-morphism rounded-2xl p-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
           >
             <h3 className="text-2xl font-semibold text-accent mb-4">Join Our Team</h3>
             <p className="text-muted mb-6 max-w-2xl mx-auto">
@@ -745,103 +595,71 @@ const AboutPage: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <motion.button
+                <button
                   className="btn-primary px-6 py-3 inline-flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   <FaUsers />
                   Join Team
-                </motion.button>
+                </button>
               </Link>
               <a href="https://github.com/pricko-project" target="_blank" rel="noopener noreferrer">
-                <motion.button
+                <button
                   className="btn-secondary px-6 py-3 inline-flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   <FaGithub />
                   Contribute on GitHub
-                </motion.button>
+                </button>
               </a>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* Contract Address Section */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
           <div className="max-w-2xl mx-auto">
             <ContractAddress />
           </div>
-        </motion.section>
+        </section>
 
         {/* FAQ Section */}
         <FAQSection className="bg-transparent" />
 
         {/* Call to Action */}
-        <motion.section
+        <section
           className="text-center glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-6 text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Join the <span className="gradient-text">Privacy Revolution</span>
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
           >
             Be part of a movement that's reshaping the digital landscape. Together, we're building
             a future where privacy is a fundamental right, not a premium feature.
-          </motion.p>
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <motion.button
+              <button
                 className="btn-primary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
               >
                 <FaRocket />
                 Join Waitlist
-              </motion.button>
+              </button>
             </Link>
             <Link to="/ecosystem">
-              <motion.button
+              <button
                 className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
               >
                 <FaBook />
                 Explore Our Ecosystem
-              </motion.button>
+              </button>
             </Link>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
     </>

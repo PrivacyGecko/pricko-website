@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import { useNavigate, Link } from 'react-router-dom';
 import { FaHome, FaTools, FaQuestionCircle, FaArrowRight, FaShieldAlt, FaRocket } from 'react-icons/fa';
 
@@ -25,7 +25,7 @@ const NotFoundPage: React.FC = () => {
       <div className="container-max relative z-10 section-padding">
         <div className="max-w-4xl mx-auto">
           {/* 404 Number with Gecko Icon */}
-          <motion.div
+          <div
             className="text-center mb-8"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -36,7 +36,7 @@ const NotFoundPage: React.FC = () => {
               damping: 15
             }}
           >
-            <motion.div
+            <div
               className="relative inline-block"
               animate={{
                 y: [0, -10, 0],
@@ -54,7 +54,7 @@ const NotFoundPage: React.FC = () => {
                 404
               </h1>
               {/* Gecko Emoji positioned at the "0" */}
-              <motion.div
+              <div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl md:text-8xl"
                 animate={{
                   rotate: [-5, 5, -5],
@@ -67,12 +67,12 @@ const NotFoundPage: React.FC = () => {
                 }}
               >
                 🦎
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </div>
+            </div>
+          </div>
 
           {/* Main Message */}
-          <motion.div
+          <div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,10 +84,10 @@ const NotFoundPage: React.FC = () => {
             <p className="text-xl md:text-2xl text-muted max-w-2xl mx-auto leading-relaxed">
               Looks like you've wandered off the privacy trail. Don't worry, we'll help you get back on track!
             </p>
-          </motion.div>
+          </div>
 
           {/* Privacy-themed Message */}
-          <motion.div
+          <div
             className="bg-secondary/50 border border-accent/20 rounded-2xl p-6 md:p-8 backdrop-blur-sm mb-12 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,16 +98,16 @@ const NotFoundPage: React.FC = () => {
               <span className="font-semibold">Good news:</span> This 404 page respects your privacy more than most websites respect their existing pages.
               <span className="block mt-2">🔒 No trackers. No surveillance. Just a lost gecko.</span>
             </p>
-          </motion.div>
+          </div>
 
           {/* Primary Action Buttons */}
-          <motion.div
+          <div
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <motion.button
+            <button
               onClick={() => navigate('/')}
               className="btn-primary inline-flex items-center justify-center gap-3 text-lg px-8 py-4 shadow-lg"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(74, 222, 128, 0.3)" }}
@@ -115,21 +115,21 @@ const NotFoundPage: React.FC = () => {
               aria-label="Go to homepage"
             >
               <FaHome /> Go Home
-            </motion.button>
+            </button>
             <Link to="/tools">
-              <motion.button
+              <button
                 className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="View privacy tools"
               >
                 <FaTools /> View Privacy Tools
-              </motion.button>
+              </button>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Popular Pages Grid */}
-          <motion.div
+          <div
             className="mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -142,48 +142,48 @@ const NotFoundPage: React.FC = () => {
               {popularPages.map((page, index) => {
                 const IconComponent = page.icon;
                 return (
-                  <motion.div
+                  <div
                     key={page.path}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.9 + (index * 0.1) }}
                   >
                     <Link to={page.path}>
-                      <motion.div
+                      <div
                         className="card text-center h-full hover:bg-secondary/80 cursor-pointer group"
                         whileHover={{ y: -5, borderColor: "rgba(74, 222, 128, 0.5)" }}
                         whileTap={{ scale: 0.98 }}
                         role="button"
                         aria-label={`Navigate to ${page.label}`}
                       >
-                        <motion.div
+                        <div
                           className="text-4xl text-accent mb-4 inline-block"
                           whileHover={{ scale: 1.2, rotate: 5 }}
                           transition={{ duration: 0.3 }}
                         >
                           <IconComponent aria-hidden="true" />
-                        </motion.div>
+                        </div>
                         <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-accent transition-colors">
                           {page.label}
                         </h4>
                         <p className="text-sm text-muted">{page.description}</p>
-                        <motion.div
+                        <div
                           className="mt-3 text-accent opacity-0 group-hover:opacity-100 transition-opacity"
                           initial={{ x: -10 }}
                           whileHover={{ x: 0 }}
                         >
                           <FaArrowRight className="inline" aria-hidden="true" />
-                        </motion.div>
-                      </motion.div>
+                        </div>
+                      </div>
                     </Link>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
-          </motion.div>
+          </div>
 
           {/* Help Section */}
-          <motion.div
+          <div
             className="text-center bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-6 md:p-8 backdrop-blur-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ const NotFoundPage: React.FC = () => {
             whileHover={{ borderColor: "rgba(74, 222, 128, 0.4)" }}
           >
             <div className="flex justify-center mb-4">
-              <motion.div
+              <div
                 className="text-5xl"
                 animate={{
                   rotate: [0, 10, -10, 0],
@@ -203,7 +203,7 @@ const NotFoundPage: React.FC = () => {
                 }}
               >
                 <FaQuestionCircle className="text-accent" aria-hidden="true" />
-              </motion.div>
+              </div>
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-accent mb-3">
               Still Can't Find What You're Looking For?
@@ -212,19 +212,19 @@ const NotFoundPage: React.FC = () => {
               Our gecko squad is here to help! Reach out to the community and we'll point you in the right direction.
             </p>
             <Link to="/contact">
-              <motion.button
+              <button
                 className="btn-primary inline-flex items-center gap-3 px-6 py-3"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Contact support"
               >
                 Contact Us <FaArrowRight aria-hidden="true" />
-              </motion.button>
+              </button>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Fun Easter Egg Message */}
-          <motion.div
+          <div
             className="text-center mt-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -233,7 +233,7 @@ const NotFoundPage: React.FC = () => {
             <p className="text-sm text-muted italic">
               Error Code: GECKO_LOST_404 | Don't worry, your privacy is still intact 🔒
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

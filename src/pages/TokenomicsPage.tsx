@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaEye, FaShieldAlt, FaUsers, FaServer, FaExternalLinkAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
@@ -14,6 +14,7 @@ import MascotImage from '../components/ui/MascotImage';
 import { TokenDistribution } from '../types/config';
 
 const TokenomicsPage: React.FC = () => {
+  const scrollRef = useScrollAnimation();
   const { config, getTokenDisclaimer } = useProjectConfig();
 
   // Handle hash navigation for deep linking (mobile-friendly)
@@ -191,11 +192,8 @@ const TokenomicsPage: React.FC = () => {
       <div className="min-h-screen bg-bg-main text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
-        <motion.div
+        <div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
         >
           <MascotImage size="lg" className="mb-6 mx-auto" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -204,15 +202,11 @@ const TokenomicsPage: React.FC = () => {
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
             A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy tools.
           </p>
-        </motion.div>
+        </div>
 
         {/* Token Overview */}
-        <motion.section
+        <section
           className="mb-16 bg-secondary/30 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
@@ -231,15 +225,11 @@ const TokenomicsPage: React.FC = () => {
               <p className="text-muted mt-2">Privacy Tools Access</p>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Distribution Progress Visualization - NEW */}
-        <motion.section
+        <section
           className="mb-16 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Distribution Breakdown
@@ -306,15 +296,11 @@ const TokenomicsPage: React.FC = () => {
               <p className="text-muted text-sm mt-3">{config.token.distribution.team.description}</p>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Distribution Chart - MOVED UP */}
-        <motion.section
+        <section
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-12 text-center">Visual Overview</h2>
           
@@ -365,7 +351,7 @@ const TokenomicsPage: React.FC = () => {
               },
             ]}
           />
-        </motion.section>
+        </section>
 
         {/* Distribution Breakdown - NEW SECTION */}
         <DistributionBreakdown allocations={distributionAllocations} delay={0.2} />
@@ -374,12 +360,8 @@ const TokenomicsPage: React.FC = () => {
         <VestingTimeline periods={vestingPeriods} delay={0.3} />
 
         {/* 4-Tier Utility Model */}
-        <motion.section
+        <section
           className="mb-20 mt-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -401,12 +383,8 @@ const TokenomicsPage: React.FC = () => {
             ))}
           </div>
 
-          <motion.div
+          <div
             className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-6 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
           >
             <div className="flex items-start gap-3">
               <FaShieldAlt className="text-blue-400 text-2xl flex-shrink-0 mt-1" />
@@ -419,43 +397,31 @@ const TokenomicsPage: React.FC = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* Token Utility */}
-        <motion.section
+        <section
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-8 text-center">Token Utility</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {utilities.map((utility, index) => (
-              <motion.div
+              <div
                 key={utility.title}
                 className="card-interactive text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
               >
                 <div className="text-4xl mb-4">{utility.icon}</div>
                 <h3 className="text-xl font-semibold mb-3 text-accent">{utility.title}</h3>
                 <p className="text-muted leading-relaxed">{utility.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Token Launch Information */}
-        <motion.section
+        <section
           className="mb-16 bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -484,15 +450,11 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Ecosystem Sustainability */}
-        <motion.section
+        <section
           className="mb-16 bg-secondary/30 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-6 text-center">Ecosystem Sustainability</h2>
           <div className="max-w-4xl mx-auto space-y-6">
@@ -531,17 +493,13 @@ const TokenomicsPage: React.FC = () => {
               </p>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Future Utility: GeckoCore Protocol Section */}
         <section id="protocol" className="section-padding bg-black/30">
           <div className="container-max max-w-4xl">
-            <motion.div
+            <div
               className="text-center mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Future Utility: <span className="text-protocol-primary">GeckoCore Protocol</span>
@@ -549,14 +507,10 @@ const TokenomicsPage: React.FC = () => {
               <p className="text-xl text-gray-300 leading-relaxed">
                 Beyond today's live products, $PRICKO will power a decentralized privacy protocol launching Q1 2026. Token holders gain access to staking rewards, governance rights, and node operation incentives.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               className="card-protocol space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
             >
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0">
@@ -593,43 +547,31 @@ const TokenomicsPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               className="text-center mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
             >
               <Link to="/ecosystem" className="btn-secondary inline-flex items-center gap-2">
                 Learn More About GeckoCore
                 <FaExternalLinkAlt size={16} />
               </Link>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Contract Address Section */}
-        <motion.section
+        <section
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="max-w-2xl mx-auto">
             <ContractAddress />
           </div>
-        </motion.section>
+        </section>
 
         {/* Call to Action */}
-        <motion.section
+        <section
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-6">Ready to Join the Privacy Revolution?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
@@ -638,35 +580,27 @@ const TokenomicsPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <motion.button
+              <button
                 className="btn-primary px-8 py-3 text-lg inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <FaRocket />
                 Join Community
-              </motion.button>
+              </button>
             </Link>
             <Link to="/roadmap">
-              <motion.button
+              <button
                 className="btn-secondary px-8 py-3 text-lg inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <FaEye />
                 View Roadmap
-              </motion.button>
+              </button>
             </Link>
           </div>
-        </motion.section>
+        </section>
 
         {/* CONSOLIDATED Risk Disclosures & Legal Notices - SINGLE COMPREHENSIVE SECTION */}
-        <motion.section
+        <section
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="max-w-4xl mx-auto bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
             <div className="flex items-start gap-4 mb-6">
@@ -784,7 +718,7 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
     </>

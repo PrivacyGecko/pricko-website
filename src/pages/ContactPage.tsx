@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SEO from '../components/common/SEO';
 import TeamMember from '../components/ui/TeamMember';
 import NewsletterForm from '../components/ui/NewsletterForm';
@@ -39,6 +39,7 @@ interface FormErrors {
 }
 
 const ContactPage: React.FC = () => {
+  const scrollRef = useScrollAnimation();
   const { getTeamMembers } = useProjectConfig();
   const teamMembers = getTeamMembers();
 
@@ -309,22 +310,16 @@ const ContactPage: React.FC = () => {
       <div className="min-h-screen bg-primary text-white pt-24">
       <div className="container-max section-padding">
         {/* Hero Section */}
-        <motion.div
+        <div
           className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
         >
-          <motion.div
+          <div
             className="inline-block mb-6"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="w-24 h-24 mx-auto mb-6 bg-accent/10 rounded-3xl flex items-center justify-center float-animation">
               <FaEnvelope className="w-12 h-12 text-accent" />
             </div>
-          </motion.div>
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
             Connect with <span className="gradient-text-animated">PRICKO</span>
           </h1>
@@ -332,22 +327,14 @@ const ContactPage: React.FC = () => {
             We believe in transparency and direct communication. Email us directly, join our community channels,
             or use our contact form below. We respond within 24 hours.
           </p>
-        </motion.div>
+        </div>
 
         {/* Meet the Team Section */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.div
+          <div
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Meet the <span className="gradient-text">Team</span>
@@ -355,7 +342,7 @@ const ContactPage: React.FC = () => {
             <p className="text-muted text-lg max-w-3xl mx-auto">
               Privacy advocates, blockchain engineers, and open-source contributors building the future of digital privacy.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <TeamMember
@@ -371,22 +358,14 @@ const ContactPage: React.FC = () => {
               />
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Direct Email Contact - PRIMARY METHOD */}
-        <motion.section
+        <section
           className="mb-20 glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.div
+          <div
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Email Us <span className="gradient-text">Directly</span>
@@ -395,19 +374,13 @@ const ContactPage: React.FC = () => {
               No forms, no friction. Click any email below to contact us directly.
               Choose the department that best fits your needs.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {teamContacts.map((contact, index) => (
               <motion.a
                 key={contact.role}
                 href={`mailto:${contact.email}`}
                 className="card group hover:shadow-professional cursor-pointer hover:scale-105 transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -435,12 +408,8 @@ const ContactPage: React.FC = () => {
               </motion.a>
             ))}
           </div>
-          <motion.div
+          <div
             className="mt-8 text-center bg-accent/5 border border-accent/20 rounded-xl p-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
           >
             <p className="text-white mb-2">
               <strong className="text-accent">Why Direct Email?</strong>
@@ -449,24 +418,16 @@ const ContactPage: React.FC = () => {
               We're a privacy-focused project. Direct email means transparency, no middleman,
               and you have a copy in your Sent folder. One click and we'll get your message instantly.
             </p>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
 
         {/* Social Media & Community - SECONDARY METHOD */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.div
+          <div
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Join Our <span className="gradient-text">Community</span>
@@ -475,7 +436,7 @@ const ContactPage: React.FC = () => {
               Prefer real-time chat? Connect with our community on your favorite platform.
               Get instant support, participate in discussions, and stay updated with the latest news.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {socialLinks.map((social, index) => (
               <motion.a
@@ -484,12 +445,6 @@ const ContactPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card group cursor-pointer text-center hover:shadow-professional-lg"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <div className="flex flex-col items-center">
                   <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
@@ -510,22 +465,14 @@ const ContactPage: React.FC = () => {
               </motion.a>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Contact Form - OPTIONAL METHOD (moved to bottom) */}
-        <motion.section
+        <section
           className="mb-20 glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.div
+          <div
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4 text-professional">
               Or Use Our <span className="gradient-text">Contact Form</span>
@@ -534,15 +481,11 @@ const ContactPage: React.FC = () => {
               Prefer a structured form? Fill it out below and we'll get back to you within 24 hours.
               All submissions are encrypted and secure.
             </p>
-          </motion.div>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <motion.div
+              <div
                 className="flex items-center gap-4 mb-8"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
               >
                 <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center">
                   <FaPhone className="w-6 h-6 text-accent" />
@@ -550,24 +493,16 @@ const ContactPage: React.FC = () => {
                 <h3 className="text-3xl font-bold text-professional">
                   Form <span className="gradient-text">Submission</span>
                 </h3>
-              </motion.div>
-              <motion.p
+              </div>
+              <p
                 className="text-muted mb-8 text-lg leading-relaxed"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
               >
                 Have questions about PRICKO? Need technical support? Want to explore partnership opportunities?
                 Fill out the form and our team will respond within 24 hours.
-              </motion.p>
+              </p>
               <div className="space-y-4">
-                <motion.div
+                <div
                   className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
                 >
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <FaClock className="text-accent text-xl" />
@@ -576,13 +511,9 @@ const ContactPage: React.FC = () => {
                     <div className="font-semibold">Quick Response</div>
                     <div className="text-muted text-sm">Average response time: 12-24 hours</div>
                   </div>
-                </motion.div>
-                <motion.div
+                </div>
+                <div
                   className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
                 >
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <FaLock className="text-accent text-xl" />
@@ -591,13 +522,9 @@ const ContactPage: React.FC = () => {
                     <div className="font-semibold">Privacy Focused</div>
                     <div className="text-muted text-sm">Your data is encrypted and never shared</div>
                   </div>
-                </motion.div>
-                <motion.div
+                </div>
+                <div
                   className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
                 >
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <FaGlobe className="text-accent text-xl" />
@@ -606,35 +533,27 @@ const ContactPage: React.FC = () => {
                     <div className="font-semibold">Global Support</div>
                     <div className="text-muted text-sm">24/7 community support worldwide</div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
             <motion.form
               onSubmit={handleSubmit}
               className="space-y-6"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
               aria-busy={submitStatus === 'loading'}
             >
               {/* Status Message */}
               <div ref={statusMessageRef} aria-live="polite" aria-atomic="true">
                 {submitStatus === 'loading' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                  <div
                     className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center gap-3 text-accent"
                   >
                     <FaSpinner className="animate-spin text-xl" />
                     <span className="font-medium">Sending your message...</span>
-                  </motion.div>
+                  </div>
                 )}
 
                 {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                  <div
                     className="bg-green-500/10 border border-green-500/30 rounded-xl p-4"
                     role="alert"
                   >
@@ -647,13 +566,11 @@ const ContactPage: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                  <div
                     className="bg-red-500/10 border border-red-500/30 rounded-xl p-4"
                     role="alert"
                   >
@@ -676,7 +593,7 @@ const ContactPage: React.FC = () => {
                         </button>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </div>
 
@@ -805,7 +722,7 @@ const ContactPage: React.FC = () => {
                 autoComplete="off"
               />
 
-              <motion.button
+              <button
                 type="submit"
                 disabled={submitStatus === 'loading'}
                 className={`w-full btn-primary py-4 text-lg font-semibold shadow-professional inline-flex items-center justify-center gap-3 ${
@@ -825,7 +742,7 @@ const ContactPage: React.FC = () => {
                     Send Message
                   </>
                 )}
-              </motion.button>
+              </button>
 
               {submitStatus === 'idle' && (
                 <p className="text-muted text-sm mt-4 text-center">
@@ -838,34 +755,22 @@ const ContactPage: React.FC = () => {
               )}
             </motion.form>
           </div>
-        </motion.section>
+        </section>
 
         {/* FAQ Section */}
-        <motion.section
+        <section
           className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-12 text-center text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Frequently Asked <span className="gradient-text">Questions</span>
-          </motion.h2>
+          </h2>
           <div className="space-y-6 max-w-5xl mx-auto">
             {faqs.map((faq, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="card group hover:shadow-professional"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -876,56 +781,40 @@ const ContactPage: React.FC = () => {
                     <p className="text-muted leading-relaxed text-lg">{faq.answer}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Newsletter Signup */}
-        <motion.section
+        <section
           className="mb-20 glass-morphism rounded-3xl p-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-6 text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Stay <span className="gradient-text">Connected</span>
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
           >
             Subscribe to our newsletter for exclusive updates on privacy tools, token developments,
             community events, and educational content. Join {METRICS.community.formatted} {METRICS.community.label} worldwide.
-          </motion.p>
+          </p>
           
           {/* Newsletter Status Message */}
           <div ref={newsletterStatusRef} aria-live="polite" aria-atomic="true" className="mb-6">
             {newsletterStatus === 'loading' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+              <div
                 className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center justify-center gap-3 text-accent max-w-lg mx-auto"
               >
                 <FaSpinner className="animate-spin text-xl" />
                 <span className="font-medium">Subscribing...</span>
-              </motion.div>
+              </div>
             )}
 
             {newsletterStatus === 'success' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+              <div
                 className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 max-w-lg mx-auto"
                 role="alert"
               >
@@ -938,13 +827,11 @@ const ContactPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )}
 
             {newsletterStatus === 'error' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+              <div
                 className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 max-w-lg mx-auto"
                 role="alert"
               >
@@ -964,17 +851,13 @@ const ContactPage: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )}
           </div>
 
           <motion.form
             onSubmit={handleNewsletterSubmit}
             className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
           >
             <input
               type="email"
@@ -986,7 +869,7 @@ const ContactPage: React.FC = () => {
               required
               aria-label="Email address for newsletter subscription"
             />
-            <motion.button
+            <button
               type="submit"
               disabled={newsletterStatus === 'loading'}
               className={`btn-primary px-8 py-4 text-lg font-semibold whitespace-nowrap shadow-professional inline-flex items-center gap-3 ${
@@ -1006,55 +889,35 @@ const ContactPage: React.FC = () => {
                   Subscribe Now
                 </>
               )}
-            </motion.button>
+            </button>
           </motion.form>
 
-          <motion.p
+          <p
             className="text-sm text-muted"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
           >
             Your privacy is our priority. Unsubscribe anytime with one click.
-          </motion.p>
-        </motion.section>
+          </p>
+        </section>
 
         {/* Final CTA */}
-        <motion.section
+        <section
           className="text-center glass-morphism rounded-3xl p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-bold mb-6 text-professional"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
           >
             Ready to Embrace <span className="gradient-text">Privacy</span>?
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
           >
             Join {METRICS.community.formatted} {METRICS.community.label} who have chosen PRICKO as their gateway to digital freedom.
             Your journey towards true privacy starts with a single step.
-          </motion.p>
+          </p>
 
           {/* Newsletter Signup */}
-          <motion.div
+          <div
             className="max-w-2xl mx-auto mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
           >
             <NewsletterForm
               variant="hero"
@@ -1062,24 +925,18 @@ const ContactPage: React.FC = () => {
               buttonText="Join Whitelist"
               showDescription={true}
             />
-          </motion.div>
+          </div>
 
           <div className="flex justify-center">
             <motion.a
               href="/tools"
               className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
             >
               <FaTools />
               Explore Privacy Tools
             </motion.a>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
     </>
