@@ -1,52 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 interface AnimatedCounterProps {
-  /**
-   * The target value to count to.
-   * Can be a number (e.g., 2100) or a string with suffix (e.g., "2,100+", "90%")
-   */
   value: string | number;
-
-  /**
-   * Duration of the animation in milliseconds
-   * @default 2000
-   */
   duration?: number;
-
-  /**
-   * Label displayed below the counter
-   */
   label?: string;
-
-  /**
-   * Icon component to display above the counter
-   */
   icon?: React.ReactNode;
-
-  /**
-   * Custom className for styling
-   */
   className?: string;
-
-  /**
-   * Delay before animation starts (in milliseconds)
-   * @default 0
-   */
   delay?: number;
 }
 
-/**
- * AnimatedCounter Component
- *
- * Displays an animated counting effect from 0 to the target value.
- * Supports numbers, percentages, and formatted strings with suffixes.
- *
- * Examples:
- * - <AnimatedCounter value={2100} label="Users" />
- * - <AnimatedCounter value="90%" label="Complete" />
- * - <AnimatedCounter value="2,100+" label="Active Users" />
- */
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   value,
   duration = 2000,
@@ -57,22 +20,19 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
 }) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
-  // Parse the value to extract number, prefix, and suffix
   const parseValue = (val: string | number): { number: number; prefix: string; suffix: string } => {
     if (typeof val === 'number') {
       return { number: val, prefix: '', suffix: '' };
     }
 
-    // Handle percentage (e.g., "90%")
     if (val.includes('%')) {
       const num = parseFloat(val.replace('%', ''));
       return { number: num, prefix: '', suffix: '%' };
     }
 
-    // Handle formatted numbers with suffixes (e.g., "2,100+", "1.5K+")
     const matches = val.match(/^([^\d]*)?([\d,.]+)([^\d]*)?$/);
     if (matches) {
       const [, prefix = '', numStr, suffix = ''] = matches;
@@ -80,7 +40,6 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       return { number: num, prefix, suffix };
     }
 
-    // Fallback: try to extract any number
     const numMatch = val.match(/[\d.]+/);
     if (numMatch) {
       return { number: parseFloat(numMatch[0]), prefix: '', suffix: val.replace(numMatch[0], '') };
@@ -92,7 +51,27 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const { number: targetNumber, prefix, suffix } = parseValue(value);
 
   useEffect(() => {
-    if (!isInView || hasAnimated) return;
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!isVisible || hasAnimated) return;
 
     const startTime = Date.now() + delay;
     const endTime = startTime + duration;
@@ -112,7 +91,6 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       }
 
       const progress = (now - startTime) / duration;
-      // Ease out cubic for smooth deceleration
       const easeOut = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(targetNumber * easeOut));
 
@@ -120,58 +98,65 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     };
 
     requestAnimationFrame(animate);
-  }, [isInView, targetNumber, duration, delay, hasAnimated]);
+  }, [isVisible, targetNumber, duration, delay, hasAnimated]);
 
-  // Format the display value
   const formatDisplayValue = (num: number): string => {
-    // If original value had commas, add them back
     if (typeof value === 'string' && value.includes(',')) {
       return num.toLocaleString();
     }
     return num.toString();
   };
 
-  const displayValue = `${prefix}${formatDisplayValue(count)}${suffix}`;
+  const displayValue = prefix + formatDisplayValue(count) + suffix;
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={`text-center ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, delay: delay / 1000 }}
+      className={'text-center ' + className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+        transitionDelay: delay / 1000 + 's'
+      }}
     >
       {icon && (
-        <motion.div
+        <div
           className="text-accent mb-2"
-          initial={{ scale: 0 }}
-          animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.4, delay: (delay + 200) / 1000, type: 'spring', stiffness: 200 }}
+          style={{
+            transform: isVisible ? 'scale(1)' : 'scale(0)',
+            transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            transitionDelay: (delay + 200) / 1000 + 's'
+          }}
         >
           {icon}
-        </motion.div>
+        </div>
       )}
 
-      <motion.div
+      <div
         className="text-2xl font-bold text-accent mb-2"
-        initial={{ scale: 0.8 }}
-        animate={isInView ? { scale: 1 } : { scale: 0.8 }}
-        transition={{ duration: 0.4, delay: (delay + 100) / 1000 }}
+        style={{
+          transform: isVisible ? 'scale(1)' : 'scale(0.8)',
+          transition: 'transform 0.4s ease-out',
+          transitionDelay: (delay + 100) / 1000 + 's'
+        }}
       >
         {displayValue}
-      </motion.div>
+      </div>
 
       {label && (
-        <motion.div
+        <div
           className="text-sm text-muted"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: (delay + 400) / 1000 }}
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 0.4s ease-out',
+            transitionDelay: (delay + 400) / 1000 + 's'
+          }}
         >
           {label}
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

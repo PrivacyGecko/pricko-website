@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 /**
  * PastMilestone Component
@@ -21,14 +21,14 @@ interface PastMilestoneProps {
 }
 
 const PastMilestone: React.FC<PastMilestoneProps> = ({ title, description, date, delay = 0 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollAnimation(ref);
+
   return (
-    <motion.div
-      className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm shadow-professional"
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.02, y: -3 }}
+    <div
+      ref={ref}
+      className="animate-on-scroll opacity-0 -translate-x-10 bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm shadow-professional hover:scale-102 hover:-translate-y-1 transition-all duration-300"
+      style={{ animationDelay: `${delay}s` }}
     >
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0">
@@ -46,7 +46,7 @@ const PastMilestone: React.FC<PastMilestoneProps> = ({ title, description, date,
           <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

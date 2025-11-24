@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
 import { ToolCardProps } from '../../types';
 import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import PremiumFeature from './PremiumFeature';
@@ -43,24 +42,24 @@ const ToolCard: React.FC<ToolCardProps> = ({
   };
 
   return (
-    <motion.div
-      className={`card group cursor-pointer ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{
-        scale: 1.02,
-        boxShadow: "0 10px 30px rgba(234, 88, 12, 0.2)"
+    <div
+      className={'card group cursor-pointer hover:scale-102 hover-lift transition-all duration-500 ' + className}
+      style={{
+        opacity: 0,
+        animation: 'fadeInUp 0.5s ease-out forwards',
+        animationDelay: delay + 's',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
       }}
-      whileTap={{ scale: 0.98 }}
       onClick={handleClick}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = '0 10px 30px rgba(234, 88, 12, 0.2)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+      }}
     >
       <div className="flex flex-col items-center text-center space-y-4">
-        {/* Icon */}
-        <motion.div
-          className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300"
-          whileHover={{ scale: 1.05, rotate: 2 }}
-        >
+        <div className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 hover:rotate-2">
           <img
             src={icon}
             alt={title}
@@ -70,15 +69,14 @@ const ToolCard: React.FC<ToolCardProps> = ({
               e.currentTarget.style.display = 'none';
             }}
           />
-        </motion.div>
+        </div>
 
-        {/* Content */}
         <div className="space-y-3 w-full">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
               {title}
             </h3>
-            <span className={`px-3 py-1 rounded-full text-xs font-bold ${badge.class}`}>
+            <span className={'px-3 py-1 rounded-full text-xs font-bold ' + badge.class}>
               {badge.label}
             </span>
           </div>
@@ -86,85 +84,50 @@ const ToolCard: React.FC<ToolCardProps> = ({
             {description}
           </p>
           
-          {/* Features Section */}
           {features.length > 0 && (
             <div className="w-full">
-              <motion.button
-                className="flex items-center justify-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm font-medium w-full py-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
+              <button
+                className="flex items-center justify-center gap-2 text-accent hover:text-accent-hover hover:scale-102 transition-all text-sm font-medium w-full py-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowFeatures(!showFeatures);
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
                 aria-label={showFeatures ? "Hide key features" : "Show key features"}
                 aria-expanded={showFeatures}
               >
-                Key Features
-                {showFeatures ? <FaChevronUp className="text-xs" /> : <FaChevronDown className="text-xs" />}
-              </motion.button>
+                {showFeatures ? 'Hide Key Features' : 'Show Key Features'}
+                {showFeatures ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
               
-              <AnimatePresence>
-                {showFeatures && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pt-2 space-y-2">
-                      {features.map((feature, index) => {
-                        // Check if this is Gecko Share and if the feature is premium
-                        const isGeckoShare = title === "Gecko Share";
-                        const isPremiumFeature = isGeckoShare && (
-                          feature.includes("Pro") ||
-                          feature.includes("premium") ||
-                          feature.includes("Wallet-connect")
-                        );
-
-                        return (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: index * 0.1 }}
-                          >
-                            {isGeckoShare ? (
-                              <PremiumFeature 
-                                feature={feature} 
-                                tier={isPremiumFeature ? 'pro' : 'free'}
-                                className="group-hover:text-white transition-colors"
-                              />
-                            ) : (
-                              <div className="flex items-start gap-2 text-xs text-muted group-hover:text-white transition-colors">
-                                <FaCheck className="text-accent mt-0.5 text-xs flex-shrink-0" />
-                                <span>{feature}</span>
-                              </div>
-                            )}
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                className="overflow-hidden transition-all duration-300 ease-in-out"
+                style={{
+                  maxHeight: showFeatures ? '1000px' : '0',
+                  opacity: showFeatures ? 1 : 0
+                }}
+              >
+                <div className="mt-4 space-y-2 px-4">
+                  {features.map((feature, index) => (
+                    typeof feature === 'string' ? (
+                      <div key={index} className="flex items-start gap-2 text-sm text-gray-300">
+                        <FaCheck className="text-accent mt-0.5 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </div>
+                    ) : (
+                      <PremiumFeature
+                        key={index}
+                        feature={feature.name}
+                        tier={feature.tier}
+                      />
+                    )
+                  ))}
+                </div>
+              </div>
             </div>
           )}
         </div>
-
-        {/* Hover Effect */}
-        <motion.div
-          className="w-full h-1 bg-gradient-to-r from-accent to-accent-light rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          initial={{ scaleX: 0 }}
-          whileHover={{ scaleX: 1 }}
-          transition={{ duration: 0.3 }}
-        />
       </div>
-
-      {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-    </motion.div>
+    </div>
   );
 };
 

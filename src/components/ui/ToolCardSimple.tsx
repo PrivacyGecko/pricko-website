@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { FaCheck, FaBrain } from 'react-icons/fa';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 interface ToolCardSimpleProps {
   icon: string;
@@ -23,6 +23,9 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   delay = 0,
   hasAI = false
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollAnimation(ref);
+
   const getStatusBadge = () => {
     const badges = {
       live: {
@@ -63,15 +66,11 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
   };
 
   return (
-    <motion.div
-      className="card-interactive flex flex-col h-full"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.03, y: -4 }}
+    <div
+      ref={ref}
+      className="animate-on-scroll opacity-0 translate-y-5 card-interactive flex flex-col h-full"
+      style={{ animationDelay: delay + 's' }}
     >
-      {/* Icon */}
       <div className="flex justify-center mb-4">
         <img
           src={icon}
@@ -81,7 +80,6 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
         />
       </div>
 
-      {/* Title & Status Badge */}
       <div className="text-center mb-4">
         <div className="flex items-center justify-center gap-2 mb-3">
           <h3 className="text-xl font-semibold text-white">{title}</h3>
@@ -97,10 +95,8 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
         </span>
       </div>
 
-      {/* Description */}
       <p className="text-muted text-sm text-center mb-4 leading-relaxed">{description}</p>
 
-      {/* Features - Always Visible */}
       <div className="flex-1 space-y-2 mb-6">
         {features.slice(0, 3).map((feature, index) => (
           <div key={index} className="flex items-start gap-2 text-sm text-gray-300">
@@ -110,17 +106,14 @@ const ToolCardSimple: React.FC<ToolCardSimpleProps> = ({
         ))}
       </div>
 
-      {/* Single CTA Button */}
-      <motion.button
-        className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${cta.class} disabled:opacity-50 disabled:cursor-not-allowed`}
-        whileHover={status !== 'in-development' ? { scale: 1.05, y: -2 } : {}}
-        whileTap={status !== 'in-development' ? { scale: 0.95 } : {}}
+      <button
+        className={'w-full py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ' + cta.class}
         onClick={handleClick}
         disabled={status === 'in-development'}
       >
         {cta.text}
-      </motion.button>
-    </motion.div>
+      </button>
+    </div>
   );
 };
 

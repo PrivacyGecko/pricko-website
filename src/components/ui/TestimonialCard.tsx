@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export interface TestimonialProps {
   quote: string;
@@ -19,14 +19,14 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
   rating = 5,
   delay = 0
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollAnimation(ref);
+
   return (
-    <motion.div
-      className="card group hover:shadow-lg transition-all duration-300"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+    <div
+      ref={ref}
+      className="animate-on-scroll opacity-0 translate-y-5 card group hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+      style={{ animationDelay: `${delay}s` }}
     >
       {/* Quote Icon */}
       <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
@@ -61,7 +61,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 interface PhaseCardSimpleProps {
   quarter: string;
@@ -24,6 +24,11 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
   learnMoreLink,
   learnMoreText = 'Learn More'
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const markerRef = useRef<HTMLDivElement>(null);
+  useScrollAnimation(ref);
+  useScrollAnimation(markerRef);
+
   const getStatusConfig = () => {
     const configs = {
       completed: {
@@ -54,15 +59,11 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
   const config = getStatusConfig();
 
   return (
-    <motion.div
-      className={`card-interactive relative bg-gradient-to-br from-secondary/60 to-secondary/20 border ${config.border} backdrop-blur-sm`}
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.03, y: -4 }}
+    <div
+      ref={ref}
+      className={'animate-on-scroll opacity-0 -translate-x-10 card-interactive relative bg-gradient-to-br from-secondary/60 to-secondary/20 border backdrop-blur-sm ' + config.border}
+      style={{ animationDelay: delay + 's' }}
     >
-      {/* Phase Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
@@ -77,37 +78,28 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
         </span>
       </div>
 
-      {/* YOU ARE HERE Marker */}
       {config.marker && (
-        <motion.div
-          className="absolute -right-4 top-8 bg-yellow-500 text-black px-4 py-2 rounded-l-lg font-bold text-sm shadow-lg"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: delay + 0.3 }}
-          viewport={{ once: true }}
+        <div
+          ref={markerRef}
+          className="animate-on-scroll opacity-0 translate-x-5 absolute -right-4 top-8 bg-yellow-500 text-black px-4 py-2 rounded-l-lg font-bold text-sm shadow-lg"
+          style={{ animationDelay: (delay + 0.3) + 's' }}
         >
           {config.marker}
-        </motion.div>
+        </div>
       )}
 
-      {/* Achievements */}
       <div className="space-y-3">
         {achievements.map((achievement, index) => (
-          <motion.div
+          <div
             key={index}
             className="flex items-start gap-3 text-gray-300"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: delay + (index * 0.1) }}
-            viewport={{ once: true }}
           >
             <span className="text-accent mt-1 text-lg">•</span>
             <span className="leading-relaxed">{achievement}</span>
-          </motion.div>
+          </div>
         ))}
       </div>
 
-      {/* Learn More Link */}
       {learnMoreLink && (
         <div className="mt-6">
           <Link to={learnMoreLink} className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2 text-sm font-semibold transition-colors">
@@ -117,7 +109,6 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
         </div>
       )}
 
-      {/* Completion Date */}
       {completionDate && (
         <div className="mt-6 pt-4 border-t border-border/30">
           <p className="text-sm text-muted">
@@ -126,7 +117,7 @@ const PhaseCardSimple: React.FC<PhaseCardSimpleProps> = ({
           </p>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
