@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { NavigationItem } from '../../types';
 import NavigationDropdown, { DropdownItem } from './NavigationDropdown';
 import { useProjectConfig } from '../../hooks/useProjectConfig';
@@ -59,16 +58,11 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   return (
     <nav className={mobile ? "space-y-1 mt-4" : "flex items-center space-x-1"}>
       {/* Render regular navigation items */}
-      {navigationItems.map((item, index) => {
+      {navigationItems.map((item) => {
         const active = isActive(item.href);
-        
+
         return (
-          <motion.div
-            key={item.name}
-            initial={mobile ? { x: -20, opacity: 0 } : { y: -10, opacity: 0 }}
-            animate={mobile ? { x: 0, opacity: 1 } : { y: 0, opacity: 1 }}
-            transition={{ delay: mobile ? index * 0.1 : index * 0.05 }}
-          >
+          <div key={item.name}>
             {item.external ? (
               <a
                 href={item.href}
@@ -90,47 +84,32 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
               >
                 {item.name}
                 {!mobile && active && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
-                    layoutId="activeTab"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }}
-                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent" />
                 )}
               </Link>
             )}
-          </motion.div>
+          </div>
         );
       })}
-      
+
       {/* Tools Dropdown - Positioned after "About" */}
-      <motion.div
-        initial={mobile ? { x: -20, opacity: 0 } : { y: -10, opacity: 0 }}
-        animate={mobile ? { x: 0, opacity: 1 } : { y: 0, opacity: 1 }}
-        transition={{ delay: mobile ? 2 * 0.1 : 2 * 0.05 }}
-      >
+      <div>
         <NavigationDropdown
           label="Tools"
           items={toolsDropdownItems}
           mobile={mobile}
           onItemClick={onItemClick}
         />
-      </motion.div>
-      
+      </div>
+
       {/* CTA Button */}
-      <motion.div
-        initial={mobile ? { x: -20, opacity: 0 } : { y: -10, opacity: 0 }}
-        animate={mobile ? { x: 0, opacity: 1 } : { y: 0, opacity: 1 }}
-        transition={{ delay: mobile ? navigationItems.length * 0.1 : navigationItems.length * 0.05 }}
-        className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}
-      >
+      <div className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}>
         <Link to="/contact">
           <button className="btn-primary text-sm px-4 py-2">
             Join Waitlist
           </button>
         </Link>
-      </motion.div>
+      </div>
     </nav>
   );
 };

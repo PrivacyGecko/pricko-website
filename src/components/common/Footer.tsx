@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { useProjectConfig } from '../../hooks/useProjectConfig';
 import MascotImage from '../ui/MascotImage';
 
@@ -88,14 +87,9 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Enhanced Brand Section with MascotImage */}
           <div className="lg:col-span-2">
-            <motion.div
-              className="flex items-center space-x-4 mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <MascotImage 
-                size="sm" 
+            <div className="flex items-center space-x-4 mb-6">
+              <MascotImage
+                size="sm"
                 alt="Privacy Gecko Logo"
                 className="flex-shrink-0"
               />
@@ -103,25 +97,15 @@ const Footer: React.FC = () => {
                 <h3 className="text-2xl font-bold gradient-text">PRICKO</h3>
                 <p className="text-sm text-muted font-medium">Privacy Gecko</p>
               </div>
-            </motion.div>
-            
-            <motion.p
-              className="text-muted mb-6 max-w-md leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
+            </div>
+
+            <p className="text-muted mb-6 max-w-md leading-relaxed">
               Privacy-focused memecoin with real utility. Born in memes, forged in data abuse.
               Your crypto-native privacy guardian fighting surveillance one transaction at a time.
-            </motion.p>
+            </p>
 
             {/* Newsletter Subscription */}
-            <motion.div
-              className="mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <div className="mb-6">
               <h4 className="text-lg font-semibold mb-3 text-white">Stay Updated</h4>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3">
                 <input
@@ -132,61 +116,40 @@ const Footer: React.FC = () => {
                   className="flex-1 px-4 py-3 bg-border/50 border border-border rounded-lg text-white placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-200"
                   required
                 />
-                <motion.button
+                <button
                   type="submit"
-                  className="btn-primary whitespace-nowrap"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="btn-primary whitespace-nowrap transition-transform duration-200 hover:scale-105 active:scale-95"
                 >
                   Subscribe
-                </motion.button>
+                </button>
               </form>
-            </motion.div>
+            </div>
 
             {/* Enhanced Social Links */}
-            <motion.div
-              className="flex space-x-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              {socialLinks.map((social, index) => (
-                <motion.a
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
+                <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative w-12 h-12 bg-border/50 rounded-xl flex items-center justify-center hover:bg-accent hover:text-black transition-all duration-300 overflow-hidden"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
+                  className="group relative w-12 h-12 bg-border/50 rounded-xl flex items-center justify-center hover:bg-accent hover:text-black transition-all duration-300 overflow-hidden hover:scale-110 hover:-translate-y-0.5 active:scale-95"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent-hover/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10">
                     {social.icon}
                   </div>
-                </motion.a>
+                </a>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div>
             <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   {link.external ? (
                     <a
                       href={link.href}
@@ -204,127 +167,84 @@ const Footer: React.FC = () => {
                       {link.name}
                     </Link>
                   )}
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Privacy Tools */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div>
             <h4 className="text-lg font-semibold mb-6 text-white">Privacy Tools</h4>
             <ul className="space-y-3">
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-              >
+              <li>
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">🔍</span>
                   <span className="text-muted">Gecko Advisor</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-              >
+              </li>
+              <li>
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">📁</span>
                   <span className="text-muted">Gecko Share</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-              >
+              </li>
+              <li>
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">🛡️</span>
                   <span className="text-muted">Gecko Guard</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 }}
-              >
+              </li>
+              <li>
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">🔐</span>
                   <span className="text-muted">Gecko Lock</span>
                   <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full animate-pulse">Live</span>
                 </div>
-              </motion.li>
+              </li>
             </ul>
-          </motion.div>
+          </div>
 
           {/* Legal & Support */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+          <div>
             <h4 className="text-lg font-semibold mb-6 text-white">Legal & Support</h4>
             <ul className="space-y-3">
-              {legalLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                >
+              {legalLinks.map((link) => (
+                <li key={link.name}>
                   <Link
                     to={link.href}
                     className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                   >
                     {link.name}
                   </Link>
-                </motion.li>
+                </li>
               ))}
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.9 }}
-              >
+              <li>
                 <Link
                   to="/contact"
                   className="text-muted hover:text-accent transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                 >
                   Contact Support
                 </Link>
-              </motion.li>
+              </li>
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         {/* Legal Disclaimers */}
-        <motion.div
-          className="border-t border-border/50 pt-8 mt-12 space-y-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div className="border-t border-border/50 pt-8 mt-12 space-y-6">
           {/* Primary Legal Disclaimer */}
           <div className="bg-secondary/40 border border-accent/20 rounded-lg p-6 max-w-4xl mx-auto">
             <p className="text-xs md:text-sm text-muted leading-relaxed text-center">
               <span className="text-accent font-semibold">⚠️ Legal Disclaimer:</span> {footerDisclaimer}
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Enhanced Bottom Section */}
-        <motion.div
-          className="border-t border-border/50 pt-8 mt-8 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
+        <div className="border-t border-border/50 pt-8 mt-8 flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
             <p className="text-sm text-muted">
               &copy; {currentYear} Pricko. Privacy Gecko Approved. All rights reserved.
@@ -334,17 +254,14 @@ const Footer: React.FC = () => {
               <span>Built with privacy in mind</span>
             </div>
           </div>
-          
+
           <div className="flex items-center space-x-6 text-sm">
-            <motion.div
-              className="flex items-center space-x-2 text-muted"
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="flex items-center space-x-2 text-muted transition-transform duration-200 hover:scale-105">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
               <span>Gecko Status: Active</span>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import Navigation from './Navigation';
 import MascotImage from '../ui/MascotImage';
 // import ContractAddress from '../ui/ContractAddress';
@@ -24,15 +23,12 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <motion.header
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-primary/95 backdrop-blur-custom border-b border-border shadow-lg'
           : 'bg-primary/80 backdrop-blur-custom border-b border-border/50'
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container-max">
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
@@ -46,13 +42,9 @@ const Header: React.FC = () => {
             
             {/* Enhanced Brand Text */}
             <div className="flex flex-col">
-              <motion.h1
-                className="text-xl sm:text-2xl font-bold leading-tight"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
+              <h1 className="text-xl sm:text-2xl font-bold leading-tight transition-transform duration-200 hover:scale-105">
                 <span className="gradient-text tracking-wide">PRICKO</span>
-              </motion.h1>
+              </h1>
               <span className="text-xs text-muted font-medium tracking-wider hidden sm:block">
                 Privacy Gecko
               </span>
@@ -65,62 +57,46 @@ const Header: React.FC = () => {
           </div>
 
           {/* Enhanced Mobile Menu Button */}
-          <motion.button
+          <button
             onClick={toggleMenu}
-            className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary"
+            className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary active:scale-95"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
-            whileTap={{ scale: 0.95 }}
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <motion.span
+              <span
                 className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
                   isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'
                 }`}
-                animate={{
-                  rotate: isMenuOpen ? 45 : 0,
-                  y: isMenuOpen ? 6 : -4
-                }}
               />
-              <motion.span
-                className="bg-white block h-0.5 w-6 rounded-full my-1 transition-all duration-300 ease-out"
-                animate={{
-                  opacity: isMenuOpen ? 0 : 1,
-                  x: isMenuOpen ? 20 : 0
-                }}
+              <span
+                className={`bg-white block h-0.5 w-6 rounded-full my-1 transition-all duration-300 ease-out ${
+                  isMenuOpen ? 'opacity-0 translate-x-5' : 'opacity-100 translate-x-0'
+                }`}
               />
-              <motion.span
+              <span
                 className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
                   isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'
                 }`}
-                animate={{
-                  rotate: isMenuOpen ? -45 : 0,
-                  y: isMenuOpen ? -6 : 4
-                }}
               />
             </div>
-          </motion.button>
+          </button>
         </div>
 
         {/* Enhanced Mobile Navigation */}
-        <motion.div
-          className="md:hidden overflow-hidden"
-          initial={false}
-          animate={{
-            height: isMenuOpen ? 'auto' : 0,
-            opacity: isMenuOpen ? 1 : 0
-          }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-400 ease-in-out ${
+            isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
         >
-          <motion.div
-            className="px-4 pb-6 border-t border-border/50 bg-secondary/30 backdrop-blur-sm"
-            initial={{ y: -20 }}
-            animate={{ y: isMenuOpen ? 0 : -20 }}
-            transition={{ duration: 0.3, delay: isMenuOpen ? 0.1 : 0 }}
+          <div
+            className={`px-4 pb-6 border-t border-border/50 bg-secondary/30 backdrop-blur-sm transition-transform duration-300 ${
+              isMenuOpen ? 'translate-y-0' : '-translate-y-5'
+            }`}
           >
             <Navigation mobile onItemClick={() => setIsMenuOpen(false)} />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
       
       {/* Contract Address Banner - Only show when token launches */}
@@ -138,7 +114,7 @@ const Header: React.FC = () => {
         </div>
       </motion.div>
       */}
-    </motion.header>
+    </header>
   );
 };
 
