@@ -12,18 +12,14 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
-    // Check localStorage first
+    // Check localStorage for user preference, otherwise always dark
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('pricko-theme') as Theme | null;
       if (stored && (stored === 'dark' || stored === 'light')) {
         return stored;
       }
-      // Check system preference
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
-      }
     }
-    return 'dark'; // Default to dark theme
+    return 'dark'; // Always default to dark theme
   });
 
   useEffect(() => {
@@ -41,19 +37,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('pricko-theme', theme);
   }, [theme]);
 
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      const stored = localStorage.getItem('pricko-theme');
-      if (!stored) {
-        setThemeState(e.matches ? 'light' : 'dark');
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
 
   const toggleTheme = () => {
     setThemeState(prev => prev === 'dark' ? 'light' : 'dark');
