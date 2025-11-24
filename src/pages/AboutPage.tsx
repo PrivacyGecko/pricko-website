@@ -41,7 +41,7 @@ const AboutPage: React.FC = () => {
     <>
       <SEO
         title="About PRICKO - Privacy-First Memecoin Mission | PRICKO"
-        description="Learn about PRICKO's mission to build privacy products that protect user data. Founded in 2024, community-driven, and committed to making digital privacy accessible to everyone."
+        description="Learn about PRICKO's mission to build privacy products that protect user data. Founded in 2025, community-driven, and committed to making digital privacy accessible to everyone."
         keywords="PRICKO about, privacy products, memecoin mission, blockchain privacy, digital privacy, community-driven crypto, Solana privacy"
         canonicalUrl="/about"
       />
