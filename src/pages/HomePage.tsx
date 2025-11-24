@@ -371,27 +371,16 @@ const HomePage: React.FC = () => {
               </div>
 
               {/* NEW: Contract Address below mascot */}
-              <motion.div
-                className="w-full max-w-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
+              <div className="w-full max-w-md">
                 <div className="p-0.5 rounded-2xl bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20">
                   <div className="rounded-2xl bg-secondary">
                     <ContractAddress variant="hero" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* NEW: GeckoCore Protocol Teaser */}
-              <motion.div
-                className="w-full max-w-md p-4 card-interactive"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                whileHover={{ y: -2 }}
-              >
+              <div className="w-full max-w-md p-4 card-interactive">
                 <div className="flex items-start gap-3">
                   <div className="text-2xl">🚀</div>
                   <div className="flex-1">
@@ -411,7 +400,7 @@ const HomePage: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
