@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { IconType } from 'react-icons';
 import {
   FaShieldAlt,
@@ -7,6 +6,7 @@ import {
   FaCode,
   FaCheckCircle
 } from 'react-icons/fa';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export interface SecurityBadgeProps {
   variant: 'audit' | 'encryption' | 'open-source' | 'verified';
@@ -21,6 +21,9 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
   description,
   delay = 0
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollAnimation(ref, { threshold: 0.1, triggerOnce: true });
+
   const variantConfig: Record<string, {
     icon: IconType;
     color: string;
@@ -52,13 +55,10 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
   const Icon = config.icon;
 
   return (
-    <motion.div
-      className={`flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 transition-all duration-300`}
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
+    <div
+      ref={ref}
+      className="animate-on-scroll fade-scale flex flex-col items-center text-center p-6 bg-secondary/30 rounded-xl border border-accent/10 hover:border-accent/30 hover-scale transition-all duration-300"
+      style={{ animationDelay: `${delay}s` }}
     >
       <div className={`w-16 h-16 bg-gradient-to-br ${config.bgGradient} rounded-2xl flex items-center justify-center mb-4`}>
         <Icon className="text-white text-3xl" />
@@ -67,7 +67,7 @@ const SecurityBadge: React.FC<SecurityBadgeProps> = ({
         {title}
       </h3>
       <p className="text-muted text-sm leading-relaxed">{description}</p>
-    </motion.div>
+    </div>
   );
 };
 

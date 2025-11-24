@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 export interface ProgressBarProps {
   value: number; // 0-100
@@ -20,8 +20,24 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   animated = true,
   delay = 0
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  useScrollAnimation(ref, { threshold: 0.1, triggerOnce: true });
+
   // Clamp value between 0 and 100
   const clampedValue = Math.min(Math.max(value, 0), 100);
+
+  // Animate width on mount if animated
+  useEffect(() => {
+    if (animated) {
+      const timer = setTimeout(() => {
+        setWidth(clampedValue);
+      }, 300 + delay * 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setWidth(clampedValue);
+    }
+  }, [animated, clampedValue, delay]);
 
   // Color mapping for gradient backgrounds
   const colorMap: Record<string, { bg: string; bar: string; text: string }> = {
@@ -73,11 +89,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const heightClass = heightMap[height] || heightMap.md;
 
   return (
-    <motion.div
-      initial={{ opacity: animated ? 0 : 1 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
+    <div
+      ref={ref}
+      className="animate-on-scroll fade-in"
+      style={{ animationDelay: `${delay}s` }}
     >
       {/* Label and Percentage Row */}
       {(label || showPercentage) && (
@@ -95,15 +110,12 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
       {/* Progress Bar Container */}
       <div className={`w-full ${colors.bg} rounded-full overflow-hidden`}>
-        <motion.div
-          className={`${colors.bar} ${heightClass} rounded-full`}
-          initial={{ width: 0 }}
-          whileInView={{ width: `${clampedValue}%` }}
-          transition={{ duration: animated ? 1.2 : 0, delay: animated ? 0.3 : 0 }}
-          viewport={{ once: true }}
+        <div
+          className={`${colors.bar} ${heightClass} rounded-full transition-all duration-1200 ease-out`}
+          style={{ width: `${width}%` }}
         />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -399,3 +399,169 @@
 .protocol-glow-pulse {
   animation: protocol-glow-pulse 3s ease-in-out infinite;
 }
+
+/* ============================================
+   SCROLL ANIMATION CLASSES (Framer Motion Replacement)
+   ============================================ */
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in with scale */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Simple fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Base class for scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+  transition: none;
+}
+
+/* When element becomes visible */
+.animate-on-scroll.visible {
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+/* Animation variants */
+.fade-up.visible {
+  animation-name: fadeInUp;
+}
+
+.fade-left.visible {
+  animation-name: fadeInLeft;
+}
+
+.fade-scale.visible {
+  animation-name: fadeInScale;
+}
+
+.fade-in.visible {
+  animation-name: fadeIn;
+}
+
+/* Hover effects for interactive elements */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-lift:active {
+  transform: translateY(-2px);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-scale:active {
+  transform: scale(0.95);
+}
+
+/* Conditional rendering (accordion, modals) */
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.accordion-content.open {
+  max-height: 1000px; /* Adjust based on content */
+  opacity: 1;
+}
+
+/* Modal animations */
+.modal-backdrop {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.visible {
+  opacity: 1;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide up from bottom (banners, toasts) */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up-fade {
+  animation: slideUpFade 0.4s ease-out forwards;
+}
+
+/* Progress bar fill animation */
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+}
+
+.progress-fill {
+  animation: progressFill 1.2s ease-out 0.3s forwards;
+}
