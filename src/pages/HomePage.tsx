@@ -109,7 +109,7 @@ const HomePage: React.FC = () => {
 
                 <p className="text-base md:text-lg text-muted max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
                   Live products today. Unlimited ecosystem tomorrow.<br />
-                  Developer Preview Q2 2026, Testnet Q3-Q4 2026 — get in before network effects.
+                  Protocol launch Q2 2026 — get in before network effects.
                 </p>
 
                 {/* Social Proof Badges */}
