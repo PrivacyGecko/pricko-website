@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import TeamMember from '../components/ui/TeamMember';
 import NewsletterForm from '../components/ui/NewsletterForm';
@@ -17,6 +18,7 @@ import {
   FaDiscord,
   FaQuestionCircle,
   FaNewspaper,
+
   FaTools,
   FaCheckCircle,
   FaTimesCircle,
@@ -305,627 +307,781 @@ const ContactPage: React.FC = () => {
         canonicalUrl="/contact"
       />
       <div className="min-h-screen bg-primary text-white pt-24">
-        <div className="container-max section-padding">
-          {/* Hero Section */}
-          <div
-            className="text-center mb-20"
+      <div className="container-max section-padding">
+        {/* Hero Section */}
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            className="inline-block mb-6"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div
-              className="inline-block mb-6"
-            >
-              <div className="w-24 h-24 mx-auto mb-6 bg-accent/10 rounded-3xl flex items-center justify-center float-animation">
-                <FaEnvelope className="w-12 h-12 text-accent" />
-              </div>
+            <div className="w-24 h-24 mx-auto mb-6 bg-accent/10 rounded-3xl flex items-center justify-center float-animation">
+              <FaEnvelope className="w-12 h-12 text-accent" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
-              Connect with <span className="gradient-text-animated">PRICKO</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
-              We believe in transparency and direct communication. Email us directly, join our community channels,
-              or use our contact form below. We respond within 24 hours.
+          </motion.div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-professional">
+            Connect with <span className="gradient-text-animated">PRICKO</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
+            We believe in transparency and direct communication. Email us directly, join our community channels,
+            or use our contact form below. We respond within 24 hours.
+          </p>
+        </motion.div>
+
+        {/* Meet the Team Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Meet the <span className="gradient-text">Team</span>
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              Privacy advocates, blockchain engineers, and open-source contributors building the future of digital privacy.
             </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={member.name}
+                name={member.name}
+                role={member.role}
+                bio={member.bio}
+                avatar={member.avatar || undefined}
+                linkedin={member.linkedin || undefined}
+                twitter={member.twitter || undefined}
+                github={member.github || undefined}
+                delay={index * 0.1}
+              />
+            ))}
           </div>
+        </motion.section>
 
-          {/* Meet the Team Section */}
-          <section
-            className="mb-20"
+        {/* Direct Email Contact - PRIMARY METHOD */}
+        <motion.section
+          className="mb-20 glass-morphism rounded-3xl p-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <div
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold mb-4 text-professional">
-                Meet the <span className="gradient-text">Team</span>
-              </h2>
-              <p className="text-muted text-lg max-w-3xl mx-auto">
-                Privacy advocates, blockchain engineers, and open-source contributors building the future of digital privacy.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <TeamMember
-                  key={member.name}
-                  name={member.name}
-                  role={member.role}
-                  bio={member.bio}
-                  avatar={member.avatar || undefined}
-                  linkedin={member.linkedin || undefined}
-                  twitter={member.twitter || undefined}
-                  github={member.github || undefined}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
-          </section>
-
-          {/* Direct Email Contact - PRIMARY METHOD */}
-          <section
-            className="mb-20 glass-morphism rounded-3xl p-12"
-          >
-            <div
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold mb-4 text-professional">
-                Email Us <span className="gradient-text">Directly</span>
-              </h2>
-              <p className="text-muted text-lg max-w-3xl mx-auto">
-                No forms, no friction. Click any email below to contact us directly.
-                Choose the department that best fits your needs.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {teamContacts.map((contact, index) => (
-                <a
-                  key={contact.role}
-                  href={`mailto:${contact.email}`}
-                  className="card group hover:shadow-professional cursor-pointer hover:scale-105 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                      <span className="text-2xl">{contact.icon}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">{contact.role}</h3>
-                      <div className="text-white font-mono text-lg mb-2 group-hover:text-accent transition-colors">
-                        {contact.email}
-                      </div>
-                      <p className="text-muted leading-relaxed mb-3 text-sm">
-                        {contact.description}
-                      </p>
-                      <div className="flex items-center gap-2 text-sm">
-                        <span className="text-accent">⏱️</span>
-                        <span className="text-muted">Response time: {contact.responseTime}</span>
-                      </div>
-                    </div>
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Email Us <span className="gradient-text">Directly</span>
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              No forms, no friction. Click any email below to contact us directly.
+              Choose the department that best fits your needs.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {teamContacts.map((contact, index) => (
+              <motion.a
+                key={contact.role}
+                href={`mailto:${contact.email}`}
+                className="card group hover:shadow-professional cursor-pointer hover:scale-105 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                    <span className="text-2xl">{contact.icon}</span>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-border/50 text-center">
-                    <span className="text-accent text-sm font-medium inline-flex items-center gap-2">
-                      <FaEnvelope /> Click to send email →
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <div
-              className="mt-8 text-center bg-accent/5 border border-accent/20 rounded-xl p-6"
-            >
-              <p className="text-white mb-2">
-                <strong className="text-accent">Why Direct Email?</strong>
-              </p>
-              <p className="text-muted text-sm">
-                We're a privacy-focused project. Direct email means transparency, no middleman,
-                and you have a copy in your Sent folder. One click and we'll get your message instantly.
-              </p>
-            </div>
-          </section>
-
-
-          {/* Social Media & Community - SECONDARY METHOD */}
-          <section
-            className="mb-20"
-          >
-            <div
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold mb-4 text-professional">
-                Join Our <span className="gradient-text">Community</span>
-              </h2>
-              <p className="text-muted text-lg max-w-3xl mx-auto">
-                Prefer real-time chat? Connect with our community on your favorite platform.
-                Get instant support, participate in discussions, and stay updated with the latest news.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card group cursor-pointer text-center hover:shadow-professional-lg"
-                >
-                  <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
-                      <div className="text-accent group-hover:scale-110 transition-transform duration-300">
-                        {social.icon}
-                      </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">{contact.role}</h3>
+                    <div className="text-white font-mono text-lg mb-2 group-hover:text-accent transition-colors">
+                      {contact.email}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
-                      {social.name}
-                    </h3>
-                    <p className="text-muted text-sm leading-relaxed mb-3">
-                      {social.description}
+                    <p className="text-muted leading-relaxed mb-3 text-sm">
+                      {contact.description}
                     </p>
-                    {/* <div className="text-accent font-semibold text-sm">
+                    <div className="flex items-center gap-2 text-sm">
+                      <span className="text-accent">⏱️</span>
+                      <span className="text-muted">Response time: {contact.responseTime}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-border/50 text-center">
+                  <span className="text-accent text-sm font-medium inline-flex items-center gap-2">
+                    <FaEnvelope /> Click to send email →
+                  </span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+          <motion.div
+            className="mt-8 text-center bg-accent/5 border border-accent/20 rounded-xl p-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-white mb-2">
+              <strong className="text-accent">Why Direct Email?</strong>
+            </p>
+            <p className="text-muted text-sm">
+              We're a privacy-focused project. Direct email means transparency, no middleman,
+              and you have a copy in your Sent folder. One click and we'll get your message instantly.
+            </p>
+          </motion.div>
+        </motion.section>
+
+
+        {/* Social Media & Community - SECONDARY METHOD */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Join Our <span className="gradient-text">Community</span>
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              Prefer real-time chat? Connect with our community on your favorite platform.
+              Get instant support, participate in discussions, and stay updated with the latest news.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card group cursor-pointer text-center hover:shadow-professional-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                    <div className="text-accent group-hover:scale-110 transition-transform duration-300">
+                      {social.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
+                    {social.name}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed mb-3">
+                    {social.description}
+                  </p>
+                  {/* <div className="text-accent font-semibold text-sm">
                     {social.followers} followers
                   </div> */}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.section>
 
-          {/* Contact Form - OPTIONAL METHOD (moved to bottom) */}
-          <section
-            className="mb-20 glass-morphism rounded-3xl p-12"
+        {/* Contact Form - OPTIONAL METHOD (moved to bottom) */}
+        <motion.section
+          className="mb-20 glass-morphism rounded-3xl p-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <div
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold mb-4 text-professional">
-                Or Use Our <span className="gradient-text">Contact Form</span>
-              </h2>
-              <p className="text-muted text-lg max-w-3xl mx-auto">
-                Prefer a structured form? Fill it out below and we'll get back to you within 24 hours.
-                All submissions are encrypted and secure.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div>
-                <div
-                  className="flex items-center gap-4 mb-8"
-                >
-                  <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center">
-                    <FaPhone className="w-6 h-6 text-accent" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-professional">
-                    Form <span className="gradient-text">Submission</span>
-                  </h3>
-                </div>
-                <p
-                  className="text-muted mb-8 text-lg leading-relaxed"
-                >
-                  Have questions about PRICKO? Need technical support? Want to explore partnership opportunities?
-                  Fill out the form and our team will respond within 24 hours.
-                </p>
-                <div className="space-y-4">
-                  <div
-                    className="flex items-center gap-4"
-                  >
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                      <FaClock className="text-accent text-xl" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Quick Response</div>
-                      <div className="text-muted text-sm">Average response time: 12-24 hours</div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex items-center gap-4"
-                  >
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                      <FaLock className="text-accent text-xl" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Privacy Focused</div>
-                      <div className="text-muted text-sm">Your data is encrypted and never shared</div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex items-center gap-4"
-                  >
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                      <FaGlobe className="text-accent text-xl" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Global Support</div>
-                      <div className="text-muted text-sm">24/7 community support worldwide</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
-                aria-busy={submitStatus === 'loading'}
+            <h2 className="text-4xl font-bold mb-4 text-professional">
+              Or Use Our <span className="gradient-text">Contact Form</span>
+            </h2>
+            <p className="text-muted text-lg max-w-3xl mx-auto">
+              Prefer a structured form? Fill it out below and we'll get back to you within 24 hours.
+              All submissions are encrypted and secure.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <motion.div
+                className="flex items-center gap-4 mb-8"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
               >
-                {/* Status Message */}
-                <div ref={statusMessageRef} aria-live="polite" aria-atomic="true">
-                  {submitStatus === 'loading' && (
-                    <div
-                      className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center gap-3 text-accent"
-                    >
-                      <FaSpinner className="animate-spin text-xl" />
-                      <span className="font-medium">Sending your message...</span>
-                    </div>
-                  )}
-
-                  {submitStatus === 'success' && (
-                    <div
-                      className="bg-green-500/10 border border-green-500/30 rounded-xl p-4"
-                      role="alert"
-                    >
-                      <div className="flex items-start gap-3">
-                        <FaCheckCircle className="text-green-400 text-xl mt-0.5 flex-shrink-0" />
-                        <div>
-                          <div className="font-semibold text-green-400 mb-1">Message Sent Successfully!</div>
-                          <p className="text-green-400/80 text-sm">
-                            Thank you for contacting us. We typically respond within 24 hours. You should receive a confirmation email shortly.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <div
-                      className="bg-red-500/10 border border-red-500/30 rounded-xl p-4"
-                      role="alert"
-                    >
-                      <div className="flex items-start gap-3">
-                        <FaTimesCircle className="text-red-400 text-xl mt-0.5 flex-shrink-0" />
-                        <div>
-                          <div className="font-semibold text-red-400 mb-1">Failed to Send Message</div>
-                          <p className="text-red-400/80 text-sm mb-3">
-                            We encountered an error while sending your message. Please try again or contact us directly at{' '}
-                            <a href="mailto:community@pricko.com" className="underline hover:text-red-300">
-                              community@pricko.com
-                            </a>
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => setSubmitStatus('idle')}
-                            className="text-sm bg-red-500/20 hover:bg-red-500/30 text-red-300 px-4 py-2 rounded-lg transition-colors"
-                          >
-                            Try Again
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center">
+                  <FaPhone className="w-6 h-6 text-accent" />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Full Name <span className="text-red-400">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white ${formErrors.name ? 'border-red-500' : 'border-border'
-                        }`}
-                      placeholder="Your full name"
-                      disabled={submitStatus === 'loading'}
-                      aria-invalid={!!formErrors.name}
-                      aria-describedby={formErrors.name ? 'name-error' : undefined}
-                    />
-                    {formErrors.name && (
-                      <p id="name-error" className="text-red-400 text-sm mt-1" role="alert">
-                        {formErrors.name}
-                      </p>
-                    )}
+                <h3 className="text-3xl font-bold text-professional">
+                  Form <span className="gradient-text">Submission</span>
+                </h3>
+              </motion.div>
+              <motion.p
+                className="text-muted mb-8 text-lg leading-relaxed"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                Have questions about PRICKO? Need technical support? Want to explore partnership opportunities?
+                Fill out the form and our team will respond within 24 hours.
+              </motion.p>
+              <div className="space-y-4">
+                <motion.div
+                  className="flex items-center gap-4"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <FaClock className="text-accent text-xl" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email Address <span className="text-red-400">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white ${formErrors.email ? 'border-red-500' : 'border-border'
-                        }`}
-                      placeholder="your@email.com"
-                      disabled={submitStatus === 'loading'}
-                      aria-invalid={!!formErrors.email}
-                      aria-describedby={formErrors.email ? 'email-error' : undefined}
-                    />
-                    {formErrors.email && (
-                      <p id="email-error" className="text-red-400 text-sm mt-1" role="alert">
-                        {formErrors.email}
-                      </p>
-                    )}
+                    <div className="font-semibold">Quick Response</div>
+                    <div className="text-muted text-sm">Average response time: 12-24 hours</div>
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="category" className="block text-sm font-medium mb-2">Inquiry Type</label>
-                  <select
-                    id="category"
-                    name="category"
-                    value={formData.category}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white"
-                    disabled={submitStatus === 'loading'}
+                </motion.div>
+                <motion.div
+                  className="flex items-center gap-4"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <FaLock className="text-accent text-xl" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Privacy Focused</div>
+                    <div className="text-muted text-sm">Your data is encrypted and never shared</div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="flex items-center gap-4"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <FaGlobe className="text-accent text-xl" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Global Support</div>
+                    <div className="text-muted text-sm">24/7 community support worldwide</div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              aria-busy={submitStatus === 'loading'}
+            >
+              {/* Status Message */}
+              <div ref={statusMessageRef} aria-live="polite" aria-atomic="true">
+                {submitStatus === 'loading' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center gap-3 text-accent"
                   >
-                    <option value="general">General Inquiry</option>
-                    <option value="technical">Technical Support</option>
-                    <option value="business">Business Partnership</option>
-                    <option value="media">Media & Press</option>
-                    <option value="community">Community</option>
-                  </select>
-                </div>
+                    <FaSpinner className="animate-spin text-xl" />
+                    <span className="font-medium">Sending your message...</span>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-green-500/10 border border-green-500/30 rounded-xl p-4"
+                    role="alert"
+                  >
+                    <div className="flex items-start gap-3">
+                      <FaCheckCircle className="text-green-400 text-xl mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-green-400 mb-1">Message Sent Successfully!</div>
+                        <p className="text-green-400/80 text-sm">
+                          Thank you for contacting us. We typically respond within 24 hours. You should receive a confirmation email shortly.
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-red-500/10 border border-red-500/30 rounded-xl p-4"
+                    role="alert"
+                  >
+                    <div className="flex items-start gap-3">
+                      <FaTimesCircle className="text-red-400 text-xl mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-red-400 mb-1">Failed to Send Message</div>
+                        <p className="text-red-400/80 text-sm mb-3">
+                          We encountered an error while sending your message. Please try again or contact us directly at{' '}
+                          <a href="mailto:community@pricko.com" className="underline hover:text-red-300">
+                            community@pricko.com
+                          </a>
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => setSubmitStatus('idle')}
+                          className="text-sm bg-red-500/20 hover:bg-red-500/30 text-red-300 px-4 py-2 rounded-lg transition-colors"
+                        >
+                          Try Again
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject <span className="text-red-400">*</span>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    Full Name <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white ${formErrors.subject ? 'border-red-500' : 'border-border'
-                      }`}
-                    placeholder="Brief subject of your message"
+                    className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white ${
+                      formErrors.name ? 'border-red-500' : 'border-border'
+                    }`}
+                    placeholder="Your full name"
                     disabled={submitStatus === 'loading'}
-                    aria-invalid={!!formErrors.subject}
-                    aria-describedby={formErrors.subject ? 'subject-error' : undefined}
+                    aria-invalid={!!formErrors.name}
+                    aria-describedby={formErrors.name ? 'name-error' : undefined}
                   />
-                  {formErrors.subject && (
-                    <p id="subject-error" className="text-red-400 text-sm mt-1" role="alert">
-                      {formErrors.subject}
+                  {formErrors.name && (
+                    <p id="name-error" className="text-red-400 text-sm mt-1" role="alert">
+                      {formErrors.name}
                     </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message <span className="text-red-400">*</span>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email Address <span className="text-red-400">*</span>
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleInputChange}
-                    rows={6}
-                    className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white resize-none ${formErrors.message ? 'border-red-500' : 'border-border'
-                      }`}
-                    placeholder="Tell us more about your inquiry... (minimum 10 characters)"
+                    className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white ${
+                      formErrors.email ? 'border-red-500' : 'border-border'
+                    }`}
+                    placeholder="your@email.com"
                     disabled={submitStatus === 'loading'}
-                    aria-invalid={!!formErrors.message}
-                    aria-describedby={formErrors.message ? 'message-error' : undefined}
-                  ></textarea>
-                  {formErrors.message && (
-                    <p id="message-error" className="text-red-400 text-sm mt-1" role="alert">
-                      {formErrors.message}
+                    aria-invalid={!!formErrors.email}
+                    aria-describedby={formErrors.email ? 'email-error' : undefined}
+                  />
+                  {formErrors.email && (
+                    <p id="email-error" className="text-red-400 text-sm mt-1" role="alert">
+                      {formErrors.email}
                     </p>
                   )}
                 </div>
-
-                {/* Honeypot field for spam prevention */}
+              </div>
+              <div>
+                <label htmlFor="category" className="block text-sm font-medium mb-2">Inquiry Type</label>
+                <select
+                  id="category"
+                  name="category"
+                  value={formData.category}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white"
+                  disabled={submitStatus === 'loading'}
+                >
+                  <option value="general">General Inquiry</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="business">Business Partnership</option>
+                  <option value="media">Media & Press</option>
+                  <option value="community">Community</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  Subject <span className="text-red-400">*</span>
+                </label>
                 <input
                   type="text"
-                  name="_gotcha"
-                  style={{ display: 'none' }}
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-
-                <button
-                  type="submit"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white ${
+                    formErrors.subject ? 'border-red-500' : 'border-border'
+                  }`}
+                  placeholder="Brief subject of your message"
                   disabled={submitStatus === 'loading'}
-                  className={`w-full btn-primary py-4 text-lg font-semibold shadow-professional inline-flex items-center justify-center gap-3 ${submitStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
-                    }`}
-                >
-                  {submitStatus === 'loading' ? (
-                    <>
-                      <FaSpinner className="animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <FaPaperPlane />
-                      Send Message
-                    </>
-                  )}
-                </button>
-
-                {submitStatus === 'idle' && (
-                  <p className="text-muted text-sm mt-4 text-center">
-                    Your message will be sent securely. We typically respond within 24 hours.
-                    Need immediate help? Email us at{' '}
-                    <a href="mailto:community@pricko.com" className="text-accent hover:text-accent-hover">
-                      community@pricko.com
-                    </a>
+                  aria-invalid={!!formErrors.subject}
+                  aria-describedby={formErrors.subject ? 'subject-error' : undefined}
+                />
+                {formErrors.subject && (
+                  <p id="subject-error" className="text-red-400 text-sm mt-1" role="alert">
+                    {formErrors.subject}
                   </p>
                 )}
-              </form>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section
-            className="mb-20"
-          >
-            <h2
-              className="text-4xl font-bold mb-12 text-center text-professional"
-            >
-              Frequently Asked <span className="gradient-text">Questions</span>
-            </h2>
-            <div className="space-y-6 max-w-5xl mx-auto">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="card group hover:shadow-professional"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                      <FaQuestionCircle className="text-accent text-sm" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-4 text-accent">{faq.question}</h3>
-                      <p className="text-muted leading-relaxed text-lg">{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Newsletter Signup */}
-          <section
-            className="mb-20 glass-morphism rounded-3xl p-12 text-center"
-          >
-            <h2
-              className="text-4xl font-bold mb-6 text-professional"
-            >
-              Stay <span className="gradient-text">Connected</span>
-            </h2>
-            <p
-              className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
-            >
-              Subscribe to our newsletter for exclusive updates on privacy tools, token developments,
-              community events, and educational content. Join {METRICS.community.formatted} {METRICS.community.label} worldwide.
-            </p>
-
-            {/* Newsletter Status Message */}
-            <div ref={newsletterStatusRef} aria-live="polite" aria-atomic="true" className="mb-6">
-              {newsletterStatus === 'loading' && (
-                <div
-                  className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center justify-center gap-3 text-accent max-w-lg mx-auto"
-                >
-                  <FaSpinner className="animate-spin text-xl" />
-                  <span className="font-medium">Subscribing...</span>
-                </div>
-              )}
-
-              {newsletterStatus === 'success' && (
-                <div
-                  className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 max-w-lg mx-auto"
-                  role="alert"
-                >
-                  <div className="flex items-start gap-3">
-                    <FaCheckCircle className="text-green-400 text-xl mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-green-400 mb-1">Successfully Subscribed!</div>
-                      <p className="text-green-400/80 text-sm">
-                        Welcome to the PRICKO community! Check your email for confirmation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {newsletterStatus === 'error' && (
-                <div
-                  className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 max-w-lg mx-auto"
-                  role="alert"
-                >
-                  <div className="flex items-start gap-3">
-                    <FaTimesCircle className="text-red-400 text-xl mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-red-400 mb-1">Subscription Failed</div>
-                      <p className="text-red-400/80 text-sm mb-3">
-                        Please check your email address and try again.
-                      </p>
-                      <button
-                        type="button"
-                        onClick={() => setNewsletterStatus('idle')}
-                        className="text-sm bg-red-500/20 hover:bg-red-500/30 text-red-300 px-4 py-2 rounded-lg transition-colors"
-                      >
-                        Try Again
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <form
-              onSubmit={handleNewsletterSubmit}
-              className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8"
-            >
-              <input
-                type="email"
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 bg-secondary border border-border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white text-lg"
-                disabled={newsletterStatus === 'loading'}
-                required
-                aria-label="Email address for newsletter subscription"
-              />
-              <button
-                type="submit"
-                disabled={newsletterStatus === 'loading'}
-                className={`btn-primary px-8 py-4 text-lg font-semibold whitespace-nowrap shadow-professional inline-flex items-center gap-3 ${newsletterStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  Message <span className="text-red-400">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={6}
+                  className={`w-full px-4 py-3 bg-secondary border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white resize-none ${
+                    formErrors.message ? 'border-red-500' : 'border-border'
                   }`}
+                  placeholder="Tell us more about your inquiry... (minimum 10 characters)"
+                  disabled={submitStatus === 'loading'}
+                  aria-invalid={!!formErrors.message}
+                  aria-describedby={formErrors.message ? 'message-error' : undefined}
+                ></textarea>
+                {formErrors.message && (
+                  <p id="message-error" className="text-red-400 text-sm mt-1" role="alert">
+                    {formErrors.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Honeypot field for spam prevention */}
+              <input
+                type="text"
+                name="_gotcha"
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              <motion.button
+                type="submit"
+                disabled={submitStatus === 'loading'}
+                className={`w-full btn-primary py-4 text-lg font-semibold shadow-professional inline-flex items-center justify-center gap-3 ${
+                  submitStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
+                whileHover={submitStatus !== 'loading' ? { scale: 1.02, y: -2 } : {}}
+                whileTap={submitStatus !== 'loading' ? { scale: 0.98 } : {}}
               >
-                {newsletterStatus === 'loading' ? (
+                {submitStatus === 'loading' ? (
                   <>
                     <FaSpinner className="animate-spin" />
-                    Subscribing...
+                    Sending...
                   </>
                 ) : (
                   <>
-                    <FaNewspaper />
-                    Subscribe Now
+                    <FaPaperPlane />
+                    Send Message
                   </>
                 )}
-              </button>
-            </form>
+              </motion.button>
 
-            <p
-              className="text-sm text-muted"
-            >
-              Your privacy is our priority. Unsubscribe anytime with one click.
-            </p>
-          </section>
+              {submitStatus === 'idle' && (
+                <p className="text-muted text-sm mt-4 text-center">
+                  Your message will be sent securely. We typically respond within 24 hours.
+                  Need immediate help? Email us at{' '}
+                  <a href="mailto:community@pricko.com" className="text-accent hover:text-accent-hover">
+                    community@pricko.com
+                  </a>
+                </p>
+              )}
+            </motion.form>
+          </div>
+        </motion.section>
 
-          {/* Final CTA */}
-          <section
-            className="text-center glass-morphism rounded-3xl p-12"
+        {/* FAQ Section */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-4xl font-bold mb-12 text-center text-professional"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <h2
-              className="text-4xl font-bold mb-6 text-professional"
-            >
-              Ready to Embrace <span className="gradient-text">Privacy</span>?
-            </h2>
-            <p
-              className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
-            >
-              Join {METRICS.community.formatted} {METRICS.community.label} who have chosen PRICKO as their gateway to digital freedom.
-              Your journey towards true privacy starts with a single step.
-            </p>
-
-            {/* Newsletter Signup */}
-            <div
-              className="max-w-2xl mx-auto mb-8"
-            >
-              <NewsletterForm
-                variant="hero"
-                placeholder="Enter your email to join the whitelist"
-                buttonText="Join Whitelist"
-                showDescription={true}
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <a
-                href="/tools"
-                className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
+            Frequently Asked <span className="gradient-text">Questions</span>
+          </motion.h2>
+          <div className="space-y-6 max-w-5xl mx-auto">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                className="card group hover:shadow-professional"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                <FaTools />
-                Explore Privacy Tools
-              </a>
-            </div>
-          </section>
-        </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                    <FaQuestionCircle className="text-accent text-sm" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-4 text-accent">{faq.question}</h3>
+                    <p className="text-muted leading-relaxed text-lg">{faq.answer}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Newsletter Signup */}
+        <motion.section
+          className="mb-20 glass-morphism rounded-3xl p-12 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-4xl font-bold mb-6 text-professional"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Stay <span className="gradient-text">Connected</span>
+          </motion.h2>
+          <motion.p
+            className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Subscribe to our newsletter for exclusive updates on privacy tools, token developments,
+            community events, and educational content. Join {METRICS.community.formatted} {METRICS.community.label} worldwide.
+          </motion.p>
+          
+          {/* Newsletter Status Message */}
+          <div ref={newsletterStatusRef} aria-live="polite" aria-atomic="true" className="mb-6">
+            {newsletterStatus === 'loading' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-center justify-center gap-3 text-accent max-w-lg mx-auto"
+              >
+                <FaSpinner className="animate-spin text-xl" />
+                <span className="font-medium">Subscribing...</span>
+              </motion.div>
+            )}
+
+            {newsletterStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 max-w-lg mx-auto"
+                role="alert"
+              >
+                <div className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-400 text-xl mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-green-400 mb-1">Successfully Subscribed!</div>
+                    <p className="text-green-400/80 text-sm">
+                      Welcome to the PRICKO community! Check your email for confirmation.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {newsletterStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 max-w-lg mx-auto"
+                role="alert"
+              >
+                <div className="flex items-start gap-3">
+                  <FaTimesCircle className="text-red-400 text-xl mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-red-400 mb-1">Subscription Failed</div>
+                    <p className="text-red-400/80 text-sm mb-3">
+                      Please check your email address and try again.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setNewsletterStatus('idle')}
+                      className="text-sm bg-red-500/20 hover:bg-red-500/30 text-red-300 px-4 py-2 rounded-lg transition-colors"
+                    >
+                      Try Again
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          <motion.form
+            onSubmit={handleNewsletterSubmit}
+            className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <input
+              type="email"
+              value={newsletterEmail}
+              onChange={(e) => setNewsletterEmail(e.target.value)}
+              placeholder="Enter your email address"
+              className="flex-1 px-6 py-4 bg-secondary border border-border rounded-xl focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all text-white text-lg"
+              disabled={newsletterStatus === 'loading'}
+              required
+              aria-label="Email address for newsletter subscription"
+            />
+            <motion.button
+              type="submit"
+              disabled={newsletterStatus === 'loading'}
+              className={`btn-primary px-8 py-4 text-lg font-semibold whitespace-nowrap shadow-professional inline-flex items-center gap-3 ${
+                newsletterStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
+              }`}
+              whileHover={newsletterStatus !== 'loading' ? { scale: 1.05, y: -2 } : {}}
+              whileTap={newsletterStatus !== 'loading' ? { scale: 0.95 } : {}}
+            >
+              {newsletterStatus === 'loading' ? (
+                <>
+                  <FaSpinner className="animate-spin" />
+                  Subscribing...
+                </>
+              ) : (
+                <>
+                  <FaNewspaper />
+                  Subscribe Now
+                </>
+              )}
+            </motion.button>
+          </motion.form>
+
+          <motion.p
+            className="text-sm text-muted"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Your privacy is our priority. Unsubscribe anytime with one click.
+          </motion.p>
+        </motion.section>
+
+        {/* Final CTA */}
+        <motion.section
+          className="text-center glass-morphism rounded-3xl p-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-4xl font-bold mb-6 text-professional"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Ready to Embrace <span className="gradient-text">Privacy</span>?
+          </motion.h2>
+          <motion.p
+            className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Join {METRICS.community.formatted} {METRICS.community.label} who have chosen PRICKO as their gateway to digital freedom.
+            Your journey towards true privacy starts with a single step.
+          </motion.p>
+
+          {/* Newsletter Signup */}
+          <motion.div
+            className="max-w-2xl mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <NewsletterForm
+              variant="hero"
+              placeholder="Enter your email to join the whitelist"
+              buttonText="Join Whitelist"
+              showDescription={true}
+            />
+          </motion.div>
+
+          <div className="flex justify-center">
+            <motion.a
+              href="/tools"
+              className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <FaTools />
+              Explore Privacy Tools
+            </motion.a>
+          </div>
+        </motion.section>
       </div>
+    </div>
     </>
   );
 };

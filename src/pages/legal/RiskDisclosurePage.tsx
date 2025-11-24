@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/common/SEO';
 import {
@@ -113,7 +114,12 @@ const RiskDisclosurePage: React.FC = () => {
               <FiArrowLeft /> Back to Home
             </Link>
 
-            <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-4xl mx-auto"
+            >
               <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/30 rounded-full px-6 py-3 mb-6">
                 <FiAlertTriangle className="text-red-400 text-2xl" />
                 <span className="text-red-400 font-semibold">High-Risk Warning</span>
@@ -126,14 +132,19 @@ const RiskDisclosurePage: React.FC = () => {
               <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
                 Purchasing $PRICKO tokens involves substantial financial risk. Please read and understand all risks before acquiring tokens.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Critical Warning Box */}
         <section className="section-padding py-8">
           <div className="container-max">
-            <div className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 border-2 border-red-500/30 rounded-2xl p-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 border-2 border-red-500/30 rounded-2xl p-8 max-w-4xl mx-auto"
+            >
               <h2 className="text-2xl font-bold text-red-400 mb-4 text-center">
                 ⚠️ READ THIS FIRST
               </h2>
@@ -154,20 +165,33 @@ const RiskDisclosurePage: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Detailed Risk Sections */}
         <section className="section-padding py-12">
           <div className="container-max max-w-6xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold text-center mb-12"
+            >
               Detailed <span className="gradient-text">Risk Categories</span>
-            </h2>
+            </motion.h2>
 
             <div className="space-y-8">
-              {risks.map((risk) => (
-                <div key={risk.title} className="card-elevated">
+              {risks.map((risk, index) => (
+                <motion.div
+                  key={risk.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="card-elevated"
+                >
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <risk.icon className="text-accent text-2xl" />
@@ -186,7 +210,7 @@ const RiskDisclosurePage: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -195,7 +219,13 @@ const RiskDisclosurePage: React.FC = () => {
         {/* Additional Warnings Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-4xl">
-            <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
               <h2 className="text-3xl font-bold text-center mb-8">
                 Additional <span className="gradient-text">Warnings</span>
               </h2>
@@ -240,14 +270,20 @@ const RiskDisclosurePage: React.FC = () => {
                   access to tokens.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Contact Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl text-center">
-            <div className="card-elevated">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="card-elevated"
+            >
               <h2 className="text-2xl font-bold text-white mb-4">Questions About Risks?</h2>
               <p className="text-muted mb-6">
                 If you have questions about any risks disclosed on this page, please consult with
@@ -261,11 +297,17 @@ const RiskDisclosurePage: React.FC = () => {
                   Read Terms of Service
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            <p className="text-sm text-muted mt-8">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-sm text-muted mt-8"
+            >
               Last Updated: November 2025
-            </p>
+            </motion.p>
           </div>
         </section>
       </div>

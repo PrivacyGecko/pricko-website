@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiExternalLink } from 'react-icons/fi';
 
 export interface DropdownItem {
@@ -116,67 +117,79 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
           aria-haspopup="true"
         >
           <span>{label}</span>
-          <div
-            className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
           >
             <FiChevronDown className="w-5 h-5" />
-          </div>
+          </motion.div>
         </button>
 
-        {isOpen && (
-          <div
-            className="overflow-hidden"
-          >
-            <div className="pl-4 pt-2 pb-2 space-y-1" role="menu">
-              {items.map((item, index) => {
-                const statusInfo = item.status ? STATUS_INDICATORS[item.status] : null;
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="overflow-hidden"
+            >
+              <div className="pl-4 pt-2 pb-2 space-y-1" role="menu">
+                {items.map((item, index) => {
+                  const statusInfo = item.status ? STATUS_INDICATORS[item.status] : null;
 
-                return (
-                  <div
-                    key={item.href}
-                  >
-                    {item.external ? (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center justify-between py-2 px-4 text-base rounded hover:bg-accent/10 hover:text-accent transition-colors ${focusedIndex === index ? 'bg-accent/10 text-accent' : ''
+                  return (
+                    <motion.div
+                      key={item.href}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      {item.external ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center justify-between py-2 px-4 text-base rounded hover:bg-accent/10 hover:text-accent transition-colors ${
+                            focusedIndex === index ? 'bg-accent/10 text-accent' : ''
                           }`}
-                        onClick={handleItemClick}
-                        role="menuitem"
-                      >
-                        <span className="flex items-center gap-2">
-                          {item.label}
-                          <FiExternalLink className="w-3 h-3" />
-                        </span>
-                        {statusInfo && (
-                          <span className={`text-xs ${statusInfo.color}`}>
-                            {statusInfo.emoji} {statusInfo.label}
+                          onClick={handleItemClick}
+                          role="menuitem"
+                        >
+                          <span className="flex items-center gap-2">
+                            {item.label}
+                            <FiExternalLink className="w-3 h-3" />
                           </span>
-                        )}
-                      </a>
-                    ) : (
-                      <Link
-                        to={item.href}
-                        className={`flex items-center justify-between py-2 px-4 text-base rounded hover:bg-accent/10 hover:text-accent transition-colors ${focusedIndex === index ? 'bg-accent/10 text-accent' : ''
+                          {statusInfo && (
+                            <span className={`text-xs ${statusInfo.color}`}>
+                              {statusInfo.emoji} {statusInfo.label}
+                            </span>
+                          )}
+                        </a>
+                      ) : (
+                        <Link
+                          to={item.href}
+                          className={`flex items-center justify-between py-2 px-4 text-base rounded hover:bg-accent/10 hover:text-accent transition-colors ${
+                            focusedIndex === index ? 'bg-accent/10 text-accent' : ''
                           }`}
-                        onClick={handleItemClick}
-                        role="menuitem"
-                      >
-                        <span>{item.label}</span>
-                        {statusInfo && (
-                          <span className={`text-xs ${statusInfo.color}`}>
-                            {statusInfo.emoji} {statusInfo.label}
-                          </span>
-                        )}
-                      </Link>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
+                          onClick={handleItemClick}
+                          role="menuitem"
+                        >
+                          <span>{item.label}</span>
+                          {statusInfo && (
+                            <span className={`text-xs ${statusInfo.color}`}>
+                              {statusInfo.emoji} {statusInfo.label}
+                            </span>
+                          )}
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     );
   }
@@ -192,71 +205,83 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
         aria-haspopup="true"
       >
         <span>{label}</span>
-        <div
-          className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
         >
           <FiChevronDown className="w-4 h-4" />
-        </div>
+        </motion.div>
       </button>
 
-      {isOpen && (
-        <div
-          className="absolute top-full left-0 mt-2 w-72 bg-secondary/95 backdrop-blur-md border border-accent/20 rounded-lg shadow-xl overflow-hidden z-50"
-          role="menu"
-        >
-          <div className="py-2 max-h-[500px] overflow-y-auto custom-scrollbar">
-            {items.map((item, index) => {
-              const statusInfo = item.status ? STATUS_INDICATORS[item.status] : null;
-              const isFocused = focusedIndex === index;
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 mt-2 w-72 bg-secondary/95 backdrop-blur-md border border-accent/20 rounded-lg shadow-xl overflow-hidden z-50"
+            role="menu"
+          >
+            <div className="py-2 max-h-[500px] overflow-y-auto custom-scrollbar">
+              {items.map((item, index) => {
+                const statusInfo = item.status ? STATUS_INDICATORS[item.status] : null;
+                const isFocused = focusedIndex === index;
 
-              return (
-                <div
-                  key={item.href}
-                >
-                  {item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-between px-4 py-3 text-sm hover:bg-accent/10 hover:text-accent transition-colors ${isFocused ? 'bg-accent/10 text-accent' : ''
+                return (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.03 }}
+                  >
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center justify-between px-4 py-3 text-sm hover:bg-accent/10 hover:text-accent transition-colors ${
+                          isFocused ? 'bg-accent/10 text-accent' : ''
                         }`}
-                      onClick={handleItemClick}
-                      onMouseEnter={() => setFocusedIndex(index)}
-                      role="menuitem"
-                    >
-                      <span className="flex items-center gap-2">
-                        {item.label}
-                        <FiExternalLink className="w-3 h-3" />
-                      </span>
-                      {statusInfo && (
-                        <span className={`text-xs ${statusInfo.color} flex items-center gap-1`}>
-                          {statusInfo.emoji}
+                        onClick={handleItemClick}
+                        onMouseEnter={() => setFocusedIndex(index)}
+                        role="menuitem"
+                      >
+                        <span className="flex items-center gap-2">
+                          {item.label}
+                          <FiExternalLink className="w-3 h-3" />
                         </span>
-                      )}
-                    </a>
-                  ) : (
-                    <Link
-                      to={item.href}
-                      className={`flex items-center justify-between px-4 py-3 text-sm hover:bg-accent/10 hover:text-accent transition-colors ${isFocused ? 'bg-accent/10 text-accent' : ''
+                        {statusInfo && (
+                          <span className={`text-xs ${statusInfo.color} flex items-center gap-1`}>
+                            {statusInfo.emoji}
+                          </span>
+                        )}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={`flex items-center justify-between px-4 py-3 text-sm hover:bg-accent/10 hover:text-accent transition-colors ${
+                          isFocused ? 'bg-accent/10 text-accent' : ''
                         }`}
-                      onClick={handleItemClick}
-                      onMouseEnter={() => setFocusedIndex(index)}
-                      role="menuitem"
-                    >
-                      <span>{item.label}</span>
-                      {statusInfo && (
-                        <span className={`text-xs ${statusInfo.color} flex items-center gap-1`}>
-                          {statusInfo.emoji}
-                        </span>
-                      )}
-                    </Link>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
+                        onClick={handleItemClick}
+                        onMouseEnter={() => setFocusedIndex(index)}
+                        role="menuitem"
+                      >
+                        <span>{item.label}</span>
+                        {statusInfo && (
+                          <span className={`text-xs ${statusInfo.color} flex items-center gap-1`}>
+                            {statusInfo.emoji}
+                          </span>
+                        )}
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

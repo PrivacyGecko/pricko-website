@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/common/SEO';
 import { FiGlobe, FiAlertTriangle, FiArrowLeft, FiShield } from 'react-icons/fi';
@@ -58,7 +59,12 @@ const GeographicRestrictionsPage: React.FC = () => {
               <FiArrowLeft /> Back to Home
             </Link>
 
-            <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-4xl mx-auto"
+            >
               <div className="inline-flex items-center gap-3 bg-orange-500/10 border border-orange-500/30 rounded-full px-6 py-3 mb-6">
                 <FiGlobe className="text-orange-400 text-2xl" />
                 <span className="text-orange-400 font-semibold">Availability Notice</span>
@@ -71,14 +77,19 @@ const GeographicRestrictionsPage: React.FC = () => {
               <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
                 Important information about jurisdictions where $PRICKO tokens may not be available for purchase or ownership.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Main Disclaimer Section */}
         <section className="section-padding py-8">
           <div className="container-max max-w-4xl">
-            <div className="bg-gradient-to-r from-orange-500/10 via-orange-500/5 to-orange-500/10 border-2 border-orange-500/30 rounded-2xl p-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gradient-to-r from-orange-500/10 via-orange-500/5 to-orange-500/10 border-2 border-orange-500/30 rounded-2xl p-8"
+            >
               <h2 className="text-2xl font-bold text-orange-400 mb-4 text-center flex items-center justify-center gap-2">
                 <FiAlertTriangle />
                 Important Notice
@@ -93,29 +104,43 @@ const GeographicRestrictionsPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Restricted Jurisdictions Table */}
         <section className="section-padding py-12">
           <div className="container-max max-w-6xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold text-center mb-12"
+            >
               Known <span className="gradient-text">Restricted Jurisdictions</span>
-            </h2>
+            </motion.h2>
 
             <div className="space-y-6">
               {restrictedJurisdictions.map((jurisdiction, index) => (
-                <div key={index} className="card-elevated">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="card-elevated"
+                >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="text-xl font-bold text-white">{jurisdiction.region}</h3>
                         <span
-                          className={`px-3 py-1 rounded-full text-xs font-semibold ${jurisdiction.status === 'Prohibited'
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            jurisdiction.status === 'Prohibited'
                               ? 'bg-red-500/20 text-red-400 border border-red-500/30'
                               : 'bg-orange-500/20 text-orange-400 border border-orange-500/30'
-                            }`}
+                          }`}
                         >
                           {jurisdiction.status}
                         </span>
@@ -126,29 +151,47 @@ const GeographicRestrictionsPage: React.FC = () => {
                       <p className="text-sm text-gray-300">{jurisdiction.details}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <div className="mt-8 p-6 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-8 p-6 bg-yellow-500/10 border border-yellow-500/30 rounded-lg"
+            >
               <p className="text-sm text-yellow-200 text-center">
                 ⚠️ <strong>Note:</strong> This list is not exhaustive. Additional jurisdictions may have
                 restrictions that are not listed here. It is your responsibility to ensure compliance with
                 local laws in your jurisdiction.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* User Responsibilities Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-4xl">
-            <h2 className="text-3xl font-bold text-center mb-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl font-bold text-center mb-8"
+            >
               Your <span className="gradient-text">Responsibilities</span>
-            </h2>
+            </motion.h2>
 
             <div className="space-y-6">
-              <div className="card-elevated">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="card-elevated"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FiShield className="text-accent text-2xl" />
@@ -162,9 +205,15 @@ const GeographicRestrictionsPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="card-elevated">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="card-elevated"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FiAlertTriangle className="text-yellow-400 text-2xl" />
@@ -178,9 +227,15 @@ const GeographicRestrictionsPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="card-elevated">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="card-elevated"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FiGlobe className="text-cyan-400 text-2xl" />
@@ -194,9 +249,15 @@ const GeographicRestrictionsPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="card-elevated">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="card-elevated"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FiAlertTriangle className="text-red-400 text-2xl" />
@@ -210,7 +271,7 @@ const GeographicRestrictionsPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -218,7 +279,13 @@ const GeographicRestrictionsPage: React.FC = () => {
         {/* VPN & IP Blocking Notice */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl">
-            <div className="card-elevated">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="card-elevated"
+            >
               <h2 className="text-2xl font-bold text-white mb-4 text-center">
                 VPNs & Circumvention
               </h2>
@@ -234,14 +301,20 @@ const GeographicRestrictionsPage: React.FC = () => {
                   expose you to legal consequences in your home jurisdiction.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Right to Modify Section */}
         <section className="section-padding py-12 bg-secondary/30">
           <div className="container-max max-w-4xl">
-            <div className="card-elevated">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="card-elevated"
+            >
               <h2 className="text-2xl font-bold text-white mb-4">Right to Modify Restrictions</h2>
               <p className="text-muted leading-relaxed mb-4">
                 We reserve the right to add, remove, or modify geographic restrictions at any time without
@@ -269,14 +342,20 @@ const GeographicRestrictionsPage: React.FC = () => {
                 If your jurisdiction becomes restricted after you purchase tokens, you may be required to
                 divest your holdings or face account suspension.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Contact Section */}
         <section className="section-padding py-12">
           <div className="container-max max-w-4xl text-center">
-            <div className="card-elevated">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="card-elevated"
+            >
               <h3 className="text-2xl font-bold text-white mb-4">Questions About Availability?</h3>
               <p className="text-muted mb-6">
                 If you have questions about whether $PRICKO is available in your jurisdiction, please
@@ -291,11 +370,17 @@ const GeographicRestrictionsPage: React.FC = () => {
                   Contact Support
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            <p className="text-sm text-muted mt-8">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-sm text-muted mt-8"
+            >
               Last Updated: November 2025
-            </p>
+            </motion.p>
           </div>
         </section>
       </div>

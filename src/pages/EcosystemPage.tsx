@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';
@@ -31,15 +32,21 @@ const EcosystemPage: FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-cyan-500/10 to-purple-500/10 pointer-events-none" />
 
           <div className="container-max relative z-10">
-            <div
+            <motion.div
               className="text-center max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
               {/* Badge */}
-              <div
+              <motion.div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/60 text-cyan-200 text-sm font-semibold mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 Q1 2026 Development Begins
-              </div>
+              </motion.div>
 
               {/* Title */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
@@ -77,15 +84,19 @@ const EcosystemPage: FC = () => {
                   <FaExternalLinkAlt size={16} />
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Section 2: Live Products Proof */}
         <section className="section-padding bg-black/30">
           <div className="container-max">
-            <div
+            <motion.div
               className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 {TOOLS_COUNT.live} Products. <span className="text-accent">Live Today.</span> Real Users.
@@ -93,7 +104,7 @@ const EcosystemPage: FC = () => {
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Proof before promises. We ship first, hype second.
               </p>
-            </div>
+            </motion.div>
 
             {/* Product Grid - 2x2 on mobile, 4 columns on desktop */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -119,8 +130,12 @@ const EcosystemPage: FC = () => {
           <div className="container-max">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
-              <div
+              <motion.div
                 className="max-w-prose"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
               >
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What is <span className="text-protocol-primary">GeckoCore</span>?
@@ -151,14 +166,18 @@ const EcosystemPage: FC = () => {
                     </a>
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* GeckoCore OG Image */}
-              <div
+              <motion.div
                 className="h-64 lg:h-full"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
               >
                 <GeckoCoreOGImage />
-              </div>
+              </motion.div>
             </div>
 
           </div>
@@ -167,8 +186,12 @@ const EcosystemPage: FC = () => {
         {/* Section 3.5: Trust & Security Indicators */}
         <section className="section-padding bg-black/30">
           <div className="container-max">
-            <div
+            <motion.div
               className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Built on <span className="text-accent">Trust</span> & Transparency
@@ -176,7 +199,7 @@ const EcosystemPage: FC = () => {
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Real security, real code, real team. No smoke and mirrors.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <SecurityBadge
@@ -210,8 +233,12 @@ const EcosystemPage: FC = () => {
         {/* Section 4: The Ecosystem Timeline */}
         <section className="section-padding">
           <div className="container-max max-w-6xl">
-            <div
+            <motion.div
               className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 From 4 to 8: <span className="text-protocol-secondary">The Roadmap</span>
@@ -219,30 +246,43 @@ const EcosystemPage: FC = () => {
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Our journey from live products to decentralized protocol
               </p>
-            </div>
+            </motion.div>
 
             {/* Integrate UtilityTimeline Component */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               <UtilityTimeline orientation="vertical" compact={false} />
-            </div>
+            </motion.div>
 
             {/* CTA */}
-            <div
+            <motion.div
               className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
             >
               <Link to="/roadmap" className="btn-secondary inline-flex items-center gap-2">
                 View Full Roadmap
                 <FaExternalLinkAlt size={16} />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Section 5: How It Works (Token Flow) */}
         <section className="section-padding">
           <div className="container-max max-w-6xl">
-            <div
+            <motion.div
               className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 How $PRICKO Powers the <span className="text-accent">Ecosystem</span>
@@ -250,16 +290,25 @@ const EcosystemPage: FC = () => {
               <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
                 The circular economy that makes it all work
               </p>
-            </div>
+            </motion.div>
 
             {/* Integrate TokenFlowDiagram Component */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               <TokenFlowDiagram size="large" animated={true} showLabels={true} />
-            </div>
+            </motion.div>
 
             {/* Flow Steps Explanation */}
-            <div
+            <motion.div
               className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
             >
               <div className="card-outlined text-center">
                 <div className="text-3xl mb-2">👥</div>
@@ -284,15 +333,19 @@ const EcosystemPage: FC = () => {
                 <h3 className="font-bold text-green-400 mb-2">4. Tools</h3>
                 <p className="text-sm text-gray-400">Decentralized infrastructure serves users</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Section 6: Protocol Architecture */}
         <section className="section-padding bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-green-500/5">
           <div className="container-max max-w-6xl">
-            <div
+            <motion.div
               className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 The Foundation: How <span className="text-protocol-primary">GeckoCore</span> Works
@@ -300,20 +353,29 @@ const EcosystemPage: FC = () => {
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                 Three layers working together to protect your privacy. Simplified for traders, not developers.
               </p>
-            </div>
+            </motion.div>
 
             {/* Integrate ProtocolArchitectureDiagram Component */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               <ProtocolArchitectureDiagram
                 orientation="vertical"
                 interactive={true}
                 showConnections={true}
               />
-            </div>
+            </motion.div>
 
             {/* Developer Resources Links */}
-            <div
+            <motion.div
               className="text-center mt-8 space-y-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
             >
               <p className="text-gray-400">
                 <strong className="text-white">For Developers:</strong>{' '}
@@ -336,25 +398,33 @@ const EcosystemPage: FC = () => {
                   Read Full GeckoCore Whitepaper (Technical Specifications) →
                 </a>
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Section 7: Value Propositions + CTA */}
         <section className="section-padding">
           <div className="container-max">
-            <div
+            <motion.div
               className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Why This <span className="gradient-text">Matters</span>
               </h2>
-            </div>
+            </motion.div>
 
             {/* 3 Benefit Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              <div
+              <motion.div
                 className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
               >
                 <div className="flex justify-center mb-4">
                   <FaRocket className="text-accent text-5xl" />
@@ -363,10 +433,14 @@ const EcosystemPage: FC = () => {
                 <p className="text-gray-300">
                   Token unlocks privacy tools today. No waiting, no promises—just working software serving real users.
                 </p>
-              </div>
+              </motion.div>
 
-              <div
+              <motion.div
                 className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
               >
                 <div className="flex justify-center mb-4">
                   <FaChartLine className="text-cyan-400 text-5xl" />
@@ -375,10 +449,14 @@ const EcosystemPage: FC = () => {
                 <p className="text-gray-300">
                   Protocol infrastructure adds more utility in 2026. Staking rewards, node operation, governance—all powered by $PRICKO.
                 </p>
-              </div>
+              </motion.div>
 
-              <div
+              <motion.div
                 className="card-interactive text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
               >
                 <div className="flex justify-center mb-4">
                   <FaUsers className="text-purple-400 text-5xl" />
@@ -387,12 +465,16 @@ const EcosystemPage: FC = () => {
                 <p className="text-gray-300">
                   Governance through GeckoDAO. Your tokens, your voice in Privacy Gecko's future. No VCs, no centralized control.
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Final CTA Section */}
-            <div
+            <motion.div
               className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
             >
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 Join the Privacy Revolution
@@ -425,7 +507,7 @@ const EcosystemPage: FC = () => {
                   <FaArrowRight size={18} />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>

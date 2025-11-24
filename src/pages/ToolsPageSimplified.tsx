@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
@@ -18,7 +19,12 @@ const ToolsPageSimplified: React.FC = () => {
       <div className="min-h-screen bg-bg-main text-white pt-24">
         <div className="container-max section-padding">
           {/* Hero Section - Simplified */}
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <MascotImage size="lg" className="mb-6 mx-auto" />
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-professional">
               Privacy <span className="bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent">Tools</span>
@@ -42,7 +48,7 @@ const ToolsPageSimplified: React.FC = () => {
                 <span className="text-gray-300">In Development ({TOOLS_COUNT.inDevelopment})</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Unified Product Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -62,14 +68,32 @@ const ToolsPageSimplified: React.FC = () => {
           </div>
 
           {/* Product Safety & Security Section - NEW */}
-          <section className="mb-20">
+          <motion.section
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-professional bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <motion.h2
+                className="text-4xl font-bold mb-4 text-professional bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
                 Product Safety & Security
-              </h2>
-              <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
+              </motion.h2>
+              <motion.p
+                className="text-muted text-lg max-w-3xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
                 Every tool in our ecosystem is built with security-first principles and transparent development practices.
-              </p>
+              </motion.p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -98,10 +122,16 @@ const ToolsPageSimplified: React.FC = () => {
                 delay={0.4}
               />
             </div>
-          </section>
+          </motion.section>
 
           {/* Footer CTA */}
-          <section className="text-center mt-24 relative overflow-hidden">
+          <motion.section
+            className="text-center mt-24 relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <div className="bg-gradient-to-br from-secondary/40 to-secondary/10 rounded-3xl p-12 border border-border/50 backdrop-blur-sm shadow-professional-lg">
               <h2 className="text-4xl font-bold mb-6 text-professional">
                 Ready to <span className="gradient-text-animated">Secure</span> Your Digital Life?
@@ -110,14 +140,16 @@ const ToolsPageSimplified: React.FC = () => {
                 Join {METRICS.prickoshare.formatted} users protecting their privacy with Gecko Share and Gecko Advisor.
               </p>
 
-              <button
-                className="btn-primary px-10 py-4 text-lg font-semibold hover:scale-105 transition-transform"
+              <motion.button
+                className="btn-primary px-10 py-4 text-lg font-semibold"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               >
                 Explore Live Tools
-              </button>
+              </motion.button>
             </div>
-          </section>
+          </motion.section>
         </div>
       </div>
     </>

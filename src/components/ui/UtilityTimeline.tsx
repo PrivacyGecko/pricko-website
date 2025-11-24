@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 import { IconType } from 'react-icons';
 import { FaCheckCircle, FaRocket, FaNetworkWired } from 'react-icons/fa';
 
@@ -80,7 +81,7 @@ const STATUS_CONFIG = {
   current: {
     badgeClass: 'badge-protocol',
     label: 'In Progress',
-    cardClass: 'card-protocol',
+    cardClass: 'card-protocol protocol-glow-pulse',
     color: 'rgba(6, 182, 212, 0.5)' // Cyan
   },
   upcoming: {
@@ -110,10 +111,11 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
       <div className={`container-max ${compact ? 'px-4' : 'section-padding'}`}>
         {/* Timeline Container */}
         <div
-          className={`relative ${isHorizontal
+          className={`relative ${
+            isHorizontal
               ? 'hidden lg:grid lg:grid-cols-3 gap-8'
               : 'space-y-12 md:space-y-16'
-            }`}
+          }`}
         >
           {/* Timeline Spine (Desktop Vertical) */}
           {!isHorizontal && (
@@ -127,20 +129,29 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
             const isEven = index % 2 === 0;
 
             return (
-              <article
+              <motion.article
                 key={phase.year}
-                className={`relative ${isHorizontal
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.2
+                }}
+                viewport={{ once: true }}
+                className={`relative ${
+                  isHorizontal
                     ? ''
                     : 'md:grid md:grid-cols-2 md:gap-8 md:items-center'
-                  }`}
+                }`}
               >
                 {/* Desktop: Alternating Left/Right Layout */}
                 {!isHorizontal && (
                   <>
                     {/* Left Side (Even indices) */}
                     <div
-                      className={`${isEven ? 'md:order-1 md:text-right' : 'md:order-2'
-                        } hidden md:block`}
+                      className={`${
+                        isEven ? 'md:order-1 md:text-right' : 'md:order-2'
+                      } hidden md:block`}
                     >
                       {isEven && <PhaseCard phase={phase} config={config} Icon={Icon} />}
                     </div>
@@ -152,8 +163,9 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
 
                     {/* Right Side (Odd indices) */}
                     <div
-                      className={`${isEven ? 'md:order-3' : 'md:order-1 md:text-left'
-                        } hidden md:block`}
+                      className={`${
+                        isEven ? 'md:order-3' : 'md:order-1 md:text-left'
+                      } hidden md:block`}
                     >
                       {!isEven && <PhaseCard phase={phase} config={config} Icon={Icon} />}
                     </div>
@@ -162,14 +174,32 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
 
                 {/* Mobile & Horizontal: Simple Card */}
                 <div
-                  className={`${isHorizontal ? 'block' : 'md:hidden'
-                    }`}
+                  className={`${
+                    isHorizontal ? 'block' : 'md:hidden'
+                  }`}
                 >
                   <PhaseCard phase={phase} config={config} Icon={Icon} compact={compact} />
                 </div>
-              </article>
+              </motion.article>
             );
           })}
+
+          {/* Animated Traveling Dot (Desktop Vertical Only) */}
+          {!isHorizontal && (
+            <motion.div
+              className="hidden md:block absolute left-1/2 top-0 w-3 h-3 bg-cyan-400 rounded-full transform -translate-x-1/2 shadow-lg"
+              animate={{
+                y: ['0%', '100%'],
+                opacity: [0, 1, 1, 0]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'linear'
+              }}
+              style={{ boxShadow: '0 0 20px rgba(6, 182, 212, 0.8)' }}
+            />
+          )}
         </div>
 
         {/* Mobile Vertical Timeline (Always Visible on Mobile) */}
@@ -179,8 +209,15 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
             const Icon = phase.icon || FaCheckCircle;
 
             return (
-              <article
+              <motion.article
                 key={`mobile-${phase.year}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1
+                }}
+                viewport={{ once: true }}
                 className="relative pl-8"
               >
                 {/* Mobile Timeline Spine */}
@@ -197,7 +234,7 @@ export const UtilityTimeline: FC<UtilityTimelineProps> = ({
 
                 {/* Mobile Card */}
                 <PhaseCard phase={phase} config={config} Icon={Icon} compact={true} />
-              </article>
+              </motion.article>
             );
           })}
         </div>
@@ -219,8 +256,10 @@ interface PhaseCardProps {
 
 const PhaseCard: FC<PhaseCardProps> = ({ phase, config, Icon, compact = false }) => {
   return (
-    <div
+    <motion.div
       className={`${config.cardClass} ${compact ? 'p-4' : 'p-6'}`}
+      whileHover={{ y: -4, scale: 1.02 }}
+      transition={{ duration: 0.3 }}
       tabIndex={0}
       role="article"
       aria-label={`${phase.title}: ${phase.status}`}
@@ -241,17 +280,19 @@ const PhaseCard: FC<PhaseCardProps> = ({ phase, config, Icon, compact = false })
       {/* Icon & Title */}
       <div className="flex items-center gap-3 mb-3">
         <Icon
-          className={`text-2xl ${phase.status === 'completed'
+          className={`text-2xl ${
+            phase.status === 'completed'
               ? 'text-success'
               : phase.status === 'current'
-                ? 'text-cyan-400'
-                : 'text-purple-400'
-            }`}
+              ? 'text-cyan-400'
+              : 'text-purple-400'
+          }`}
           aria-hidden="true"
         />
         <h3
-          className={`${compact ? 'text-lg' : 'text-xl'
-            } font-bold text-white`}
+          className={`${
+            compact ? 'text-lg' : 'text-xl'
+          } font-bold text-white`}
         >
           {phase.title}
         </h3>
@@ -267,16 +308,18 @@ const PhaseCard: FC<PhaseCardProps> = ({ phase, config, Icon, compact = false })
         {phase.items.map((item, idx) => (
           <li
             key={idx}
-            className={`flex items-start gap-2 ${compact ? 'text-xs' : 'text-sm'
-              } text-white/80`}
+            className={`flex items-start gap-2 ${
+              compact ? 'text-xs' : 'text-sm'
+            } text-white/80`}
           >
             <span
-              className={`mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 ${phase.status === 'completed'
+              className={`mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                phase.status === 'completed'
                   ? 'bg-success'
                   : phase.status === 'current'
-                    ? 'bg-cyan-400'
-                    : 'bg-purple-400'
-                }`}
+                  ? 'bg-cyan-400'
+                  : 'bg-purple-400'
+              }`}
               aria-hidden="true"
             />
             <span>{item}</span>
@@ -288,7 +331,7 @@ const PhaseCard: FC<PhaseCardProps> = ({ phase, config, Icon, compact = false })
       <span className="sr-only">
         Status: {config.label}. Year: {phase.year}.
       </span>
-    </div>
+    </motion.div>
   );
 };
 
@@ -304,12 +347,16 @@ interface TimelineNodeProps {
 
 const TimelineNode: FC<TimelineNodeProps> = ({ phase, config, Icon }) => {
   return (
-    <div
+    <motion.div
       className="relative flex items-center justify-center"
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
+      viewport={{ once: true }}
     >
       {/* Outer Glow Ring */}
       <div
-        className="absolute w-16 h-16 rounded-full opacity-20"
+        className="absolute w-16 h-16 rounded-full opacity-20 animate-ping"
         style={{ backgroundColor: config.color }}
       />
 
@@ -319,15 +366,16 @@ const TimelineNode: FC<TimelineNodeProps> = ({ phase, config, Icon }) => {
         style={{ borderColor: config.color }}
       >
         <Icon
-          className={`text-xl ${phase.status === 'completed'
+          className={`text-xl ${
+            phase.status === 'completed'
               ? 'text-success'
               : phase.status === 'current'
-                ? 'text-cyan-400'
-                : 'text-purple-400'
-            }`}
+              ? 'text-cyan-400'
+              : 'text-purple-400'
+          }`}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
