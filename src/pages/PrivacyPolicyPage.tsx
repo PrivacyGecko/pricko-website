@@ -1,8 +1,11 @@
 import React from 'react';
+import Breadcrumb from '../components/common/Breadcrumb';
 
 const PrivacyPolicyPage: React.FC = () => {
   return (
-    <div className="min-h-screen section-padding pt-32">
+    <div className="min-h-screen">
+      <Breadcrumb currentPage="Privacy Policy" />
+      <div className="section-padding">
       <div className="container-max max-w-4xl">
         <div className="page-enter">
           {/* Header */}
@@ -411,6 +414,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </section>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

@@ -9,8 +9,9 @@ interface MascotImageProps {
    * - md: 120px (default, cards)
    * - lg: 160px (page heroes)
    * - xl: 200px (homepage hero)
+   * - 2xl: 280px (large homepage hero)
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   
   /**
    * Additional CSS classes
@@ -74,6 +75,11 @@ const MascotImage: React.FC<MascotImageProps> = ({
       container: 'w-50 h-50', // 200px
       image: 'w-40 h-40', // 160px (40px padding total)
       padding: 'p-5'
+    },
+    '2xl': {
+      container: 'w-72 h-72', // 288px
+      image: 'w-56 h-56', // 224px (64px padding total)
+      padding: 'p-8'
     }
   };
 
@@ -95,8 +101,8 @@ const MascotImage: React.FC<MascotImageProps> = ({
     return null;
   }
 
-  // Only apply heavy animations (float, breathe, glow) to XL size (homepage)
-  const isHeroMascot = size === 'xl';
+  // Only apply heavy animations (float, breathe, glow) to XL/2XL size (homepage)
+  const isHeroMascot = size === 'xl' || size === '2xl';
 
   return (
     <motion.div

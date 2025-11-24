@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../../components/common/Breadcrumb';
 import SEO from '../../components/common/SEO';
 import {
   FiAlertTriangle,
@@ -103,6 +104,7 @@ const RiskDisclosurePage: React.FC = () => {
       />
 
       <div className="min-h-screen bg-gradient-to-b from-primary via-secondary to-primary">
+        <Breadcrumb currentPage="Risk Disclosure" />
         {/* Hero Section */}
         <section className="section-padding pt-32 pb-12">
           <div className="container-max">

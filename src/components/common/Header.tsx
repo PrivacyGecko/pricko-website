@@ -4,6 +4,7 @@ import { FaGithub, FaTelegram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import Navigation from './Navigation';
 import MascotImage from '../ui/MascotImage';
+import ThemeToggle from '../ui/ThemeToggle';
 // import ContractAddress from '../ui/ContractAddress';
 
 const Header: React.FC = () => {
@@ -85,8 +86,12 @@ const Header: React.FC = () => {
 
           {/* Right: Social Icons + Mobile Menu Button */}
           <div className="flex items-center gap-4 flex-shrink-0">
-            {/* Social Icons - Hidden on Mobile */}
+            {/* Theme Toggle + Social Icons - Hidden on Mobile */}
             <div className="hidden md:flex items-center gap-4">
+              {/* Theme Toggle */}
+              <ThemeToggle />
+
+              {/* Social Icons */}
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
@@ -107,7 +112,7 @@ const Header: React.FC = () => {
             {/* Buy $PRICKO Button - Desktop Only */}
             <Link
               to="/how-to-buy"
-              className="hidden md:flex btn-primary px-6 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 hover:-translate-y-0.5 z-60"
+              className="hidden md:flex btn-primary px-4 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 hover:-translate-y-0.5"
             >
               Buy $PRICKO
             </Link>
@@ -150,6 +155,11 @@ const Header: React.FC = () => {
               isMenuOpen ? 'translate-y-0' : '-translate-y-5'
             }`}
           >
+            {/* Theme Toggle in Mobile Menu */}
+            <div className="flex items-center justify-between py-4 border-b border-border/30">
+              <span className="text-muted text-sm">Theme</span>
+              <ThemeToggle />
+            </div>
             <Navigation mobile onItemClick={() => setIsMenuOpen(false)} />
           </div>
         </div>

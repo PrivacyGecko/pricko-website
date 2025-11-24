@@ -7,6 +7,7 @@ import ProductSecurity from './ProductSecurity';
 import ProductPricing from './ProductPricing';
 import ProductFAQ, { type FAQ } from './ProductFAQ';
 import ProductCTA from './ProductCTA';
+import Breadcrumbs from '../ui/Breadcrumbs';
 import type { Product } from '../../types/config';
 
 interface ProductPageTemplateProps {
@@ -97,6 +98,17 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
 
       {/* Page Layout */}
       <div className="min-h-screen bg-primary text-white">
+        {/* Breadcrumbs Navigation */}
+        <div className="container-max px-4 pt-24">
+          <Breadcrumbs
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Products', href: '/products' },
+              { label: product.name }
+            ]}
+          />
+        </div>
+
         {/* Hero Section */}
         <ProductHero product={product} />
 

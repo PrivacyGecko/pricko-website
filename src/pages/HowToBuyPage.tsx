@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaWallet, FaExchangeAlt, FaCheckCircle, FaTwitter } from 'react-icons/fa';
+import Breadcrumb from '../components/common/Breadcrumb';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import SecurityBadge from '../components/ui/SecurityBadge';
@@ -69,7 +70,8 @@ const HowToBuyPage: React.FC = () => {
         keywords="buy PRICKO, pump.fun, Solana token, how to buy crypto, PRICKO token, memecoin purchase guide"
         canonicalUrl="/how-to-buy"
       />
-      <div className="min-h-screen bg-bg-main text-white pt-24">
+      <div className="min-h-screen bg-bg-main text-white">
+        <Breadcrumb currentPage="How to Buy" />
         <div className="container-max section-padding">
         {/* Hero Section */}
         <div

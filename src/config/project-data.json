@@ -813,7 +813,7 @@
     {
       "id": "live-products",
       "title": "Real Products Live",
-      "description": "2 live products serving 2,100+ users with measurable traction",
+      "description": "4 live products serving 2,100+ users with measurable traction",
       "icon": "FaCheckCircle"
     },
     {
@@ -854,7 +854,7 @@
           {
             "id": "what-is-pricko",
             "question": "What is PRICKO?",
-            "answer": "PRICKO ($PRICKO) is a utility token that powers the Privacy Gecko ecosystem of privacy-first tools. Unlike typical meme coins, PRICKO provides real utility by granting access to premium features across 8 privacy tools. We've already launched 2 live products serving 2,100+ users, with 2 more at 90%+ completion."
+            "answer": "PRICKO ($PRICKO) is a utility token that powers the Privacy Gecko ecosystem of privacy-first tools. Unlike typical meme coins, PRICKO provides real utility by granting access to premium features across 8 privacy tools. We've already launched 4 live products (Gecko Advisor, Gecko Share, Gecko Guard, and Gecko Lock) serving 2,100+ users, with 4 more in development."
           },
           {
             "id": "is-pricko-investment",
@@ -864,7 +864,7 @@
           {
             "id": "why-trust-pricko",
             "question": "Why should I trust PRICKO over other crypto projects?",
-            "answer": "Privacy Gecko has shipped 2 live products (GeckoShare and GeckoAdvisor) before asking for investment. We're 100% open source with completed security audits, and we've attracted 1,800+ beta testers. We believe in 'proof over promises' - our working products speak for themselves."
+            "answer": "Privacy Gecko has shipped 4 live products (Gecko Advisor, Gecko Share, Gecko Guard, and Gecko Lock) before asking for investment. We're 100% open source with completed security audits, and we've attracted 1,800+ beta testers. We believe in 'proof over promises' - our working products speak for themselves."
           },
           {
             "id": "blockchain-choice",
@@ -970,6 +970,36 @@
             "id": "security-audits",
             "question": "Have the products been security audited?",
             "answer": "Yes. GeckoShare and GeckoAdvisor have completed independent security audits in Q4 2024. Audit reports are publicly available on our GitHub. Products currently in development will undergo audits before public launch."
+          }
+        ]
+      },
+      "developer": {
+        "title": "Developer Questions",
+        "questions": [
+          {
+            "id": "api-access",
+            "question": "Is there an API for Privacy Gecko tools?",
+            "answer": "Yes! We provide REST APIs for Gecko Advisor and Gecko Share. API documentation is available at docs.privacygecko.com. Free tier includes 100 API calls/day, and token holders get unlimited access based on their tier level."
+          },
+          {
+            "id": "contribute",
+            "question": "How can I contribute to Privacy Gecko?",
+            "answer": "All our products are open source on GitHub (github.com/privacygecko). We welcome pull requests, bug reports, and feature suggestions. Active contributors can earn PRICKO tokens through our bounty program. Check our CONTRIBUTING.md for guidelines."
+          },
+          {
+            "id": "tech-stack",
+            "question": "What tech stack does Privacy Gecko use?",
+            "answer": "Frontend: React/TypeScript with Vite. Backend: Node.js/Express. Blockchain: Solana with @solana/web3.js. Encryption: AES-256-GCM and XChaCha20-Poly1305. All products use zero-knowledge architecture where possible. See our GitHub for detailed architecture docs."
+          },
+          {
+            "id": "self-host",
+            "question": "Can I self-host Privacy Gecko tools?",
+            "answer": "Yes! Our tools are designed for self-hosting. Docker images are available for Gecko Share, and deployment guides are provided in our documentation. Self-hosted instances are completely free and independent of our infrastructure."
+          },
+          {
+            "id": "smart-contracts",
+            "question": "Where can I find the PRICKO smart contract?",
+            "answer": "The PRICKO token contract is deployed on Solana mainnet. Contract address and verified source code are available on Solscan and our GitHub. The contract has been audited by independent security firms with reports published publicly."
           }
         ]
       },

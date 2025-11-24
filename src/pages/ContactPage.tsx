@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Breadcrumb from '../components/common/Breadcrumb';
 import SEO from '../components/common/SEO';
 import TeamMember from '../components/ui/TeamMember';
 import NewsletterForm from '../components/ui/NewsletterForm';
@@ -305,7 +306,8 @@ const ContactPage: React.FC = () => {
         keywords="contact PRICKO, PRICKO support, crypto community, blockchain partnerships, privacy products support, PRICKO email, PRICKO telegram"
         canonicalUrl="/contact"
       />
-      <div className="min-h-screen bg-primary text-white pt-24">
+      <div className="min-h-screen bg-primary text-white">
+      <Breadcrumb currentPage="Contact" />
       <div className="container-max section-padding">
         {/* Hero Section */}
         <div

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/common/Breadcrumb';
 import { FaRocket, FaEye, FaShieldAlt, FaUsers, FaServer, FaExternalLinkAlt } from 'react-icons/fa';
 import ContractAddress from '../components/ui/ContractAddress';
 import UtilityTierCard from '../components/ui/UtilityTierCard';
@@ -187,7 +188,8 @@ const TokenomicsPage: React.FC = () => {
         keywords="PRICKO tokenomics, pump.fun launch, Solana token, utility token, token distribution, fair launch, deflationary token, crypto tokenomics"
         canonicalUrl="/tokenomics"
       />
-      <div className="min-h-screen bg-bg-main text-white pt-24">
+      <div className="min-h-screen bg-bg-main text-white">
+      <Breadcrumb currentPage="Tokenomics" />
       <div className="container-max section-padding">
         {/* Hero Section */}
         <div

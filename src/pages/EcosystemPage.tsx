@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRocket, FaChartLine, FaUsers, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import Breadcrumb from '../components/common/Breadcrumb';
 import { UtilityTimeline } from '../components/ui/UtilityTimeline';
 import { TokenFlowDiagram } from '../components/ui/TokenFlowDiagram';
 import { ProtocolArchitectureDiagram } from '../components/ui/ProtocolArchitectureDiagram';
@@ -25,8 +26,9 @@ const EcosystemPage: FC = () => {
       />
 
       <main id="main-content" className="min-h-screen bg-primary">
+        <Breadcrumb currentPage="Ecosystem" />
         {/* Section 1: Hero */}
-        <section className="relative section-padding overflow-hidden pt-32 md:pt-40">
+        <section className="relative section-padding overflow-hidden pt-8 md:pt-16">
           {/* Gradient Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-cyan-500/10 to-purple-500/10 pointer-events-none" />
 

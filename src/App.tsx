@@ -1,8 +1,10 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Layout from './components/common/Layout';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import ScrollToTop from './components/common/ScrollToTop';
+import PageTransition from './components/common/PageTransition';
 
 // Lazy load all page components for code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -33,56 +35,98 @@ const GeckoVPNPage = lazy(() => import('./pages/products/GeckoVPNPage'));
 // Ecosystem page
 const EcosystemPage = lazy(() => import('./pages/EcosystemPage'));
 
-// Loading fallback component
+// Skeleton loading component for better UX
+const SkeletonBlock = ({ className = '' }: { className?: string }) => (
+  <div className={`bg-secondary/50 rounded animate-pulse ${className}`} />
+);
+
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-primary flex items-center justify-center">
-    <div className="text-center">
-      <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent mb-4"></div>
-      <p className="text-accent text-xl font-semibold">Loading...</p>
+  <div className="min-h-screen bg-primary">
+    {/* Hero Section Skeleton */}
+    <div className="container-max px-4 pt-8 pb-16">
+      {/* Hero content skeleton */}
+      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 py-12">
+        {/* Left side - text content */}
+        <div className="flex-1 space-y-6 w-full">
+          {/* Badge skeleton */}
+          <SkeletonBlock className="h-6 w-32" />
+          {/* Title skeleton */}
+          <SkeletonBlock className="h-12 w-full max-w-md" />
+          <SkeletonBlock className="h-12 w-3/4 max-w-sm" />
+          {/* Subtitle skeleton */}
+          <SkeletonBlock className="h-6 w-full max-w-lg" />
+          <SkeletonBlock className="h-6 w-2/3 max-w-md" />
+          {/* CTA buttons skeleton */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <SkeletonBlock className="h-12 w-40" />
+            <SkeletonBlock className="h-12 w-36" />
+          </div>
+        </div>
+        {/* Right side - mascot skeleton */}
+        <div className="flex-shrink-0">
+          <SkeletonBlock className="h-64 w-64 lg:h-80 lg:w-80 rounded-full" />
+        </div>
+      </div>
+    </div>
+
+    {/* Content Section Skeleton */}
+    <div className="container-max px-4 py-12">
+      {/* Section title */}
+      <div className="text-center mb-12">
+        <SkeletonBlock className="h-8 w-64 mx-auto mb-4" />
+        <SkeletonBlock className="h-4 w-96 mx-auto max-w-full" />
+      </div>
+      {/* Cards grid skeleton */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="bg-secondary/30 rounded-xl p-6 space-y-4">
+            <SkeletonBlock className="h-12 w-12 rounded-lg" />
+            <SkeletonBlock className="h-6 w-3/4" />
+            <SkeletonBlock className="h-4 w-full" />
+            <SkeletonBlock className="h-4 w-5/6" />
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 );
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
-      {/* Skip to main content link for accessibility */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-accent focus:text-black focus:rounded-lg focus:font-semibold"
-      >
-        Skip to main content
-      </a>
-
       <ErrorBoundary>
         <Layout>
           <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/products" element={<ToolsPage />} />
-              <Route path="/tokenomics" element={<TokenomicsPage />} />
-              <Route path="/how-to-buy" element={<HowToBuyPage />} />
-              <Route path="/roadmap" element={<RoadmapPage />} />
-              <Route path="/ecosystem" element={<EcosystemPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/privacy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms" element={<TermsOfServicePage />} />
-              <Route path="/disclaimer" element={<DisclaimerPage />} />
-              <Route path="/risk-disclosure" element={<RiskDisclosurePage />} />
-              <Route path="/forward-looking-statements" element={<ForwardLookingStatementsPage />} />
-              <Route path="/geographic-restrictions" element={<GeographicRestrictionsPage />} />
-              {/* Product Pages */}
-              <Route path="/gecko-advisor" element={<GeckoAdvisorPage />} />
-              <Route path="/gecko-share" element={<GeckoSharePage />} />
-              <Route path="/gecko-shell" element={<GeckoShellPage />} />
-              <Route path="/gecko-guard" element={<GeckoGuardPage />} />
-              <Route path="/gecko-lock" element={<GeckoLockPage />} />
-              <Route path="/gecko-watch" element={<GeckoWatchPage />} />
-              <Route path="/gecko-view" element={<GeckoViewPage />} />
-              <Route path="/gecko-vpn" element={<GeckoVPNPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
+            <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+                <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+                <Route path="/products" element={<PageTransition><ToolsPage /></PageTransition>} />
+                <Route path="/tokenomics" element={<PageTransition><TokenomicsPage /></PageTransition>} />
+                <Route path="/how-to-buy" element={<PageTransition><HowToBuyPage /></PageTransition>} />
+                <Route path="/roadmap" element={<PageTransition><RoadmapPage /></PageTransition>} />
+                <Route path="/ecosystem" element={<PageTransition><EcosystemPage /></PageTransition>} />
+                <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+                <Route path="/privacy" element={<PageTransition><PrivacyPolicyPage /></PageTransition>} />
+                <Route path="/terms" element={<PageTransition><TermsOfServicePage /></PageTransition>} />
+                <Route path="/disclaimer" element={<PageTransition><DisclaimerPage /></PageTransition>} />
+                <Route path="/risk-disclosure" element={<PageTransition><RiskDisclosurePage /></PageTransition>} />
+                <Route path="/forward-looking-statements" element={<PageTransition><ForwardLookingStatementsPage /></PageTransition>} />
+                <Route path="/geographic-restrictions" element={<PageTransition><GeographicRestrictionsPage /></PageTransition>} />
+                {/* Product Pages */}
+                <Route path="/gecko-advisor" element={<PageTransition><GeckoAdvisorPage /></PageTransition>} />
+                <Route path="/gecko-share" element={<PageTransition><GeckoSharePage /></PageTransition>} />
+                <Route path="/gecko-shell" element={<PageTransition><GeckoShellPage /></PageTransition>} />
+                <Route path="/gecko-guard" element={<PageTransition><GeckoGuardPage /></PageTransition>} />
+                <Route path="/gecko-lock" element={<PageTransition><GeckoLockPage /></PageTransition>} />
+                <Route path="/gecko-watch" element={<PageTransition><GeckoWatchPage /></PageTransition>} />
+                <Route path="/gecko-view" element={<PageTransition><GeckoViewPage /></PageTransition>} />
+                <Route path="/gecko-vpn" element={<PageTransition><GeckoVPNPage /></PageTransition>} />
+                <Route path="*" element={<PageTransition><NotFoundPage /></PageTransition>} />
+              </Routes>
+            </AnimatePresence>
           </Suspense>
         </Layout>
         <ScrollToTop />

@@ -1,11 +1,15 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import ScrollProgress from '../ui/ScrollProgress';
 import { PageProps } from '../../types';
 
 const Layout: React.FC<PageProps> = ({ children, className = '' }) => {
   return (
     <div className={`min-h-screen ${className}`}>
+      {/* Scroll Progress Indicator */}
+      <ScrollProgress color="gradient" height={3} />
+
       {/* Skip to main content link for accessibility */}
       <a
         href="#main-content"

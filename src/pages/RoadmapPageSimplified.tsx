@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/common/Breadcrumb';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import PhaseCardSimple from '../components/roadmap/PhaseCardSimple';
@@ -14,7 +15,8 @@ const RoadmapPageSimplified: React.FC = () => {
         keywords="PRICKO roadmap, development timeline, crypto roadmap, privacy products roadmap, Gecko Share, token launch"
         canonicalUrl="/roadmap"
       />
-      <div className="min-h-screen bg-bg-main text-white pt-24">
+      <div className="min-h-screen bg-bg-main text-white">
+        <Breadcrumb currentPage="Roadmap" />
         <div className="container-max section-padding">
           {/* Hero Section */}
           <div

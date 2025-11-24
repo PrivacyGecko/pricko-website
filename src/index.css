@@ -2,16 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Variables for Theme Colors */
+:root {
+  /* Dark theme (default) */
+  --color-primary: #000000;
+  --color-secondary: #18181b;
+  --color-accent: #4ade80;
+  --color-accent-hover: #22c55e;
+  --color-muted: #d4d4d8;
+  --color-border: #27272a;
+  --color-text: #ffffff;
+  --color-text-muted: #a1a1aa;
+  --color-card-bg: #18181b;
+}
+
+/* Light theme variables */
+.light-theme {
+  --color-primary: #f8fafc;
+  --color-secondary: #ffffff;
+  --color-accent: #16a34a;
+  --color-accent-hover: #15803d;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-card-bg: #ffffff;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   body {
-    @apply bg-primary text-white font-sans;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
+  /* Light theme specific overrides */
+  .light-theme body,
+  .light-theme {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+  }
+
+  .light-theme .bg-primary {
+    background-color: var(--color-primary) !important;
+  }
+
+  .light-theme .bg-secondary {
+    background-color: var(--color-secondary) !important;
+  }
+
+  .light-theme .text-white {
+    color: var(--color-text) !important;
+  }
+
+  .light-theme .text-muted {
+    color: var(--color-muted) !important;
+  }
+
+  .light-theme .border-border {
+    border-color: var(--color-border) !important;
+  }
+
+  .light-theme .card,
+  .light-theme .card-elevated,
+  .light-theme .card-interactive {
+    background-color: var(--color-card-bg) !important;
+    border-color: var(--color-border) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .light-theme .bg-secondary\/80,
+  .light-theme .bg-secondary\/50,
+  .light-theme .bg-secondary\/30 {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .light-theme .text-gray-300,
+  .light-theme .text-gray-400 {
+    color: var(--color-text-muted) !important;
+  }
+
+  /* Header specific light theme fixes */
+  .light-theme header {
+    background-color: rgba(248, 250, 252, 0.95) !important;
+  }
+
+  .light-theme header .bg-primary\/95,
+  .light-theme header .bg-primary\/80 {
+    background-color: rgba(248, 250, 252, 0.95) !important;
+  }
+
+  .light-theme header h1,
+  .light-theme header span,
+  .light-theme header a,
+  .light-theme header button {
+    color: var(--color-text);
+  }
+
+  .light-theme header .text-muted {
+    color: var(--color-muted) !important;
+  }
+
+  .light-theme header .gradient-text {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .light-theme header .text-accent {
+    color: #16a34a !important;
+  }
+
+  /* Mobile menu button lines in light mode */
+  .light-theme header button span.bg-white {
+    background-color: var(--color-text) !important;
+  }
+
+  /* Mobile menu background in light mode */
+  .light-theme header .bg-secondary\/30 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* Navigation dropdown in light mode */
+  .light-theme nav a,
+  .light-theme nav button {
+    color: var(--color-text);
+  }
+
+  .light-theme nav a:hover,
+  .light-theme nav button:hover {
+    color: #16a34a;
+  }
+
+  /* Dropdown menu card in light mode */
+  .light-theme .bg-secondary\/95 {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .light-theme [role="menu"] a,
+  .light-theme [role="menu"] span {
+    color: var(--color-text);
+  }
+
+  .light-theme [role="menu"] a:hover {
+    background-color: rgba(22, 163, 74, 0.1) !important;
+    color: #16a34a;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -44,39 +188,169 @@
   }
 
   .card {
-    @apply bg-secondary border border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    @apply bg-secondary border border-border rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .card:hover {
+    border-color: rgba(74, 222, 128, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(74, 222, 128, 0.15), 0 4px 10px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+    background: radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.1), transparent 50%);
   }
 
   /* NEW: Card Variants (Professional Design System) */
   .card-elevated {
-    @apply bg-secondary border border-border rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:translate-y-[-4px];
+    @apply bg-secondary border border-border rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-elevated::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
   .card-elevated:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+    border-color: rgba(74, 222, 128, 0.4);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2), 0 0 30px -5px rgba(74, 222, 128, 0.2);
+  }
+
+  .card-elevated:hover::before {
+    opacity: 1;
   }
 
   .card-interactive {
-    @apply bg-secondary border border-border rounded-lg p-6 cursor-pointer hover:border-accent/50 hover:scale-105 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    @apply bg-secondary border border-border rounded-lg p-6 cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-interactive::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .card-interactive::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4ade80, #22d3ee, #4ade80);
+    background-size: 200% 100%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
   }
 
   .card-interactive:hover {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(74, 222, 128, 0.5);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 20px -5px rgba(74, 222, 128, 0.2);
+  }
+
+  .card-interactive:hover::before {
+    opacity: 1;
+  }
+
+  .card-interactive:hover::after {
+    transform: scaleX(1);
+    animation: gradient-shift 2s ease infinite;
   }
 
   .card-glass {
-    @apply glass-morphism rounded-lg p-6 border border-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent hover:border-accent/50;
+    @apply glass-morphism rounded-lg p-6 border border-white/10 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .card-glass:hover {
+    border-color: rgba(74, 222, 128, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+
+  .card-glass:hover::before {
+    opacity: 1;
   }
 
   .card-outlined {
-    @apply bg-transparent border-2 border-border rounded-lg p-6 hover:border-accent/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    @apply bg-transparent border-2 border-border rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-accent;
+    position: relative;
+  }
+
+  .card-outlined:hover {
+    border-color: rgba(74, 222, 128, 0.5);
+    background: rgba(74, 222, 128, 0.05);
+    transform: translateY(-2px);
   }
 
   .card-premium {
-    @apply bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-royal/30 rounded-lg p-6 hover:border-purple-royal/50 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-purple-royal;
+    @apply bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-royal/30 rounded-lg p-6 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-purple-royal;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(192, 132, 252, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .card-premium:hover {
+    border-color: rgba(192, 132, 252, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2), 0 0 30px -5px rgba(192, 132, 252, 0.3);
+  }
+
+  .card-premium:hover::before {
+    opacity: 1;
   }
 
   /* NEW: Badge Variants (Professional Design System) */

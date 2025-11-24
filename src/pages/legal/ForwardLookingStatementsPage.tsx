@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../../components/common/Breadcrumb';
 import SEO from '../../components/common/SEO';
 import { FiCalendar, FiAlertCircle, FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
 import { FORWARD_LOOKING_STATEMENT, ROADMAP_DISCLAIMER, PROTOCOL_TIMELINE_DISCLAIMER } from '../../constants/legal';
@@ -65,6 +66,7 @@ const ForwardLookingStatementsPage: React.FC = () => {
       />
 
       <div className="min-h-screen bg-gradient-to-b from-primary via-secondary to-primary">
+        <Breadcrumb currentPage="Forward-Looking Statements" />
         {/* Hero Section */}
         <section className="section-padding pt-32 pb-12">
           <div className="container-max">

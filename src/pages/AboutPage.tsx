@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/common/Breadcrumb';
 import ContractAddress from '../components/ui/ContractAddress';
 import ProofMetric from '../components/ui/ProofMetric';
 import FAQSection from '../components/FAQSection';
@@ -45,7 +46,8 @@ const AboutPage: React.FC = () => {
         keywords="PRICKO about, privacy products, memecoin mission, blockchain privacy, digital privacy, community-driven crypto, Solana privacy"
         canonicalUrl="/about"
       />
-      <div className="min-h-screen bg-primary text-white pt-24">
+      <div className="min-h-screen bg-primary text-white">
+      <Breadcrumb currentPage="About" />
       <div className="container-max section-padding">
         {/* Hero Section */}
         <div

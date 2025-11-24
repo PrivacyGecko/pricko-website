@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../../components/common/Breadcrumb';
 import SEO from '../../components/common/SEO';
 import { FiGlobe, FiAlertTriangle, FiArrowLeft, FiShield } from 'react-icons/fi';
 import { GEOGRAPHIC_RESTRICTION_NOTICE, US_PERSONS_DISCLAIMER } from '../../constants/legal';
@@ -48,6 +49,7 @@ const GeographicRestrictionsPage: React.FC = () => {
       />
 
       <div className="min-h-screen bg-gradient-to-b from-primary via-secondary to-primary">
+        <Breadcrumb currentPage="Geographic Restrictions" />
         {/* Hero Section */}
         <section className="section-padding pt-32 pb-12">
           <div className="container-max">

@@ -6,6 +6,7 @@ import NewsletterForm from '../components/ui/NewsletterForm';
 import SEO from '../components/common/SEO';
 import ProofOfDevelopment from '../components/ProofOfDevelopment';
 import SocialProof from '../components/SocialProof';
+import AnchorNav from '../components/ui/AnchorNav';
 import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -73,8 +74,11 @@ const HomePage: React.FC = () => {
         structuredData={homepageStructuredData}
       />
       <div className="min-h-screen">
+      {/* Anchor Navigation */}
+      <AnchorNav />
+
       {/* Hero Section */}
-      <section className="relative section-padding pt-32 pb-8 overflow-hidden">
+      <section id="hero" className="relative section-padding pt-32 pb-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10"></div>
         <div className="absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl"></div>
@@ -160,55 +164,28 @@ const HomePage: React.FC = () => {
             {/* Right Column: Mascot Display */}
             <div className="lg:w-1/2 flex items-center justify-center">
               <div className="relative">
-                {/* Soft Pulsing Glow Behind Mascot */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10"
-                  animate={{
-                    scale: [1, 1.15, 1],
-                    opacity: [0.3, 0.5, 0.3]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <div className="w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
-                </motion.div>
-
-                {/* Floating Particles Around Mascot */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  {[...Array(10)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-2 h-2 rounded-full bg-accent/30"
-                      style={{
-                        left: `${15 + i * 8}%`,
-                        top: `${10 + (i % 3) * 25}%`,
-                      }}
-                      animate={{
-                        y: [0, -40, 0],
-                        x: [0, (i % 2 === 0 ? 15 : -15), 0],
-                        opacity: [0.2, 0.7, 0.2],
-                        scale: [0.8, 1.2, 0.8],
-                      }}
-                      transition={{
-                        duration: 3 + i * 0.4,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2,
-                      }}
-                    />
-                  ))}
+                {/* Visible glow behind mascot */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-96 h-96 bg-accent/40 rounded-full blur-[100px]" />
                 </div>
 
-                {/* MascotImage Component */}
+                {/* Mascot with gentle float */}
                 <motion.div
-
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="relative z-10"
                 >
-                  <MascotImage size="xl" />
+                  <motion.div
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <MascotImage size="2xl" />
+                  </motion.div>
                 </motion.div>
               </div>
             </div>
@@ -376,7 +353,9 @@ const HomePage: React.FC = () => {
       */}
 
       {/* Proof of Development Section */}
-      <ProofOfDevelopment />
+      <div id="proof">
+        <ProofOfDevelopment />
+      </div>
 
       {/* TASK 3: From Product Token to Protocol Token - v1.3 Spec Lines 357-483 */}
       <section className="section-padding py-20 bg-secondary/80">
@@ -475,54 +454,57 @@ const HomePage: React.FC = () => {
               Why Infrastructure Tokens Scale
             </h3>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
+            <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+              <table className="w-full text-left min-w-[600px]">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="pb-4 text-muted font-semibold">Token Type</th>
-                    <th className="pb-4 text-muted font-semibold">Demand Driver</th>
-                    <th className="pb-4 text-muted font-semibold">Growth Limit</th>
-                    <th className="pb-4 text-muted font-semibold">Examples</th>
+                    <th className="pb-4 pr-4 text-muted font-semibold text-sm md:text-base whitespace-nowrap">Token Type</th>
+                    <th className="pb-4 pr-4 text-muted font-semibold text-sm md:text-base whitespace-nowrap">Demand Driver</th>
+                    <th className="pb-4 pr-4 text-muted font-semibold text-sm md:text-base whitespace-nowrap">Growth Limit</th>
+                    <th className="pb-4 text-muted font-semibold text-sm md:text-base whitespace-nowrap">Examples</th>
                   </tr>
                 </thead>
-                <tbody className="text-gray-300">
+                <tbody className="text-gray-300 text-sm md:text-base">
                   <tr className="border-b border-zinc-800">
-                    <td className="py-4">
-                      <strong className="text-white">Product Token</strong>
+                    <td className="py-4 pr-4">
+                      <strong className="text-white whitespace-nowrap">Product Token</strong>
                     </td>
-                    <td className="py-4">Users of specific products</td>
-                    <td className="py-4 text-yellow-400">Limited to product TAM</td>
-                    <td className="py-4 text-sm">Most utility tokens</td>
+                    <td className="py-4 pr-4">Users of specific products</td>
+                    <td className="py-4 pr-4 text-yellow-400">Limited to product TAM</td>
+                    <td className="py-4">Most utility tokens</td>
                   </tr>
                   <tr className="border-b border-zinc-800">
-                    <td className="py-4">
-                      <strong className="text-accent">Protocol Token</strong>
+                    <td className="py-4 pr-4">
+                      <strong className="text-accent whitespace-nowrap">Protocol Token</strong>
                     </td>
-                    <td className="py-4">Anyone building on infrastructure</td>
-                    <td className="py-4 text-accent">Scales with ecosystem</td>
-                    <td className="py-4 text-sm">LINK, PYTH, JTO</td>
+                    <td className="py-4 pr-4">Anyone building on infrastructure</td>
+                    <td className="py-4 pr-4 text-accent">Scales with ecosystem</td>
+                    <td className="py-4">LINK, PYTH, JTO</td>
                   </tr>
                   <tr>
-                    <td className="py-4">
-                      <strong className="text-accent">$PRICKO</strong>
+                    <td className="py-4 pr-4">
+                      <strong className="text-accent whitespace-nowrap">$PRICKO</strong>
                     </td>
-                    <td className="py-4">Products now, Protocol future</td>
-                    <td className="py-4 text-accent">Both models combined</td>
-                    <td className="py-4 text-sm">Privacy Gecko + GeckoCore</td>
+                    <td className="py-4 pr-4">Products now, Protocol future</td>
+                    <td className="py-4 pr-4 text-accent">Both models combined</td>
+                    <td className="py-4">Privacy Gecko + GeckoCore</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p className="text-xs text-muted text-center mt-3 md:hidden">← Scroll horizontally to view full table →</p>
           </motion.div>
 
         </div>
       </section>
 
       {/* Social Proof Section */}
-      <SocialProof />
+      <div id="social-proof">
+        <SocialProof />
+      </div>
 
       {/* TASK 4: FAQ Section - v1.3 Spec Lines 631-713 */}
-      <section className="section-padding py-20 bg-secondary/80">
+      <section id="faq" className="section-padding py-20 bg-secondary/80">
         <div className="container-max">
 
           <motion.div
@@ -624,7 +606,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* TASK 8: Roadmap Timeline Section - v1.3 Spec Lines 494-627 */}
-      <section className="section-padding py-20 bg-secondary">
+      <section id="roadmap" className="section-padding py-20 bg-secondary">
         <div className="container-max">
 
           <motion.h2
@@ -767,7 +749,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Community Section */}
-      <section className="relative section-padding bg-gradient-to-t from-secondary/20 to-transparent overflow-hidden">
+      <section id="community" className="relative section-padding bg-gradient-to-t from-secondary/20 to-transparent overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Breadcrumb from '../components/common/Breadcrumb';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
@@ -15,7 +16,8 @@ const ToolsPageSimplified: React.FC = () => {
         keywords="privacy products, Gecko Share, Gecko Advisor, Gecko Shell, Gecko Guard, encrypted file sharing, privacy browser, PRICKO tools"
         canonicalUrl="/products"
       />
-      <div className="min-h-screen bg-bg-main text-white pt-24">
+      <div className="min-h-screen bg-bg-main text-white">
+        <Breadcrumb currentPage="Products" />
         <div className="container-max section-padding">
           {/* Hero Section - Simplified */}
           <div
