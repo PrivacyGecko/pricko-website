@@ -20,8 +20,8 @@ const EcosystemPage: FC = () => {
     <>
       <SEO
         title="Privacy Ecosystem | GeckoCore Protocol | $PRICKO"
-        description="Discover how $PRICKO token powers 8 privacy tools through the GeckoCore protocol. 4 products live today, full ecosystem launching 2026."
-        keywords="GeckoCore, privacy protocol, $PRICKO, privacy tools, decentralized privacy, blockchain privacy"
+        description="Discover how $PRICKO token powers 8 privacy products through the GeckoCore protocol. 4 products live today, full ecosystem launching 2026."
+        keywords="GeckoCore, privacy protocol, $PRICKO, privacy products, decentralized privacy, blockchain privacy"
         type="website"
       />
 
@@ -49,7 +49,7 @@ const EcosystemPage: FC = () => {
 
               {/* Subtitle */}
               <p className="text-xl md:text-2xl text-gray-300 mb-4">
-                How $PRICKO Powers Real Privacy Tools
+                How $PRICKO Powers Real Privacy Products
               </p>
 
               {/* Description */}
@@ -365,7 +365,7 @@ const EcosystemPage: FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-accent">Real Utility</h3>
                 <p className="text-gray-300">
-                  Token unlocks privacy tools today. No waiting, no promises—just working software serving real users.
+                  Token unlocks privacy products today. No waiting, no promises—just working software serving real users.
                 </p>
               </div>
 

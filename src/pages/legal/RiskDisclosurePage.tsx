@@ -15,7 +15,6 @@ import {
 import { INVESTMENT_RISK_DISCLAIMER } from '../../constants/legal';
 
 const RiskDisclosurePage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   const risks = [
     {
       icon: FiTrendingDown,

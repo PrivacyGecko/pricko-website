@@ -47,7 +47,7 @@ const DisclaimerPage: React.FC = () => {
                 <div className="bg-secondary/30 border border-accent/20 rounded-lg p-4 mt-4">
                   <p className="text-white font-semibold mb-2">⚡ Key Point:</p>
                   <p className="text-gray-300">
-                    $PRICKO is a utility token designed to access privacy tools and features.
+                    $PRICKO is a utility token designed to access privacy products and features.
                     It is NOT marketed as an investment vehicle, security, or financial product.
                   </p>
                 </div>
@@ -146,7 +146,7 @@ const DisclaimerPage: React.FC = () => {
                   PRICKO makes no guarantees, representations, or warranties regarding:
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-2">
-                  <li>The performance, functionality, or availability of our privacy tools</li>
+                  <li>The performance, functionality, or availability of our privacy products</li>
                   <li>The future value, utility, or adoption of $PRICKO tokens</li>
                   <li>Compatibility with all devices, wallets, or platforms</li>
                   <li>Uninterrupted or error-free service operation</li>

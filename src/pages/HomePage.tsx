@@ -66,9 +66,9 @@ const HomePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="PRICKO | Privacy Tools Powered by Utility Token - Real Products, Real Utility"
-        description={`PRICKO is a utility token powering 8 privacy tools. ${TOOLS_COUNT.live} live products serving ${METRICS.prickoshare.formatted} users. Not vaporware - real tools, real results. Join the privacy revolution.`}
-        keywords="privacy token, utility token, privacy tools, blockchain privacy, solana token, Gecko Share, Gecko Advisor, zero-knowledge encryption, privacy browser"
+        title="PRICKO | Privacy Products Powered by Utility Token - Real Products, Real Utility"
+        description={`PRICKO is a utility token powering 8 privacy products. ${TOOLS_COUNT.live} live products serving ${METRICS.prickoshare.formatted} users. Not vaporware - real tools, real results. Join the privacy revolution.`}
+        keywords="privacy token, utility token, privacy products, blockchain privacy, solana token, Gecko Share, Gecko Advisor, zero-knowledge encryption, privacy browser"
         canonicalUrl="/"
         structuredData={homepageStructuredData}
       />

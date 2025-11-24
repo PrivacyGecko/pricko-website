@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SEO from '../components/common/SEO';
 import TeamMember from '../components/ui/TeamMember';
 import NewsletterForm from '../components/ui/NewsletterForm';
@@ -39,7 +38,6 @@ interface FormErrors {
 }
 
 const ContactPage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   const { getTeamMembers } = useProjectConfig();
   const teamMembers = getTeamMembers();
 
@@ -278,12 +276,12 @@ const ContactPage: React.FC = () => {
       answer: 'PRICKO tokens are currently in pre-launch phase. Join our waitlist to be notified when tokens become available for purchase on Solana DEXs. We will announce the official launch date and contract address through our official channels first.'
     },
     {
-      question: 'When will the privacy tools be available?',
-      answer: 'Our privacy tools are currently in active development. We regularly share progress updates on our social media channels. Join our Telegram or Discord for the latest development news and beta testing opportunities.'
+      question: 'When will the privacy products be available?',
+      answer: 'Our privacy products are currently in active development. We regularly share progress updates on our social media channels. Join our Telegram or Discord for the latest development news and beta testing opportunities.'
     },
     {
       question: 'Is PRICKO completely open source?',
-      answer: 'Yes! We believe in transparency and community-driven development. All our privacy tools, smart contracts, and core infrastructure code are open source and available on our GitHub repository for review and contribution.'
+      answer: 'Yes! We believe in transparency and community-driven development. All our privacy products, smart contracts, and core infrastructure code are open source and available on our GitHub repository for review and contribution.'
     },
     {
       question: 'How can I contribute to the PRICKO ecosystem?',
@@ -291,7 +289,7 @@ const ContactPage: React.FC = () => {
     },
     {
       question: 'What makes PRICKO different from other privacy projects?',
-      answer: 'PRICKO combines serious privacy technology with community-driven governance and accessible user experience. We focus on making privacy tools that are both powerful and easy to use, while maintaining complete transparency in our development process.'
+      answer: 'PRICKO combines serious privacy technology with community-driven governance and accessible user experience. We focus on making privacy products that are both powerful and easy to use, while maintaining complete transparency in our development process.'
     },
     {
       question: 'How do I stay updated with PRICKO developments?',
@@ -304,7 +302,7 @@ const ContactPage: React.FC = () => {
       <SEO
         title="Contact PRICKO - Get in Touch with Our Team | PRICKO"
         description="Contact PRICKO team for partnerships, support, or questions. Join our community on Twitter, Telegram, Discord. Email us directly or use our contact form. 24-hour response time."
-        keywords="contact PRICKO, PRICKO support, crypto community, blockchain partnerships, privacy tools support, PRICKO email, PRICKO telegram"
+        keywords="contact PRICKO, PRICKO support, crypto community, blockchain partnerships, privacy products support, PRICKO email, PRICKO telegram"
         canonicalUrl="/contact"
       />
       <div className="min-h-screen bg-primary text-white pt-24">
@@ -377,7 +375,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {teamContacts.map((contact, index) => (
-              <motion.a
+              <a
                 key={contact.role}
                 href={`mailto:${contact.email}`}
                 className="card group hover:shadow-professional cursor-pointer hover:scale-105 transition-all duration-300"
@@ -405,7 +403,7 @@ const ContactPage: React.FC = () => {
                     <FaEnvelope /> Click to send email →
                   </span>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </div>
           <div
@@ -439,7 +437,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {socialLinks.map((social, index) => (
-              <motion.a
+              <a
                 key={social.name}
                 href={social.href}
                 target="_blank"
@@ -462,7 +460,7 @@ const ContactPage: React.FC = () => {
                     {social.followers} followers
                   </div> */}
                 </div>
-              </motion.a>
+              </a>
             ))}
           </div>
         </section>
@@ -536,7 +534,7 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <motion.form
+            <form
               onSubmit={handleSubmit}
               className="space-y-6"
               aria-busy={submitStatus === 'loading'}
@@ -728,8 +726,6 @@ const ContactPage: React.FC = () => {
                 className={`w-full btn-primary py-4 text-lg font-semibold shadow-professional inline-flex items-center justify-center gap-3 ${
                   submitStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
-                whileHover={submitStatus !== 'loading' ? { scale: 1.02, y: -2 } : {}}
-                whileTap={submitStatus !== 'loading' ? { scale: 0.98 } : {}}
               >
                 {submitStatus === 'loading' ? (
                   <>
@@ -753,7 +749,7 @@ const ContactPage: React.FC = () => {
                   </a>
                 </p>
               )}
-            </motion.form>
+            </form>
           </div>
         </section>
 
@@ -798,7 +794,7 @@ const ContactPage: React.FC = () => {
           <p
             className="text-muted mb-10 max-w-3xl mx-auto text-lg leading-relaxed"
           >
-            Subscribe to our newsletter for exclusive updates on privacy tools, token developments,
+            Subscribe to our newsletter for exclusive updates on privacy products, token developments,
             community events, and educational content. Join {METRICS.community.formatted} {METRICS.community.label} worldwide.
           </p>
           
@@ -855,7 +851,7 @@ const ContactPage: React.FC = () => {
             )}
           </div>
 
-          <motion.form
+          <form
             onSubmit={handleNewsletterSubmit}
             className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8"
           >
@@ -875,8 +871,6 @@ const ContactPage: React.FC = () => {
               className={`btn-primary px-8 py-4 text-lg font-semibold whitespace-nowrap shadow-professional inline-flex items-center gap-3 ${
                 newsletterStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : ''
               }`}
-              whileHover={newsletterStatus !== 'loading' ? { scale: 1.05, y: -2 } : {}}
-              whileTap={newsletterStatus !== 'loading' ? { scale: 0.95 } : {}}
             >
               {newsletterStatus === 'loading' ? (
                 <>
@@ -890,7 +884,7 @@ const ContactPage: React.FC = () => {
                 </>
               )}
             </button>
-          </motion.form>
+          </form>
 
           <p
             className="text-sm text-muted"
@@ -928,13 +922,13 @@ const ContactPage: React.FC = () => {
           </div>
 
           <div className="flex justify-center">
-            <motion.a
+            <a
               href="/tools"
               className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
             >
               <FaTools />
-              Explore Privacy Tools
-            </motion.a>
+              Explore Privacy Products
+            </a>
           </div>
         </section>
       </div>

@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
   const quickLinks = [
     { name: 'About', href: '/about' },
-    { name: 'Privacy Tools', href: '/tools' },
+    { name: 'Privacy Products', href: '/tools' },
     { name: 'Ecosystem', href: '/ecosystem' },
     { name: 'Tokenomics', href: '/tokenomics' },
     { name: 'Roadmap', href: '/roadmap' },
@@ -172,9 +172,9 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Privacy Tools */}
+          {/* Privacy Products */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Privacy Tools</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white">Privacy Products</h4>
             <ul className="space-y-3">
               <li>
                 <div className="flex items-center space-x-2">

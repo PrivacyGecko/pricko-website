@@ -57,7 +57,7 @@ const GeckoGuardPage: React.FC = () => {
     },
     {
       question: "Is Gecko Guard open source?",
-      answer: "Yes! Code is available on GitHub at github.com/privacygecko/gecko-guard. We believe transparency is essential for privacy tools. Security audit completed in Q4 2024."
+      answer: "Yes! Code is available on GitHub at github.com/privacygecko/gecko-guard. We believe transparency is essential for privacy products. Security audit completed in Q4 2024."
     }
   ];
   

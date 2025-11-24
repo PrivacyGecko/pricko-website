@@ -8,13 +8,12 @@ import { SIMPLIFIED_TOOLS, TOOLS_COUNT } from '../constants/toolsSimplified';
 import { METRICS } from '../constants/metrics';
 
 const ToolsPageSimplified: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   return (
     <>
       <SEO
-        title="Privacy Tools - 8 Products, 2 Live Now | PRICKO"
-        description="Explore PRICKO's ecosystem: Gecko Share (file sharing), Gecko Advisor (privacy scanner), Gecko Shell (mobile browser), and 5 more privacy tools. Powered by $PRICKO token."
-        keywords="privacy tools, Gecko Share, Gecko Advisor, Gecko Shell, Gecko Guard, encrypted file sharing, privacy browser, PRICKO tools"
+        title="Privacy Products - 8 Products, 2 Live Now | PRICKO"
+        description="Explore PRICKO's ecosystem: Gecko Share (file sharing), Gecko Advisor (privacy scanner), Gecko Shell (mobile browser), and 5 more privacy products. Powered by $PRICKO token."
+        keywords="privacy products, Gecko Share, Gecko Advisor, Gecko Shell, Gecko Guard, encrypted file sharing, privacy browser, PRICKO tools"
         canonicalUrl="/tools"
       />
       <div className="min-h-screen bg-bg-main text-white pt-24">

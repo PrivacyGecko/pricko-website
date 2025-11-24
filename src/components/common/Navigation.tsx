@@ -25,7 +25,7 @@ type NavItem = DropdownNavItem | LinkNavItem;
 
 const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) => {
   const location = useLocation();
-  const { getAllProducts } = useProjectConfig();
+  const { getLiveProducts } = useProjectConfig();
 
   const isActive = (href: string) => {
     if (href === '/') {
@@ -48,23 +48,19 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
       label: 'Roadmap',
       href: '/roadmap'
     },
-    {
-      label: 'How to Buy',
-      href: '/how-to-buy'
-    }
   ];
 
-  // Build Privacy Tools dropdown items from products
-  const privacyToolsDropdownItems: DropdownItem[] = getAllProducts().map(product => ({
+  // Build Privacy Products dropdown items from products
+  const privacyProductsDropdownItems: DropdownItem[] = getLiveProducts().map(product => ({
     label: product.name,
     href: product.url || `/${product.id}`,
     status: product.status as 'live' | 'beta' | 'in-development',
     external: !!product.url
   }));
 
-  // Add "View All Tools" link at the end
-  privacyToolsDropdownItems.push({
-    label: 'View All Tools',
+  // Add "View All Products" link at the end
+  privacyProductsDropdownItems.push({
+    label: 'View All Products',
     href: '/ecosystem'
   });
 
@@ -76,18 +72,17 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
       items: prickoTokenDropdownItems
     },
     {
-      name: 'Privacy Tools',
+      name: 'Products',
       dropdown: true,
-      items: privacyToolsDropdownItems
+      items: privacyProductsDropdownItems
     },
     { name: 'How to Buy', href: '/how-to-buy' },
-    { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' }
   ];
 
   const linkClass = mobile
-    ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded"
-    : "px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-accent relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded";
+    ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent "
+    : "px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-accent relative ";
 
   const activeLinkClass = mobile
     ? "text-accent border-l-2 border-accent bg-accent/10"
@@ -128,14 +123,16 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
         );
       })}
 
-      {/* CTA Button - Updated to "Buy $PRICKO" */}
-      <div className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}>
-        <Link to="/how-to-buy">
-          <button className="btn-primary text-sm px-4 py-2">
-            Buy $PRICKO
-          </button>
-        </Link>
-      </div>
+      {/* CTA Button - Only show on mobile (desktop button is in Header) */}
+      {mobile && (
+        <div className="pt-4 border-t border-border mt-4">
+          <Link to="/how-to-buy">
+            <button className="btn-primary text-sm px-4 py-2 w-full">
+              Buy $PRICKO
+            </button>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

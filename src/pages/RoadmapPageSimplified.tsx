@@ -7,13 +7,12 @@ import PhaseCardSimple from '../components/roadmap/PhaseCardSimple';
 import { SIMPLIFIED_ROADMAP, ROADMAP_META } from '../constants/roadmapSimplified';
 
 const RoadmapPageSimplified: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   return (
     <>
       <SEO
         title="PRICKO Roadmap - From Launch to Full Privacy Ecosystem | PRICKO"
-        description="Track PRICKO's journey: 2 products live, token launch November 2025, and 6 more privacy tools coming. Transparent development timeline."
-        keywords="PRICKO roadmap, development timeline, crypto roadmap, privacy tools roadmap, Gecko Share, token launch"
+        description="Track PRICKO's journey: 2 products live, token launch November 2025, and 6 more privacy products coming. Transparent development timeline."
+        keywords="PRICKO roadmap, development timeline, crypto roadmap, privacy products roadmap, Gecko Share, token launch"
         canonicalUrl="/roadmap"
       />
       <div className="min-h-screen bg-bg-main text-white pt-24">

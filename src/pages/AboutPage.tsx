@@ -35,7 +35,6 @@ import {
 } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   const { config, getProductCounts } = useProjectConfig();
   const productCounts = getProductCounts();
 
@@ -43,8 +42,8 @@ const AboutPage: React.FC = () => {
     <>
       <SEO
         title="About PRICKO - Privacy-First Memecoin Mission | PRICKO"
-        description="Learn about PRICKO's mission to build privacy tools that protect user data. Founded in 2024, community-driven, and committed to making digital privacy accessible to everyone."
-        keywords="PRICKO about, privacy tools, memecoin mission, blockchain privacy, digital privacy, community-driven crypto, Solana privacy"
+        description="Learn about PRICKO's mission to build privacy products that protect user data. Founded in 2024, community-driven, and committed to making digital privacy accessible to everyone."
+        keywords="PRICKO about, privacy products, memecoin mission, blockchain privacy, digital privacy, community-driven crypto, Solana privacy"
         canonicalUrl="/about"
       />
       <div className="min-h-screen bg-primary text-white pt-24">
@@ -58,7 +57,7 @@ const AboutPage: React.FC = () => {
             About <span className="gradient-text-animated">PRICKO</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted max-w-4xl mx-auto leading-relaxed font-light">
-            Building <span className="text-blue-400 font-medium">AI-enhanced</span> privacy tools that don't suck. Community-owned, meme-powered, actually useful.
+            Building <span className="text-blue-400 font-medium">AI-enhanced</span> privacy products that don't suck. Community-owned, meme-powered, actually useful.
             Privacy protection without the corporate BS.
           </p>
         </div>
@@ -92,7 +91,7 @@ const AboutPage: React.FC = () => {
                 <FaTools className="mx-auto text-3xl" />
               </div>
               <div className="text-4xl font-bold text-accent mb-2">{productCounts.total}+</div>
-              <div className="text-lg font-semibold mb-2">Privacy Tools</div>
+              <div className="text-lg font-semibold mb-2">Privacy Products</div>
               <div className="text-muted">In development pipeline</div>
             </div>
           </div>
@@ -114,7 +113,7 @@ const AboutPage: React.FC = () => {
                 >
                   Your data is being sold. Every search, every message, every click. We got tired of watching
                   people hand over their privacy to corporations who profit from it. So we built something better:
-                  privacy tools that work, backed by a community that owns them.
+                  privacy products that work, backed by a community that owns them.
                 </p>
                 <p
                 >
@@ -165,7 +164,7 @@ const AboutPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-accent">Privacy First</h3>
               <p className="text-muted leading-relaxed">
-                Building cutting-edge privacy tools that protect user data without compromising
+                Building cutting-edge privacy products that protect user data without compromising
                 on performance, usability, or user experience.
               </p>
             </div>
@@ -256,7 +255,7 @@ const AboutPage: React.FC = () => {
               icon={FaCheckCircle}
               value={`${productCounts.live}`}
               label="Live Products"
-              description="Fully operational privacy tools serving real users right now"
+              description="Fully operational privacy products serving real users right now"
               delay={0.1}
             />
             <ProofMetric
@@ -270,7 +269,7 @@ const AboutPage: React.FC = () => {
               icon={FaCode}
               value="8+"
               label="Developers"
-              description="Full-time team members building privacy tools every day"
+              description="Full-time team members building privacy products every day"
               delay={0.3}
             />
             <ProofMetric
@@ -465,7 +464,7 @@ const AboutPage: React.FC = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-3 text-accent">Global Accessibility</h3>
                     <p className="text-muted leading-relaxed">
-                      Making privacy tools accessible to everyone, regardless of technical expertise,
+                      Making privacy products accessible to everyone, regardless of technical expertise,
                       geographic location, or economic status.
                     </p>
                   </div>
@@ -527,7 +526,7 @@ const AboutPage: React.FC = () => {
               <h3 className="text-xl font-semibold text-accent mb-2">GeckoMaster</h3>
               <p className="text-sm text-accent/80 mb-4">Co-Founder</p>
               <p className="text-muted leading-relaxed mb-4">
-                Privacy advocate with 8+ years in blockchain. Previously built privacy tools used by 100K+ users. 
+                Privacy advocate with 8+ years in blockchain. Previously built privacy products used by 100K+ users. 
                 Passionate about making digital privacy accessible to everyone.
               </p>
               <div className="flex justify-center space-x-3">
@@ -571,7 +570,7 @@ const AboutPage: React.FC = () => {
               <h3 className="text-xl font-semibold text-accent mb-2">DesignGecko</h3>
               <p className="text-sm text-accent/80 mb-4">Creative Director</p>
               <p className="text-muted leading-relaxed mb-4">
-                UX/UI designer with a passion for making complex privacy tools intuitive and enjoyable. 
+                UX/UI designer with a passion for making complex privacy products intuitive and enjoyable. 
                 Background in human-computer interaction and behavioral psychology.
               </p>
               <div className="flex justify-center space-x-3">

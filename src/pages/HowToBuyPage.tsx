@@ -8,7 +8,6 @@ import SecurityBadge from '../components/ui/SecurityBadge';
 import ProgressBar from '../components/ui/ProgressBar';
 
 const HowToBuyPage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -176,7 +175,7 @@ const HowToBuyPage: React.FC = () => {
                   <div className="text-4xl mb-4">🔐</div>
                   <h3 className="text-xl font-semibold mb-3 text-accent">Utility Access</h3>
                   <p className="text-muted leading-relaxed">
-                    Start using tokens immediately for premium features in privacy tools.
+                    Start using tokens immediately for premium features in privacy products.
                   </p>
                 </div>
               </div>
@@ -440,7 +439,7 @@ const HowToBuyPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold mb-6">Want to Learn More?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
-            Explore our tokenomics, roadmap, and privacy tools to understand the full value proposition of $PRICKO.
+            Explore our tokenomics, roadmap, and privacy products to understand the full value proposition of $PRICKO.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/tokenomics">
@@ -454,7 +453,7 @@ const HowToBuyPage: React.FC = () => {
               <button
                 className="btn-secondary px-8 py-3 text-lg"
               >
-                Explore Privacy Tools
+                Explore Privacy Products
               </button>
             </Link>
           </div>

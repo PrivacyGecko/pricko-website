@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaTelegram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import Navigation from './Navigation';
 import MascotImage from '../ui/MascotImage';
 // import ContractAddress from '../ui/ContractAddress';
@@ -22,6 +24,28 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Social media links
+  const socialLinks = [
+    {
+      name: 'GitHub',
+      href: 'https://github.com/PrivacyGecko',
+      icon: FaGithub,
+      ariaLabel: 'Visit PRICKO on GitHub'
+    },
+    {
+      name: 'Twitter',
+      href: 'https://twitter.com/PrivacyGecko',
+      icon: FaXTwitter,
+      ariaLabel: 'Follow PRICKO on X (Twitter)'
+    },
+    {
+      name: 'Telegram',
+      href: 'https://t.me/prickoai',
+      icon: FaTelegram,
+      ariaLabel: 'Join PRICKO on Telegram'
+    }
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -32,8 +56,11 @@ const Header: React.FC = () => {
     >
       <div className="container-max">
         <div className="flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8">
-          {/* Enhanced Logo Section with MascotImage */}
-          <Link to="/" className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded-lg">
+          {/* Left: Enhanced Logo Section with MascotImage */}
+          <Link 
+            to="/" 
+            className="flex items-center space-x-3 group focus:outline-none focus:opacity-80 transition-opacity duration-200 flex-shrink-0"
+          >
             <MascotImage
               size="xs"
               className="transition-transform duration-300 group-hover:scale-110"
@@ -51,36 +78,65 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          {/* Center: Desktop Navigation */}
+          <div className="hidden md:flex flex-1 justify-center">
             <Navigation />
           </div>
 
-          {/* Enhanced Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary active:scale-95"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isMenuOpen}
-          >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span
-                className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
-                  isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'
-                }`}
-              />
-              <span
-                className={`bg-white block h-0.5 w-6 rounded-full my-1 transition-all duration-300 ease-out ${
-                  isMenuOpen ? 'opacity-0 translate-x-5' : 'opacity-100 translate-x-0'
-                }`}
-              />
-              <span
-                className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
-                  isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'
-                }`}
-              />
+          {/* Right: Social Icons + Mobile Menu Button */}
+          <div className="flex items-center gap-4 flex-shrink-0">
+            {/* Social Icons - Hidden on Mobile */}
+            <div className="hidden md:flex items-center gap-4">
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-accent/80 transition-all duration-200 focus:outline-none focus:scale-110"
+                    aria-label={social.ariaLabel}
+                  >
+                    <IconComponent className="w-6 h-6" />
+                  </a>
+                );
+              })}
             </div>
-          </button>
+
+            {/* Buy $PRICKO Button - Desktop Only */}
+            <Link
+              to="/how-to-buy"
+              className="hidden md:flex btn-primary px-6 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 hover:-translate-y-0.5"
+            >
+              Buy $PRICKO
+            </Link>
+            {/* Enhanced Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:shadow-lg active:scale-95"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span
+                  className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
+                    isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'
+                  }`}
+                />
+                <span
+                  className={`bg-white block h-0.5 w-6 rounded-full my-1 transition-all duration-300 ease-out ${
+                    isMenuOpen ? 'opacity-0 translate-x-5' : 'opacity-100 translate-x-0'
+                  }`}
+                />
+                <span
+                  className={`bg-white block h-0.5 w-6 rounded-full transition-all duration-300 ease-out ${
+                    isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Enhanced Mobile Navigation */}

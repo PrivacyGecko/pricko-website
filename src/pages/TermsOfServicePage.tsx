@@ -17,7 +17,7 @@ const TermsOfServicePage: React.FC = () => {
             <section>
               <h2 className="text-2xl font-bold text-accent mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-300 leading-relaxed">
-                By accessing or using PRICKO's website, privacy tools, or services ("Services"),
+                By accessing or using PRICKO's website, privacy products, or services ("Services"),
                 you agree to be bound by these Terms of Service ("Terms"). If you do not agree
                 to these Terms, do not use our Services.
               </p>
@@ -57,7 +57,7 @@ const TermsOfServicePage: React.FC = () => {
                 <li>Content and documentation</li>
               </ul>
               <p className="text-gray-300 leading-relaxed mt-4">
-                Our open-source privacy tools are licensed under their respective open-source
+                Our open-source privacy products are licensed under their respective open-source
                 licenses as specified in their GitHub repositories.
               </p>
             </section>
@@ -133,12 +133,12 @@ const TermsOfServicePage: React.FC = () => {
               <div className="space-y-4 text-gray-300">
                 <p className="leading-relaxed">
                   <strong>5.1 Token Utility:</strong> $PRICKO tokens provide access to premium
-                  features within our privacy tools ecosystem. Token holders may receive:
+                  features within our privacy products ecosystem. Token holders may receive:
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-1">
                   <li>Enhanced storage quotas in Gecko Share</li>
                   <li>Advanced protection features in Gecko Guard</li>
-                  <li>Early access to new privacy tools</li>
+                  <li>Early access to new privacy products</li>
                   <li>Governance voting rights (when implemented)</li>
                 </ul>
                 <p className="leading-relaxed mt-4">

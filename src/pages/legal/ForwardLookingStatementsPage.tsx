@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/common/SEO';
@@ -6,7 +6,8 @@ import { FiCalendar, FiAlertCircle, FiArrowLeft, FiCheckCircle } from 'react-ico
 import { FORWARD_LOOKING_STATEMENT, ROADMAP_DISCLAIMER, PROTOCOL_TIMELINE_DISCLAIMER } from '../../constants/legal';
 
 const ForwardLookingStatementsPage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useScrollAnimation(scrollRef);
 
   const forwardLookingExamples = [
     {

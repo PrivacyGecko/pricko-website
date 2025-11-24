@@ -14,7 +14,6 @@ import MascotImage from '../components/ui/MascotImage';
 import { TokenDistribution } from '../types/config';
 
 const TokenomicsPage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   const { config, getTokenDisclaimer } = useProjectConfig();
 
   // Handle hash navigation for deep linking (mobile-friendly)
@@ -69,7 +68,7 @@ const TokenomicsPage: React.FC = () => {
       tier: 1,
       name: "Free Access",
       tokenRequirement: "No tokens required",
-      description: "Experience basic privacy tools at no cost",
+      description: "Experience basic privacy products at no cost",
       features: [
         "Basic privacy scanning",
         "Limited file sharing (1GB, 24hr)",
@@ -185,7 +184,7 @@ const TokenomicsPage: React.FC = () => {
     <>
       <SEO
         title="$PRICKO Tokenomics - Fair Launch & Token Distribution | PRICKO"
-        description="$PRICKO tokenomics: 1B total supply, 80% community via pump.fun fair launch, 20% development. Deflationary utility token for privacy tools on Solana."
+        description="$PRICKO tokenomics: 1B total supply, 80% community via pump.fun fair launch, 20% development. Deflationary utility token for privacy products on Solana."
         keywords="PRICKO tokenomics, pump.fun launch, Solana token, utility token, token distribution, fair launch, deflationary token, crypto tokenomics"
         canonicalUrl="/tokenomics"
       />
@@ -200,7 +199,7 @@ const TokenomicsPage: React.FC = () => {
             <span className="gradient-text">$PRICKO</span> Tokenomics
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-            A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy tools.
+            A utility-first token economy designed to power Privacy Gecko's ecosystem of privacy products.
           </p>
         </div>
 
@@ -222,7 +221,7 @@ const TokenomicsPage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-accent mb-2">Token Type</h3>
               <p className="text-3xl font-bold">Utility</p>
-              <p className="text-muted mt-2">Privacy Tools Access</p>
+              <p className="text-muted mt-2">Privacy Products Access</p>
             </div>
           </div>
         </section>
@@ -368,7 +367,7 @@ const TokenomicsPage: React.FC = () => {
               <span className="gradient-text">How $PRICKO Works:</span> 4-Tier Utility Model
             </h2>
             <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
-              $PRICKO unlocks features across our privacy tools. The more you hold, the more capabilities you access.
+              $PRICKO unlocks features across our privacy products. The more you hold, the more capabilities you access.
               This is about <strong>functionality</strong>, not investment.
             </p>
           </div>

@@ -19,7 +19,7 @@ const PrivacyPolicyPage: React.FC = () => {
               <p className="text-gray-300 leading-relaxed">
                 PRICKO ("we," "our," or "us") is committed to protecting your privacy.
                 This Privacy Policy explains how we collect, use, disclose, and safeguard
-                your information when you visit our website pricko.com and use our privacy tools.
+                your information when you visit our website pricko.com and use our privacy products.
               </p>
             </section>
 
@@ -71,7 +71,7 @@ const PrivacyPolicyPage: React.FC = () => {
                 We use the information we collect for the following purposes:
               </p>
               <ul className="list-disc list-inside ml-4 space-y-2 text-gray-300">
-                <li>To provide and maintain our privacy tools and services</li>
+                <li>To provide and maintain our privacy products and services</li>
                 <li>To verify token holdings for premium feature access</li>
                 <li>To respond to your inquiries and provide customer support</li>
                 <li>To send you updates, newsletters, and marketing communications (with your consent)</li>

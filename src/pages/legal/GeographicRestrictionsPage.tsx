@@ -6,7 +6,6 @@ import { FiGlobe, FiAlertTriangle, FiArrowLeft, FiShield } from 'react-icons/fi'
 import { GEOGRAPHIC_RESTRICTION_NOTICE, US_PERSONS_DISCLAIMER } from '../../constants/legal';
 
 const GeographicRestrictionsPage: React.FC = () => {
-  const scrollRef = useScrollAnimation();
   const restrictedJurisdictions = [
     {
       region: 'United States',
