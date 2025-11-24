@@ -9,16 +9,19 @@ interface NavigationProps {
   onItemClick?: () => void;
 }
 
-const navigationItems: NavigationItem[] = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  // Tools will be replaced with dropdown
-  { name: 'Ecosystem', href: '/ecosystem' },
-  { name: 'Tokenomics', href: '/tokenomics' },
-  { name: 'How to Buy', href: '/how-to-buy' },
-  { name: 'Roadmap', href: '/roadmap' },
-  { name: 'Contact', href: '/contact' },
-];
+interface DropdownNavItem {
+  name: string;
+  dropdown: true;
+  items: DropdownItem[];
+}
+
+interface LinkNavItem {
+  name: string;
+  href: string;
+  dropdown?: false;
+}
+
+type NavItem = DropdownNavItem | LinkNavItem;
 
 const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) => {
   const location = useLocation();
@@ -31,10 +34,28 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     return location.pathname.startsWith(href);
   };
 
-  // Build dropdown items from products
-  // When a product has a URL (live), link directly to the external product website
-  // Otherwise, link to the internal product showcase page
-  const toolsDropdownItems: DropdownItem[] = getAllProducts().map(product => ({
+  // Build $PRICKO Token dropdown items
+  const prickoTokenDropdownItems: DropdownItem[] = [
+    {
+      label: 'What is $PRICKO?',
+      href: '/about'
+    },
+    {
+      label: 'Tokenomics',
+      href: '/tokenomics'
+    },
+    {
+      label: 'Roadmap',
+      href: '/roadmap'
+    },
+    {
+      label: 'How to Buy',
+      href: '/how-to-buy'
+    }
+  ];
+
+  // Build Privacy Tools dropdown items from products
+  const privacyToolsDropdownItems: DropdownItem[] = getAllProducts().map(product => ({
     label: product.name,
     href: product.url || `/${product.id}`,
     status: product.status as 'live' | 'beta' | 'in-development',
@@ -42,10 +63,27 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   }));
 
   // Add "View All Tools" link at the end
-  toolsDropdownItems.push({
+  privacyToolsDropdownItems.push({
     label: 'View All Tools',
-    href: '/tools'
+    href: '/ecosystem'
   });
+
+  // Define navigation structure
+  const navigationItems: NavItem[] = [
+    {
+      name: '$PRICKO Token',
+      dropdown: true,
+      items: prickoTokenDropdownItems
+    },
+    {
+      name: 'Privacy Tools',
+      dropdown: true,
+      items: privacyToolsDropdownItems
+    },
+    { name: 'How to Buy', href: '/how-to-buy' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' }
+  ];
 
   const linkClass = mobile
     ? "block py-3 px-4 text-lg font-medium transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary rounded"
@@ -57,56 +95,44 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
 
   return (
     <nav className={mobile ? "space-y-1 mt-4" : "flex items-center space-x-1"}>
-      {/* Render regular navigation items */}
       {navigationItems.map((item) => {
-        const active = isActive(item.href);
+        // Handle dropdown items
+        if ('dropdown' in item && item.dropdown) {
+          return (
+            <div key={item.name}>
+              <NavigationDropdown
+                label={item.name}
+                items={item.items}
+                mobile={mobile}
+                onItemClick={onItemClick}
+              />
+            </div>
+          );
+        }
 
+        // Handle regular link items
+        const active = isActive(item.href);
         return (
           <div key={item.name}>
-            {item.external ? (
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${linkClass} ${active ? activeLinkClass : ''}`}
-                onClick={onItemClick}
-              >
-                {item.name}
-                <svg className="inline-block w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
-            ) : (
-              <Link
-                to={item.href}
-                className={`${linkClass} ${active ? activeLinkClass : ''}`}
-                onClick={onItemClick}
-              >
-                {item.name}
-                {!mobile && active && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent" />
-                )}
-              </Link>
-            )}
+            <Link
+              to={item.href}
+              className={`${linkClass} ${active ? activeLinkClass : ''}`}
+              onClick={onItemClick}
+            >
+              {item.name}
+              {!mobile && active && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent" />
+              )}
+            </Link>
           </div>
         );
       })}
 
-      {/* Tools Dropdown - Positioned after "About" */}
-      <div>
-        <NavigationDropdown
-          label="Tools"
-          items={toolsDropdownItems}
-          mobile={mobile}
-          onItemClick={onItemClick}
-        />
-      </div>
-
-      {/* CTA Button */}
+      {/* CTA Button - Updated to "Buy $PRICKO" */}
       <div className={mobile ? "pt-4 border-t border-border mt-4" : "ml-4"}>
-        <Link to="/contact">
+        <Link to="/how-to-buy">
           <button className="btn-primary text-sm px-4 py-2">
-            Join Waitlist
+            Buy $PRICKO
           </button>
         </Link>
       </div>
