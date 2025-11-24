@@ -109,7 +109,7 @@ const HomePage: React.FC = () => {
 
                 <p className="text-base md:text-lg text-muted max-w-4xl mx-auto lg:mx-0 mb-6 leading-relaxed">
                   Live products today. Unlimited ecosystem tomorrow.<br />
-                  Protocol launch Q2 2026 — get in before network effects.
+                  Developer Preview Q2 2026, Testnet Q3-Q4 2026 — get in before network effects.
                 </p>
 
                 {/* Social Proof Badges */}
@@ -136,7 +136,7 @@ const HomePage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-accent hover:text-accent-hover underline decoration-accent/50 hover:decoration-accent transition-colors duration-200 font-semibold"
                   >
-                    8 tools today
+                    4 live products today, 8 in roadmap
                   </a>{' '}to{' '}
                   <strong className="text-cyan-400">unlimited dApp integrations</strong> via GeckoCore protocol.
                 </p>
@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
                   <span className="text-2xl">⚡</span>
                 </div>
                 <p className="text-sm md:text-base text-white font-medium leading-relaxed">
-                  GeckoCore protocol launches Q2 2026. Early holders capture protocol fees as the ecosystem expands from current tools to <strong className="text-accent">unlimited dApp integrations</strong>.
+                  GeckoCore Developer Preview Q2 2026, Testnet Q3-Q4 2026. Early holders capture protocol fees as the ecosystem expands from current tools to <strong className="text-accent">unlimited dApp integrations</strong>.
                 </p>
               </div>
               */}

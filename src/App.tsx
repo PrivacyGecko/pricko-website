@@ -60,7 +60,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/tools" element={<ToolsPage />} />
+              <Route path="/products" element={<ToolsPage />} />
               <Route path="/tokenomics" element={<TokenomicsPage />} />
               <Route path="/how-to-buy" element={<HowToBuyPage />} />
               <Route path="/roadmap" element={<RoadmapPage />} />

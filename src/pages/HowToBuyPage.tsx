@@ -448,7 +448,7 @@ const HowToBuyPage: React.FC = () => {
                 View Tokenomics
               </button>
             </Link>
-            <Link to="/tools">
+            <Link to="/products">
               <button
                 className="btn-secondary px-8 py-3 text-lg"
               >

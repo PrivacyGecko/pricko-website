@@ -503,7 +503,7 @@ const TokenomicsPage: React.FC = () => {
                 Future Utility: <span className="text-protocol-primary">GeckoCore Protocol</span>
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed">
-                Beyond today's live products, $PRICKO will power a decentralized privacy protocol launching Q1 2026. Token holders gain access to staking rewards, governance rights, and node operation incentives.
+                Beyond today's live products, $PRICKO will power a decentralized privacy protocol Developer Preview Q2 2026, Testnet Q3-Q4 2026. Token holders gain access to staking rewards, governance rights, and node operation incentives.
               </p>
             </div>
 
@@ -596,8 +596,8 @@ const TokenomicsPage: React.FC = () => {
           </div>
         </section>
 
-{/* CONSOLIDATED Risk Disclosures & Legal Notices - COMMENTED OUT */}
-        {/* <section
+
+        <section
           className="mb-16"
         >
           <div className="max-w-4xl mx-auto bg-red-500/5 border border-red-500/20 rounded-2xl p-8">
@@ -715,7 +715,7 @@ const TokenomicsPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
       </div>
     </div>
     </>

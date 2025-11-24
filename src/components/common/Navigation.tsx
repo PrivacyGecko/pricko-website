@@ -61,7 +61,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   // Add "View All Products" link at the end
   privacyProductsDropdownItems.push({
     label: 'View All Products',
-    href: '/ecosystem'
+    href: '/products'
   });
 
   // Define navigation structure

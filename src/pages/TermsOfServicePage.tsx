@@ -159,7 +159,7 @@ const TermsOfServicePage: React.FC = () => {
                   but are not limited to:
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-1 mt-2">
-                  <li>Q1 2026 testnet launch and subsequent mainnet deployment</li>
+                  <li>Q3-Q4 2026 testnet launch and subsequent mainnet deployment</li>
                   <li>Node staking mechanisms and potential rewards</li>
                   <li>Decentralized governance via GeckoDAO</li>
                   <li>Protocol-level access control and verification systems</li>

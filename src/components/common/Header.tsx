@@ -107,14 +107,14 @@ const Header: React.FC = () => {
             {/* Buy $PRICKO Button - Desktop Only */}
             <Link
               to="/how-to-buy"
-              className="hidden md:flex btn-primary px-6 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 hover:-translate-y-0.5"
+              className="hidden md:flex btn-primary px-6 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 hover:-translate-y-0.5 z-60"
             >
               Buy $PRICKO
             </Link>
             {/* Enhanced Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-4 rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:shadow-lg active:scale-95"
+              className="md:hidden p-5 min-w-[44px] min-h-[44px] rounded-xl hover:bg-secondary/80 transition-all duration-200 relative focus:outline-none focus:shadow-lg active:scale-95 flex items-center justify-center"
               aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isMenuOpen}
             >

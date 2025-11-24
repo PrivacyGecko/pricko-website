@@ -923,7 +923,7 @@ const ContactPage: React.FC = () => {
 
           <div className="flex justify-center">
             <a
-              href="/tools"
+              href="/products"
               className="btn-secondary px-10 py-4 text-lg font-semibold shadow-professional inline-flex items-center gap-3"
             >
               <FaTools />

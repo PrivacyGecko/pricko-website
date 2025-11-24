@@ -9,7 +9,7 @@ const NotFoundPage: React.FC = () => {
   // Popular page links
   const popularPages = [
     { icon: FaHome, label: 'Home', path: '/', description: 'Return to homepage' },
-    { icon: FaTools, label: 'Privacy Products', path: '/tools', description: 'Explore our products' },
+    { icon: FaTools, label: 'Privacy Products', path: '/products', description: 'Explore our products' },
     { icon: FaShieldAlt, label: 'Tokenomics', path: '/tokenomics', description: 'Learn about $PRICKO' },
     { icon: FaRocket, label: 'Roadmap', path: '/roadmap', description: 'See our vision' },
   ];
@@ -116,7 +116,7 @@ const NotFoundPage: React.FC = () => {
             >
               <FaHome /> Go Home
             </button>
-            <Link to="/tools">
+            <Link to="/products">
               <button
                 className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}

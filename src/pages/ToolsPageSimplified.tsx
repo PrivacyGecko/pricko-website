@@ -13,7 +13,7 @@ const ToolsPageSimplified: React.FC = () => {
         title="Privacy Products - 8 Products, 2 Live Now | PRICKO"
         description="Explore PRICKO's ecosystem: Gecko Share (file sharing), Gecko Advisor (privacy scanner), Gecko Shell (mobile browser), and 5 more privacy products. Powered by $PRICKO token."
         keywords="privacy products, Gecko Share, Gecko Advisor, Gecko Shell, Gecko Guard, encrypted file sharing, privacy browser, PRICKO tools"
-        canonicalUrl="/tools"
+        canonicalUrl="/products"
       />
       <div className="min-h-screen bg-bg-main text-white pt-24">
         <div className="container-max section-padding">

@@ -420,7 +420,7 @@ const ProofOfDevelopment: React.FC = () => {
               Stop trusting vaporware. Start using privacy tools that actually work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tools">
+              <Link to="/products">
                 <button className="btn-primary inline-flex items-center gap-2 px-8 py-3 text-lg hover-lift">
                   Explore All 8 Tools <FaArrowRight />
                 </button>

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Privacy Products', href: '/tools' },
+    { name: 'Privacy Products', href: '/products' },
     { name: 'Tokenomics', href: '/tokenomics' },
     { name: 'Roadmap', href: '/roadmap' },
     { name: 'Contact', href: '/contact' },

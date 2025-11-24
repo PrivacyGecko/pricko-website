@@ -54,7 +54,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
           <div className="flex items-center gap-2 text-sm text-muted">
             <Link to="/" className="hover:text-accent transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/tools" className="hover:text-accent transition-colors">Tools</Link>
+            <Link to="/products" className="hover:text-accent transition-colors">Tools</Link>
             <span>/</span>
             <span className="text-accent">{product.name}</span>
           </div>
@@ -104,7 +104,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, className = '' }) =>
                 </button>
               )}
               <Link
-                to="/tools"
+                to="/products"
                 className="btn-secondary inline-flex items-center justify-center gap-3 text-lg px-8 py-4"
               >
                 <FaArrowLeft />

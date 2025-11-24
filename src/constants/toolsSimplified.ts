@@ -54,7 +54,7 @@ export const SIMPLIFIED_TOOLS: SimplifiedTool[] = [
       'Anti-tracking protection'
     ],
     icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0YWRlODAiIHJ4PSIxMiIvPgogIDxyZWN0IHg9IjE2IiB5PSIxMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjQwIiByeD0iNCIgZmlsbD0iIzFBMUExQSIvPgogIDxyZWN0IHg9IjIwIiB5PSIxOCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI4IiBmaWxsPSIjNGFkZTgwIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSI0OCIgcj0iMiIgZmlsbD0iIzRhZGU4MCIvPgo8L3N2Zz4=',
-    status: 'beta',
+    status: 'in-development',
     url: undefined
   },
   {
