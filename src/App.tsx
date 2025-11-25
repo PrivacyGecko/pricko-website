@@ -7,20 +7,20 @@ import ScrollToTop from './components/common/ScrollToTop';
 import PageTransition from './components/common/PageTransition';
 
 // Lazy load all page components for code splitting
-const HomePage = lazy(() => import('./pages/HomePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const ToolsPage = lazy(() => import('./pages/ToolsPageSimplified'));
-const RoadmapPage = lazy(() => import('./pages/RoadmapPageSimplified'));
-const TokenomicsPage = lazy(() => import('./pages/TokenomicsPage'));
-const HowToBuyPage = lazy(() => import('./pages/HowToBuyPage'));
+const HomePage = lazy(() => import('./pages/HomePageModern'));
+const AboutPage = lazy(() => import('./pages/AboutPageModern'));
+const ContactPage = lazy(() => import('./pages/ContactPageModern'));
+const ToolsPage = lazy(() => import('./pages/ToolsPageModern'));
+const RoadmapPage = lazy(() => import('./pages/RoadmapPageModern'));
+const TokenomicsPage = lazy(() => import('./pages/TokenomicsPageModern'));
+const HowToBuyPage = lazy(() => import('./pages/HowToBuyPageModern'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
 const RiskDisclosurePage = lazy(() => import('./pages/legal/RiskDisclosurePage'));
 const ForwardLookingStatementsPage = lazy(() => import('./pages/legal/ForwardLookingStatementsPage'));
 const GeographicRestrictionsPage = lazy(() => import('./pages/legal/GeographicRestrictionsPage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPageModern'));
 
 // Product pages
 const GeckoAdvisorPage = lazy(() => import('./pages/products/GeckoAdvisorPage'));

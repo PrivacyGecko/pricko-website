@@ -1,0 +1,821 @@
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import SEO from '../components/common/SEO';
+import { useProjectConfig } from '../hooks/useProjectConfig';
+import MascotImage from '../components/ui/MascotImage';
+import ContractAddress from '../components/ui/ContractAddress';
+import NewsletterForm from '../components/ui/NewsletterForm';
+import { METRICS, TOOLS_COUNT } from '../constants/metrics';
+import { Button, Card, Badge, Container } from '../design-system';
+import {
+  fadeUpVariants,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from '../design-system/animations/framer-variants';
+import { cn } from '../design-system/utils/cn';
+import {
+  FaArrowRight,
+  FaShieldAlt,
+  FaBolt,
+  FaUsers,
+  FaRocket,
+  FaCheckCircle,
+  FaCode,
+  FaLock,
+  FaGlobe,
+  FaChartLine,
+} from 'react-icons/fa';
+import { HiSparkles, HiLightningBolt, HiCube } from 'react-icons/hi';
+
+// ===== HERO SECTION =====
+const HeroSection: React.FC = () => {
+  const { tokenSymbol } = useProjectConfig();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  return (
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Aurora Gradient Mesh Background */}
+      <div className="absolute inset-0">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
+
+        {/* Aurora blobs */}
+        <motion.div
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px]"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[100px]"
+          animate={{
+            x: [0, -40, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-500/10 rounded-full blur-[150px]"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.15, 0.1],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+        {/* Grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <motion.div style={{ y, opacity }} className="relative z-10 w-full">
+        <Container size="xl" className="pt-24 pb-16">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Text Content */}
+            <motion.div
+              variants={staggerContainerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-center lg:text-left"
+            >
+              {/* Badges */}
+              <motion.div
+                variants={staggerItemVariants}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8"
+              >
+                <Badge variant="live" size="lg">
+                  <span className="w-2 h-2 bg-accent rounded-full animate-pulse mr-2" />
+                  Privacy Gecko Ecosystem
+                </Badge>
+                <Badge variant="protocol" size="lg">
+                  <HiSparkles className="mr-1" />
+                  GeckoCore Protocol
+                </Badge>
+              </motion.div>
+
+              {/* Main heading */}
+              <motion.h1
+                variants={staggerItemVariants}
+                className="text-display-xl font-black mb-6 leading-[0.9] tracking-tight"
+              >
+                <span className="bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                  {tokenSymbol}
+                </span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.h2
+                variants={staggerItemVariants}
+                className="text-h2 text-gray-300 font-semibold mb-6"
+              >
+                Solana's Privacy Infrastructure Protocol
+              </motion.h2>
+
+              {/* Description */}
+              <motion.p
+                variants={staggerItemVariants}
+                className="text-lg text-muted max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+              >
+                Live products today. Unlimited ecosystem tomorrow.
+                <br />
+                <span className="text-cyan-400 font-medium">
+                  Protocol launch Q2 2026
+                </span>{' '}
+                — get in before network effects.
+              </motion.p>
+
+              {/* Stats Row */}
+              <motion.div
+                variants={staggerItemVariants}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-10"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <FaUsers className="text-accent" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-white font-bold">2,100+</div>
+                    <div className="text-xs text-muted">Active Users</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <FaCheckCircle className="text-accent" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-white font-bold">4 Live</div>
+                    <div className="text-xs text-muted">Products</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <FaShieldAlt className="text-accent" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-white font-bold">850+</div>
+                    <div className="text-xs text-muted">Beta Testers</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={staggerItemVariants}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              >
+                <Link to="/how-to-buy">
+                  <Button variant="primary" size="xl" rightIcon={<FaArrowRight />}>
+                    Buy $PRICKO
+                  </Button>
+                </Link>
+                <a
+                  href="https://privacygecko.com/whitepaper"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="secondary" size="xl" rightIcon={<FaArrowRight />}>
+                    Read Whitepaper
+                  </Button>
+                </a>
+              </motion.div>
+
+              {/* Contract Address */}
+              <motion.div variants={staggerItemVariants}>
+                <ContractAddress variant="minimal" className="text-base" />
+              </motion.div>
+            </motion.div>
+
+            {/* Right: Mascot with Glow */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative flex items-center justify-center"
+            >
+              {/* Glow rings */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="absolute w-[400px] h-[400px] rounded-full"
+                  style={{
+                    background:
+                      'radial-gradient(circle, rgba(74,222,128,0.3) 0%, transparent 70%)',
+                  }}
+                  animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
+                <motion.div
+                  className="absolute w-[300px] h-[300px] rounded-full border border-accent/20"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                />
+                <motion.div
+                  className="absolute w-[350px] h-[350px] rounded-full border border-cyan-500/10"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+                />
+              </div>
+
+              {/* Mascot */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative z-10"
+              >
+                <MascotImage size="2xl" />
+              </motion.div>
+            </motion.div>
+          </div>
+        </Container>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1">
+          <motion.div
+            className="w-1.5 h-3 bg-accent rounded-full"
+            animate={{ y: [0, 16, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+// ===== BENTO GRID VALUE PROPS =====
+const BentoValueProps: React.FC = () => {
+  return (
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950/50 to-black" />
+
+      <Container size="xl" className="relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainerVariants}
+        >
+          {/* Section Header */}
+          <motion.div variants={fadeUpVariants} className="text-center mb-16">
+            <Badge variant="info" size="md" className="mb-4">
+              Why $PRICKO
+            </Badge>
+            <h2 className="text-h1 font-bold text-white mb-4">
+              Three Reasons to{' '}
+              <span className="gradient-text">Get In Early</span>
+            </h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto">
+              Real products today, protocol infrastructure tomorrow
+            </p>
+          </motion.div>
+
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1: Proven Execution */}
+            <motion.div variants={staggerItemVariants}>
+              <Card
+                variant="glass"
+                hoverable
+                className="h-full bg-gradient-to-br from-accent/5 to-transparent border-accent/20 hover:border-accent/40"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <FaChartLine className="text-2xl text-accent" />
+                  </div>
+                  <div>
+                    <Badge variant="live" size="sm" className="mb-2">
+                      Track Record
+                    </Badge>
+                    <h3 className="text-xl font-bold text-white">
+                      Proven Execution
+                    </h3>
+                  </div>
+                </div>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-accent">4</span>
+                    <span className="text-muted">products shipped</span>
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-accent">6</span>
+                    <span className="text-muted">months timeline</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-sm text-gray-400">
+                    <strong className="text-accent">No vaporware.</strong>{' '}
+                    Realistic timelines, actual delivery.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Card 2: GeckoCore Protocol */}
+            <motion.div variants={staggerItemVariants}>
+              <Card
+                variant="protocol"
+                hoverable
+                className="h-full hover:border-cyan-500/40"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
+                    <HiCube className="text-2xl text-cyan-400" />
+                  </div>
+                  <div>
+                    <Badge variant="protocol" size="sm" className="mb-2">
+                      Q2 2026 Launch
+                    </Badge>
+                    <h3 className="text-xl font-bold text-white">
+                      GeckoCore Protocol
+                    </h3>
+                  </div>
+                </div>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-cyan-400">∞</span>
+                    <span className="text-muted">dApp integrations</span>
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-cyan-400">Q2</span>
+                    <span className="text-muted">2026 launch</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-sm text-gray-400">
+                    Any developer can{' '}
+                    <strong className="text-cyan-400">build on GeckoCore</strong>
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Card 3: Early Position */}
+            <motion.div variants={staggerItemVariants}>
+              <Card
+                variant="premium"
+                hoverable
+                className="h-full hover:border-purple-500/40"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                    <HiLightningBolt className="text-2xl text-purple-400" />
+                  </div>
+                  <div>
+                    <Badge variant="coming-soon" size="sm" className="mb-2">
+                      Pre-Launch
+                    </Badge>
+                    <h3 className="text-xl font-bold text-white">
+                      Early Position
+                    </h3>
+                  </div>
+                </div>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-purple-400">✓</span>
+                    <span className="text-muted">live tools today</span>
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-purple-400">∞</span>
+                    <span className="text-muted">ecosystem tomorrow</span>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-sm text-gray-400">
+                    Get in <strong className="text-purple-400">before</strong>{' '}
+                    network effects kick in
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </motion.div>
+      </Container>
+    </section>
+  );
+};
+
+// ===== PROTOCOL EVOLUTION SECTION =====
+const ProtocolEvolution: React.FC = () => {
+  const phases = [
+    {
+      phase: 'Phase 1',
+      status: 'NOW',
+      title: 'Product Utility',
+      icon: FaRocket,
+      color: 'accent',
+      description:
+        'Token value = Access to 8 Privacy Gecko products with premium features and AI capabilities.',
+      detail: '4 products live, 4 launching 2026',
+      active: true,
+    },
+    {
+      phase: 'Phase 2',
+      status: '2026',
+      title: 'Developer Ecosystem',
+      icon: FaCode,
+      color: 'cyan',
+      description:
+        'Token value = Product utility + Protocol access for external developers building on GeckoCore.',
+      detail: 'SDK Q2 2026, Testnet Q3-Q4 2026',
+      active: false,
+    },
+    {
+      phase: 'Phase 3',
+      status: '2027+',
+      title: 'Network Effects',
+      icon: FaGlobe,
+      color: 'purple',
+      description:
+        'Token value = Product + Protocol + Network effects from every external dApp using GeckoCore.',
+      detail: 'Privacy infrastructure for all of Solana',
+      active: false,
+    },
+  ];
+
+  return (
+    <section className="relative py-24 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-secondary/50 to-zinc-950" />
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px]"
+          animate={{ x: [-100, 0, -100], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 15, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px]"
+          animate={{ x: [100, 0, 100], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+      </div>
+
+      <Container size="xl" className="relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainerVariants}
+        >
+          {/* Section Header */}
+          <motion.div variants={fadeUpVariants} className="text-center mb-16">
+            <h2 className="text-h1 font-bold text-white mb-4">
+              From Product Token to{' '}
+              <span className="bg-gradient-to-r from-accent via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                Protocol Token
+              </span>
+            </h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto">
+              The value evolution as we complete Phase 1 and launch GeckoCore
+              infrastructure
+            </p>
+          </motion.div>
+
+          {/* Phase Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {phases.map((phase, index) => {
+              const Icon = phase.icon;
+              const colorClasses = {
+                accent: {
+                  bg: 'bg-accent/10',
+                  text: 'text-accent',
+                  border: 'border-accent/50',
+                  glow: 'shadow-accent/20',
+                },
+                cyan: {
+                  bg: 'bg-cyan-500/10',
+                  text: 'text-cyan-400',
+                  border: 'border-cyan-500/30',
+                  glow: 'shadow-cyan-500/20',
+                },
+                purple: {
+                  bg: 'bg-purple-500/10',
+                  text: 'text-purple-400',
+                  border: 'border-purple-500/30',
+                  glow: 'shadow-purple-500/20',
+                },
+              }[phase.color];
+
+              return (
+                <motion.div
+                  key={phase.phase}
+                  variants={staggerItemVariants}
+                  className="relative"
+                >
+                  {/* Connection line */}
+                  {index < phases.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 right-0 w-8 h-0.5 bg-gradient-to-r from-white/20 to-transparent translate-x-full" />
+                  )}
+
+                  <Card
+                    variant={phase.active ? 'elevated' : 'outlined'}
+                    hoverable
+                    className={cn(
+                      'h-full transition-all duration-300',
+                      phase.active && `border-2 ${colorClasses?.border} shadow-lg ${colorClasses?.glow}`
+                    )}
+                  >
+                    {/* Status Badge */}
+                    <div
+                      className={cn(
+                        'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-4',
+                        colorClasses?.bg,
+                        colorClasses?.text
+                      )}
+                    >
+                      {phase.active && (
+                        <span className="w-2 h-2 bg-current rounded-full animate-pulse" />
+                      )}
+                      {phase.status}
+                    </div>
+
+                    {/* Icon */}
+                    <div
+                      className={cn(
+                        'w-16 h-16 rounded-2xl flex items-center justify-center mb-6',
+                        colorClasses?.bg
+                      )}
+                    >
+                      <Icon className={cn('text-3xl', colorClasses?.text)} />
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {phase.phase}
+                    </h3>
+                    <h4 className={cn('text-lg font-semibold mb-4', colorClasses?.text)}>
+                      {phase.title}
+                    </h4>
+                    <p className="text-gray-400 text-sm mb-4">{phase.description}</p>
+                    <div className="pt-4 border-t border-white/10">
+                      <p className="text-xs text-muted">
+                        <strong className="text-white">
+                          {phase.active ? 'Current:' : 'Timeline:'}
+                        </strong>{' '}
+                        {phase.detail}
+                      </p>
+                    </div>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+      </Container>
+    </section>
+  );
+};
+
+// ===== FAQ SECTION =====
+const FAQSection: React.FC = () => {
+  const faqs = [
+    {
+      question: 'What utility does $PRICKO have RIGHT NOW?',
+      answer:
+        'Day one: Premium access to Privacy Gecko products (4 live now, 4 launching 2026), AI query credits (launching Q1-Q2 2026), and early access to new features.',
+    },
+    {
+      question: 'When does GeckoCore protocol launch?',
+      answer:
+        'Developer Preview: Q2 2026 (hosted API). Testnet: Q3-Q4 2026. Mainnet: 2027+',
+    },
+    {
+      question: 'Why invest if protocol is 2+ years away?',
+      answer:
+        'Three reasons: Immediate utility from 8 products (4 live today), early entry before protocol value accrues, and Privacy Gecko team is actually shipping—not just promises.',
+    },
+    {
+      question: 'How is this different from other privacy tokens?',
+      answer:
+        '$PRICKO is unique: Product utility TODAY (8 tools) + Protocol infrastructure TOMORROW (GeckoCore opens to all Solana dApps). We\'re following Pyth and Jito\'s playbook.',
+    },
+  ];
+
+  return (
+    <section className="relative py-24 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-secondary/30 to-black" />
+
+      <Container size="lg" className="relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainerVariants}
+        >
+          <motion.div variants={fadeUpVariants} className="text-center mb-16">
+            <h2 className="text-h1 font-bold text-white mb-4">
+              <span className="gradient-text">Frequently Asked Questions</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent to-cyan-400 mx-auto" />
+          </motion.div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div key={index} variants={staggerItemVariants}>
+                <Card
+                  variant="glass"
+                  hoverable
+                  className="hover:border-accent/30 transition-colors"
+                >
+                  <h3 className="text-lg font-bold text-white mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-400">{faq.answer}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Container>
+    </section>
+  );
+};
+
+// ===== COMMUNITY CTA SECTION =====
+const CommunityCTA: React.FC = () => {
+  return (
+    <section className="relative py-32 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-accent/5 to-black" />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(74,222,128,0.1) 0%, transparent 60%)',
+          }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+      </div>
+
+      <Container size="lg" className="relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainerVariants}
+          className="text-center"
+        >
+          <motion.h2
+            variants={fadeUpVariants}
+            className="text-h1 font-bold mb-6"
+          >
+            Join the{' '}
+            <span className="gradient-text">Privacy Revolution</span>
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUpVariants}
+            className="text-xl text-muted max-w-2xl mx-auto mb-12"
+          >
+            Be part of a community that values{' '}
+            <span className="text-accent font-semibold">privacy</span>,{' '}
+            <span className="text-accent font-semibold">fun</span>, and{' '}
+            <span className="text-accent font-semibold">digital sovereignty</span>.
+          </motion.p>
+
+          {/* Stats */}
+          <motion.div
+            variants={staggerContainerVariants}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+          >
+            {[
+              { icon: FaUsers, label: 'Gecko Army', color: 'accent' },
+              { icon: FaShieldAlt, label: 'Privacy First', color: 'cyan' },
+              { icon: FaBolt, label: 'Lightning Fast', color: 'purple' },
+              { icon: FaRocket, label: 'Long-term Vision', color: 'accent' },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div key={index} variants={staggerItemVariants}>
+                  <Card variant="glass" hoverable className="text-center py-6">
+                    <Icon
+                      className={cn(
+                        'text-3xl mx-auto mb-2',
+                        item.color === 'accent' && 'text-accent',
+                        item.color === 'cyan' && 'text-cyan-400',
+                        item.color === 'purple' && 'text-purple-400'
+                      )}
+                    />
+                    <div className="text-sm text-muted">{item.label}</div>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUpVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          >
+            <Link to="/about">
+              <Button variant="primary" size="lg" rightIcon={<FaArrowRight />}>
+                Discover Our Mission
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="secondary" size="lg">
+                Join Community
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Newsletter */}
+          <motion.div variants={fadeUpVariants}>
+            <Card
+              variant="glass"
+              className="max-w-2xl mx-auto border-accent/20"
+            >
+              <h3 className="text-xl font-bold text-accent mb-4">
+                Ready to Go Stealth?
+              </h3>
+              <p className="text-muted mb-6">
+                Join the whitelist for early access to token launch, exclusive
+                updates, and beta features.
+              </p>
+              <NewsletterForm
+                variant="hero"
+                placeholder="Your email address"
+                buttonText="Join Whitelist"
+                showDescription={false}
+              />
+            </Card>
+          </motion.div>
+        </motion.div>
+      </Container>
+    </section>
+  );
+};
+
+// ===== MAIN PAGE COMPONENT =====
+const HomePageModern: React.FC = () => {
+  const homepageStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        name: 'Privacy Gecko',
+        alternateName: 'PRICKO',
+        url: 'https://pricko.com',
+        logo: 'https://pricko.com/logo.png',
+        description: `Privacy-first tools powered by PRICKO utility token. ${TOOLS_COUNT.live} live products serving ${METRICS.prickoshare.formatted} users.`,
+        sameAs: [
+          'https://twitter.com/PrivacyGecko',
+          'https://github.com/privacygecko',
+          'https://t.me/privacygecko',
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <SEO
+        title="PRICKO | Privacy Products Powered by Utility Token"
+        description={`PRICKO is a utility token powering 8 privacy products. ${TOOLS_COUNT.live} live products. Not vaporware - real tools, real results.`}
+        keywords="privacy token, utility token, privacy products, blockchain privacy, solana token"
+        canonicalUrl="/"
+        structuredData={homepageStructuredData}
+      />
+      <div className="min-h-screen bg-black">
+        <HeroSection />
+        <BentoValueProps />
+        <ProtocolEvolution />
+        <FAQSection />
+        <CommunityCTA />
+      </div>
+    </>
+  );
+};
+
+export default HomePageModern;

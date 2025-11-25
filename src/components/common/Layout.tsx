@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import Header from './HeaderModern';
+import Footer from './FooterModern';
 import ScrollProgress from '../ui/ScrollProgress';
 import { PageProps } from '../../types';
 
