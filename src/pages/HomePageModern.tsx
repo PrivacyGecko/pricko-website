@@ -150,9 +150,9 @@ const HeroSection: React.FC = () => {
                 variants={staggerItemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
               >
-                <Link to="/contact">
+                <Link to="/how-to-buy">
                   <Button variant="primary" size="xl" rightIcon={<FaArrowRight />}>
-                    Join Whitelist
+                    Buy $PRICKO
                   </Button>
                 </Link>
                 <a

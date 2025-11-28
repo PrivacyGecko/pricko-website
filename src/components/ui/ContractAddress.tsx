@@ -138,7 +138,7 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
 
   if (variant === 'minimal') {
     return (
-      <div className={`flex items-center gap-3 ${className}`}>
+      <div className={`flex items-center gap-3 ${!isLaunched ? 'justify-center' : ''} ${className}`}>
         {isLaunched ? (
           <>
             <span className="text-muted text-sm">CA:</span>
