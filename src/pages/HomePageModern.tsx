@@ -150,9 +150,9 @@ const HeroSection: React.FC = () => {
                 variants={staggerItemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
               >
-                <Link to="/how-to-buy">
+                <Link to="/contact">
                   <Button variant="primary" size="xl" rightIcon={<FaArrowRight />}>
-                    Buy $PRICKO
+                    Join Whitelist
                   </Button>
                 </Link>
                 <a
@@ -712,9 +712,9 @@ const HomePageModern: React.FC = () => {
   return (
     <>
       <SEO
-        title="PRICKO | Privacy Products Powered by Utility Token"
-        description={`PRICKO is a utility token powering 8 privacy products. ${TOOLS_COUNT.live} live products. Not vaporware - real tools, real results.`}
-        keywords="privacy token, utility token, privacy products, blockchain privacy, solana token"
+        title="PRICKO | Solana Privacy Token Powering Real Products"
+        description={`PRICKO is a Solana utility token powering 8 privacy products. ${TOOLS_COUNT.live} live products. Not vaporware - real tools, real results.`}
+        keywords="solana privacy token, privacy utility token, privacy products, blockchain privacy, solana token, privacy gecko"
         canonicalUrl="/"
         structuredData={homepageStructuredData}
       />
