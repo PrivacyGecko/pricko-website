@@ -54,70 +54,21 @@ const HeroSection: React.FC = () => {
         lazy={false}
       />
 
-      {/* Mascot - Positioned absolutely, centered vertically */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, x: 50 }}
-        animate={{ opacity: 1, scale: 1, x: 0 }}
-        transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-        className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[5] pointer-events-none hidden lg:block"
-      >
-        {/* Strong ambient glow */}
-        <motion.div
-          className="absolute -inset-20 blur-[80px]"
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(74,222,128,0.35) 0%, rgba(6,182,212,0.15) 50%, transparent 80%)',
-          }}
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.7, 1, 0.7],
-          }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        {/* Inner glow ring */}
-        <motion.div
-          className="absolute -inset-10 blur-[40px]"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(74,222,128,0.4) 0%, transparent 60%)',
-          }}
-          animate={{
-            scale: [1, 1.08, 1],
-            opacity: [0.8, 1, 0.8],
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        {/* Mascot - more visible */}
-        <motion.div
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative"
-        >
-          <img
-            src="/logo.png"
-            alt=""
-            className="w-[380px] h-[380px] object-contain drop-shadow-[0_0_60px_rgba(74,222,128,0.4)]"
-            style={{
-              filter: 'brightness(1.15) saturate(1.1)',
-            }}
-            aria-hidden="true"
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Content */}
+      {/* Content - Centered, no mascot */}
       <motion.div style={{ y, opacity }} className="relative z-10 w-full">
         <Container size="xl" className="pt-24 pb-16">
-          <div className="max-w-3xl mx-auto lg:mx-0">
-            {/* Text Content - Full width, no grid */}
+          <div className="max-w-4xl mx-auto">
+            {/* Text Content - Centered for professional look */}
             <motion.div
               variants={staggerContainerVariants}
               initial="hidden"
               animate="visible"
-              className="text-center lg:text-left"
+              className="text-center"
             >
               {/* Badges */}
               <motion.div
                 variants={staggerItemVariants}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8"
+                className="flex flex-wrap items-center justify-center gap-3 mb-8"
               >
                 <Badge variant="live" size="lg">
                   <span className="w-2 h-2 bg-accent rounded-full animate-pulse mr-2" />
@@ -150,7 +101,7 @@ const HeroSection: React.FC = () => {
               {/* Description */}
               <motion.p
                 variants={staggerItemVariants}
-                className="text-lg text-muted max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+                className="text-lg text-muted max-w-2xl mx-auto mb-8 leading-relaxed"
               >
                 Live products today. Unlimited ecosystem tomorrow.
                 <br />
@@ -163,7 +114,7 @@ const HeroSection: React.FC = () => {
               {/* Stats Row */}
               <motion.div
                 variants={staggerItemVariants}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-10"
+                className="flex flex-wrap items-center justify-center gap-6 mb-10"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
@@ -197,7 +148,7 @@ const HeroSection: React.FC = () => {
               {/* CTA Buttons */}
               <motion.div
                 variants={staggerItemVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+                className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
               >
                 <Link to="/how-to-buy">
                   <Button variant="primary" size="xl" rightIcon={<FaArrowRight />}>
