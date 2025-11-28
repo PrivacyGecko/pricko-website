@@ -267,7 +267,7 @@ const HeroSection: React.FC = () => {
 
           {/* Mascot - SVG with theme-matched drop shadow */}
           <motion.div
-            className="relative w-48 h-48 lg:w-56 lg:h-56"
+            className="relative w-56 h-56 lg:w-72 lg:h-72"
             whileHover={{ scale: 1.08, rotate: [0, -3, 3, 0] }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
           >
