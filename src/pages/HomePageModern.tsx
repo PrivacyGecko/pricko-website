@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-import MascotImage from '../components/ui/MascotImage';
+// MascotImage removed - using direct img tag for hero background mascot
 import ContractAddress from '../components/ui/ContractAddress';
 import NewsletterForm from '../components/ui/NewsletterForm';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -54,11 +54,60 @@ const HeroSection: React.FC = () => {
         lazy={false}
       />
 
+      {/* Mascot - Positioned absolutely, centered vertically */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, x: 50 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+        className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[5] pointer-events-none hidden lg:block"
+      >
+        {/* Strong ambient glow */}
+        <motion.div
+          className="absolute -inset-20 blur-[80px]"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(74,222,128,0.35) 0%, rgba(6,182,212,0.15) 50%, transparent 80%)',
+          }}
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Inner glow ring */}
+        <motion.div
+          className="absolute -inset-10 blur-[40px]"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(74,222,128,0.4) 0%, transparent 60%)',
+          }}
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.8, 1, 0.8],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Mascot - more visible */}
+        <motion.div
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative"
+        >
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-[380px] h-[380px] object-contain drop-shadow-[0_0_60px_rgba(74,222,128,0.4)]"
+            style={{
+              filter: 'brightness(1.15) saturate(1.1)',
+            }}
+            aria-hidden="true"
+          />
+        </motion.div>
+      </motion.div>
+
       {/* Content */}
       <motion.div style={{ y, opacity }} className="relative z-10 w-full">
         <Container size="xl" className="pt-24 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Text Content */}
+          <div className="max-w-3xl mx-auto lg:mx-0">
+            {/* Text Content - Full width, no grid */}
             <motion.div
               variants={staggerContainerVariants}
               initial="hidden"
@@ -170,21 +219,6 @@ const HeroSection: React.FC = () => {
               <motion.div variants={staggerItemVariants}>
                 <ContractAddress variant="minimal" className="text-base" />
               </motion.div>
-            </motion.div>
-
-            {/* Right: Mascot with Clean White Circle */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex items-center justify-center lg:justify-end"
-            >
-              <MascotImage
-                size="2xl"
-                variant="default"
-                animate={false}
-                className="shadow-2xl shadow-black/20"
-              />
             </motion.div>
           </div>
         </Container>
