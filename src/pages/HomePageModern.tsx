@@ -266,31 +266,6 @@ const HeroSection: React.FC = () => {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-4 h-4 bg-black/90 border-r border-t border-accent/40 rotate-45" />
           </motion.div>
 
-          {/* Sparkle effects around mascot */}
-          <motion.div
-            className="absolute -top-2 -right-2 w-3 h-3 bg-accent rounded-full"
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 1, 0.5]
-            }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0 }}
-          />
-          <motion.div
-            className="absolute top-1/4 -left-4 w-2 h-2 bg-cyan-400 rounded-full"
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 1, 0.5]
-            }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-          />
-          <motion.div
-            className="absolute -bottom-1 left-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full"
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 1, 0.5]
-            }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          />
         </motion.div>
       </div>
 
