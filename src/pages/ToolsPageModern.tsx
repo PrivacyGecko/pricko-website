@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
-import MascotImage from '../components/ui/MascotImage';
+import CornerMascot from '../components/ui/CornerMascot';
 import { Button, Card, Badge, Container } from '../design-system';
 import { ShaderBackground, LazyShader } from '../components/shaders';
 import { cn } from '../design-system/utils/cn';
@@ -125,12 +125,12 @@ const ToolsPageModern: React.FC = () => {
       />
       <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
+        <section className="relative pt-24 pb-12 overflow-hidden">
           {/* GPU-Accelerated Shader Background */}
           <ShaderBackground
-            variant="section"
+            variant="hero"
             className="absolute inset-0"
-            overlayOpacity={0.1}
+            overlayOpacity={0.4}
             lazy={false}
           />
 
@@ -141,10 +141,6 @@ const ToolsPageModern: React.FC = () => {
               animate="visible"
               className="text-center"
             >
-              <motion.div variants={staggerItemVariants} className="mb-8">
-                <MascotImage size="lg" className="mx-auto" />
-              </motion.div>
-
               <motion.h1 variants={staggerItemVariants} className="text-display-md font-black mb-6">
                 Privacy{' '}
                 <span className="bg-gradient-to-r from-green-400 via-accent to-cyan-400 bg-clip-text text-transparent">
@@ -174,10 +170,13 @@ const ToolsPageModern: React.FC = () => {
               </motion.div>
             </motion.div>
           </Container>
+
+          {/* Corner Mascot */}
+          <CornerMascot size="md" greeting="Check out our tools! 🦎" />
         </section>
 
         {/* Products Grid */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <Container size="xl">
             <motion.div
               initial="hidden"
@@ -194,7 +193,7 @@ const ToolsPageModern: React.FC = () => {
         </section>
 
         {/* Security Section */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-secondary/30 to-zinc-950/50" />
           <Container size="xl" className="relative z-10">
             <motion.div
@@ -253,7 +252,7 @@ const ToolsPageModern: React.FC = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24">
+        <section className="relative py-12">
           {/* GPU-Accelerated Shader Background for CTA */}
           <LazyShader
             variant="cta"

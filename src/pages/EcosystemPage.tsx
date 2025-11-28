@@ -16,6 +16,7 @@ import { ProtocolArchitectureDiagram } from '../components/ui/ProtocolArchitectu
 import SecurityBadge from '../components/ui/SecurityBadge';
 import ToolCardSimple from '../components/ui/ToolCardSimple';
 import GeckoCoreOGImage from '../components/ui/GeckoCoreOGImage';
+import CornerMascot from '../components/ui/CornerMascot';
 import SEO from '../components/common/SEO';
 import { TOOLS_COUNT } from '../constants/metrics';
 import { SIMPLIFIED_TOOLS } from '../constants/toolsSimplified';
@@ -31,16 +32,16 @@ import { cn } from '../design-system/utils/cn';
 // ===== HERO SECTION =====
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className="relative pt-24 pb-12 overflow-hidden">
       {/* GPU-Accelerated Shader Background */}
       <ShaderBackground
         variant="protocol"
         className="absolute inset-0"
-        overlayOpacity={0.3}
+        overlayOpacity={0.4}
         lazy={false}
       />
 
-      <Container size="xl" className="relative z-10 py-20">
+      <Container size="xl" className="relative z-10">
         <motion.div
           variants={staggerContainerVariants}
           initial="hidden"
@@ -109,6 +110,9 @@ const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
       </Container>
+
+      {/* Corner Mascot */}
+      <CornerMascot size="md" greeting="Explore the ecosystem! 🦎" />
     </section>
   );
 };
@@ -118,7 +122,7 @@ const LiveProductsSection: React.FC = () => {
   const liveProducts = SIMPLIFIED_TOOLS.filter(tool => tool.status === 'live');
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950/50 to-black" />
 
       <Container size="xl" className="relative z-10">
@@ -165,7 +169,7 @@ const LiveProductsSection: React.FC = () => {
 // ===== WHAT IS GECKOCORE SECTION =====
 const GeckoCoreSection: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <Container size="xl" className="relative z-10">
         <motion.div
           initial="hidden"
@@ -244,7 +248,7 @@ const GeckoCoreSection: React.FC = () => {
 // ===== TRUST & SECURITY SECTION =====
 const TrustSecuritySection: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-secondary/30 to-zinc-950" />
 
       <Container size="xl" className="relative z-10">
@@ -306,7 +310,7 @@ const TrustSecuritySection: React.FC = () => {
 // ===== TIMELINE SECTION =====
 const TimelineSection: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <Container size="lg" className="relative z-10">
         <motion.div
           initial="hidden"
@@ -354,7 +358,7 @@ const TokenFlowSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       {/* GPU-Accelerated Shader Background */}
       <LazyShader
         variant="section"
@@ -423,7 +427,7 @@ const TokenFlowSection: React.FC = () => {
 // ===== PROTOCOL ARCHITECTURE SECTION =====
 const ProtocolArchitectureSection: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-green-500/5" />
 
       <Container size="lg" className="relative z-10">

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-import MascotImage from '../components/ui/MascotImage';
 import ContractAddress from '../components/ui/ContractAddress';
+import CornerMascot from '../components/ui/CornerMascot';
 import { Button, Card, Badge, Container } from '../design-system';
 import { ShaderBackground, LazyShader } from '../components/shaders';
 import { cn } from '../design-system/utils/cn';
@@ -44,26 +44,22 @@ import { HiSparkles, HiShieldCheck, HiCode, HiUserGroup } from 'react-icons/hi';
 // ===== HERO SECTION =====
 const HeroSection: React.FC<{ config: any }> = ({ config }) => {
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className="relative pt-24 pb-12 overflow-hidden">
       {/* GPU-Accelerated Shader Background */}
       <ShaderBackground
-        variant="ambient"
+        variant="hero"
         className="absolute inset-0"
-        overlayOpacity={0.1}
+        overlayOpacity={0.4}
         lazy={false}
       />
 
-      <Container size="xl" className="relative z-10 py-20">
+      <Container size="xl" className="relative z-10">
         <motion.div
           variants={staggerContainerVariants}
           initial="hidden"
           animate="visible"
           className="text-center"
         >
-          <motion.div variants={staggerItemVariants} className="mb-8">
-            <MascotImage size="lg" className="mx-auto" />
-          </motion.div>
-
           <motion.h1
             variants={staggerItemVariants}
             className="text-display-lg font-black mb-6"
@@ -83,6 +79,9 @@ const HeroSection: React.FC<{ config: any }> = ({ config }) => {
           </motion.p>
         </motion.div>
       </Container>
+
+      {/* Corner Mascot */}
+      <CornerMascot size="md" greeting="Learn about us! 🦎" />
     </section>
   );
 };
@@ -96,7 +95,7 @@ const StatsSection: React.FC<{ config: any; productCounts: any }> = ({ config, p
   ];
 
   return (
-    <section className="relative py-16 -mt-20">
+    <section className="relative py-10 -mt-12">
       <Container size="xl">
         <motion.div
           initial="hidden"
@@ -134,7 +133,7 @@ const StatsSection: React.FC<{ config: any; productCounts: any }> = ({ config, p
 // ===== STORY SECTION =====
 const StorySection: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950/50 to-black" />
 
       <Container size="xl" className="relative z-10">
@@ -221,7 +220,7 @@ const MissionSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-secondary/30 to-zinc-950" />
 
       <Container size="xl" className="relative z-10">
@@ -321,7 +320,7 @@ const ProofSection: React.FC<{ productCounts: any; config: any }> = ({ productCo
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-accent/5 to-black" />
 
       <Container size="xl" className="relative z-10">
@@ -421,7 +420,7 @@ const SecuritySection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <Container size="xl" className="relative z-10">
         <motion.div
           initial="hidden"
@@ -474,7 +473,7 @@ const ValuesSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-secondary/30 to-zinc-950" />
 
       <Container size="xl" className="relative z-10">
@@ -525,7 +524,7 @@ const TeamSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <Container size="xl" className="relative z-10">
         <motion.div
           initial="hidden"
@@ -588,7 +587,7 @@ const TeamSection: React.FC = () => {
 // ===== CTA SECTION =====
 const CTASection: React.FC = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       {/* GPU-Accelerated Shader Background for CTA */}
       <LazyShader
         variant="cta"

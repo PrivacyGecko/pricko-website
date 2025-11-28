@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
-import MascotImage from '../components/ui/MascotImage';
+import CornerMascot from '../components/ui/CornerMascot';
 import { Button, Card, Badge, Container } from '../design-system';
+import { ShaderBackground } from '../components/shaders';
 import { cn } from '../design-system/utils/cn';
 import {
   staggerContainerVariants,
@@ -148,20 +149,14 @@ const ContactPageModern: React.FC = () => {
       />
       <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-            <motion.div
-              className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[120px]"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px]"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 10, repeat: Infinity }}
-            />
-          </div>
+        <section className="relative pt-24 pb-12 overflow-hidden">
+          {/* GPU-Accelerated Shader Background */}
+          <ShaderBackground
+            variant="hero"
+            className="absolute inset-0"
+            overlayOpacity={0.4}
+            lazy={false}
+          />
 
           <Container size="xl" className="relative z-10">
             <motion.div
@@ -170,10 +165,6 @@ const ContactPageModern: React.FC = () => {
               animate="visible"
               className="text-center"
             >
-              <motion.div variants={staggerItemVariants} className="mb-8">
-                <MascotImage size="md" className="mx-auto" />
-              </motion.div>
-
               <motion.h1 variants={staggerItemVariants} className="text-display-md font-black mb-6">
                 Get in{' '}
                 <span className="bg-gradient-to-r from-cyan-400 via-accent to-purple-400 bg-clip-text text-transparent">
@@ -186,10 +177,13 @@ const ContactPageModern: React.FC = () => {
               </motion.p>
             </motion.div>
           </Container>
+
+          {/* Corner Mascot */}
+          <CornerMascot size="md" greeting="Got questions? 🦎" />
         </section>
 
         {/* Direct Email Section */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <Container size="xl">
             <motion.div
               initial="hidden"
@@ -244,7 +238,7 @@ const ContactPageModern: React.FC = () => {
         </section>
 
         {/* Community Section */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-secondary/30 to-zinc-950/50" />
           <Container size="xl" className="relative z-10">
             <motion.div
@@ -298,7 +292,7 @@ const ContactPageModern: React.FC = () => {
         </section>
 
         {/* Contact Form */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <Container size="lg">
             <motion.div
               initial="hidden"
@@ -494,7 +488,7 @@ const ContactPageModern: React.FC = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-accent/5 to-black" />
           <Container size="lg" className="relative z-10">
             <motion.div
@@ -529,7 +523,7 @@ const ContactPageModern: React.FC = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24">
+        <section className="relative py-12">
           <Container size="lg">
             <motion.div
               initial="hidden"

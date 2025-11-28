@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
-import MascotImage from '../components/ui/MascotImage';
+import CornerMascot from '../components/ui/CornerMascot';
 import { Button, Card, Badge, Container } from '../design-system';
+import { ShaderBackground } from '../components/shaders';
 import { cn } from '../design-system/utils/cn';
 import {
   staggerContainerVariants,
@@ -126,20 +127,14 @@ const RoadmapPageModern: React.FC = () => {
       />
       <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-            <motion.div
-              className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[120px]"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 10, repeat: Infinity }}
-            />
-          </div>
+        <section className="relative pt-24 pb-12 overflow-hidden">
+          {/* GPU-Accelerated Shader Background */}
+          <ShaderBackground
+            variant="hero"
+            className="absolute inset-0"
+            overlayOpacity={0.4}
+            lazy={false}
+          />
 
           <Container size="xl" className="relative z-10">
             <motion.div
@@ -148,10 +143,6 @@ const RoadmapPageModern: React.FC = () => {
               animate="visible"
               className="text-center"
             >
-              <motion.div variants={staggerItemVariants} className="mb-8">
-                <MascotImage size="lg" className="mx-auto" />
-              </motion.div>
-
               <motion.h1 variants={staggerItemVariants} className="text-display-md font-black mb-6">
                 Our{' '}
                 <span className="bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
@@ -189,10 +180,13 @@ const RoadmapPageModern: React.FC = () => {
               </motion.div>
             </motion.div>
           </Container>
+
+          {/* Corner Mascot */}
+          <CornerMascot size="md" greeting="See our progress! 🦎" />
         </section>
 
         {/* Timeline Section */}
-        <section className="relative py-16">
+        <section className="relative py-10">
           <Container size="lg">
             <motion.div
               initial="hidden"
@@ -209,7 +203,7 @@ const RoadmapPageModern: React.FC = () => {
         </section>
 
         {/* Future Vision CTA */}
-        <section className="relative py-24">
+        <section className="relative py-12">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-accent/5 to-black" />
           <Container size="lg" className="relative z-10">
             <motion.div
