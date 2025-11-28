@@ -218,7 +218,7 @@ const HeroSection: React.FC = () => {
         </Container>
       </motion.div>
 
-      {/* Corner Mascot Greeter - WOW Visual with SVG */}
+      {/* Corner Mascot Greeter - Theme-matched animated glow */}
       <div className="absolute bottom-16 right-4 lg:right-12 z-20 hidden md:block">
         <motion.div
           className="relative group cursor-pointer"
@@ -231,16 +231,41 @@ const HeroSection: React.FC = () => {
             ease: "easeInOut"
           }}
         >
-          {/* Outer glow - largest, most diffuse */}
-          <div className="absolute inset-0 bg-accent/20 rounded-full blur-[80px] scale-[2.5] group-hover:bg-accent/30 transition-all duration-500" />
+          {/* Animated gradient glow - matching hero shader theme */}
+          {/* Outer glow - purple/navy (Privacy, Blockchain) */}
+          <motion.div
+            className="absolute inset-0 rounded-full blur-[80px] scale-[2.5]"
+            style={{ background: 'radial-gradient(circle, rgba(45,31,94,0.6) 0%, rgba(26,26,62,0.4) 50%, transparent 70%)' }}
+            animate={{
+              scale: [2.5, 2.8, 2.5],
+              opacity: [0.6, 0.8, 0.6],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
 
-          {/* Middle glow - medium intensity */}
-          <div className="absolute inset-0 bg-accent/30 rounded-full blur-[50px] scale-[1.8] group-hover:bg-accent/50 transition-all duration-500" />
+          {/* Middle glow - teal/cyan (Secure, Protocol) */}
+          <motion.div
+            className="absolute inset-0 rounded-full blur-[50px] scale-[1.8]"
+            style={{ background: 'radial-gradient(circle, rgba(13,74,90,0.7) 0%, rgba(15,61,77,0.5) 50%, transparent 70%)' }}
+            animate={{
+              scale: [1.8, 2.1, 1.8],
+              opacity: [0.5, 0.7, 0.5],
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
 
-          {/* Inner glow - brightest core */}
-          <div className="absolute inset-0 bg-accent/50 rounded-full blur-[30px] scale-125 group-hover:bg-accent/70 transition-all duration-300" />
+          {/* Inner glow - cyan highlight (Trust) */}
+          <motion.div
+            className="absolute inset-0 rounded-full blur-[30px] scale-125"
+            style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.4) 0%, rgba(13,74,90,0.3) 50%, transparent 70%)' }}
+            animate={{
+              scale: [1.25, 1.4, 1.25],
+              opacity: [0.4, 0.6, 0.4],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
 
-          {/* Mascot - SVG with transparent background */}
+          {/* Mascot - SVG with theme-matched drop shadow */}
           <motion.div
             className="relative w-48 h-48 lg:w-56 lg:h-56"
             whileHover={{ scale: 1.08, rotate: [0, -3, 3, 0] }}
@@ -249,21 +274,21 @@ const HeroSection: React.FC = () => {
             <img
               src="/logo.svg"
               alt="Privacy Gecko Mascot"
-              className="w-full h-full object-contain drop-shadow-[0_0_40px_rgba(74,222,128,0.8)] group-hover:drop-shadow-[0_0_60px_rgba(74,222,128,1)] transition-all duration-300"
+              className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(34,211,238,0.5)] group-hover:drop-shadow-[0_0_50px_rgba(34,211,238,0.8)] transition-all duration-300"
             />
           </motion.div>
 
-          {/* Speech bubble on hover - enhanced */}
+          {/* Speech bubble on hover - theme matched */}
           <motion.div
             className="absolute right-full mr-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none"
             initial={{ x: 10, opacity: 0 }}
             whileHover={{ x: 0, opacity: 1 }}
           >
-            <div className="bg-black/90 backdrop-blur-xl border border-accent/40 rounded-2xl px-5 py-3 whitespace-nowrap shadow-2xl shadow-accent/20">
+            <div className="bg-black/90 backdrop-blur-xl border border-cyan-500/40 rounded-2xl px-5 py-3 whitespace-nowrap shadow-2xl shadow-cyan-500/20">
               <span className="text-base font-semibold text-white">gm, privacy fren! 🦎</span>
             </div>
             {/* Arrow */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-4 h-4 bg-black/90 border-r border-t border-accent/40 rotate-45" />
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-4 h-4 bg-black/90 border-r border-t border-cyan-500/40 rotate-45" />
           </motion.div>
 
         </motion.div>
