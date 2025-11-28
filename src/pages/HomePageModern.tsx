@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-import MascotImage from '../components/ui/MascotImage';
+// MascotImage removed - using direct img tag for hero background mascot
 import ContractAddress from '../components/ui/ContractAddress';
 import NewsletterForm from '../components/ui/NewsletterForm';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -54,11 +54,58 @@ const HeroSection: React.FC = () => {
         lazy={false}
       />
 
+      {/* Mascot - Positioned absolutely as background accent */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: 'easeOut' }}
+        className="absolute z-[5] pointer-events-none hidden lg:block"
+        style={{
+          right: '5%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        }}
+      >
+        {/* Ambient glow - larger and softer */}
+        <motion.div
+          className="absolute blur-[100px]"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(74,222,128,0.2) 0%, rgba(6,182,212,0.1) 40%, transparent 70%)',
+            width: '600px',
+            height: '600px',
+            left: '-50px',
+            top: '-50px',
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.6, 0.8, 0.6],
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Mascot - subtle but visible */}
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative"
+          style={{
+            opacity: 0.5,
+            filter: 'brightness(1.1) contrast(0.95)',
+          }}
+        >
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-[420px] h-[420px] object-contain drop-shadow-[0_0_40px_rgba(74,222,128,0.2)]"
+            aria-hidden="true"
+          />
+        </motion.div>
+      </motion.div>
+
       {/* Content */}
       <motion.div style={{ y, opacity }} className="relative z-10 w-full">
         <Container size="xl" className="pt-24 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Text Content */}
+          <div className="max-w-3xl mx-auto lg:mx-0">
+            {/* Text Content - Full width, no grid */}
             <motion.div
               variants={staggerContainerVariants}
               initial="hidden"
@@ -169,55 +216,6 @@ const HeroSection: React.FC = () => {
               {/* Contract Address */}
               <motion.div variants={staggerItemVariants}>
                 <ContractAddress variant="minimal" className="text-base" />
-              </motion.div>
-            </motion.div>
-
-            {/* Right: Mascot with Enhanced Glow */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative flex items-center justify-center"
-            >
-              {/* Multi-layer glow effect for depth */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                {/* Outer ambient glow */}
-                <motion.div
-                  className="absolute w-[400px] h-[400px] rounded-full"
-                  style={{
-                    background:
-                      'radial-gradient(circle, rgba(74,222,128,0.08) 0%, transparent 60%)',
-                  }}
-                  animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                {/* Inner focused glow */}
-                <motion.div
-                  className="absolute w-[300px] h-[300px] rounded-full"
-                  style={{
-                    background:
-                      'radial-gradient(circle, rgba(74,222,128,0.15) 0%, rgba(6,182,212,0.08) 40%, transparent 70%)',
-                  }}
-                  animate={{ scale: [1, 1.05, 1], opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                />
-              </div>
-
-              {/* Mascot - floating with organic movement */}
-              <motion.div
-                animate={{
-                  y: [0, -12, 0],
-                  rotate: [-1, 1, -1]
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  times: [0, 0.5, 1]
-                }}
-                className="relative z-10 drop-shadow-[0_0_30px_rgba(74,222,128,0.3)]"
-              >
-                <MascotImage size="2xl" variant="hero" />
               </motion.div>
             </motion.div>
           </div>
