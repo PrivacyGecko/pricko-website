@@ -41,7 +41,7 @@ const SkeletonBlock = ({ className = '' }: { className?: string }) => (
 );
 
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-primary">
+  <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
     {/* Hero Section Skeleton */}
     <div className="container-max px-4 pt-8 pb-16">
       {/* Hero content skeleton */}

@@ -8,6 +8,7 @@ import ContractAddress from '../components/ui/ContractAddress';
 import NewsletterForm from '../components/ui/NewsletterForm';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
 import { Button, Card, Badge, Container } from '../design-system';
+import { ShaderBackground, LazyShader } from '../components/shaders';
 import {
   fadeUpVariants,
   staggerContainerVariants,
@@ -45,49 +46,13 @@ const HeroSection: React.FC = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Aurora Gradient Mesh Background */}
-      <div className="absolute inset-0">
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-
-        {/* Aurora blobs */}
-        <motion.div
-          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px]"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[100px]"
-          animate={{
-            x: [0, -40, 0],
-            y: [0, -20, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-500/10 rounded-full blur-[150px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        />
-
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
+      {/* GPU-Accelerated Shader Background */}
+      <ShaderBackground
+        variant="hero"
+        className="absolute inset-0"
+        overlayOpacity={0}
+        lazy={false}
+      />
 
       {/* Content */}
       <motion.div style={{ y, opacity }} className="relative z-10 w-full">
@@ -207,40 +172,38 @@ const HeroSection: React.FC = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right: Mascot with Glow */}
+            {/* Right: Mascot with Subtle Glow */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative flex items-center justify-center"
             >
-              {/* Glow rings */}
+              {/* Single subtle ambient glow - no rotating rings */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  className="absolute w-[400px] h-[400px] rounded-full"
+                  className="absolute w-[350px] h-[350px] rounded-full"
                   style={{
                     background:
-                      'radial-gradient(circle, rgba(74,222,128,0.3) 0%, transparent 70%)',
+                      'radial-gradient(circle, rgba(74,222,128,0.15) 0%, transparent 70%)',
                   }}
-                  animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute w-[300px] h-[300px] rounded-full border border-accent/20"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                />
-                <motion.div
-                  className="absolute w-[350px] h-[350px] rounded-full border border-cyan-500/10"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.25, 0.15] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
                 />
               </div>
 
-              {/* Mascot */}
+              {/* Mascot - more subtle, organic movement */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                animate={{
+                  y: [0, -4, 0],
+                  rotate: [-0.5, 0.5, -0.5]
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  times: [0, 0.5, 1]
+                }}
                 className="relative z-10"
               >
                 <MascotImage size="2xl" />
@@ -250,13 +213,14 @@ const HeroSection: React.FC = () => {
         </Container>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - decorative */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        aria-hidden="true"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1">
+        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-1">
           <motion.div
             className="w-1.5 h-3 bg-accent rounded-full"
             animate={{ y: [0, 16, 0] }}
@@ -461,22 +425,13 @@ const ProtocolEvolution: React.FC = () => {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-secondary/50 to-zinc-950" />
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px]"
-          animate={{ x: [-100, 0, -100], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 15, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px]"
-          animate={{ x: [100, 0, 100], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-      </div>
+      {/* GPU-Accelerated Protocol Shader Background */}
+      <LazyShader
+        variant="protocol"
+        className="absolute inset-0"
+        overlayOpacity={0.5}
+        rootMargin="200px"
+      />
 
       <Container size="xl" className="relative z-10">
         <motion.div
@@ -663,19 +618,13 @@ const FAQSection: React.FC = () => {
 const CommunityCTA: React.FC = () => {
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-accent/5 to-black" />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(74,222,128,0.1) 0%, transparent 60%)',
-          }}
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-      </div>
+      {/* GPU-Accelerated CTA Shader Background */}
+      <LazyShader
+        variant="cta"
+        className="absolute inset-0"
+        overlayOpacity={0.45}
+        rootMargin="200px"
+      />
 
       <Container size="lg" className="relative z-10">
         <motion.div

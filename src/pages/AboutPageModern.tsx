@@ -6,6 +6,7 @@ import { useProjectConfig } from '../hooks/useProjectConfig';
 import MascotImage from '../components/ui/MascotImage';
 import ContractAddress from '../components/ui/ContractAddress';
 import { Button, Card, Badge, Container } from '../design-system';
+import { ShaderBackground, LazyShader } from '../components/shaders';
 import { cn } from '../design-system/utils/cn';
 import {
   staggerContainerVariants,
@@ -44,20 +45,13 @@ import { HiSparkles, HiShieldCheck, HiCode, HiUserGroup } from 'react-icons/hi';
 const HeroSection: React.FC<{ config: any }> = ({ config }) => {
   return (
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-      {/* Aurora Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[120px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-      </div>
+      {/* GPU-Accelerated Shader Background */}
+      <ShaderBackground
+        variant="ambient"
+        className="absolute inset-0"
+        overlayOpacity={0.1}
+        lazy={false}
+      />
 
       <Container size="xl" className="relative z-10 py-20">
         <motion.div
@@ -595,11 +589,11 @@ const TeamSection: React.FC = () => {
 const CTASection: React.FC = () => {
   return (
     <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-accent/5 to-black" />
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px]"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-        transition={{ duration: 8, repeat: Infinity }}
+      {/* GPU-Accelerated Shader Background for CTA */}
+      <LazyShader
+        variant="cta"
+        className="absolute inset-0"
+        overlayOpacity={0.2}
       />
 
       <Container size="lg" className="relative z-10">
@@ -653,7 +647,7 @@ const AboutPageModern: React.FC = () => {
         keywords="PRICKO about, privacy products, memecoin mission, blockchain privacy, Solana privacy"
         canonicalUrl="/about"
       />
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         <HeroSection config={config} />
         <StatsSection config={config} productCounts={productCounts} />
         <StorySection />

@@ -3,6 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { NavigationItem } from '../../types';
 import NavigationDropdown, { DropdownItem } from './NavigationDropdown';
 import { useProjectConfig } from '../../hooks/useProjectConfig';
+import { 
+  FaInfoCircle, 
+  FaChartPie, 
+  FaRoad, 
+  FaCubes,
+  FaShieldAlt,
+  FaWifi
+} from 'react-icons/fa';
+import { HiSparkles } from 'react-icons/hi';
 
 interface NavigationProps {
   mobile?: boolean;
@@ -13,6 +22,7 @@ interface DropdownNavItem {
   name: string;
   dropdown: true;
   items: DropdownItem[];
+  width?: 'default' | 'wide' | 'extra-wide';
 }
 
 interface LinkNavItem {
@@ -34,19 +44,25 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     return location.pathname.startsWith(href);
   };
 
-  // Build $PRICKO Token dropdown items
+  // Build $PRICKO Token dropdown items with icons and descriptions
   const prickoTokenDropdownItems: DropdownItem[] = [
     {
       label: 'What is $PRICKO?',
-      href: '/about'
+      href: '/about',
+      icon: HiSparkles,
+      description: 'Learn about our mission & token'
     },
     {
       label: 'Tokenomics',
-      href: '/tokenomics'
+      href: '/tokenomics',
+      icon: FaChartPie,
+      description: 'Distribution, utility & supply'
     },
     {
       label: 'Roadmap',
-      href: '/roadmap'
+      href: '/roadmap',
+      icon: FaRoad,
+      description: 'Development timeline & milestones'
     },
   ];
 
@@ -55,13 +71,48 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     label: product.name,
     href: product.url || `/${product.id}`,
     status: product.status as 'live' | 'beta' | 'in-development',
-    external: !!product.url
+    external: !!product.url,
+    description: product.tagline || undefined
   }));
+
+  // Add separator before "Coming Soon" section
+  privacyProductsDropdownItems.push({
+    label: '',
+    href: '#separator-1',
+    separator: true
+  });
+
+  // Add "Coming Soon" products to show ecosystem growth
+  privacyProductsDropdownItems.push(
+    {
+      label: 'Gecko Shell',
+      href: '#gecko-shell',
+      status: 'coming-soon',
+      icon: FaShieldAlt,
+      description: 'Encrypted cloud storage'
+    },
+    {
+      label: 'Gecko VPN',
+      href: '#gecko-vpn',
+      status: 'coming-soon',
+      icon: FaWifi,
+      description: 'Privacy-first VPN service'
+    }
+  );
+
+  // Add separator before "View All Products"
+  privacyProductsDropdownItems.push({
+    label: '',
+    href: '#separator-2',
+    separator: true
+  });
 
   // Add "View All Products" link at the end
   privacyProductsDropdownItems.push({
     label: 'View All Products',
-    href: '/products'
+    href: '/products',
+    icon: FaCubes,
+    description: 'Explore the full Privacy Gecko ecosystem'
   });
 
   // Define navigation structure
@@ -69,12 +120,14 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     {
       name: '$PRICKO Token',
       dropdown: true,
-      items: prickoTokenDropdownItems
+      items: prickoTokenDropdownItems,
+      width: 'wide'
     },
     {
       name: 'Products',
       dropdown: true,
-      items: privacyProductsDropdownItems
+      items: privacyProductsDropdownItems,
+      width: 'wide'
     },
     { name: 'How to Buy', href: '/how-to-buy' },
     { name: 'Contact', href: '/contact' }
@@ -100,6 +153,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
                 items={item.items}
                 mobile={mobile}
                 onItemClick={onItemClick}
+                width={item.width}
               />
             </div>
           );

@@ -12,17 +12,17 @@ interface MascotImageProps {
    * - 2xl: 280px (large homepage hero)
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-  
+
   /**
    * Additional CSS classes
    */
   className?: string;
-  
+
   /**
    * Whether to animate on hover
    */
   animate?: boolean;
-  
+
   /**
    * Alt text for accessibility
    */
@@ -31,7 +31,7 @@ interface MascotImageProps {
 
 /**
  * MascotImage Component
- * 
+ *
  * Displays the Privacy Gecko mascot with consistent styling:
  * - White circular background
  * - Drop shadow for depth
@@ -49,7 +49,7 @@ const MascotImage: React.FC<MascotImageProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  // Size configuration
+  // Size configuration (using valid Tailwind classes)
   const sizeClasses = {
     xs: {
       container: 'w-14 h-14', // 56px
@@ -62,9 +62,9 @@ const MascotImage: React.FC<MascotImageProps> = ({
       padding: 'p-2'
     },
     md: {
-      container: 'w-30 h-30', // 120px
-      image: 'w-24 h-24', // 96px (24px padding total)
-      padding: 'p-3'
+      container: 'w-32 h-32', // 128px (was w-30 which doesn't exist)
+      image: 'w-24 h-24', // 96px (32px padding total)
+      padding: 'p-4'
     },
     lg: {
       container: 'w-40 h-40', // 160px
@@ -72,9 +72,9 @@ const MascotImage: React.FC<MascotImageProps> = ({
       padding: 'p-4'
     },
     xl: {
-      container: 'w-50 h-50', // 200px
-      image: 'w-40 h-40', // 160px (40px padding total)
-      padding: 'p-5'
+      container: 'w-52 h-52', // 208px (was w-50 which doesn't exist)
+      image: 'w-40 h-40', // 160px (48px padding total)
+      padding: 'p-6'
     },
     '2xl': {
       container: 'w-72 h-72', // 288px

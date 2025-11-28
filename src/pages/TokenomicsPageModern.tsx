@@ -116,7 +116,7 @@ const TokenomicsPageModern: React.FC = () => {
         keywords="PRICKO tokenomics, pump.fun launch, Solana token, utility token, fair launch"
         canonicalUrl="/tokenomics"
       />
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0">

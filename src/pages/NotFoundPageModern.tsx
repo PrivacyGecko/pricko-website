@@ -28,7 +28,7 @@ const NotFoundPageModern: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950 flex items-center justify-center relative overflow-hidden">
       {/* Aurora Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />

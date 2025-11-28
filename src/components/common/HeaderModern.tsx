@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaTelegram } from 'react-icons/fa';
+import { FaGithub, FaTelegram, FaChartPie, FaRoad, FaCubes, FaShieldAlt, FaWifi } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiSparkles } from 'react-icons/hi';
+import { IconType } from 'react-icons';
 import MascotImage from '../ui/MascotImage';
 import { Button } from '../../design-system';
 import { cn } from '../../design-system/utils/cn';
@@ -14,8 +15,10 @@ interface DropdownItem {
   label: string;
   href: string;
   description?: string;
+  icon?: IconType;
   external?: boolean;
   status?: 'live' | 'beta' | 'coming-soon';
+  separator?: boolean;
 }
 
 interface NavDropdownProps {
@@ -23,10 +26,38 @@ interface NavDropdownProps {
   items: DropdownItem[];
   mobile?: boolean;
   onItemClick?: () => void;
+  width?: 'default' | 'wide';
 }
 
-const NavDropdown: React.FC<NavDropdownProps> = ({ label, items, mobile, onItemClick }) => {
+const STATUS_CONFIG = {
+  live: { label: 'Live', color: 'text-green-400', bg: 'bg-green-400/10' },
+  beta: { label: 'Beta', color: 'text-yellow-400', bg: 'bg-yellow-400/10' },
+  'coming-soon': { label: 'Coming Soon', color: 'text-muted', bg: 'bg-muted/10' },
+};
+
+const WIDTH_CLASSES = {
+  default: 'min-w-[240px]',
+  wide: 'min-w-[320px]',
+};
+
+const NavDropdown: React.FC<NavDropdownProps> = ({ label, items, mobile, onItemClick, width = 'default' }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const renderStatusBadge = (status?: DropdownItem['status']) => {
+    if (!status) return null;
+    const config = STATUS_CONFIG[status];
+    return (
+      <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full ${config.color} ${config.bg}`}>
+        {config.label}
+      </span>
+    );
+  };
+
+  const renderIcon = (Icon?: IconType, isDisabled: boolean = false) => {
+    if (!Icon) return null;
+    const colorClass = isDisabled ? 'text-muted/50' : 'text-muted group-hover:text-accent';
+    return <Icon className={`w-4 h-4 flex-shrink-0 ${colorClass} transition-colors`} aria-hidden="true" />;
+  };
 
   if (mobile) {
     return (
@@ -55,21 +86,37 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, items, mobile, onItemC
               className="overflow-hidden"
             >
               <div className="pl-4 space-y-1">
-                {items.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={onItemClick}
-                    className="flex items-center gap-2 py-2 px-4 text-muted hover:text-accent transition-colors"
-                  >
-                    {item.label}
-                    {item.status === 'live' && (
-                      <span className="px-1.5 py-0.5 text-[10px] bg-accent/20 text-accent rounded-full">
-                        Live
-                      </span>
-                    )}
-                  </Link>
-                ))}
+                {items.map((item, index) => {
+                  if (item.separator) {
+                    return <div key={`sep-${index}`} className="my-2 mx-4 border-t border-white/10" />;
+                  }
+
+                  const isComingSoon = item.status === 'coming-soon';
+                  const labelColorClass = isComingSoon ? 'text-muted/60' : '';
+                  const descColorClass = isComingSoon ? 'text-muted/40' : 'text-muted';
+
+                  return (
+                    <Link
+                      key={item.href}
+                      to={isComingSoon ? '#' : item.href}
+                      onClick={isComingSoon ? (e) => e.preventDefault() : onItemClick}
+                      className={`group flex items-center gap-3 py-2.5 px-4 rounded transition-colors ${
+                        isComingSoon ? 'cursor-default' : 'hover:bg-white/5'
+                      }`}
+                    >
+                      {item.icon && renderIcon(item.icon, isComingSoon)}
+                      <div className="flex-1 min-w-0">
+                        <div className={`flex items-center gap-2 ${labelColorClass}`}>
+                          <span>{item.label}</span>
+                        </div>
+                        {item.description && (
+                          <p className={`text-xs ${descColorClass} mt-0.5 truncate`}>{item.description}</p>
+                        )}
+                      </div>
+                      {renderStatusBadge(item.status)}
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
           )}
@@ -107,24 +154,40 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, items, mobile, onItemC
             transition={{ duration: 0.15 }}
             className="absolute top-full left-0 pt-2 z-50"
           >
-            <div className="bg-secondary/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl min-w-[200px] overflow-hidden">
-              {items.map((item, index) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={cn(
-                    'flex items-center justify-between px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors',
-                    index !== items.length - 1 && 'border-b border-white/5'
-                  )}
-                >
-                  <span>{item.label}</span>
-                  {item.status === 'live' && (
-                    <span className="px-1.5 py-0.5 text-[10px] bg-accent/20 text-accent rounded-full">
-                      Live
-                    </span>
-                  )}
-                </Link>
-              ))}
+            <div className={`bg-secondary/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl ${WIDTH_CLASSES[width]} overflow-hidden`}>
+              <div className="py-2">
+                {items.map((item, index) => {
+                  if (item.separator) {
+                    return <div key={`sep-${index}`} className="my-2 mx-3 border-t border-white/10" />;
+                  }
+
+                  const isComingSoon = item.status === 'coming-soon';
+                  const labelColorClass = isComingSoon ? 'text-muted/60' : '';
+                  const descColorClass = isComingSoon ? 'text-muted/40' : 'text-muted';
+                  const hoverClass = isComingSoon ? '' : 'hover:bg-white/5 hover:border-l-accent';
+                  const cursorClass = isComingSoon ? 'cursor-default' : '';
+
+                  return (
+                    <Link
+                      key={item.href}
+                      to={isComingSoon ? '#' : item.href}
+                      onClick={isComingSoon ? (e) => e.preventDefault() : undefined}
+                      className={`group flex items-center gap-3 px-4 py-3 text-sm transition-all duration-150 border-l-2 border-transparent ${hoverClass} ${cursorClass}`}
+                    >
+                      {item.icon && renderIcon(item.icon, isComingSoon)}
+                      <div className="flex-1 min-w-0">
+                        <div className={`flex items-center gap-2 font-medium text-white/80 group-hover:text-white ${labelColorClass}`}>
+                          <span>{item.label}</span>
+                        </div>
+                        {item.description && (
+                          <p className={`text-xs ${descColorClass} mt-0.5`}>{item.description}</p>
+                        )}
+                      </div>
+                      {renderStatusBadge(item.status)}
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
         )}
@@ -153,21 +216,68 @@ const HeaderModern: React.FC = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  // Navigation items
+  // Navigation items with icons and descriptions
   const prickoItems: DropdownItem[] = [
-    { label: 'What is $PRICKO?', href: '/about' },
-    { label: 'Tokenomics', href: '/tokenomics' },
-    { label: 'Roadmap', href: '/roadmap' },
-    { label: 'Ecosystem', href: '/ecosystem' },
+    { 
+      label: 'What is $PRICKO?', 
+      href: '/about',
+      icon: HiSparkles,
+      description: 'Learn about our mission & token'
+    },
+    { 
+      label: 'Tokenomics', 
+      href: '/tokenomics',
+      icon: FaChartPie,
+      description: 'Distribution, utility & supply'
+    },
+    { 
+      label: 'Roadmap', 
+      href: '/roadmap',
+      icon: FaRoad,
+      description: 'Development timeline & milestones'
+    },
+    { 
+      label: 'Ecosystem', 
+      href: '/ecosystem',
+      icon: FaCubes,
+      description: 'GeckoCore protocol & products'
+    },
   ];
 
+  // Build product items with descriptions
+  const liveProducts = getLiveProducts();
   const productItems: DropdownItem[] = [
-    ...getLiveProducts().map(product => ({
+    ...liveProducts.map(product => ({
       label: product.name,
       href: product.url || `/${product.id}`,
       status: product.status as 'live' | 'beta' | 'coming-soon',
+      description: product.tagline || undefined,
     })),
-    { label: 'View All Products', href: '/products' },
+    // Separator before coming soon
+    { label: '', href: '#sep-1', separator: true },
+    // Coming Soon products
+    {
+      label: 'Gecko Shell',
+      href: '#gecko-shell',
+      icon: FaShieldAlt,
+      status: 'coming-soon',
+      description: 'Encrypted cloud storage'
+    },
+    {
+      label: 'Gecko VPN',
+      href: '#gecko-vpn',
+      icon: FaWifi,
+      status: 'coming-soon',
+      description: 'Privacy-first VPN service'
+    },
+    // Separator before View All
+    { label: '', href: '#sep-2', separator: true },
+    { 
+      label: 'View All Products', 
+      href: '/products',
+      icon: FaCubes,
+      description: 'Explore the full Privacy Gecko ecosystem'
+    },
   ];
 
   const socialLinks = [
@@ -219,8 +329,8 @@ const HeaderModern: React.FC = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              <NavDropdown label="$PRICKO Token" items={prickoItems} />
-              <NavDropdown label="Products" items={productItems} />
+              <NavDropdown label="$PRICKO Token" items={prickoItems} width="wide" />
+              <NavDropdown label="Products" items={productItems} width="wide" />
               <Link
                 to="/how-to-buy"
                 className={cn(

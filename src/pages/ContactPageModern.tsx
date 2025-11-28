@@ -146,7 +146,7 @@ const ContactPageModern: React.FC = () => {
         keywords="contact PRICKO, PRICKO support, crypto community"
         canonicalUrl="/contact"
       />
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0">

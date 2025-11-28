@@ -10,8 +10,8 @@ const ContractAddress: React.FC<ContractAddressProps> = ({
   variant = 'card' 
 }) => {
   const [copied, setCopied] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);  const isLaunched = new Date() >= new Date('2025-11-01');
-  const actualCA = "";
+  const ref = useRef<HTMLDivElement>(null);  const actualCA = ""; // Will be set when token launches on pump.fun
+  const isLaunched = actualCA.length > 0; // Only consider "launched" if we have a real CA
   const contractAddress = isLaunched ? actualCA : "TBA - Coming Soon";
   
   const handleCopy = async () => {

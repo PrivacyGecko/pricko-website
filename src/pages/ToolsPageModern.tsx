@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import MascotImage from '../components/ui/MascotImage';
 import { Button, Card, Badge, Container } from '../design-system';
+import { ShaderBackground, LazyShader } from '../components/shaders';
 import { cn } from '../design-system/utils/cn';
 import {
   staggerContainerVariants,
@@ -122,22 +123,16 @@ const ToolsPageModern: React.FC = () => {
         keywords="privacy products, Gecko Share, Gecko Advisor, Gecko Shell, Gecko Guard, encrypted file sharing, privacy browser, PRICKO tools"
         canonicalUrl="/products"
       />
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950">
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-            <motion.div
-              className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-green-500/15 rounded-full blur-[120px]"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 10, repeat: Infinity }}
-            />
-          </div>
+          {/* GPU-Accelerated Shader Background */}
+          <ShaderBackground
+            variant="section"
+            className="absolute inset-0"
+            overlayOpacity={0.1}
+            lazy={false}
+          />
 
           <Container size="xl" className="relative z-10">
             <motion.div
@@ -259,7 +254,14 @@ const ToolsPageModern: React.FC = () => {
 
         {/* CTA Section */}
         <section className="relative py-24">
-          <Container size="lg">
+          {/* GPU-Accelerated Shader Background for CTA */}
+          <LazyShader
+            variant="cta"
+            className="absolute inset-0"
+            overlayOpacity={0.2}
+          />
+
+          <Container size="lg" className="relative z-10">
             <motion.div
               initial="hidden"
               whileInView="visible"

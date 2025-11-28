@@ -97,7 +97,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       </Helmet>
 
       {/* Page Layout */}
-      <div className="min-h-screen bg-primary text-white">
+      <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-black to-zinc-950 text-white">
         {/* Breadcrumbs Navigation */}
         <div className="container-max px-4 pt-24">
           <Breadcrumbs
