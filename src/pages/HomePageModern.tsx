@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import { useProjectConfig } from '../hooks/useProjectConfig';
-// MascotImage removed - using direct img tag for hero background mascot
+import MascotImage from '../components/ui/MascotImage';
 import ContractAddress from '../components/ui/ContractAddress';
 import NewsletterForm from '../components/ui/NewsletterForm';
 import { METRICS, TOOLS_COUNT } from '../constants/metrics';
@@ -111,36 +111,79 @@ const HeroSection: React.FC = () => {
                 — get in before network effects.
               </motion.p>
 
-              {/* Stats Row */}
+              {/* Why $PRICKO - 3 Value Prop Cards with integrated stats */}
               <motion.div
                 variants={staggerItemVariants}
-                className="flex flex-wrap items-center justify-center gap-6 mb-10"
+                className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-4xl mx-auto"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <FaUsers className="text-accent" />
+                {/* Card 1: Proven Execution */}
+                <div className="bg-white/5 backdrop-blur-sm border border-accent/20 rounded-xl p-5 hover:border-accent/40 transition-all hover:bg-white/[0.07] min-h-[180px] flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center">
+                        <FaChartLine className="text-accent text-sm" />
+                      </div>
+                      <span className="text-xs font-bold text-accent uppercase tracking-wide">Shipped</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-black text-accent leading-none">4</div>
+                      <div className="text-[10px] text-muted uppercase">Products</div>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <div className="text-white font-bold">2,100+</div>
-                    <div className="text-xs text-muted">Active Users</div>
+                  <h3 className="text-white font-bold text-lg mb-1">Proven Execution</h3>
+                  <p className="text-sm text-gray-400 flex-1">Built in 6 months. No vaporware.</p>
+                  <div className="flex items-center gap-4 mt-3 pt-3 border-t border-white/10">
+                    <div className="flex items-center gap-1.5">
+                      <FaUsers className="text-accent text-xs" />
+                      <span className="text-xs text-muted">2,100+ users</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <FaShieldAlt className="text-accent text-xs" />
+                      <span className="text-xs text-muted">850+ testers</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <FaCheckCircle className="text-accent" />
+
+                {/* Card 2: GeckoCore Protocol */}
+                <div className="bg-white/5 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-5 hover:border-cyan-500/40 transition-all hover:bg-white/[0.07] min-h-[180px] flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-9 h-9 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                        <HiCube className="text-cyan-400 text-sm" />
+                      </div>
+                      <span className="text-xs font-bold text-cyan-400 uppercase tracking-wide">Protocol</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-black text-cyan-400 leading-none">Q2</div>
+                      <div className="text-[10px] text-muted uppercase">2026</div>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <div className="text-white font-bold">4 Live</div>
-                    <div className="text-xs text-muted">Products</div>
+                  <h3 className="text-white font-bold text-lg mb-1">GeckoCore Launch</h3>
+                  <p className="text-sm text-gray-400 flex-1">Privacy infrastructure for all Solana dApps.</p>
+                  <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/10">
+                    <FaCode className="text-cyan-400 text-xs" />
+                    <span className="text-xs text-muted">Open SDK for developers</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <FaShieldAlt className="text-accent" />
+
+                {/* Card 3: Early Access */}
+                <div className="bg-white/5 backdrop-blur-sm border border-purple-500/20 rounded-xl p-5 hover:border-purple-500/40 transition-all hover:bg-white/[0.07] min-h-[180px] flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-9 h-9 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <HiLightningBolt className="text-purple-400 text-sm" />
+                      </div>
+                      <span className="text-xs font-bold text-purple-400 uppercase tracking-wide">Early</span>
+                    </div>
+                    <div className="px-2 py-1 bg-purple-500/10 rounded-md">
+                      <span className="text-xs font-bold text-purple-400">PRE-LAUNCH</span>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <div className="text-white font-bold">850+</div>
-                    <div className="text-xs text-muted">Beta Testers</div>
+                  <h3 className="text-white font-bold text-lg mb-1">Get In Early</h3>
+                  <p className="text-sm text-gray-400 flex-1">Live utility today. Network effects tomorrow.</p>
+                  <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/10">
+                    <FaRocket className="text-purple-400 text-xs" />
+                    <span className="text-xs text-muted">Before protocol value accrues</span>
                   </div>
                 </div>
               </motion.div>
@@ -174,6 +217,32 @@ const HeroSection: React.FC = () => {
           </div>
         </Container>
       </motion.div>
+
+      {/* Corner Mascot Greeter - bottom right of hero with glow only */}
+      <div className="absolute bottom-24 right-8 z-20 hidden lg:block">
+        <div className="relative group cursor-pointer">
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-accent/40 rounded-full blur-3xl scale-150" />
+
+          {/* Mascot - direct image with glow */}
+          <div className="relative w-40 h-40">
+            <img
+              src="/logo.png"
+              alt="Privacy Gecko Mascot"
+              className="w-full h-full object-contain drop-shadow-[0_0_35px_rgba(74,222,128,0.7)] group-hover:drop-shadow-[0_0_50px_rgba(74,222,128,0.9)] transition-all duration-300"
+            />
+          </div>
+
+          {/* Speech bubble on hover */}
+          <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+            <div className="bg-black/80 backdrop-blur-md border border-accent/30 rounded-xl px-4 py-2.5 whitespace-nowrap shadow-xl shadow-accent/10">
+              <span className="text-sm font-medium text-white">Hey there! 👋</span>
+            </div>
+            {/* Arrow */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1.5 w-3 h-3 bg-black/80 border-r border-t border-accent/30 rotate-45" />
+          </div>
+        </div>
+      </div>
 
       {/* Scroll indicator - decorative */}
       <motion.div

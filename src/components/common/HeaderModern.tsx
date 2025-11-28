@@ -5,7 +5,6 @@ import { FaGithub, FaTelegram, FaChartPie, FaRoad, FaCubes, FaShieldAlt, FaWifi 
 import { FaXTwitter } from 'react-icons/fa6';
 import { HiMenuAlt3, HiX, HiSparkles } from 'react-icons/hi';
 import { IconType } from 'react-icons';
-import MascotImage from '../ui/MascotImage';
 import { Button } from '../../design-system';
 import { cn } from '../../design-system/utils/cn';
 import { useProjectConfig } from '../../hooks/useProjectConfig';
@@ -306,25 +305,23 @@ const HeaderModern: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
+            {/* Logo - Text only for professional look */}
             <Link
               to="/"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-2 group"
             >
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                className="flex flex-col"
               >
-                <MascotImage size="xs" />
-              </motion.div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
-                  PRICKO
+                <span className="text-2xl font-black bg-gradient-to-r from-accent via-cyan-400 to-accent bg-clip-text text-transparent">
+                  $PRICKO
                 </span>
                 <span className="text-[10px] text-muted tracking-widest uppercase hidden sm:block">
-                  Privacy Gecko
+                  Privacy Gecko Token
                 </span>
-              </div>
+              </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
