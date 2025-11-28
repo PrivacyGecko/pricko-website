@@ -218,30 +218,80 @@ const HeroSection: React.FC = () => {
         </Container>
       </motion.div>
 
-      {/* Corner Mascot Greeter - bottom right of hero with glow only */}
-      <div className="absolute bottom-24 right-8 z-20 hidden lg:block">
-        <div className="relative group cursor-pointer">
-          {/* Glow effect */}
-          <div className="absolute inset-0 bg-accent/40 rounded-full blur-3xl scale-150" />
+      {/* Corner Mascot Greeter - WOW Visual with SVG */}
+      <div className="absolute bottom-16 right-4 lg:right-12 z-20 hidden md:block">
+        <motion.div
+          className="relative group cursor-pointer"
+          animate={{
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          {/* Outer glow - largest, most diffuse */}
+          <div className="absolute inset-0 bg-accent/20 rounded-full blur-[80px] scale-[2.5] group-hover:bg-accent/30 transition-all duration-500" />
 
-          {/* Mascot - direct image with glow */}
-          <div className="relative w-40 h-40">
+          {/* Middle glow - medium intensity */}
+          <div className="absolute inset-0 bg-accent/30 rounded-full blur-[50px] scale-[1.8] group-hover:bg-accent/50 transition-all duration-500" />
+
+          {/* Inner glow - brightest core */}
+          <div className="absolute inset-0 bg-accent/50 rounded-full blur-[30px] scale-125 group-hover:bg-accent/70 transition-all duration-300" />
+
+          {/* Mascot - SVG with transparent background */}
+          <motion.div
+            className="relative w-48 h-48 lg:w-56 lg:h-56"
+            whileHover={{ scale: 1.08, rotate: [0, -3, 3, 0] }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          >
             <img
-              src="/logo.png"
+              src="/logo.svg"
               alt="Privacy Gecko Mascot"
-              className="w-full h-full object-contain drop-shadow-[0_0_35px_rgba(74,222,128,0.7)] group-hover:drop-shadow-[0_0_50px_rgba(74,222,128,0.9)] transition-all duration-300"
+              className="w-full h-full object-contain drop-shadow-[0_0_40px_rgba(74,222,128,0.8)] group-hover:drop-shadow-[0_0_60px_rgba(74,222,128,1)] transition-all duration-300"
             />
-          </div>
+          </motion.div>
 
-          {/* Speech bubble on hover */}
-          <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-            <div className="bg-black/80 backdrop-blur-md border border-accent/30 rounded-xl px-4 py-2.5 whitespace-nowrap shadow-xl shadow-accent/10">
-              <span className="text-sm font-medium text-white">Hey there! 👋</span>
+          {/* Speech bubble on hover - enhanced */}
+          <motion.div
+            className="absolute right-full mr-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none"
+            initial={{ x: 10, opacity: 0 }}
+            whileHover={{ x: 0, opacity: 1 }}
+          >
+            <div className="bg-black/90 backdrop-blur-xl border border-accent/40 rounded-2xl px-5 py-3 whitespace-nowrap shadow-2xl shadow-accent/20">
+              <span className="text-base font-semibold text-white">gm, privacy fren! 🦎</span>
             </div>
             {/* Arrow */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1.5 w-3 h-3 bg-black/80 border-r border-t border-accent/30 rotate-45" />
-          </div>
-        </div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-4 h-4 bg-black/90 border-r border-t border-accent/40 rotate-45" />
+          </motion.div>
+
+          {/* Sparkle effects around mascot */}
+          <motion.div
+            className="absolute -top-2 -right-2 w-3 h-3 bg-accent rounded-full"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+          />
+          <motion.div
+            className="absolute top-1/4 -left-4 w-2 h-2 bg-cyan-400 rounded-full"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          />
+          <motion.div
+            className="absolute -bottom-1 left-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+          />
+        </motion.div>
       </div>
 
       {/* Scroll indicator - decorative */}
