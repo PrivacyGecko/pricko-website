@@ -54,48 +54,50 @@ const HeroSection: React.FC = () => {
         lazy={false}
       />
 
-      {/* Mascot - Positioned absolutely as background accent */}
+      {/* Mascot - Positioned absolutely, centered vertically */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.3, ease: 'easeOut' }}
-        className="absolute z-[5] pointer-events-none hidden lg:block"
-        style={{
-          right: '5%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-        }}
+        initial={{ opacity: 0, scale: 0.9, x: 50 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+        className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[5] pointer-events-none hidden lg:block"
       >
-        {/* Ambient glow - larger and softer */}
+        {/* Strong ambient glow */}
         <motion.div
-          className="absolute blur-[100px]"
+          className="absolute -inset-20 blur-[80px]"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(74,222,128,0.2) 0%, rgba(6,182,212,0.1) 40%, transparent 70%)',
-            width: '600px',
-            height: '600px',
-            left: '-50px',
-            top: '-50px',
+            background: 'radial-gradient(ellipse at center, rgba(74,222,128,0.35) 0%, rgba(6,182,212,0.15) 50%, transparent 80%)',
           }}
           animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.6, 0.8, 0.6],
+            scale: [1, 1.15, 1],
+            opacity: [0.7, 1, 0.7],
           }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         />
-        {/* Mascot - subtle but visible */}
+        {/* Inner glow ring */}
         <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative"
+          className="absolute -inset-10 blur-[40px]"
           style={{
-            opacity: 0.5,
-            filter: 'brightness(1.1) contrast(0.95)',
+            background: 'radial-gradient(circle at center, rgba(74,222,128,0.4) 0%, transparent 60%)',
           }}
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.8, 1, 0.8],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Mascot - more visible */}
+        <motion.div
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative"
         >
           <img
             src="/logo.png"
             alt=""
-            className="w-[420px] h-[420px] object-contain drop-shadow-[0_0_40px_rgba(74,222,128,0.2)]"
+            className="w-[380px] h-[380px] object-contain drop-shadow-[0_0_60px_rgba(74,222,128,0.4)]"
+            style={{
+              filter: 'brightness(1.15) saturate(1.1)',
+            }}
             aria-hidden="true"
           />
         </motion.div>
