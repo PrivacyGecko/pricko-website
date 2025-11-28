@@ -172,41 +172,52 @@ const HeroSection: React.FC = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right: Mascot with Subtle Glow */}
+            {/* Right: Mascot with Enhanced Glow */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative flex items-center justify-center"
             >
-              {/* Single subtle ambient glow - no rotating rings */}
+              {/* Multi-layer glow effect for depth */}
               <div className="absolute inset-0 flex items-center justify-center">
+                {/* Outer ambient glow */}
                 <motion.div
-                  className="absolute w-[350px] h-[350px] rounded-full"
+                  className="absolute w-[400px] h-[400px] rounded-full"
                   style={{
                     background:
-                      'radial-gradient(circle, rgba(74,222,128,0.15) 0%, transparent 70%)',
+                      'radial-gradient(circle, rgba(74,222,128,0.08) 0%, transparent 60%)',
                   }}
-                  animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.25, 0.15] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                  animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                {/* Inner focused glow */}
+                <motion.div
+                  className="absolute w-[300px] h-[300px] rounded-full"
+                  style={{
+                    background:
+                      'radial-gradient(circle, rgba(74,222,128,0.15) 0%, rgba(6,182,212,0.08) 40%, transparent 70%)',
+                  }}
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 />
               </div>
 
-              {/* Mascot - more subtle, organic movement */}
+              {/* Mascot - floating with organic movement */}
               <motion.div
                 animate={{
-                  y: [0, -4, 0],
-                  rotate: [-0.5, 0.5, -0.5]
+                  y: [0, -12, 0],
+                  rotate: [-1, 1, -1]
                 }}
                 transition={{
-                  duration: 8,
+                  duration: 6,
                   repeat: Infinity,
                   ease: 'easeInOut',
                   times: [0, 0.5, 1]
                 }}
-                className="relative z-10"
+                className="relative z-10 drop-shadow-[0_0_30px_rgba(74,222,128,0.3)]"
               >
-                <MascotImage size="2xl" />
+                <MascotImage size="2xl" variant="hero" />
               </motion.div>
             </motion.div>
           </div>

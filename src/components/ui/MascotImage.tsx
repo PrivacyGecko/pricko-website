@@ -14,6 +14,14 @@ interface MascotImageProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
   /**
+   * Visual variant
+   * - default: white background (for smaller sizes, page headers)
+   * - hero: glass-morphism with gradient border (for homepage hero)
+   * - floating: no background, just the mascot with glow
+   */
+  variant?: 'default' | 'hero' | 'floating';
+
+  /**
    * Additional CSS classes
    */
   className?: string;
@@ -42,6 +50,7 @@ interface MascotImageProps {
  */
 const MascotImage: React.FC<MascotImageProps> = ({
   size = 'md',
+  variant = 'default',
   className = '',
   animate = true,
   alt = 'Privacy Gecko Mascot'
@@ -104,14 +113,40 @@ const MascotImage: React.FC<MascotImageProps> = ({
   // Only apply heavy animations (float, breathe, glow) to XL/2XL size (homepage)
   const isHeroMascot = size === 'xl' || size === '2xl';
 
+  // Variant-specific styling
+  const getVariantClasses = () => {
+    switch (variant) {
+      case 'hero':
+        // Floating with soft glow - no solid background
+        return `
+          bg-transparent
+          shadow-none
+        `;
+      case 'floating':
+        // No background, just glow effect
+        return `
+          bg-transparent
+          shadow-none
+        `;
+      default:
+        // Original white background
+        return `
+          bg-white
+          shadow-xl
+        `;
+    }
+  };
+
+  // For hero/floating, we don't need padding or rounded container
+  const isTransparentVariant = variant === 'hero' || variant === 'floating';
+
   return (
     <motion.div
       className={`
         ${currentSize.container}
-        ${currentSize.padding}
-        bg-white
-        rounded-full
-        shadow-xl
+        ${isTransparentVariant ? '' : currentSize.padding}
+        ${getVariantClasses()}
+        ${isTransparentVariant ? '' : 'rounded-full'}
         flex
         items-center
         justify-center
@@ -124,7 +159,11 @@ const MascotImage: React.FC<MascotImageProps> = ({
         scale: [1, 1.02, 1],
         y: [0, -8, 0],
         opacity: 1,
-        boxShadow: [
+        boxShadow: variant === 'hero' ? [
+          "0 0 60px rgba(74, 222, 128, 0.15), 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(74, 222, 128, 0.05)",
+          "0 0 80px rgba(74, 222, 128, 0.25), 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(74, 222, 128, 0.1)",
+          "0 0 60px rgba(74, 222, 128, 0.15), 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(74, 222, 128, 0.05)"
+        ] : [
           "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(74, 222, 128, 0.2)",
           "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 35px rgba(74, 222, 128, 0.4)",
           "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(74, 222, 128, 0.2)"
@@ -152,7 +191,9 @@ const MascotImage: React.FC<MascotImageProps> = ({
     >
       {/* Loading state */}
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/90 rounded-full">
+        <div className={`absolute inset-0 flex items-center justify-center rounded-full ${
+          variant === 'hero' ? 'bg-zinc-900/90' : 'bg-white/90'
+        }`}>
           <div className="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
@@ -162,7 +203,7 @@ const MascotImage: React.FC<MascotImageProps> = ({
         src="/logo.png"
         alt={alt}
         className={`
-          ${currentSize.image}
+          ${isTransparentVariant ? currentSize.container : currentSize.image}
           object-contain
           transition-opacity
           duration-300
